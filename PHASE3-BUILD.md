@@ -4,12 +4,12 @@
 
 - [x] **Step 0** — decisions: Observatory subpath · "AI Legal Status Tracker"
 - [x] **Step 1a** — 12 bill texts persisted to `registry/texts/`, `text_path` on 15 version records, diff renderer proven
-- [ ] **Step 1b** — TN HB 849 and HB 1455 *introduced* texts (blocked: needs Mitchel)
+- [x] **Step 1b** — TN introduced texts + amendments **recovered via the Wayback Machine** (capitol.tn.gov is unreachable, but archived snapshots of the bill PDFs and SA0922/HA1260/HA0979 are not)
 - [x] **Step 1c** — `derived_from_changes` (13/13 edges labelled) and `watch_dates` (10 events) added and validated
 - [x] **Step 2** — build harness: `site/build.py` → `site/dist/`, theme-aware CSS, status triplet, launch config `ai-legal-status` on :5201
 - [x] **Step 3** — per-bill pages: 23 pages at `/bills/{id}/`, every field rendered, readable provision labels, citation block; internal link check clean apart from `method/` and `data/` (steps 8–9)
 - [x] **Step 4** — matrix + map filter: 23×16 matrix, 50-state tile grid as filter control, family/status/provision filters, no-JS fallback; acceptance test passes (MO → 6 rows, veil split visible)
-- [ ] **Step 5** — version diffs
+- [x] **Step 5** — version diffs: 3 diffs live (TN ×2, MO), operative-text-only comparison, mechanism amendment linked, landing-page callout
 - [ ] **Step 6** — genealogy graph
 - [ ] **Step 7** — watch list
 - [ ] **Step 8** — method page

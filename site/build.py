@@ -140,6 +140,44 @@ footer.site{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 46px
 footer.site p{margin:.3em 0;max-width:74ch}
 
 
+aside.callout{border:1px solid var(--accent);border-left-width:3px;border-radius:var(--radius);
+  background:var(--accent-weak);padding:14px 18px;margin:1.8em 0}
+aside.callout h2{margin:0 0 .35em;font-size:1.05rem}
+aside.callout p{margin:0 0 .6em;font-size:.9rem;color:var(--muted);max-width:70ch}
+ul.changed{margin:0;padding-left:1.15em;font:.9rem/1.7 ui-sans-serif,system-ui,sans-serif}
+ul.changed .k{font-weight:600}
+ul.changed .k.del{color:var(--del)}
+ul.changed .k.add{color:var(--add)}
+
+/* ---- version diff ---- */
+.diff{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  margin:1.2em 0;overflow:hidden}
+.diffhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0;
+  padding:12px 16px;border-bottom:1px solid var(--line);
+  font:600 .84rem/1.4 ui-sans-serif,system-ui,sans-serif}
+.diffhead .v{max-width:44ch}
+.diffhead .from{color:var(--del)}
+.diffhead .to{color:var(--add)}
+.diffhead .arrow{color:var(--muted);font-weight:400}
+.mech{margin:0;padding:10px 16px;border-bottom:1px solid var(--line);
+  font:.84rem/1.5 ui-sans-serif,system-ui,sans-serif;background:var(--accent-weak)}
+.mech .lbl{color:var(--muted);text-transform:uppercase;font-size:.7rem;
+  letter-spacing:.06em;margin-right:6px}
+.diffstat{margin:0;padding:9px 16px;border-bottom:1px solid var(--line);
+  font:.8rem/1.4 ui-sans-serif,system-ui,sans-serif;display:flex;gap:14px;flex-wrap:wrap}
+.diffstat .k{font-weight:600}
+.diffstat .k.del{color:var(--del)}
+.diffstat .k.add{color:var(--add)}
+.difftext{padding:6px 0;max-height:34em;overflow-y:auto}
+.difftext p{margin:0;padding:5px 16px;font-size:.9rem;line-height:1.55}
+.difftext .same{color:var(--muted)}
+.difftext .del{background:var(--del-bg)}
+.difftext .del del{color:var(--del);text-decoration-thickness:1px}
+.difftext .add{background:var(--add-bg)}
+.difftext .add ins{color:var(--add);text-decoration:none;font-weight:500}
+.difftext .elide{color:var(--muted);font-size:.78rem;font-style:italic;
+  text-align:center;padding:7px 16px;background:var(--bg)}
+
 /* ---- visually hidden ---- */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -250,6 +288,76 @@ time{font-variant-numeric:tabular-nums}
   h1{font-size:1.6rem}
 }
 """
+
+# ---------------------------------------------------------------- version diffs
+import difflib
+
+ENACT_RE = re.compile(r"(BE IT ENACTED[^\n]*\n|Be it enacted[^\n]*\n|by deleting all language after the enacting clause and substituting:)", re.I)
+
+def _sents(path):
+    """Operative text only. Bill letterheads, chapter numbers and sponsor lists are
+    metadata; diffing them buries the substantive change under boilerplate."""
+    raw = (REG / path).read_text()
+    m = ENACT_RE.search(raw)
+    if m: raw = raw[m.end():]
+    t = re.sub(r"\s+", " ", raw)
+    return [x.strip() for x in re.split(r"(?<=[.;:])\s+(?=[A-Z(0-9\"])", t) if x.strip()]
+
+def render_diff(b):
+    vs = [v for v in b["versions"] if v.get("text_path")]
+    if len(vs) < 2: return "", None
+    a, z = vs[0], vs[-1]
+    mech = vs[1] if len(vs) > 2 else None
+    A, Z = _sents(a["text_path"]), _sents(z["text_path"])
+    sm = difflib.SequenceMatcher(None, A, Z)
+    parts, rem, add = [], 0, 0
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            keep = A[i1:i2]
+            if len(keep) > 4:
+                parts.append(f'<p class="same">{esc(keep[0])}</p>'
+                             f'<p class="elide">… {len(keep)-2} unchanged passages …</p>'
+                             f'<p class="same">{esc(keep[-1])}</p>')
+            else:
+                parts += [f'<p class="same">{esc(x)}</p>' for x in keep]
+        else:
+            for x in A[i1:i2]:
+                rem += 1; parts.append(f'<p class="del"><del>{esc(x)}</del></p>')
+            for x in Z[j1:j2]:
+                add += 1; parts.append(f'<p class="add"><ins>{esc(x)}</ins></p>')
+    mechhtml = ""
+    if mech:
+        mechhtml = (f'<p class="mech"><span class="lbl">Mechanism</span> '
+                    f'<a href="{esc(mech["source_url"])}">{esc(mech["label"])}</a></p>')
+    stat = (f'<p class="diffstat"><span class="k del">{rem} removed</span> '
+            f'<span class="k add">{add} added</span> '
+            f'<span class="muted">{sm.ratio():.0%} of the text unchanged</span></p>')
+    html_ = (f'<div class="diff"><p class="diffhead">'
+             f'<span class="v from">{esc(a["label"])}</span>'
+             f'<span class="arrow" aria-hidden="true">→</span>'
+             f'<span class="v to">{esc(z["label"])}</span></p>'
+             f'{mechhtml}{stat}<div class="difftext">{"".join(parts)}</div></div>')
+    return html_, {"id": b["id"], "removed": rem, "added": add,
+                   "from": a["label"], "to": z["label"], "ratio": sm.ratio()}
+
+def changed_callout(bills):
+    seen=set(); items=[]
+    for b in bills:
+        _,d = render_diff(b)
+        if not d: continue
+        key=(d["removed"],d["added"])
+        if key in seen: continue      # companion pairs share a text; show once
+        seen.add(key)
+        items.append(f'<li><a href="bills/{esc(b["id"])}/#main">'
+                     f'{esc(b["jurisdiction"]["state"])} {esc(b["bill_number"])}</a> — '
+                     f'<span class="k del">{d["removed"]} passages removed</span>, '
+                     f'<span class="k add">{d["added"]} added</span>, '
+                     f'{d["ratio"]:.0%} unchanged</li>')
+    if not items: return ""
+    return (f'<aside class="callout"><h2>Bills whose text changed materially</h2>'
+            f'<p>Where we hold both the introduced and the final text, the registry shows the '
+            f'change itself rather than describing it. Companion bills share a text and appear once.</p>'
+            f'<ul class="changed">{"".join(items)}</ul></aside>')
 
 # ---------------------------------------------------------------- landing: map + matrix
 # Standard US tile grid: (row, col) on a 12-col lattice. Geography approximate by design —
@@ -464,6 +572,10 @@ def bill_page(b, byid):
         kc=(f'<blockquote class="clause"><p>{esc(b["key_clause"]["text"])}</p>'
             f'<cite>{esc(b["key_clause"]["source"])}</cite></blockquote>')
 
+    dh,_ds = render_diff(b)
+    diffsection = (f'<h2>How the text changed</h2>'
+                   f'<p class="muted small">Sentence-level comparison of the stored texts. '
+                   f'Every version links to its source.</p>{dh}') if dh else ""
     cite=(f'{SITE["name"]}, “{j["state"]} {b["bill_number"]}”, {SITE["publisher"]}, '
           f'record verified {b["last_verified"] or "—"}, accessed [date].')
 
@@ -495,6 +607,8 @@ def bill_page(b, byid):
 {vshtml}
 {wdhtml}
 {cehtml}
+
+{diffsection}
 
 <h2>Notes</h2>
 <div class="notes">{paras(b["notes"])}</div>
@@ -542,6 +656,8 @@ def build():
 source. A descriptive record of what these bills say — not an assessment of them.</p>
 
 {tile_map(bills)}
+
+{changed_callout(bills)}
 
 <div class="controls">
   <label>Family <select id="f-family"><option value="">any</option>{opt(fam, lambda v: v)}</select></label>

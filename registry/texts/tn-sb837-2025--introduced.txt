@@ -1,0 +1,26 @@
+SENATE BILL 837 (By Pody) / HOUSE BILL 849 (By Reneau)
+114th General Assembly, 1st Regular Session — as introduced, February 2025
+
+AN ACT to amend Tennessee Code Annotated, Title 1, relative to certain conditions of personhood.
+
+BE IT ENACTED BY THE GENERAL ASSEMBLY OF THE STATE OF TENNESSEE:
+
+SECTION 1. Tennessee Code Annotated, Section 1-3-105(a), is amended by deleting subdivision (19) and substituting instead:
+
+(19) "Person":
+(A) Includes a corporation, firm, company, or association; and
+(B) Does not include artificial intelligence, a computer algorithm, a software program, computer hardware, or any type of machine;
+
+SECTION 2. Tennessee Code Annotated, Section 1-3-105(a), is amended by adding the following new, appropriately designated subdivisions:
+
+( ) "Human being" means an individual living member of the species, homo sapiens, including the unborn human being during the entire embryonic and fetal stages from fertilization to full gestation;
+
+( ) "Life":
+(A) Means the condition that distinguishes animals from inorganic matter, including the capacity for growth, reproduction, functional activity, and continual change preceding death; and
+(B) Does not include artificial intelligence, a computer algorithm, a software program, computer hardware, or any type of machine;
+
+( ) "Natural person":
+(A) Means an individual living member of the species, homo sapiens; and
+(B) Does not include artificial intelligence, a computer algorithm, a software program, computer hardware, or any type of machine;
+
+SECTION 3. This act takes effect upon becoming a law, the public welfare requiring it.

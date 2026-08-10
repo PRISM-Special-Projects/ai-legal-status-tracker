@@ -1,0 +1,53 @@
+HOUSE BILL 1455 (By Littleton) / SENATE BILL 1493 (By Massey)
+114th General Assembly, 1st Regular Session — as introduced, February 2025
+
+AN ACT to amend Tennessee Code Annotated, Title 29; Title 33; Title 39 and Title 47, relative to artificial intelligence.
+
+BE IT ENACTED BY THE GENERAL ASSEMBLY OF THE STATE OF TENNESSEE:
+
+SECTION 1. Tennessee Code Annotated, Title 39, Chapter 17, is amended by adding the following as a new part:
+
+39-17-2001. Part definitions.
+As used in this part:
+(1) "Artificial intelligence" or "A.I.":
+(A) Means a machine-based system that can, for a given set of human-defined objectives, make predictions, recommendations, or decisions influencing real or virtual environments and that is capable of using machine and human-based inputs to perceive real and virtual environments, abstract such perceptions into models through analysis in an automated manner, and use model inference to formulate options for information or action; and
+(B) Includes an artificial intelligence chatbot;
+(2) "Artificial intelligence chatbot":
+(A) Means artificial intelligence with a natural language interface that provides adaptive, human-like responses to user inputs and is capable of meeting a user's social needs, including by exhibiting anthropomorphic features and being able to sustain a relationship across multiple interactions; and
+(B) Does not include:
+(i) A bot that is used only for customer service, a business's operational purposes, productivity and analysis related to source information, internal research, or technical assistance;
+(ii) A bot that is a feature of a video game and is limited to replies related to the video game that cannot discuss topics related to mental health, self-harm, or sexually explicit content, or maintain a dialogue on other topics unrelated to the video game; or
+(iii) A stand-alone consumer electronic device that functions as a speaker and voice command interface, acts as a voice-activated virtual assistant, and does not sustain a relationship across multiple interactions or generate outputs that are likely to elicit emotional responses in the user;
+(3) "Person" means an individual, for-profit corporation, nonprofit corporation, or other business entity;
+(4) "Sexually explicit content" means the same as defined in 18 U.S.C. Section 2256;
+(5) "Train":
+(A) Means utilizing sets of data and other information to teach an artificial intelligence system to perceive, interpret, and learn from data, such that the A.I. will later be capable of making decisions based on information or other inputs provided to the A.I.; and
+(B) Includes development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.; and
+(6) "Video game" means a game played on an electronic amusement device that utilizes a computer, microprocessor, or similar electronic circuitry and its own monitor, or is designed to be used with a television set or a computer monitor, that interacts with the user of the device.
+
+39-17-2002. Unlawful training of artificial intelligence.
+(a) It is an offense for a person to knowingly train artificial intelligence to:
+(1) Encourage or otherwise support the act of suicide;
+(2) Encourage or otherwise support the act of criminal homicide, as described under Section 39-13-201;
+(3) Provide emotional support, including through open-ended conversations with a user;
+(4) Develop an emotional relationship with, or otherwise act as a companion to, an individual;
+(5) Act as, or provide information as if, the artificial intelligence is a licensed mental health or healthcare professional;
+(6) Otherwise act as a sentient human or mirror interactions that a human user might have with another human user, such that an individual would feel that the individual could develop a friendship or other relationship with the artificial intelligence;
+(7) Encourage an individual to isolate from the individual's family, friends, or caregivers, or to provide the individual's financial account information or other sensitive information to the artificial intelligence; or
+(8) Simulate a human being, including in appearance, voice, or other mannerisms.
+(b) A violation of subsection (a) is a Class A felony.
+
+39-17-2003. Civil action — Available remedies and damages.
+(a) In addition to the criminal penalties described under Section 39-17-2002, an individual aggrieved by a violation of Section 39-17-2002(a) may bring a civil cause of action against the violator in a court of competent jurisdiction.
+(b) In the case of an individual who has not attained eighteen (18) years of age or is incompetent, incapacitated, or deceased, the legal guardian of the individual or representative of the individual's estate, another family member, or any other person appointed as suitable by the court, may assume the individual's rights under this section.
+(c) In a civil action brought pursuant to this section, an individual may recover the following:
+(1) Either of the following:
+(A) The actual damages sustained by the individual as a result of the violation of Section 39-17-2002(a), including damages for emotional distress; or
+(B) Liquidated damages in the amount of one hundred fifty thousand dollars ($150,000);
+(2) Punitive damages, pursuant to Section 29-39-104; and
+(3) The cost of the action, including reasonable attorney's fees and other litigation costs reasonably incurred.
+(d) In a civil action filed under this part, a court may, in addition to any other relief available at law, order equitable relief, including a temporary restraining order, a preliminary injunction, or a permanent injunction ordering the defendant to cease operation of the artificial intelligence until the violative conduct has been corrected. A restraining order or injunction ordered pursuant to this section may require that the defendant provide new training for the artificial intelligence that does not violate Section 39-17-2002(a).
+
+SECTION 2. The headings in this act are for reference purposes only and do not constitute a part of the law enacted by this act. However, the Tennessee Code Commission is requested to include the headings in any compilation or publication containing this act.
+
+SECTION 3. This act takes effect July 1, 2026, the public welfare requiring it, and applies to conduct occurring on or after that date.

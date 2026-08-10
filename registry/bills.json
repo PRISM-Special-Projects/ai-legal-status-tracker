@@ -1581,21 +1581,21 @@
       ],
       "versions": [
         {
-          "label": "introduced",
+          "label": "as introduced (Feb 2025) — fetal-personhood definitions present",
           "date": "2025-02-04",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20250421024713id_/https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
+          "text_path": "texts/tn-sb837-2025--introduced.txt"
         },
         {
-          "label": "amendment SA0922",
+          "label": "Senate Judiciary Amendment No. 1 (SA0922) — deletes all language after the enacting clause",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20260513075519id_/https://capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
+          "text_path": "texts/tn-amend-SA0922.txt"
         },
         {
-          "label": "amendment HA0979",
+          "label": "House Amendment (HA0979)",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
+          "source_url": "https://web.archive.org/web/20260513075518id_/https://capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
           "text_path": null
         },
         {
@@ -1615,7 +1615,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0.",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (a 21 Apr 2025 snapshot of the capitol.tn.gov bill PDF, which then served the introduced version). THE DIFF IS NOW FULLY SOURCED. As introduced the bill had THREE sections: s 1 amended subdivision (19) of Tenn. Code Ann. s 1-3-105(a) with the 'person' definition; s 2 ADDED THREE NEW DEFINITIONS - 'Human being' ('an individual living member of the species, homo sapiens, INCLUDING THE UNBORN HUMAN BEING DURING THE ENTIRE EMBRYONIC AND FETAL STAGES FROM FERTILIZATION TO FULL GESTATION'), 'Life', and 'Natural person', the latter two each excluding AI; s 3 was the effective date. MECHANISM OF REMOVAL: Senate Judiciary Amendment No. 1 (SA0922), moved by Sen. GARDENHIRE, amends 'by deleting ALL language after the enacting clause and substituting' a two-section text. So the fetal-personhood language was not edited out - the entire bill was replaced. 'Life' and 'Natural person' went with it, which is why the enacted law reaches only 'person'. The subdivision number also moved from (19) to (20) in that substitution. This confirms the paper's account and supplies the mechanism, the mover and the committee, none of which it gives.",
       "id": "tn-hb849-2025",
       "bill_number": "HB 849",
       "chamber": "house",
@@ -1685,21 +1685,21 @@
       ],
       "versions": [
         {
-          "label": "introduced",
+          "label": "as introduced (Feb 2025) — fetal-personhood definitions present",
           "date": "2025-02-04",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20250421024713id_/https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
+          "text_path": "texts/tn-sb837-2025--introduced.txt"
         },
         {
-          "label": "amendment SA0922",
+          "label": "Senate Judiciary Amendment No. 1 (SA0922) — deletes all language after the enacting clause",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20260513075519id_/https://capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
+          "text_path": "texts/tn-amend-SA0922.txt"
         },
         {
-          "label": "amendment HA0979",
+          "label": "House Amendment (HA0979)",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
+          "source_url": "https://web.archive.org/web/20260513075518id_/https://capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
           "text_path": null
         },
         {
@@ -1719,7 +1719,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0.",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (a 21 Apr 2025 snapshot of the capitol.tn.gov bill PDF, which then served the introduced version). THE DIFF IS NOW FULLY SOURCED. As introduced the bill had THREE sections: s 1 amended subdivision (19) of Tenn. Code Ann. s 1-3-105(a) with the 'person' definition; s 2 ADDED THREE NEW DEFINITIONS - 'Human being' ('an individual living member of the species, homo sapiens, INCLUDING THE UNBORN HUMAN BEING DURING THE ENTIRE EMBRYONIC AND FETAL STAGES FROM FERTILIZATION TO FULL GESTATION'), 'Life', and 'Natural person', the latter two each excluding AI; s 3 was the effective date. MECHANISM OF REMOVAL: Senate Judiciary Amendment No. 1 (SA0922), moved by Sen. GARDENHIRE, amends 'by deleting ALL language after the enacting clause and substituting' a two-section text. So the fetal-personhood language was not edited out - the entire bill was replaced. 'Life' and 'Natural person' went with it, which is why the enacted law reaches only 'person'. The subdivision number also moved from (19) to (20) in that substitution. This confirms the paper's account and supplies the mechanism, the mover and the committee, none of which it gives.",
       "id": "tn-sb837-2025",
       "bill_number": "SB 837",
       "chamber": "senate",
@@ -1839,16 +1839,16 @@
       ],
       "versions": [
         {
-          "label": "introduced",
+          "label": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
           "date": "2025",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20251230002609id_/https://www.capitol.tn.gov/Bills/114/Bill/SB1493.pdf",
+          "text_path": "texts/tn-sb1493-2025--introduced.txt"
         },
         {
-          "label": "amendment HA1260 (Amendment No. 4)",
+          "label": "Amendment No. 4 (HA1260) — deletes all language after the enacting clause",
           "date": "2026",
-          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20260513074036id_/https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
+          "text_path": "texts/tn-amend-HA1260.txt"
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
@@ -1873,7 +1873,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party.",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study.",
       "id": "tn-hb1455-2025",
       "bill_number": "HB 1455",
       "chamber": "house",
@@ -1943,16 +1943,16 @@
       ],
       "versions": [
         {
-          "label": "introduced",
+          "label": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
           "date": "2025",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20251230002609id_/https://www.capitol.tn.gov/Bills/114/Bill/SB1493.pdf",
+          "text_path": "texts/tn-sb1493-2025--introduced.txt"
         },
         {
-          "label": "amendment HA1260 (Amendment No. 4)",
+          "label": "Amendment No. 4 (HA1260) — deletes all language after the enacting clause",
           "date": "2026",
-          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
-          "text_path": null
+          "source_url": "https://web.archive.org/web/20260513074036id_/https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
+          "text_path": "texts/tn-amend-HA1260.txt"
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
@@ -1972,7 +1972,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party.",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study.",
       "id": "tn-sb1493-2025",
       "bill_number": "SB 1493",
       "chamber": "senate",
