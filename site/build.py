@@ -239,6 +239,11 @@ ul.changed .k.add{color:var(--add)}
 .diffstat .k{font-weight:600}
 .diffstat .k.del{color:var(--del)}
 .diffstat .k.add{color:var(--add)}
+.diffstat .k.mod{color:var(--accent)}
+.ulab{display:inline-block;min-width:9.5em;margin-right:9px;font:600 .72rem/1.5 ui-monospace,
+  SFMono-Regular,Menlo,monospace;color:var(--muted);vertical-align:top}
+.modtag{display:inline-block;font:600 .64rem ui-sans-serif,system-ui,sans-serif;color:var(--accent);
+  background:var(--accent-weak);padding:1px 5px;border-radius:99px;margin-right:6px;vertical-align:top}
 .difftext{padding:6px 0;max-height:34em;overflow-y:auto}
 .difftext p{margin:0;padding:5px 16px;font-size:.9rem;line-height:1.55}
 .difftext .same{color:var(--muted)}
@@ -364,53 +369,121 @@ time{font-variant-numeric:tabular-nums}
 # ---------------------------------------------------------------- version diffs
 import difflib
 
-ENACT_RE = re.compile(r"(BE IT ENACTED[^\n]*\n|Be it enacted[^\n]*\n|by deleting all language after the enacting clause and substituting:)", re.I)
+ENACT_RE = re.compile(r"(BE IT ENACTED[^\n]*\n|Be it enacted[^\n]*\n"
+                      r"|The people of the state of Wisconsin[^\n]*\n"
+                      r"|by deleting all language after the enacting clause and substituting:)", re.I)
 
-def _sents(path):
-    """Operative text only. Bill letterheads, chapter numbers and sponsor lists are
-    metadata; diffing them buries the substantive change under boilerplate."""
+# Legislative text is a self-marking hierarchy, not prose. Parse that structure rather than
+# guessing at sentences: a punctuation split shatters "N.D. Cent. Code" into three fragments
+# and severs "SECTION 1." from the text it introduces.
+UNIT_RE = re.compile(r"""
+      (?P<label>
+        SECTION\s+[A-Z0-9]+\.
+      | Sec\.\s*\d[\d\-\.]*\.?
+      | \d+[\-\.]\d[\d\-\.]*\.(?=\s)
+      | (?<![A-Za-z0-9\-\.])\d{1,2}\.(?=\s+[A-Z"(])   # Missouri-style subsection: "13. (1) ..."
+      | (?<![A-Za-z0-9])\(\s*\d{1,3}\s*\)     # (1)  — not a citation suffix like 105(a)
+      | (?<![A-Za-z0-9])\(\s*[a-z]\s*\)
+      | (?<![A-Za-z0-9])\(\s*[A-Z]\s*\)
+      )""", re.X)
+
+def _mtype(lab):
+    if re.match(r"SECTION|Sec\.|\d+[\-\.]\d", lab): return "sec"
+    if re.fullmatch(r"\d{1,2}\.", lab): return "sub"
+    if re.fullmatch(r"\(\d{1,3}\)", lab): return "num"
+    if re.fullmatch(r"\([a-z]\)", lab): return "low"
+    return "up"
+
+def parse_units(text):
+    """[(label, body)] where label is a hierarchical path such as '39-17-2002. (a) (1)'.
+
+    Nesting order is inferred from the order marker types first appear, because drafting
+    conventions differ: Tennessee runs SECTION -> (a) -> (1), Missouri runs section -> (1) -> (A).
+    A fixed precedence would mis-nest one of them.
+    """
+    marks = list(UNIT_RE.finditer(text))
+    if len(marks) < 3:
+        return [("", re.sub(r"\s+", " ", text).strip())], False
+    order, units, path = [], [], []
+    for i, m in enumerate(marks):
+        stop = marks[i+1].start() if i+1 < len(marks) else len(text)
+        lab  = re.sub(r"\s+", "", m.group("label"))
+        body = re.sub(r"\s+", " ", text[m.end():stop]).strip()
+        t = _mtype(lab)
+        if t not in order: order.append(t)
+        lvl = order.index(t)
+        path = path[:lvl] + [lab]
+        if body: units.append((" ".join(path), body))
+    return units, True
+
+def _units(path):
     raw = (REG / path).read_text()
     m = ENACT_RE.search(raw)
     if m: raw = raw[m.end():]
-    t = re.sub(r"\s+", " ", raw)
-    return [x.strip() for x in re.split(r"(?<=[.;:])\s+(?=[A-Z(0-9\"])", t) if x.strip()]
+    return parse_units(raw)
 
 def render_diff(b):
     vs = [v for v in b["versions"] if v.get("text_path")]
     if len(vs) < 2: return "", None
     a, z = vs[0], vs[-1]
-    mech = vs[1] if len(vs) > 2 else None
-    A, Z = _sents(a["text_path"]), _sents(z["text_path"])
-    sm = difflib.SequenceMatcher(None, A, Z)
-    parts, rem, add = [], 0, 0
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag == "equal":
-            keep = A[i1:i2]
-            if len(keep) > 4:
-                parts.append(f'<p class="same">{esc(keep[0])}</p>'
-                             f'<p class="elide">… {len(keep)-2} unchanged passages …</p>'
-                             f'<p class="same">{esc(keep[-1])}</p>')
-            else:
-                parts += [f'<p class="same">{esc(x)}</p>' for x in keep]
+    mech = next((v for v in vs[1:-1]
+                 if re.search(r"amendment|substitute|SA\d|HA\d|HCS", v["label"], re.I)), None)
+    A, sa = _units(a["text_path"]); Z, sz = _units(z["text_path"])
+    structured = sa and sz
+    DA, DZ = dict(A), dict(Z)
+    order = list(DA) + [k for k in DZ if k not in DA]
+    rem = add = mod = same = 0
+    parts = []
+    def unit(kind, lab, body, extra=""):
+        inner = {"del": f"<del>{esc(body)}</del>", "add": f"<ins>{esc(body)}</ins>",
+                 "same": esc(body)}[kind]
+        lb = f'<span class="ulab">{esc(lab)}</span>' if lab else ""
+        return f'<p class="{kind}">{lb}{extra}{inner}</p>'
+    run = []
+    def flush():
+        nonlocal run
+        if len(run) > 4:
+            parts.append(run[0]); parts.append(
+                f'<p class="elide">… {len(run)-2} provisions unchanged …</p>'); parts.append(run[-1])
         else:
-            for x in A[i1:i2]:
-                rem += 1; parts.append(f'<p class="del"><del>{esc(x)}</del></p>')
-            for x in Z[j1:j2]:
-                add += 1; parts.append(f'<p class="add"><ins>{esc(x)}</ins></p>')
-    mechhtml = ""
-    if mech:
-        mechhtml = (f'<p class="mech"><span class="lbl">Mechanism</span> '
-                    f'<a href="{esc(mech["source_url"])}">{esc(mech["label"])}</a></p>')
+            parts.extend(run)
+        run = []
+    for lab in order:
+        if lab in DA and lab in DZ:
+            if DA[lab] == DZ[lab]:
+                same += 1; run.append(unit("same", lab, DA[lab])); continue
+            flush(); mod += 1
+            parts.append(unit("del", lab, DA[lab], '<span class="modtag">modified</span>'))
+            parts.append(unit("add", lab, DZ[lab]))
+        elif lab in DA:
+            flush(); rem += 1; parts.append(unit("del", lab, DA[lab]))
+        else:
+            flush(); add += 1; parts.append(unit("add", lab, DZ[lab]))
+    flush()
+    total = len(order) or 1
+    mechhtml = (f'<p class="mech"><span class="lbl">Mechanism</span> '
+                f'<a href="{esc(mech["source_url"])}">{esc(mech["label"])}</a></p>') if mech else ""
+    mode = ("Compared by statutory structure: provisions are matched by their section and "
+            "subsection identity, so a change is reported against the provision it affects. "
+            "Structure is detected from drafting markers, which is reliable for these bills but "
+            "not universal — where a label is reused under different parents, alignment can be "
+            "imperfect. Always read the linked source."
+            if structured else
+            "<strong>Fallback comparison.</strong> Statutory structure could not be parsed "
+            "reliably, so this compares whole blocks of text.")
     stat = (f'<p class="diffstat"><span class="k del">{rem} removed</span> '
             f'<span class="k add">{add} added</span> '
-            f'<span class="muted">{sm.ratio():.0%} of the text unchanged</span></p>')
+            f'<span class="k mod">{mod} modified</span> '
+            f'<span class="muted">{same} of {total} provisions unchanged</span></p>'
+            f'<p class="diffmode muted">{mode}</p>')
     html_ = (f'<div class="diff"><p class="diffhead">'
              f'<span class="v from">{esc(a["label"])}</span>'
              f'<span class="arrow" aria-hidden="true">→</span>'
              f'<span class="v to">{esc(z["label"])}</span></p>'
              f'{mechhtml}{stat}<div class="difftext">{"".join(parts)}</div></div>')
-    return html_, {"id": b["id"], "removed": rem, "added": add,
-                   "from": a["label"], "to": z["label"], "ratio": sm.ratio()}
+    return html_, {"id": b["id"], "removed": rem, "added": add, "modified": mod,
+                   "unchanged": same, "total": total, "from": a["label"],
+                   "to": z["label"], "ratio": same/total, "structured": structured}
 
 def changed_callout(bills):
     seen=set(); items=[]
