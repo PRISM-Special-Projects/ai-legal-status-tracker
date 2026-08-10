@@ -23,6 +23,8 @@ the UI group or ungroup as needed.
 | `codified_at` | string¦null | Statutory citation once enacted |
 | `family` | enum | `A` · `B` · `C` · `other` |
 | `derived_from` | string¦null | `id` of the template parent → genealogy graph |
+| `derived_from_changes` | array | What mutated between parent and child; becomes the genealogy edge label. Required whenever `derived_from` is set |
+| `watch_dates` | array | `{date, event, kind}` — dated future events. `kind`: `effective` · `expiry` · `report` · `ballot` · `deadline` |
 | `technique` | enum | see below |
 | `provisions` | array | flat multi-select, see below |
 | `definitional_anchor` | enum | `taxonomic` · `enumerated_only` · `none` · `unknown` |
@@ -81,6 +83,11 @@ wording untouched. They exist so versions can be diffed; the authoritative docum
 the `source_url`.
 
 ## Changelog
+
+**v0.1.3 → v0.1.4 (2026-08-10).** Added `versions[].text_path`, `derived_from_changes` and
+`watch_dates`. All three exist to make Phase 3 views derivable from the registry alone rather
+than from prose in `notes`. The validator now requires a label on every lineage edge, checks
+watch-date shape, and confirms every `text_path` resolves on disk.
 
 **v0.1.2 → v0.1.3 (2026-08-10).** Six provision tags added after reading Ohio HB 469 in full:
 `bars_marriage_or_union`, `bars_property_ownership`, `bars_corporate_office`,

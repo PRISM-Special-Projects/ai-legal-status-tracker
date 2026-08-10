@@ -98,7 +98,9 @@
           "https://legiscan.com/ID/bill/H0720/2022"
         ]
       },
-      "effective_date": "2022-07-01"
+      "effective_date": "2022-07-01",
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -226,7 +228,12 @@
           "https://legiscan.com/ND/bill/HB1361/2023"
         ]
       },
-      "effective_date": "2023-04-12"
+      "effective_date": "2023-04-12",
+      "derived_from_changes": [
+        "Technique changed: standalone provision → amends the general Century Code definition of 'person', so it reaches the whole code",
+        "Amended after North Dakota Catholic Conference testimony raised juridical-personhood concerns"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -329,7 +336,11 @@
           "https://legiscan.com/OK/bill/HB3546/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "Adds 'association' and 'nonprofit organization' to the entities expressly retaining personhood"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -429,7 +440,13 @@
           "https://legiscan.com/UT/bill/HB0249/2024"
         ]
       },
-      "effective_date": "2024-05-01"
+      "effective_date": "2024-05-01",
+      "derived_from_changes": [
+        "Taxonomic anchor added: 'human being' defined as a member of the species classified as Homo sapiens",
+        "Saving clause replaced by a prospective-only design — bars granting NEW personhood, so no carve-out needed",
+        "Expanded from a 4-item list to 11 enumerated categories, with 8 formal definitions"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -492,7 +509,11 @@
           "https://legiscan.com/SC/bill/H3796/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "Reproduces Utah HB 249 near-verbatim"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -583,7 +604,11 @@
           "https://legiscan.com/WA/bill/HB2029/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "Reproduces Utah HB 249 near-verbatim"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -662,7 +687,9 @@
           "https://legiscan.com/MO/bill/HB1462/2025"
         ]
       },
-      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2025-08-28"
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2025-08-28",
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -756,7 +783,14 @@
           "https://legiscan.com/OH/bill/HB469/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "Corporate-veil default INVERTED: Missouri lets courts pierce; Ohio grants parent companies immunity except on the same three triggers",
+        "'liability remains with human actors' dropped from the AI-liability section (Ohio s 1357.08)",
+        "Restructured from one section into twelve (Ohio Rev. Code ss 1357.01–1357.12)",
+        "Retains the unused 'Emergent properties' definition — evidence of copy-paste"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -838,7 +872,27 @@
           "https://legiscan.com/MO/bill/HB1746/2026"
         ]
       },
-      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)"
+      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)",
+      "derived_from_changes": [
+        "Corporate-veil provision DELETED in the House Committee Substitute",
+        "NIST AI 100-1 compliance safe harbour added",
+        "Negligence / punitive-damages absolution added where the safe harbour is met",
+        "Open-source carve-out written into 'Developer'",
+        "AI definition replaced with the federal 15 U.S.C. s 9401(3)",
+        "'Owner' renamed 'Deployer'; 'End-user' newly defined"
+      ],
+      "watch_dates": [
+        {
+          "date": "2026-08-28",
+          "event": "Applicability date if enacted",
+          "kind": "effective"
+        },
+        {
+          "date": "2027-03-01",
+          "event": "Compliance grace period ends for those with a documented implementation plan",
+          "kind": "expiry"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -925,7 +979,23 @@
           "https://legiscan.com/MO/bill/HB1769/2026"
         ]
       },
-      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)"
+      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)",
+      "derived_from_changes": [
+        "Introduced as a verbatim HB 1462 clone with the veil provision intact; only the applicability date moved",
+        "Consolidated into the same House Committee Substitute as HB 1746, where the softening occurred"
+      ],
+      "watch_dates": [
+        {
+          "date": "2026-08-28",
+          "event": "Applicability date if enacted",
+          "kind": "effective"
+        },
+        {
+          "date": "2027-03-01",
+          "event": "Compliance grace period ends for those with a documented implementation plan",
+          "kind": "expiry"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1001,7 +1071,17 @@
           "https://legiscan.com/MO/bill/SB859/2026"
         ]
       },
-      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28"
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28",
+      "derived_from_changes": [
+        "Verbatim HB 1462 clone; separately drafted as 4600S.01I by a different member in the other chamber"
+      ],
+      "watch_dates": [
+        {
+          "date": "2026-08-28",
+          "event": "Applicability date if enacted",
+          "kind": "effective"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1077,7 +1157,17 @@
           "https://legiscan.com/MO/bill/SB1474/2026"
         ]
       },
-      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28"
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28",
+      "derived_from_changes": [
+        "Verbatim HB 1462 clone; separately drafted as 6352S.01I"
+      ],
+      "watch_dates": [
+        {
+          "date": "2026-08-28",
+          "event": "Applicability date if enacted",
+          "kind": "effective"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1150,7 +1240,18 @@
           "https://legiscan.com/MO/bill/SB1012/2026"
         ]
       },
-      "effective_date": "2026-08-28"
+      "effective_date": "2026-08-28",
+      "derived_from_changes": [
+        "Non-sentience and non-personhood language inserted into an omnibus vehicle by committee substitute, not present in the original draft",
+        "Carries companion-chatbot and political-advertising provisions the standalone clones do not"
+      ],
+      "watch_dates": [
+        {
+          "date": "2026-08-28",
+          "event": "Effective date if enacted",
+          "kind": "effective"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1284,7 +1385,14 @@
           "https://legiscan.com/WI/bill/AB959/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "AI definition replaced with the OECD / EU AI Act formulation — materially narrower than Missouri's 'rules-based logic'",
+        "No affirmative human-liability provision: AI liability is negated, but liability is not assigned to anyone",
+        "Hybrid technique: creates a standalone section AND amends the general definition of 'person'",
+        "Corporate-veil provision absent entirely"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -1414,7 +1522,11 @@
           "https://legiscan.com/WI/bill/SB932/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [
+        "Identical text to AB 959 but a separate LRB draft (LRB-6000/1 vs LRB-5476/1), mirrored sponsor roles, different committee"
+      ],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -1536,7 +1648,9 @@
           "https://legiscan.com/TN/bill/HB0849/2025"
         ]
       },
-      "effective_date": "2026-04-23"
+      "effective_date": "2026-04-23",
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -1638,7 +1752,9 @@
           "https://legiscan.com/TN/bill/SB0837/2025"
         ]
       },
-      "effective_date": "2026-04-23"
+      "effective_date": "2026-04-23",
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -1789,7 +1905,15 @@
           "https://legiscan.com/TN/bill/HB1455/2025"
         ]
       },
-      "effective_date": "2026-04-23"
+      "effective_date": "2026-04-23",
+      "derived_from_changes": [],
+      "watch_dates": [
+        {
+          "date": "2027-01-31",
+          "event": "TACIR report on AI due to the governor and both speakers",
+          "kind": "report"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1880,7 +2004,15 @@
           "https://legiscan.com/TN/bill/SB1493/2025"
         ]
       },
-      "effective_date": "2026-04-23"
+      "effective_date": "2026-04-23",
+      "derived_from_changes": [],
+      "watch_dates": [
+        {
+          "date": "2027-01-31",
+          "event": "TACIR report on AI due to the governor and both speakers",
+          "kind": "report"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1937,7 +2069,15 @@
           "https://legiscan.com/MN/bill/SF4114/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [],
+      "watch_dates": [
+        {
+          "date": "2026-11-03",
+          "event": "Would go to Minnesota voters at the 2026 general election if passed by the legislature",
+          "kind": "ballot"
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -2046,7 +2186,9 @@
           "https://legiscan.com/CA/bill/SB1159/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -2118,7 +2260,9 @@
           "https://legiscan.com/CA/bill/AB2023/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [],
+      "watch_dates": []
     },
     {
       "jurisdiction": {
@@ -2218,7 +2362,9 @@
           "https://legiscan.com/CA/bill/SB1119/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": null,
+      "derived_from_changes": [],
+      "watch_dates": []
     }
   ]
 }

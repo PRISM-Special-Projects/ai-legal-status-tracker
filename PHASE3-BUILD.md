@@ -1,5 +1,24 @@
 # Phase 3 — concrete build steps
 
+## Progress
+
+- [x] **Step 0** — decisions: Observatory subpath · "AI Legal Status Tracker"
+- [x] **Step 1a** — 12 bill texts persisted to `registry/texts/`, `text_path` on 15 version records, diff renderer proven
+- [ ] **Step 1b** — TN HB 849 and HB 1455 *introduced* texts (blocked: needs Mitchel)
+- [x] **Step 1c** — `derived_from_changes` (13/13 edges labelled) and `watch_dates` (10 events) added and validated
+- [ ] **Step 2** — build harness
+- [ ] **Step 3** — per-bill pages
+- [ ] **Step 4** — matrix + map filter
+- [ ] **Step 5** — version diffs
+- [ ] **Step 6** — genealogy graph
+- [ ] **Step 7** — watch list
+- [ ] **Step 8** — method page
+- [ ] **Step 9** — downloads
+- [ ] **Step 10** — signed commentary
+- [ ] **Step 11** — corrections page (held)
+- [ ] **Step 12** — QA
+
+
 Design settled in `PRESENTATION-DESIGN.md`. This is the work list.
 
 **Shape:** one Python build script reads `registry/bills.json` and writes static HTML into

@@ -25,7 +25,8 @@ REQUIRED=["id","jurisdiction","bill_number","chamber","session","status","family
           "provisions","definitional_anchor","augmented_human_exposure",
           "affects_algorithmic_entity_formation","corporate_carve_out","constitutional_exposure",
           "sponsors","versions","evidence_refs","sources","provenance","verification_status",
-          "last_verified","notes","companion_group","codified_at","derived_from","key_clause","effective_date"]
+          "last_verified","notes","companion_group","codified_at","derived_from","key_clause","effective_date",
+          "derived_from_changes","watch_dates"]
 
 d=json.load(open("bills.json")); bills=d["bills"]; err=[]; warn=[]
 ids={b["id"] for b in bills}
@@ -64,7 +65,15 @@ for b in bills:
     # GATE: primary source URL
     chk(bool(b["sources"].get("primary")), f"{i}: GATE FAIL - no primary source URL")
     # referential
-    if b["derived_from"]: chk(b["derived_from"] in ids, f"{i}: derived_from '{b['derived_from']}' not found")
+    if b["derived_from"]:
+        chk(b["derived_from"] in ids, f"{i}: derived_from '{b['derived_from']}' not found")
+        # every lineage edge must carry a label, or the genealogy graph has blank edges
+        chk(bool(b["derived_from_changes"]), f"{i}: derived_from set but derived_from_changes empty")
+    for w in b["watch_dates"]:
+        chk(re.fullmatch(r"\d{4}-\d{2}-\d{2}", w.get("date","")), f"{i}: watch_date bad date {w.get('date')!r}")
+        chk(bool(w.get("event")) and w.get("kind") in ("effective","expiry","report","ballot","deadline"), f"{i}: watch_date bad shape")
+    for v in b["versions"]:
+        if v.get("text_path"): chk(os.path.exists(v["text_path"]), f"{i}: text_path missing on disk: {v['text_path']}")
     for r in b["evidence_refs"]:
         chk(not evkeys or r in evkeys, f"{i}: evidence_ref '{r}' not in Evidence.csv", warn)
     for v in b["versions"]: chk(bool(v.get("source_url")), f"{i}: version '{v.get('label')}' has no source_url")
