@@ -81,13 +81,37 @@ and Nicola, none named in the paper.
 - **CA AB 2023** referred to the Senate Appropriations suspense file 3 August 2026.
 - **MO SB 1012** received a Do Not Pass from House Emerging Issues.
 
+## Corrections to my own earlier findings
+
+**The Missouri House URLs are not dead.** I recorded `house.mo.gov/Bill.aspx?bill=HB1462...`
+and its siblings as returning 404. They return HTTP 200. My fetch tool was being blocked by
+user-agent and I misattributed that to a stale link. The paper's citations are correct, and
+the pages carry full action histories with journal-page references. Retrieved with `curl`
+and a normal user-agent.
+
+## How states record a bill's death
+
+Three mechanisms among the three states with failed bills, which `status.evidence` must
+accommodate:
+
+- **Wisconsin** posts an explicit line: *"Failed to pass pursuant to Senate Joint
+  Resolution 1"*, 23 Mar 2026 for both AB 959 and SB 932.
+- **Missouri** posts nothing. A bill simply stops; death is inferred from the last action
+  plus adjournment. HB 1462's last action was a referral on 15 May 2025, the penultimate
+  day of session.
+- **Washington** posts nothing because bills do not die — they carry across the biennium,
+  which is why HB 2029 survived and the paper's "Failed" was wrong.
+
+Only Wisconsin's is a citable failure line. The other two require a reasoned reading, which
+is exactly why the evidence field records the action rather than just the enum.
+
 ## Remaining data-quality tasks
 
-1. Confirm final disposition for **WI AB 959 / SB 932** — the paper records "Failed" and
-   only the introduced text has been read. Given the Washington error, worth checking.
-2. **MO HB 1746's own introduced text** has not been read; only the consolidated
-   substitute. Its companion proved to be an HB 1462 clone, so it probably is too — an
-   inference, not a reading.
-3. Repair the three dead **house.mo.gov** URLs.
-4. Read full operative text for **ND HB 1361, OK HB 3546, SC HB 3796** — verified from
+1. **MO HB 1746's own introduced text** has not been read; only the consolidated
+   substitute and the action history. Its companion HB 1769 as introduced proved to be a
+   verbatim HB 1462 clone, so HB 1746 probably was too — an inference, not a reading.
+2. Read full operative text for **ND HB 1361, OK HB 3546, SC HB 3796** — verified from
    status pages and summaries, not from bill text.
+
+Every status now carries an evidence action line; the validator enforces it for terminal
+stages.
