@@ -6,7 +6,7 @@
 - [x] **Step 1a** — 12 bill texts persisted to `registry/texts/`, `text_path` on 15 version records, diff renderer proven
 - [ ] **Step 1b** — TN HB 849 and HB 1455 *introduced* texts (blocked: needs Mitchel)
 - [x] **Step 1c** — `derived_from_changes` (13/13 edges labelled) and `watch_dates` (10 events) added and validated
-- [ ] **Step 2** — build harness
+- [x] **Step 2** — build harness: `site/build.py` → `site/dist/`, theme-aware CSS, status triplet, launch config `ai-legal-status` on :5201
 - [ ] **Step 3** — per-bill pages
 - [ ] **Step 4** — matrix + map filter
 - [ ] **Step 5** — version diffs
