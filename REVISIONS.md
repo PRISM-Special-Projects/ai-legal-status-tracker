@@ -329,3 +329,34 @@ it at a fraction of the cost.
 **Computing status from session rules.** The rules registry exists so a human can *see* when a
 non-terminal status has become implausible. Deriving status from a calendar would replace a
 sourced fact with a calculation — the same move that produced the Washington error.
+
+---
+
+## Second red-team round — triage (2026-08-10)
+
+The review is stored verbatim in `RED-TEAM-2-FINDINGS.md`. It overturned six of the nine
+rejections. Its central charge is that several rejections rested on alternatives that had not
+been built, so "we have a better plan" was doing the work of "we have a better implementation".
+
+| # | Finding | Status |
+|---|---|---|
+| 1 | **R1 overturn** — shipped differ was a punctuation differ, knowingly indefensible | **DONE.** `site/legdiff.py` + 22 tests. See `IMPLEMENTATION-REPORT.md` §3 R1 |
+| 2 | R2 overturn — session rules are a review aid, not a safeguard; nothing forces review | open |
+| 3 | R3 overturn — `verification` records state, not provenance; no field-level source links | open |
+| 4 | `verification.status` vs top-level `verification_status` can disagree and the validator never checks | open |
+| 5 | R4 overturn — `notes`/`analysis` are locations, not epistemic categories | open |
+| 6 | R8 overturn — vocabulary still lives in `PROVISIONS.md` and in `validate.py` | open |
+| 7 | Terminal status without evidence is a warning, so the publication gate does not enforce its own requirement | open |
+| 8 | Regression tests pin instances, not failure classes | partly addressed for the differ: the tests assert properties (citations never become nodes, reused labels never collapse) as well as the Utah/Washington-style fixtures |
+| 9 | The three new provision tags need an ontology inclusion rule, not just textual support | open |
+| 10 | `PROVISIONS.md` tests are not all genuinely binary; drop the two-reader claim | open |
+| 11 | `session_rules.json` covers 3 of 12 states but reads as general infrastructure | open |
+| 12 | Washington's rule source is the bill page, which does not state the consequence of sine die | open |
+| 13 | README "every claim cites something" outruns the data model | open |
+| 14 | Hashes prove file identity, not faithful transcription; needs a transformation manifest | open |
+| 15 | 19 version-provision assignments, one coder, no reliability testing | open |
+| 16 | `render_diff` called version `vs[1]` the "mechanism" by array position | **DONE** before this round: selected by label match |
+| 17 | R5 partial overturn — a manual discovery ledger should precede any completeness claim | open |
+| 18 | The data model still cannot separate observed fact from researcher inference | open — the architectural finding, and the one the report understated |
+
+Nothing in this table is closed by having been argued about. Items 2–18 are open.

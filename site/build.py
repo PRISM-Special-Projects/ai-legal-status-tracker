@@ -240,6 +240,7 @@ ul.changed .k.add{color:var(--add)}
 .diffstat .k.del{color:var(--del)}
 .diffstat .k.add{color:var(--add)}
 .diffstat .k.mod{color:var(--accent)}
+.diffstat .k.renum,.diffstat .k.amb{color:var(--muted)}
 .ulab{display:inline-block;min-width:9.5em;margin-right:9px;font:600 .72rem/1.5 ui-monospace,
   SFMono-Regular,Menlo,monospace;color:var(--muted);vertical-align:top}
 .modtag{display:inline-block;font:600 .64rem ui-sans-serif,system-ui,sans-serif;color:var(--accent);
@@ -253,6 +254,16 @@ ul.changed .k.add{color:var(--add)}
 .difftext .add ins{color:var(--add);text-decoration:none;font-weight:500}
 .difftext .elide{color:var(--muted);font-size:.78rem;font-style:italic;
   text-align:center;padding:7px 16px;background:var(--bg)}
+/* Redesignated and not-aligned provisions are neither a change nor a certainty,
+   so they read as neutral rather than borrowing the add/remove colours. */
+.difftext .renum,.difftext .amb{color:var(--fg);border-left:3px solid var(--line)}
+.renumtag,.ambtag{display:inline-block;font:600 .64rem ui-sans-serif,system-ui,sans-serif;
+  color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:0 5px;
+  border-radius:99px;margin-right:6px;vertical-align:top}
+.diffwarn{margin:0;padding:0 16px 9px;border-bottom:1px solid var(--line);
+  font:.78rem/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted)}
+.diffwarn summary{cursor:pointer;padding:6px 0}
+.diffwarn ul{margin:0 0 4px;padding-left:20px}
 
 /* ---- visually hidden ---- */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -367,60 +378,28 @@ time{font-variant-numeric:tabular-nums}
 """
 
 # ---------------------------------------------------------------- version diffs
-import difflib
+import legdiff
 
-ENACT_RE = re.compile(r"(BE IT ENACTED[^\n]*\n|Be it enacted[^\n]*\n"
-                      r"|The people of the state of Wisconsin[^\n]*\n"
-                      r"|by deleting all language after the enacting clause and substituting:)", re.I)
+_STRUCTURAL_NOTE = (
+    "<strong>Comparison method: structural.</strong> Provisions are matched by their full "
+    "section and subsection path, parent context included, so a change is reported against the "
+    "provision it affects and a designator such as <code>(1)</code> under one subsection is "
+    "never aligned with <code>(1)</code> under another. Text that survives under a new number "
+    "is reported as redesignated rather than as a removal and an addition. This is textual and "
+    "structural comparison, not legal interpretation — always read the linked source.")
 
-# Legislative text is a self-marking hierarchy, not prose. Parse that structure rather than
-# guessing at sentences: a punctuation split shatters "N.D. Cent. Code" into three fragments
-# and severs "SECTION 1." from the text it introduces.
-UNIT_RE = re.compile(r"""
-      (?P<label>
-        SECTION\s+[A-Z0-9]+\.
-      | Sec\.\s*\d[\d\-\.]*\.?
-      | \d+[\-\.]\d[\d\-\.]*\.(?=\s)
-      | (?<![A-Za-z0-9\-\.])\d{1,2}\.(?=\s+[A-Z"(])   # Missouri-style subsection: "13. (1) ..."
-      | (?<![A-Za-z0-9])\(\s*\d{1,3}\s*\)     # (1)  — not a citation suffix like 105(a)
-      | (?<![A-Za-z0-9])\(\s*[a-z]\s*\)
-      | (?<![A-Za-z0-9])\(\s*[A-Z]\s*\)
-      )""", re.X)
+_FALLBACK_NOTE = (
+    "<strong>Comparison method: text fallback.</strong> This comparison could not establish "
+    "reliable legislative structure. Changes are shown at text level and may contain alignment "
+    "artefacts; blocks carry no identity, so nothing here is claimed to be the same provision "
+    "amended.")
 
-def _mtype(lab):
-    if re.match(r"SECTION|Sec\.|\d+[\-\.]\d", lab): return "sec"
-    if re.fullmatch(r"\d{1,2}\.", lab): return "sub"
-    if re.fullmatch(r"\(\d{1,3}\)", lab): return "num"
-    if re.fullmatch(r"\([a-z]\)", lab): return "low"
-    return "up"
+_AMB_NOTE = ("Some provisions had repeated structural labels and could not be uniquely aligned. "
+             "They are listed without a comparison.")
 
-def parse_units(text):
-    """[(label, body)] where label is a hierarchical path such as '39-17-2002. (a) (1)'.
+_KIND_CLASS = {"unchanged": "same", "removed": "del", "added": "add",
+               "modified": "mod", "renumbered": "renum", "ambiguous": "amb"}
 
-    Nesting order is inferred from the order marker types first appear, because drafting
-    conventions differ: Tennessee runs SECTION -> (a) -> (1), Missouri runs section -> (1) -> (A).
-    A fixed precedence would mis-nest one of them.
-    """
-    marks = list(UNIT_RE.finditer(text))
-    if len(marks) < 3:
-        return [("", re.sub(r"\s+", " ", text).strip())], False
-    order, units, path = [], [], []
-    for i, m in enumerate(marks):
-        stop = marks[i+1].start() if i+1 < len(marks) else len(text)
-        lab  = re.sub(r"\s+", "", m.group("label"))
-        body = re.sub(r"\s+", " ", text[m.end():stop]).strip()
-        t = _mtype(lab)
-        if t not in order: order.append(t)
-        lvl = order.index(t)
-        path = path[:lvl] + [lab]
-        if body: units.append((" ".join(path), body))
-    return units, True
-
-def _units(path):
-    raw = (REG / path).read_text()
-    m = ENACT_RE.search(raw)
-    if m: raw = raw[m.end():]
-    return parse_units(raw)
 
 def render_diff(b):
     vs = [v for v in b["versions"] if v.get("text_path")]
@@ -428,62 +407,82 @@ def render_diff(b):
     a, z = vs[0], vs[-1]
     mech = next((v for v in vs[1:-1]
                  if re.search(r"amendment|substitute|SA\d|HA\d|HCS", v["label"], re.I)), None)
-    A, sa = _units(a["text_path"]); Z, sz = _units(z["text_path"])
-    structured = sa and sz
-    DA, DZ = dict(A), dict(Z)
-    order = list(DA) + [k for k in DZ if k not in DA]
-    rem = add = mod = same = 0
-    parts = []
-    def unit(kind, lab, body, extra=""):
-        inner = {"del": f"<del>{esc(body)}</del>", "add": f"<ins>{esc(body)}</ins>",
-                 "same": esc(body)}[kind]
+    r = legdiff.diff_texts((REG / a["text_path"]).read_text(),
+                           (REG / z["text_path"]).read_text())
+
+    def line(cls, lab, body, tag="", el="span"):
+        inner = {"del": f"<del>{esc(body)}</del>", "add": f"<ins>{esc(body)}</ins>"}.get(
+            cls, esc(body))
         lb = f'<span class="ulab">{esc(lab)}</span>' if lab else ""
-        return f'<p class="{kind}">{lb}{extra}{inner}</p>'
-    run = []
+        return f'<p class="{cls}">{lb}{tag}{inner}</p>'
+
+    parts, run = [], []
     def flush():
         nonlocal run
         if len(run) > 4:
-            parts.append(run[0]); parts.append(
-                f'<p class="elide">… {len(run)-2} provisions unchanged …</p>'); parts.append(run[-1])
+            parts.extend([run[0],
+                          f'<p class="elide">… {len(run)-2} provisions unchanged …</p>',
+                          run[-1]])
         else:
             parts.extend(run)
         run = []
-    for lab in order:
-        if lab in DA and lab in DZ:
-            if DA[lab] == DZ[lab]:
-                same += 1; run.append(unit("same", lab, DA[lab])); continue
-            flush(); mod += 1
-            parts.append(unit("del", lab, DA[lab], '<span class="modtag">modified</span>'))
-            parts.append(unit("add", lab, DZ[lab]))
-        elif lab in DA:
-            flush(); rem += 1; parts.append(unit("del", lab, DA[lab]))
+
+    for e in r.entries:
+        cls = _KIND_CLASS[e.kind]
+        if e.kind == "unchanged":
+            run.append(line("same", e.label, e.old or e.new)); continue
+        flush()
+        if e.kind == "modified":
+            tag = '<span class="modtag">modified</span>'
+            parts.append(line("del", e.label, e.old, tag))
+            parts.append(line("add", "", e.new))
+        elif e.kind == "renumbered":
+            parts.append(line("renum", e.label,
+                              e.new or e.old, '<span class="renumtag">redesignated</span>'))
+        elif e.kind == "ambiguous":
+            parts.append(line("amb", e.label, e.old,
+                              '<span class="ambtag">not aligned</span>'))
+        elif e.kind == "removed":
+            parts.append(line("del", e.label, e.old))
         else:
-            flush(); add += 1; parts.append(unit("add", lab, DZ[lab]))
+            parts.append(line("add", e.label, e.new))
     flush()
-    total = len(order) or 1
+
+    total = r.nodes_total or 1
+    retained = r.unchanged + r.renumbered
     mechhtml = (f'<p class="mech"><span class="lbl">Mechanism</span> '
                 f'<a href="{esc(mech["source_url"])}">{esc(mech["label"])}</a></p>') if mech else ""
-    mode = ("Compared by statutory structure: provisions are matched by their section and "
-            "subsection identity, so a change is reported against the provision it affects. "
-            "Structure is detected from drafting markers, which is reliable for these bills but "
-            "not universal — where a label is reused under different parents, alignment can be "
-            "imperfect. Always read the linked source."
-            if structured else
-            "<strong>Fallback comparison.</strong> Statutory structure could not be parsed "
-            "reliably, so this compares whole blocks of text.")
-    stat = (f'<p class="diffstat"><span class="k del">{rem} removed</span> '
-            f'<span class="k add">{add} added</span> '
-            f'<span class="k mod">{mod} modified</span> '
-            f'<span class="muted">{same} of {total} provisions unchanged</span></p>'
-            f'<p class="diffmode muted">{mode}</p>')
+
+    counts = [f'<span class="k del">{r.removed} removed</span>',
+              f'<span class="k add">{r.added} added</span>',
+              f'<span class="k mod">{r.modified} modified</span>']
+    if r.renumbered:
+        counts.append(f'<span class="k renum">{r.renumbered} redesignated</span>')
+    if r.ambiguous:
+        counts.append(f'<span class="k amb">{r.ambiguous} not aligned</span>')
+    counts.append(f'<span class="muted">{r.unchanged} of {total} provisions unchanged</span>')
+
+    note = _STRUCTURAL_NOTE if r.mode == "structural" else _FALLBACK_NOTE
+    if r.ambiguous:
+        note += f' {_AMB_NOTE}'
+    warn = ""
+    if r.parser_warnings:
+        warn = ('<details class="diffwarn"><summary>Parser notes '
+                f'({len(r.parser_warnings)})</summary><ul>'
+                + "".join(f"<li>{esc(w)}</li>" for w in r.parser_warnings) + "</ul></details>")
+
+    stat = (f'<p class="diffstat">{" ".join(counts)}</p>'
+            f'<p class="diffmode muted">{note}</p>{warn}')
     html_ = (f'<div class="diff"><p class="diffhead">'
              f'<span class="v from">{esc(a["label"])}</span>'
              f'<span class="arrow" aria-hidden="true">→</span>'
              f'<span class="v to">{esc(z["label"])}</span></p>'
              f'{mechhtml}{stat}<div class="difftext">{"".join(parts)}</div></div>')
-    return html_, {"id": b["id"], "removed": rem, "added": add, "modified": mod,
-                   "unchanged": same, "total": total, "from": a["label"],
-                   "to": z["label"], "ratio": same/total, "structured": structured}
+    return html_, {"id": b["id"], "removed": r.removed, "added": r.added, "modified": r.modified,
+                   "unchanged": r.unchanged, "renumbered": r.renumbered,
+                   "ambiguous": r.ambiguous, "total": total, "from": a["label"],
+                   "to": z["label"], "retained": retained / total, "mode": r.mode,
+                   "warnings": len(r.parser_warnings)}
 
 def changed_callout(bills):
     seen=set(); items=[]
@@ -495,9 +494,10 @@ def changed_callout(bills):
         seen.add(key)
         items.append(f'<li><a href="bills/{esc(b["id"])}/#main">'
                      f'{esc(b["jurisdiction"]["state"])} {esc(b["bill_number"])}</a> — '
-                     f'<span class="k del">{d["removed"]} passages removed</span>, '
+                     f'<span class="k del">{d["removed"]} provisions removed</span>, '
                      f'<span class="k add">{d["added"]} added</span>, '
-                     f'{d["ratio"]:.0%} unchanged</li>')
+                     f'<span class="k mod">{d["modified"]} amended</span>, '
+                     f'{d["retained"]:.0%} carried over verbatim</li>')
     if not items: return ""
     return (f'<aside class="callout"><h2>Bills whose text changed materially</h2>'
             f'<p>Where we hold both the introduced and the final text, the registry shows the '
@@ -697,6 +697,50 @@ made training AI for companionship a felony, and that text was replaced in commi
 tags describe operative text, the tag is retained in the vocabulary but attaches to nothing —
 the provision survives only in that bill's <a href="../bills/tn-hb1455-2025/">diff</a>. This
 is the clearest illustration of the limitation noted above.</p>
+
+<h2 id="diff">How version comparisons are produced</h2>
+<p>Where two texts of the same bill are held, the registry compares them provision by
+provision rather than describing the change in prose. The comparison is mechanical and its
+assumptions are worth stating, because a diff that looks authoritative is easy to over-read.</p>
+<ul>
+<li><strong>Structure, where it can be identified.</strong> Legislative text marks its own
+hierarchy — <code>SECTION 1.</code>, <code>2.</code>, <code>(a)</code>, <code>(1)</code> — and
+the comparison uses those designators. Nesting is inferred from the order the designators
+appear in each document, because conventions differ: Tennessee runs
+<code>SECTION</code> → <code>(19)</code> → <code>(A)</code>, Missouri runs
+<code>1.2045.</code> → <code>2.</code> → <code>(1)</code>. No fixed precedence is assumed.</li>
+<li><strong>Identity is the whole path, not the label.</strong> <code>(1)</code> under one
+subsection is a different provision from <code>(1)</code> under another, and the two are never
+aligned. A statutory citation such as <code>Section 1-3-105(a)</code> or
+<code>N.D. Cent. Code § 1-01-49(8)</code> is not structure, and stays inside the sentence that
+cites it.</li>
+<li><strong>Redesignation is distinguished from change.</strong> Inserting one subdivision
+renumbers every later one. Where a provision's text is unchanged but its number is not, it is
+reported as <em>redesignated</em>. Two routes qualify, both requiring exact text: text that
+occurs once in each version, or a provision whose ancestor has already been shown to have moved.
+Never similarity — so a provision that was both renumbered <em>and</em> amended is reported as a
+removal and an addition, which overstates the change.</li>
+<li><strong>Definitions are matched by the term they define.</strong> In a list where every
+sibling opens with a quoted term, the term is the identity, so re-alphabetising a definitions
+subsection does not report each definition as having been rewritten into the next one.</li>
+<li><strong>Ambiguity is shown, not resolved.</strong> Where a designator is reused and no
+secondary key separates the provisions, they are listed as <em>not aligned</em> rather than
+compared. Tennessee's blank <code>( )</code> placeholders are the live case.</li>
+<li><strong>Fallback is labelled.</strong> If structure cannot be identified reliably, the
+comparison falls back to block-level text matching and says so on the record. A fallback
+comparison makes no claim that any block is the same provision amended.</li>
+</ul>
+<p><code>modified</code> means the same structural provision exists in both versions and its
+text differs. It does not mean the legal effect changed, and the comparison makes no judgement
+about legal effect. This is textual and structural comparison, not legal interpretation, not
+semantic comparison, and not a complete parse of legislative drafting. Counts are a reading
+aid; the linked source is the evidence.</p>
+<p class="muted small">The implementation is <code>site/legdiff.py</code>, with adversarial
+tests in <code>site/test_diff.py</code> covering citations that look like designators, reused
+labels, insertions that must not cascade, and text with no usable structure. It replaced a
+punctuation-based comparison that split <code>N.D. Cent. Code</code> into fragments and severed
+<code>SECTION 1.</code> from the text it introduced; that failure was found by external review,
+not by us.</p>
 
 <h2>Use of AI in compiling this registry</h2>
 <p>This registry was compiled with substantial assistance from AI tools, which were used to
@@ -1066,8 +1110,11 @@ def bill_page(b, byid):
 
     dh,_ds = render_diff(b)
     diffsection = (f'<h2>How the text changed</h2>'
-                   f'<p class="muted small">Sentence-level comparison of the stored texts. '
-                   f'Every version links to its source.</p>{dh}') if dh else ""
+                   f'<p class="muted small">A provision-by-provision comparison of the stored '
+                   f'texts, aligned on statutory structure where that can be identified. '
+                   f'Every version links to its source; the '
+                   f'<a href="{"../" * 2}method/#diff">method note</a> sets out what the '
+                   f'comparison does and does not establish.</p>{dh}') if dh else ""
     cite=(f'{SITE["name"]}, “{j["state"]} {b["bill_number"]}”, {SITE["publisher"]}, '
           f'record verified {b["last_verified"] or "—"}, accessed [date].')
 

@@ -55,16 +55,34 @@ checked.
 
 ## 3. Rejected, with reasons — attack these first
 
-### R1 — spaCy for sentence segmentation
+### R1 — spaCy for sentence segmentation — **REJECTION OVERTURNED, 2026-08-10**
 **Proposed:** replace regex sentence splitting with spaCy `en_core_web_sm`.
-**Rejected because:** the diagnosis (regex breaks on `N.D. Cent. Code § 1-01-49(8)`) is right,
-but the remedy targets the wrong unit. Legislative text is a self-marking hierarchy —
-`SECTION 1.` → `(a)` → `(1)` — so section-aware parsing is deterministic and yields
-"§ 1357.11(A) changed" rather than "sentence 14 changed". `en_core_web_sm` is trained on web
-and news English and would also mis-split statutory citations; it is differently wrong and
-harder to inspect. It also adds ~50 MB to a deliberately dependency-free build.
-**Risk if wrong:** we keep a brittle differ. Mitigated only by the fact that section-aware
-parsing is still unbuilt — so today we have *neither*.
+**Originally rejected because:** the diagnosis (regex breaks on `N.D. Cent. Code § 1-01-49(8)`)
+is right, but the remedy targets the wrong unit — legislative text is a self-marking hierarchy,
+so section-aware parsing is deterministic, whereas `en_core_web_sm` is trained on web and news
+English and adds ~50 MB to a dependency-free build.
+
+**Why that was not good enough.** The second review made the decisive point: the preferred
+alternative *did not exist*, so the argument defended shipping a punctuation differ on the
+strength of a promise. "The better fix is X" is not a reason to decline Y while X is unbuilt.
+Testing the shipped regex also showed it was worse than described — `N.D. Cent. Code` shattered
+into three fragments and `SECTION 1.` was severed from the text it introduced.
+
+**What was built instead:** `site/legdiff.py`, a deterministic structural differ. Provisions are
+identified by their full path (`1.2045 / 2 / (1)`), never by the visible designator, so `(1)`
+under one subsection is never aligned with `(1)` under another. Statutory citations and internal
+cross-references are masked before designators are looked for. Redesignation is a separate
+category from amendment. Where structure cannot be established the comparison falls back to
+block-level text matching and says so on the page. `site/test_diff.py` holds 22 tests, including
+synthetic fixtures built to break the parser.
+
+**Kept from the rejection:** no spaCy, and no dependencies. The reason is now the one that
+survives scrutiny — the structural parser is inspectable and the unit is the provision — rather
+than a defence of code that was already known to be inadequate.
+
+**What this cost:** the differ found a live false positive the old one hid. Tennessee HB 1455's
+`risks identified under subdivision (b)(1)` was being parsed as a provision, producing two
+phantom provisions in the enacted text. Fixed, and now a regression test.
 
 ### R2 — Computing status from session rules
 **Proposed:** `if current_date > session_end and status != enacted: return "Failed"`.
@@ -121,9 +139,19 @@ is documented, but the vocabulary still lives in two places.
    whether legislation *creating* AI legal personality is in scope. The title implies yes; the
    corpus is almost entirely denial bills.
 
-Not blocking, but open: section-aware differ (R1's unbuilt alternative), `notes` → `analysis`
-split, `codified_at` vs `proposed_code_sections`, completeness audit, per-version provisions
-for the 13 untagged versions.
+The second review proposed two further gates: the version-diff implementation, and
+verification/provenance semantics. **The first is now closed** — see the R1 entry above. The
+second stands: the README's "every claim cites something" outruns a data model that has no
+field-level source links (R3), and terminal status without evidence is still a warning rather
+than an error.
+
+Not blocking, but open: `notes` → `analysis` split, `codified_at` vs `proposed_code_sections`,
+completeness audit, per-version provisions for the 13 untagged versions.
+
+Open against the differ specifically, and stated on the method page: a provision that was both
+renumbered *and* amended is reported as a removal plus an addition, because pairing is done only
+on exact text; and boilerplate that recurs verbatim cannot be paired across a renumbering for the
+same reason.
 
 ---
 

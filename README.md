@@ -14,9 +14,14 @@ which we point to rather than duplicate. He tracks the courts; this tracks the l
 
 ## Status
 
-**Pre-publication.** The data is verified and the site builds, but three things are open:
-a status audit for six records established from secondary sources, a written inclusion
-methodology, and a section-aware text differ. See `REVISIONS.md`.
+**Pre-publication.** The data is verified and the site builds, but two things are open:
+a status audit for six records established from secondary sources, and a written inclusion
+methodology. See `REVISIONS.md`.
+
+The version differ is now structural: provisions are aligned on their full section and
+subsection path rather than on punctuation, redesignation is distinguished from amendment, and
+a comparison that cannot establish structure says so on the record. What it does and does not
+establish is set out on the site's method page and in `site/legdiff.py`.
 
 ```
 Records                                   23 across 12 states
@@ -44,6 +49,8 @@ registry/session_rules.json  how a bill dies in each state, sourced
 registry/validate.py         validation + audit summary
 registry/test_regressions.py one test per bug ever found here
 site/build.py                builds the site from the registry
+site/legdiff.py              structural differ — aligns provisions by statutory path
+site/test_diff.py            adversarial + corpus tests for the differ
 SCHEMA.md                    record definition and controlled vocabularies
 PROVISIONS.md                operational test + negative examples per tag
 VERIFICATION.md              what was checked, how, and what we got wrong
@@ -57,6 +64,7 @@ No dependencies beyond the Python standard library, and no network calls at runt
 ```bash
 python3 registry/validate.py        # validate + audit
 python3 registry/test_regressions.py # regression tests
+python3 site/test_diff.py           # differ tests
 python3 site/build.py               # writes site/dist/
 ```
 

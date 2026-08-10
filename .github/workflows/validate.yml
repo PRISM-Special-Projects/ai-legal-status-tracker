@@ -17,6 +17,12 @@ jobs:
       - name: Validate registry
         run: python3 registry/validate.py
 
+      - name: Regression tests
+        run: python3 registry/test_regressions.py
+
+      - name: Differ tests
+        run: python3 site/test_diff.py
+
       - name: Build site
         run: python3 site/build.py
 
@@ -65,6 +71,14 @@ jobs:
               blob=" ".join(b["derived_from_changes"])
               m=re.search(BAD, blob, re.I)
               if m: fail.append(f"{b['id']}: evaluative language in derived_from_changes: {m.group()}")
+
+          # Every rendered diff must declare how it was produced, so a fallback
+          # comparison can never be mistaken for a structural one.
+          import glob
+          for f in glob.glob("site/dist/bills/*/index.html"):
+              h=pathlib.Path(f).read_text()
+              if 'class="diff"' in h and "Comparison method:" not in h:
+                  fail.append(f"{f}: diff rendered without a comparison-method statement")
 
           print("\n".join(fail) if fail else "all post-build assertions passed")
           sys.exit(1 if fail else 0)
