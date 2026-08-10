@@ -49,6 +49,10 @@ for b in bills:
     chk(b["chamber"] in CHAMBER, f"{i}: bad chamber {b['chamber']}")
     chk(b["status"]["stage"] in STAGE, f"{i}: bad stage {b['status']['stage']}")
     chk(bool(b["status"].get("source_url")), f"{i}: status has no source_url")
+    # A terminal stage is a claim like any other and needs a citable action line.
+    # This is the check that would have caught the Washington HB 2029 error.
+    if b["status"]["stage"] in ("enacted","failed","dead") and not b["status"].get("evidence"):
+        warn.append(f"{i}: terminal stage '{b['status']['stage']}' with no status.evidence action line")
     chk(b["family"] in FAM, f"{i}: bad family {b['family']}")
     chk(b["technique"] in TECH, f"{i}: bad technique {b['technique']}")
     chk(b["provisions"] and set(b["provisions"])<=PROV, f"{i}: bad provisions {b['provisions']}")

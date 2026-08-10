@@ -75,7 +75,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-10",
-        "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/"
+        "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/",
+        "evidence": {
+          "action": "Reported Signed by Governor on March 31, 2022 Session Law Chapter 322 Effective: 07/01/2022",
+          "date": "2022-03-31"
+        }
       },
       "family": "A",
       "technique": "standalone_provision",
@@ -199,7 +203,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-05-12",
-        "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html"
+        "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html",
+        "evidence": {
+          "action": "Signed by the governor; filed April 12",
+          "date": "2023-04-12"
+        }
       },
       "family": "A",
       "technique": "amends_general_person_definition",
@@ -298,7 +306,11 @@
       "status": {
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
-        "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600"
+        "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600",
+        "evidence": {
+          "action": "Passed House 94-2 (2026-03-23); Placed on General Order, Senate",
+          "date": "2026-04-21"
+        }
       },
       "family": "A",
       "technique": "standalone_provision",
@@ -392,7 +404,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-05-12",
-        "source_url": "https://le.utah.gov/~2024/bills/static/HB0249.html"
+        "source_url": "https://le.utah.gov/~2024/bills/static/HB0249.html",
+        "evidence": {
+          "action": "Enrolled; s 3: 'This bill takes effect on May 1, 2024'",
+          "date": "2024-05-01"
+        }
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -455,7 +471,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B"
+        "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B",
+        "evidence": null
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -542,7 +559,11 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false"
+        "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false",
+        "evidence": {
+          "action": "Reintroduced and retained in present status; in House Civil Rights & Judiciary",
+          "date": "2026-01-12"
+        }
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -608,7 +629,8 @@
       "status": {
         "stage": "failed",
         "as_of": "2026-08-10",
-        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -700,7 +722,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-05-12",
-        "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469"
+        "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -776,7 +799,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R"
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -857,7 +881,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1769&year=2026&code=R"
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1769&year=2026&code=R",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -931,7 +956,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1005,7 +1031,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1081,7 +1108,8 @@
       "status": {
         "stage": "passed_one_chamber",
         "as_of": "2026-05-12",
-        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
+        "evidence": null
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1118,58 +1146,63 @@
       "sponsors": [
         {
           "name": "Brill",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Dittrich",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Armstrong",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Behnke",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Knodl",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Maxey",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Murphy",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Neylon",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "O'Connor",
-          "party": null,
+          "party": "R",
           "role": "assembly author"
         },
         {
           "name": "Jacque",
-          "party": null,
+          "party": "R",
           "role": "senate cosponsor"
         },
         {
           "name": "Quinn",
-          "party": null,
+          "party": "R",
           "role": "senate cosponsor"
+        },
+        {
+          "name": "Wichgers",
+          "party": null,
+          "role": "assembly coauthor (added 2026-02-16)"
         }
       ],
       "versions": [
@@ -1191,7 +1224,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 29 Jan 2026, referred to the Assembly Committee on Science, Technology and AI. Nine Assembly authors and two Senate cosponsors (Jacque, Quinn); the paper names only Brill. The bill carries an '***AUTHORS SUBJECT TO CHANGE***' marker. HYBRID TECHNIQUE CONFIRMED ON THE FACE OF THE BILL: 'AN ACT to amend 990.01 (26); to create 134.44 of the statutes'. It both creates a standalone section and amends the general statutory definition of 'person'. The paper's claim that this is the only such bill holds. **IMPORTANT DIVERGENCE FROM OHIO AND MISSOURI.** Wisconsin does NOT assign liability to humans. s 134.44(2)(f) says only that AI 'is not a person against which liability may be imposed', and (2)(e) attributes ASSETS - not liability - to the developer, manufacturer or owner. There is no affirmative provision placing harm liability on any human, unlike Ohio s 1357.06. assigns_liability_to_humans has therefore been REMOVED and bars_ai_liability used instead. This is the textual basis for Daniel Barker's testimony that the bill creates an 'accountability vacuum' by denying AI personhood without assigning responsibility - the paper reports that objection; the text substantiates it. It also qualifies the paper's description of Family C as bills that 'clarify that human developers and users... are liable for any harms'. That is true of Ohio and Missouri, not of Wisconsin. THE AI DEFINITION IS THE OECD / EU AI ACT FORMULATION: 'an engineered or machine-based system that varies in its level of autonomy and that can, for explicit or implicit objectives, infer from the input it receives how to generate outputs that can influence physical or virtual environments.' This is materially narrower and more standard than Ohio's, which reaches 'rules-based logic'. Definitional quality varies enormously across the registry and is worth surfacing as a comparison axis. 'Owner' expressly EXCLUDES the end user, again unlike Ohio. VOIDING IS ASYMMETRIC: sub. (3) voids actions contrary to (2)(c) - marriage - only. Appointments to corporate office and property transfers are prohibited but not declared void, where Ohio voids both. CORPORATE PERSONHOOD EXPRESSLY RETAINED in the amended s 990.01(26): 'Person' still 'includes all partnerships, associations and bodies politic or corporate'. STATUS NOT CONFIRMED: this is the introduced text. The paper records the bill as Failed; after Washington HB 2029 turned out to be wrongly recorded as failed, the final disposition still needs checking.",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 29 Jan 2026, referred to the Assembly Committee on Science, Technology and AI. Nine Assembly authors and two Senate cosponsors (Jacque, Quinn); the paper names only Brill. The bill carries an '***AUTHORS SUBJECT TO CHANGE***' marker. HYBRID TECHNIQUE CONFIRMED ON THE FACE OF THE BILL: 'AN ACT to amend 990.01 (26); to create 134.44 of the statutes'. It both creates a standalone section and amends the general statutory definition of 'person'. The paper's claim that this is the only such bill holds. **IMPORTANT DIVERGENCE FROM OHIO AND MISSOURI.** Wisconsin does NOT assign liability to humans. s 134.44(2)(f) says only that AI 'is not a person against which liability may be imposed', and (2)(e) attributes ASSETS - not liability - to the developer, manufacturer or owner. There is no affirmative provision placing harm liability on any human, unlike Ohio s 1357.06. assigns_liability_to_humans has therefore been REMOVED and bars_ai_liability used instead. This is the textual basis for Daniel Barker's testimony that the bill creates an 'accountability vacuum' by denying AI personhood without assigning responsibility - the paper reports that objection; the text substantiates it. It also qualifies the paper's description of Family C as bills that 'clarify that human developers and users... are liable for any harms'. That is true of Ohio and Missouri, not of Wisconsin. THE AI DEFINITION IS THE OECD / EU AI ACT FORMULATION: 'an engineered or machine-based system that varies in its level of autonomy and that can, for explicit or implicit objectives, infer from the input it receives how to generate outputs that can influence physical or virtual environments.' This is materially narrower and more standard than Ohio's, which reaches 'rules-based logic'. Definitional quality varies enormously across the registry and is worth surfacing as a comparison axis. 'Owner' expressly EXCLUDES the end user, again unlike Ohio. VOIDING IS ASYMMETRIC: sub. (3) voids actions contrary to (2)(c) - marriage - only. Appointments to corporate office and property transfers are prohibited but not declared void, where Ohio voids both. CORPORATE PERSONHOOD EXPRESSLY RETAINED in the amended s 990.01(26): 'Person' still 'includes all partnerships, associations and bodies politic or corporate'. STATUS CONFIRMED 2026-08-10 — THE PAPER IS CORRECT HERE. Action history: introduced and read first time 29 Jan 2026; public hearing 4 Feb 2026 (the WisconsinEye hearing at which Brill and Barker testified); Rep. Wichgers added as a tenth coauthor 16 Feb 2026; 'Failed to pass pursuant to Senate Joint Resolution 1' on 23 MARCH 2026. NOTE THE MECHANISM DIFFERS FROM WASHINGTON: SJR 1 is the session-schedule resolution, and failure under it is the blanket end-of-biennium disposition. Wisconsin bills do NOT carry over past the 2025-26 biennium, whereas Washington carries bills across the two years of its biennium - which is why HB 2029 survived and this did not. The two 'Failed' entries in the paper were not the same kind of claim, and only one of them was wrong.",
       "id": "wi-ab959-2026",
       "bill_number": "AB 959",
       "chamber": "house",
@@ -1202,8 +1235,12 @@
       },
       "status": {
         "stage": "failed",
-        "as_of": "2026-05-12",
-        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+        "as_of": "2026-08-10",
+        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959",
+        "evidence": {
+          "action": "Failed to pass pursuant to Senate Joint Resolution 1",
+          "date": "2026-03-23"
+        }
       },
       "family": "C",
       "technique": "hybrid",
@@ -1241,58 +1278,63 @@
       "constitutional_exposure": [],
       "sponsors": [
         {
-          "name": "Jacque",
-          "party": null,
+          "name": "Andre Jacque",
+          "party": "R",
           "role": "senate author"
         },
         {
-          "name": "Quinn",
-          "party": null,
+          "name": "Romaine Quinn",
+          "party": "R",
           "role": "senate author"
         },
         {
-          "name": "Brill",
-          "party": null,
+          "name": "Mark Spreitzer",
+          "party": "D",
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Lindee Brill",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Dittrich",
-          "party": null,
+          "name": "Barbara Dittrich",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Armstrong",
-          "party": null,
+          "name": "David Armstrong",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Behnke",
-          "party": null,
+          "name": "Elijah Behnke",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Maxey",
-          "party": null,
+          "name": "Dave Maxey",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Murphy",
-          "party": null,
+          "name": "David Murphy",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Neylon",
-          "party": null,
+          "name": "Adam Neylon",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "O'Connor",
-          "party": null,
+          "name": "Jerry O'Connor",
+          "party": "R",
           "role": "assembly cosponsor"
         },
         {
-          "name": "Knodl",
-          "party": null,
+          "name": "Dan Knodl",
+          "party": "R",
           "role": "assembly cosponsor"
         }
       ],
@@ -1311,7 +1353,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 6 February 2026, eight days after AB 959. OPERATIVE TEXT IS WORD-FOR-WORD IDENTICAL to AB 959 - the presumption of identity is now evidenced, not assumed. BUT THEY ARE SEPARATE DRAFTS: SB 932 is LRB-6000/1, AB 959 is LRB-5476/1. Two distinct Legislative Reference Bureau drafting jobs producing identical text, which is direct evidence of deliberate companion drafting rather than one bill being copied. SPONSOR ROLES ARE MIRRORED: Senators Jacque and Quinn are the authors here and cosponsors on AB 959; the nine Assembly members are cosponsors here and authors there. Same eleven people, inverted. DIFFERENT COMMITTEES, WHICH MATTERS FOR TRACKING: SB 932 went to Utilities, Technology and Tourism; AB 959 to Science, Technology and AI. A companion pair can die in one chamber and live in the other, so the two records must be tracked separately rather than collapsed. Carries the same '***AUTHORS SUBJECT TO CHANGE***' marker. STATUS NOT CONFIRMED: introduced text only; the paper records Failed and that still needs checking.",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 6 February 2026, eight days after AB 959. OPERATIVE TEXT IS WORD-FOR-WORD IDENTICAL to AB 959 - the presumption of identity is now evidenced, not assumed. BUT THEY ARE SEPARATE DRAFTS: SB 932 is LRB-6000/1, AB 959 is LRB-5476/1. Two distinct Legislative Reference Bureau drafting jobs producing identical text, which is direct evidence of deliberate companion drafting rather than one bill being copied. SPONSOR ROLES ARE MIRRORED: Senators Jacque and Quinn are the authors here and cosponsors on AB 959; the nine Assembly members are cosponsors here and authors there. Same eleven people, inverted. DIFFERENT COMMITTEES, WHICH MATTERS FOR TRACKING: SB 932 went to Utilities, Technology and Tourism; AB 959 to Science, Technology and AI. A companion pair can die in one chamber and live in the other, so the two records must be tracked separately rather than collapsed. Carries the same '***AUTHORS SUBJECT TO CHANGE***' marker. STATUS CONFIRMED 2026-08-10 — THE PAPER IS CORRECT. Introduced 6 Feb 2026, referred to Utilities, Technology and Tourism; public hearing 17 Feb 2026; 'Failed to pass pursuant to Senate Joint Resolution 1' on 23 MARCH 2026 — the same day as AB 959. Both halves of the pair died together under the blanket end-of-biennium disposition, so tracking them separately cost nothing here, though it would have mattered had they diverged. SEPARATE HEARINGS: the Assembly heard AB 959 on 4 Feb, the Senate heard SB 932 on 17 Feb — two hearings, two committees. **A DEMOCRATIC SPONSOR: Sen. MARK SPREITZER [D].** The sponsor lists of the two companions are NOT identical - Spreitzer appears on SB 932 but not on AB 959, and Rep. Wichgers was added to AB 959 but is not on SB 932. Identical text, divergent sponsorship.",
       "id": "wi-sb932-2026",
       "bill_number": "SB 932",
       "chamber": "senate",
@@ -1322,8 +1364,12 @@
       },
       "status": {
         "stage": "failed",
-        "as_of": "2026-05-12",
-        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932"
+        "as_of": "2026-08-10",
+        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932",
+        "evidence": {
+          "action": "Failed to pass pursuant to Senate Joint Resolution 1",
+          "date": "2026-03-23"
+        }
       },
       "family": "C",
       "technique": "hybrid",
@@ -1440,7 +1486,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+        "evidence": {
+          "action": "Comp. became Pub. Ch. 781",
+          "date": "2026-04-28"
+        }
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1534,7 +1584,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+        "evidence": {
+          "action": "Comp. became Pub. Ch. 781",
+          "date": "2026-04-28"
+        }
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1679,7 +1733,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+        "evidence": {
+          "action": "Passed; became Public Chapter No. 1066",
+          "date": "2026-04-23"
+        }
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -1763,7 +1821,11 @@
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+        "evidence": {
+          "action": "Passed; became Public Chapter No. 1066",
+          "date": "2026-04-23"
+        }
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -1819,7 +1881,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-05-12",
-        "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/"
+        "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/",
+        "evidence": null
       },
       "family": "other",
       "technique": "constitutional_amendment",
@@ -1927,7 +1990,8 @@
       "status": {
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
-        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD"
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD",
+        "evidence": null
       },
       "family": "other",
       "technique": "amends_specific_statutes",
@@ -1998,7 +2062,8 @@
       "status": {
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
-        "source_url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023"
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023",
+        "evidence": null
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2097,7 +2162,8 @@
       "status": {
         "stage": "in_committee",
         "as_of": "2026-08-10",
-        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119"
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119",
+        "evidence": null
       },
       "family": "other",
       "technique": "standalone_provision",
