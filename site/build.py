@@ -600,7 +600,9 @@ promoted.</td><td class="n">{vs.get("verified_secondary",0)}</td></tr>
 checked. Labelled as such wherever it appears.</td><td class="n">{vs.get("seeded_unverified",0)}</td></tr>
 </tbody></table>
 <p class="muted small">A bill's <em>status</em> is a claim like any other, so each carries an
-<em>action of record</em> — the verbatim legislative action establishing it. States record
+<em>action of record</em> — the verbatim legislative action establishing it — for every
+<strong>terminal</strong> status (enacted, failed, dead), which the validator enforces.
+Non-terminal statuses carry one where the source supplied it. States record
 death differently: Wisconsin posts an explicit "failed to pass" line, Missouri posts nothing
 and a bill simply dies at adjournment, and Washington carries bills across a biennium so they
 do not die at all. The action line makes which of these applies visible.</p>
@@ -652,7 +654,7 @@ an honest last-verified date than imply continuous coverage we cannot hold.</p>
 <em>Denying Personhood to AI: An Analysis of U.S. State Legislation on AI Legal Status</em>
 (SSRN 6829981), which documented {len(bills)} bills across
 {len({b["jurisdiction"]["state"] for b in bills})} states as of May 2026. Every record has
-since been checked against primary sources, and the registry now records statutory citations,
+since been checked against a primary or citable source and carries a per-record account of what was verified. The registry now records statutory citations,
 effective dates, sponsors, vote counts, provision detail and text versions that the paper did
 not set out to capture. The underlying data is available on the <a href="../data/">data</a>
 page.</p>
@@ -1064,8 +1066,11 @@ def build():
     body = f"""
 <h1>Legislation on the legal status of AI systems</h1>
 <p class="lede"><span class="count">{len(bills)}</span> bills across
-<span class="count">{len(states)}</span> US states since 2022, each read against its primary
-source. A descriptive record of what these bills say — not an assessment of them.</p>
+<span class="count">{len(states)}</span> US states since 2022. Every record's status is
+established from a primary or citable source; operative text has been read in full for
+<span class="count">{sum(1 for x in bills if x["verification"]["operative_text"]=="read_in_full")}</span>
+of them, and each record states what was checked. A descriptive record of what these bills
+say — not an assessment of them.</p>
 
 {tile_map(bills)}
 

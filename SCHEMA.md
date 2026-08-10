@@ -38,7 +38,8 @@ the UI group or ungroup as needed.
 | `evidence_refs` | array | `ref_key`s into the Evidence sheet |
 | `sources` | object | `{primary[], tracker[]}` |
 | `provenance` | string | Where the record came from |
-| `verification_status` | enum | `verified_primary` · `verified_secondary` · `seeded_unverified` |
+| `verification_status` | enum | How the **status** was established: `verified_primary` · `verified_secondary` · `seeded_unverified`. It has never meant that every version was read |
+| `verification` | object | Per-dimension provenance: `{status, operative_text, operative_text_note, sponsors, codified_at_source, versions_with_text, last_verified}`. `operative_text`: `read_in_full` · `partial` · `not_read` — a note is required unless `read_in_full` |
 | `last_verified` | date¦null | Null until someone reads the primary source |
 | `notes` | string | |
 
@@ -54,7 +55,11 @@ the UI group or ungroup as needed.
 `assigns_liability_to_humans` · `restricts_ai_speech_rights` · `restricts_chatbot_claims` ·
 `restricts_person_like_training` · `covers_non_ai_entities` · `study_only` ·
 `bars_marriage_or_union` · `bars_property_ownership` · `bars_corporate_office` ·
-`imposes_safety_duties` · `incident_reporting_duty` · `addresses_corporate_veil`
+`imposes_safety_duties` · `incident_reporting_duty` · `addresses_corporate_veil` ·
+`bars_ai_liability` · `provides_compliance_safe_harbor`
+
+**These are authoritative.** `registry/validate.py` must accept exactly this set and no other;
+a drift check belongs in CI.
 
 ## Rules
 
@@ -83,6 +88,18 @@ wording untouched. They exist so versions can be diffed; the authoritative docum
 the `source_url`.
 
 ## Changelog
+
+**v0.1.4 → v0.2.0 (2026-08-10, after external red-team review).** Added the `verification`
+object. `verification_status` alone was carrying far more epistemic weight than the evidence
+model supported — it described how a *status* was established, but the site read it as "every
+record read against its bill text", which was false for seven records. Verification is now
+recorded per dimension. Also: `bars_ai_liability` and `provides_compliance_safe_harbor` were
+live in the validator but missing from the vocabulary above; `as_of` renamed to
+`baseline_snapshot` to stop it being read as the registry's currency date.
+
+**Codification rule.** For an enacted law, `codified_at` must be verified against the **code**,
+not the bill. Utah HB 249's enrolled text says it enacts §§ 63G-31-101/102; the published Code
+renumbered it to §§ 63G-32-101/102. The bill states intent, the code states the result.
 
 **v0.1.3 → v0.1.4 (2026-08-10).** Added `versions[].text_path`, `derived_from_changes` and
 `watch_dates`. All three exist to make Phase 3 views derivable from the registry alone rather

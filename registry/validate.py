@@ -26,7 +26,7 @@ REQUIRED=["id","jurisdiction","bill_number","chamber","session","status","family
           "affects_algorithmic_entity_formation","corporate_carve_out","constitutional_exposure",
           "sponsors","versions","evidence_refs","sources","provenance","verification_status",
           "last_verified","notes","companion_group","codified_at","derived_from","key_clause","effective_date",
-          "derived_from_changes","watch_dates"]
+          "derived_from_changes","watch_dates","verification"]
 
 d=json.load(open("bills.json")); bills=d["bills"]; err=[]; warn=[]
 ids={b["id"] for b in bills}
@@ -82,6 +82,11 @@ for b in bills:
         chk(b["last_verified"] is None, f"{i}: unverified but has last_verified")
     if b["status"]["stage"]=="enacted" and not b["codified_at"]:
         warn.append(f"{i}: enacted but codified_at is null - needs primary-source verification")
+    v=b.get("verification") or {}
+    chk(v.get("operative_text") in ("read_in_full","partial","not_read"), f"{i}: bad verification.operative_text")
+    chk(v.get("sponsors") in ("established","not_established"), f"{i}: bad verification.sponsors")
+    if v.get("operative_text")!="read_in_full":
+        chk(bool(v.get("operative_text_note")), f"{i}: operative_text not full but no note explaining what was checked")
     if b["verification_status"].startswith("verified"):
         chk(b["last_verified"] is not None, f"{i}: verified but no last_verified date")
     if b["definitional_anchor"]=="taxonomic":
