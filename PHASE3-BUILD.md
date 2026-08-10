@@ -12,8 +12,8 @@
 - [x] **Step 5** — version diffs: 3 diffs live (TN ×2, MO), operative-text-only comparison, mechanism amendment linked, landing-page callout
 - [x] **Step 6** — genealogy graph: `/lineage/`, 2 trees, 15 nodes, 13 labelled edges, 8 orphans listed; layout by generation depth, geometry verified non-overlapping
 - [x] **Step 7** — watch list: 5 grouped rows on the landing page, ascending, companions merged, past events greyed not removed
-- [ ] **Step 8** — method page
-- [ ] **Step 9** — downloads
+- [x] **Step 8** — method page: scope, source hierarchy, verification statuses, provision definitions, AI-use disclosure, corrections route, citation format, cadence
+- [x] **Step 9** — downloads: `bills.json` (113 KB, authoritative), `bills.csv` (23×28), `matrix.csv` (23×16 as 1/0) + data page. **All internal links now resolve.**
 - [ ] **Step 10** — signed commentary
 - [ ] **Step 11** — corrections page (held)
 - [ ] **Step 12** — QA

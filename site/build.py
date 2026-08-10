@@ -168,6 +168,23 @@ ul.orphans{columns:2;column-gap:28px;list-style:none;padding-left:0;font-size:.9
 ul.orphans li{margin:.25em 0;break-inside:avoid}
 @media (max-width:700px){ ul.orphans{columns:1} }
 
+p.pending{background:var(--del-bg);border-left:3px solid var(--del);padding:11px 14px;
+  border-radius:0 var(--radius) var(--radius) 0;font-size:.92rem}
+table.deftable{width:100%;border-collapse:collapse;margin:1em 0;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);
+  font:.87rem/1.5 ui-sans-serif,system-ui,sans-serif}
+table.deftable th,table.deftable td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+table.deftable thead th{font:600 .74rem/1.3 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);background:var(--accent-weak)}
+table.deftable tbody tr:last-child td{border-bottom:0}
+table.deftable td:first-child{white-space:nowrap}
+table.deftable .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+code{font:.86em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--accent-weak);
+  padding:1px 4px;border-radius:3px}
+main ol{max-width:74ch}
+main ol li{margin:.4em 0}
+main>p{max-width:74ch}
+
 /* ---- watch list ---- */
 aside.watch{margin:2.2em 0}
 aside.watch h2{margin:0 0 .35em}
@@ -412,6 +429,235 @@ def changed_callout(bills):
             f'<p>Where we hold both the introduced and the final text, the registry shows the '
             f'change itself rather than describing it. Companion bills share a text and appear once.</p>'
             f'<ul class="changed">{"".join(items)}</ul></aside>')
+
+# ---------------------------------------------------------------- data page + downloads
+import csv as _csv, io, json as _json
+
+FLAT_COLS=["id","state","bill_number","chamber","year_introduced","session","legislature",
+  "status","status_as_of","status_evidence_action","status_evidence_date","codified_at",
+  "effective_date","family","derived_from","technique","definitional_anchor",
+  "augmented_human_exposure","affects_algorithmic_entity_formation","corporate_carve_out",
+  "provisions","sponsors","companion_group","verification_status","last_verified",
+  "key_clause","primary_sources","versions_held"]
+
+def flat_rows(bills):
+    for b in bills:
+        ev=b["status"].get("evidence") or {}
+        yield {
+          "id":b["id"],"state":b["jurisdiction"]["state"],"bill_number":b["bill_number"],
+          "chamber":b["chamber"],"year_introduced":b["session"]["year_introduced"],
+          "session":b["session"]["session"],"legislature":b["session"].get("legislature") or "",
+          "status":b["status"]["stage"],"status_as_of":b["status"]["as_of"],
+          "status_evidence_action":ev.get("action",""),"status_evidence_date":ev.get("date",""),
+          "codified_at":b["codified_at"] or "","effective_date":b["effective_date"] or "",
+          "family":b["family"],"derived_from":b["derived_from"] or "","technique":b["technique"],
+          "definitional_anchor":b["definitional_anchor"],
+          "augmented_human_exposure":b["augmented_human_exposure"],
+          "affects_algorithmic_entity_formation":b["affects_algorithmic_entity_formation"],
+          "corporate_carve_out":b["corporate_carve_out"],
+          "provisions":"; ".join(b["provisions"]),
+          "sponsors":"; ".join(f'{x["name"]}'+(f' [{x["party"]}]' if x.get("party") else "") for x in b["sponsors"]),
+          "companion_group":b["companion_group"] or "",
+          "verification_status":b["verification_status"],"last_verified":b["last_verified"] or "",
+          "key_clause":(b["key_clause"] or {}).get("text",""),
+          "primary_sources":" | ".join(b["sources"].get("primary",[])),
+          "versions_held":sum(1 for v in b["versions"] if v.get("text_path")),
+        }
+
+def write_data(d, bills, outdir):
+    outdir.mkdir(parents=True, exist_ok=True)
+    (outdir/"bills.json").write_text(_json.dumps(d, indent=2, ensure_ascii=False))
+    buf=io.StringIO(); w=_csv.DictWriter(buf, fieldnames=FLAT_COLS); w.writeheader()
+    for r in flat_rows(bills): w.writerow(r)
+    (outdir/"bills.csv").write_text(buf.getvalue())
+    buf=io.StringIO(); w=_csv.writer(buf)
+    w.writerow(["id","state","bill_number","year","family","status"]+PROV_ORDER)
+    for b in bills:
+        w.writerow([b["id"],b["jurisdiction"]["state"],b["bill_number"],
+                    b["session"]["year_introduced"],b["family"],b["status"]["stage"]]
+                   +[1 if p in b["provisions"] else 0 for p in PROV_ORDER])
+    (outdir/"matrix.csv").write_text(buf.getvalue())
+    return {"bills.json":(outdir/"bills.json").stat().st_size,
+            "bills.csv":(outdir/"bills.csv").stat().st_size,
+            "matrix.csv":(outdir/"matrix.csv").stat().st_size}
+
+def data_page(d, bills, sizes):
+    kb=lambda n: f"{n/1024:.0f} KB"
+    texts=sum(1 for b in bills for v in b["versions"] if v.get("text_path"))
+    body=f"""
+<h1>Data</h1>
+<p class="lede">The registry is the dataset. Everything on this site is generated from one
+file, so the download is not an export — it is the source.</p>
+
+<h2>Downloads</h2>
+<table class="deftable"><thead><tr><th scope="col">File</th><th scope="col">Contents</th>
+<th scope="col" class="n">Size</th></tr></thead><tbody>
+<tr><td><a href="bills.json">bills.json</a></td><td>The full registry: {len(bills)} records with
+every field, including notes, version histories, source lists and verification metadata.
+This is the authoritative form.</td><td class="n">{kb(sizes["bills.json"])}</td></tr>
+<tr><td><a href="bills.csv">bills.csv</a></td><td>One row per bill, {len(FLAT_COLS)} columns.
+Nested fields are flattened with semicolons. Convenient; lossy.</td>
+<td class="n">{kb(sizes["bills.csv"])}</td></tr>
+<tr><td><a href="matrix.csv">matrix.csv</a></td><td>The provision matrix as 1/0 columns —
+{len(bills)} rows by {len(PROV_ORDER)} provisions. For counting and cross-tabulation.</td>
+<td class="n">{kb(sizes["matrix.csv"])}</td></tr>
+</tbody></table>
+
+<h2>What the data contains</h2>
+<ul>
+<li><strong>One record per bill number</strong>, not per legislative vehicle. Companion bills
+each get a record, linked by <code>companion_group</code>. This is what preserves cases where
+identical text diverges — different committees, different sponsors, different fates.</li>
+<li><strong>Statutory citations and effective dates</strong> for enacted laws.</li>
+<li><strong>An action of record</strong> behind every status, so no status is an unsourced
+assertion.</li>
+<li><strong>{len(PROV_ORDER)} flat provision tags</strong>, checkable against bill text.</li>
+<li><strong>Descent relationships</strong> with an explicit list of what changed between parent
+and child.</li>
+<li><strong>{texts} stored bill texts</strong> referenced by <code>versions[].text_path</code>,
+which is what makes the diffs reproducible.</li>
+</ul>
+
+<h2>Reproducing this site</h2>
+<p>The site is built by a single script with no dependencies beyond the Python standard
+library, and makes no network requests at runtime. Given the registry and the stored texts,
+every page here — including the matrix, the lineage graph and the diffs — is regenerable.</p>
+
+<h2>Licence</h2>
+<p class="pending"><strong>To be confirmed before launch.</strong> Our intention is to release
+the registry under a permissive licence so it can be reused, corrected and built on. Until that
+is settled, please contact us before redistributing, and cite the registry if you use it.</p>
+
+<h2>Known gaps</h2>
+<ul>
+<li>Operative text has not been read line by line for every record. Where verification rested
+on a status page or official summary, the record's notes say so.</li>
+<li>Some sponsor lists are incomplete, and party affiliation is recorded only where a source
+stated it. An empty sponsor field means not established, not none.</li>
+<li>Coverage is US state legislatures only. See <a href="../method/">Method</a>.</li>
+</ul>
+"""
+    return page("Data", body, depth=1, active="data/",
+                desc="Download the registry as JSON or CSV, and what the dataset contains.")
+
+# ---------------------------------------------------------------- method page
+def method_page(d, bills):
+    vs={}; 
+    for b in bills: vs[b["verification_status"]]=vs.get(b["verification_status"],0)+1
+    provrows="".join(
+      f'<tr><td><code>{esc(k)}</code></td><td>{esc(v)}</td>'
+      f'<td class="n">{sum(1 for b in bills if k in b["provisions"])}</td></tr>'
+      for k,v in PROVISION_LABEL.items())
+    body=f"""
+<h1>Method</h1>
+<p class="lede">What this registry contains, how each record is established, and what it
+deliberately does not do.</p>
+
+<h2>Scope</h2>
+<p><strong>In scope.</strong> Bills and enacted laws of US state legislatures that address the
+legal status, legal personhood, or asserted mental properties of AI systems — including
+provisions that deny personhood, declare AI non-sentient, allocate liability, restrict what a
+chatbot may claim about itself, or restrict AI speech rights.</p>
+<p><strong>Out of scope, for now.</strong> Courts and litigation; federal legislation;
+non-US jurisdictions; corporate and laboratory internal policies. Court decisions on AI
+personhood, inventorship and standing are tracked by
+<a href="https://naturalandartificiallaw.com/ai-rights-and-legal-personhood-tracker/">Matthew
+Lee's AI Rights and Legal Personhood Tracker</a>, which we recommend rather than duplicate.</p>
+<p>General AI-legislation trackers covering all AI topics at volume include MultiState, IAPP,
+NCSL and Orrick. This registry is narrower and structured differently: it records what
+individual provisions say, how bills descend from one another, and how their text changed.</p>
+
+<h2>Inclusion does not imply endorsement</h2>
+<p>Listing a bill here does not mean we support it, oppose it, or hold any view about whether
+AI systems should have legal status. Records describe what bills say. Where a bill is claimed
+to be unconstitutional, we record <em>who made the claim</em> and attribute it; we never assert
+it ourselves.</p>
+<p>This registry is intended to be equally usable by people who support these bills and people
+who oppose them.</p>
+
+<h2>Source hierarchy</h2>
+<ol>
+<li><strong>Primary sources preferred.</strong> Enacted acts, published chapters, enrolled and
+introduced bill text, official action histories.</li>
+<li><strong>Legislative trackers</strong> (e.g. LegiScan) where a primary host is unreachable
+and the tracker establishes a citable fact such as a session-law chapter or a vote count.</li>
+<li><strong>Archived copies</strong> (Internet Archive) where a primary document has been
+overwritten or the host is unreachable. Several introduced texts here exist only as archived
+snapshots, because the legislature's "bill text" URL serves the current version and is
+overwritten on amendment.</li>
+</ol>
+<p>Every record names its sources and carries the date it was last checked.</p>
+
+<h2>Verification status</h2>
+<table class="deftable"><tbody>
+<tr><td><code>verified_primary</code></td><td>A person has read the primary document.</td>
+<td class="n">{vs.get("verified_primary",0)}</td></tr>
+<tr><td><code>verified_secondary</code></td><td>Established from a tracker record because the
+primary host could not be reached. Better than unverified, weaker than primary. Never silently
+promoted.</td><td class="n">{vs.get("verified_secondary",0)}</td></tr>
+<tr><td><code>seeded_unverified</code></td><td>Transcribed from a secondary account and not yet
+checked. Labelled as such wherever it appears.</td><td class="n">{vs.get("seeded_unverified",0)}</td></tr>
+</tbody></table>
+<p class="muted small">A bill's <em>status</em> is a claim like any other, so each carries an
+<em>action of record</em> — the verbatim legislative action establishing it. States record
+death differently: Wisconsin posts an explicit "failed to pass" line, Missouri posts nothing
+and a bill simply dies at adjournment, and Washington carries bills across a biennium so they
+do not die at all. The action line makes which of these applies visible.</p>
+
+<h2>Provision tags</h2>
+<p>Flat and descriptive. Every tag must be checkable against bill text such that two readers
+would reach the same answer. There is no score, index, ranking or rating, and rows are ordered
+chronologically — sorting by anything implying a hierarchy would be an editorial act.</p>
+<p class="muted small">Tags describe a record's <strong>operative</strong> text. Where a
+provision was present as introduced and removed later, the change appears in that bill's diff
+rather than in its tags.</p>
+<table class="deftable"><thead><tr><th scope="col">Tag</th><th scope="col">Meaning</th>
+<th scope="col" class="n">Bills</th></tr></thead><tbody>{provrows}</tbody></table>
+<p class="muted small"><code>restricts_person_like_training</code> currently applies to no
+record. It is not a mistake: it described Tennessee HB 1455 as introduced, which would have
+made training AI for companionship a felony, and that text was replaced in committee. Because
+tags describe operative text, the tag is retained in the vocabulary but attaches to nothing —
+the provision survives only in that bill's <a href="../bills/tn-hb1455-2025/">diff</a>. This
+is the clearest illustration of the limitation noted above.</p>
+
+<h2>Use of AI in compiling this registry</h2>
+<p>This registry was compiled with substantial assistance from AI tools, which were used to
+retrieve documents, extract fields, draft classifications and generate this site. AI tools
+make mistakes: they misread documents, invent plausible details, and mis-attribute sources.
+Every record was checked against its source by a person before publication, and the
+verification status above records how far that went for each one. Errors will remain. Please
+report them.</p>
+
+<h2>Corrections</h2>
+<p>If you find an error, a stale status, a broken link, a missing bill or a
+mischaracterised provision, please tell us. Corrections are logged with the date and what
+changed. The registry is versioned, so every change is a dated, inspectable record.</p>
+
+<h2>Citing this registry</h2>
+<p class="cite">{esc(SITE["name"])}, {esc(SITE["publisher"])}. Record for [state and bill
+number], last verified [date shown on the record]. Accessed [date].
+&lt;{esc(SITE["base"])}/bills/[record-id]/&gt;</p>
+<p class="muted small">Cite individual records rather than the site as a whole where you can:
+each carries its own verification date, and the registry changes.</p>
+
+<h2>Update cadence</h2>
+<p>State legislatures are seasonal. Most activity falls between January and May, and the
+registry is checked most often in that window. The header states when it was last verified;
+treat that date, not the publication date, as the currency of the data. We would rather show
+an honest last-verified date than imply continuous coverage we cannot hold.</p>
+
+<h2>Source dataset</h2>
+<p>The registry began from Appendix A of Smith, Caviola &amp; Alexander (2026),
+<em>Denying Personhood to AI: An Analysis of U.S. State Legislation on AI Legal Status</em>
+(SSRN 6829981), which documented {len(bills)} bills across
+{len({b["jurisdiction"]["state"] for b in bills})} states as of May 2026. Every record has
+since been checked against primary sources, and the registry now records statutory citations,
+effective dates, sponsors, vote counts, provision detail and text versions that the paper did
+not set out to capture. The underlying data is available on the <a href="../data/">data</a>
+page.</p>
+"""
+    return page("Method", body, depth=1, active="method/",
+                desc="Scope, source hierarchy, verification status, provision definitions, AI-use disclosure and citation guidance.")
 
 # ---------------------------------------------------------------- watch list
 KIND_LABEL={"effective":"Takes effect","expiry":"Deadline passes","report":"Report due",
@@ -840,6 +1086,12 @@ registry does not rank bills.</p>
 <script>{FILTER_JS}</script>
 """
     (DIST / "index.html").write_text(page("Bills", body, active=""))
+
+    sizes = write_data(d, bills, DIST / "data")
+    (DIST / "data" / "index.html").write_text(data_page(d, bills, sizes))
+
+    (DIST / "method").mkdir(parents=True, exist_ok=True)
+    (DIST / "method" / "index.html").write_text(method_page(d, bills))
 
     (DIST / "lineage").mkdir(parents=True, exist_ok=True)
     (DIST / "lineage" / "index.html").write_text(lineage(bills))
