@@ -31,7 +31,7 @@ the UI group or ungroup as needed.
 | `corporate_carve_out` | enum | `express_saving_clause` · `prospective_only` · `none` · `unknown` |
 | `constitutional_exposure` | array | `{amendments[], claimed_by}` — claims recorded, never our own conclusion |
 | `sponsors` | array | `{name, party, role}`; empty if not established |
-| `versions` | array | `{label, date, source_url}` — introduced → substitute → enacted |
+| `versions` | array | `{label, date, source_url, text_path}` — introduced → substitute → enacted; `text_path` points at the stored text under `registry/texts/` |
 | `key_clause` | object¦null | `{text, source}` verbatim |
 | `evidence_refs` | array | `ref_key`s into the Evidence sheet |
 | `sources` | object | `{primary[], tracker[]}` |
@@ -72,7 +72,13 @@ the UI group or ungroup as needed.
 ```
 registry/bills.json      the registry
 registry/validate.py     schema + vocabulary + referential checks
+registry/texts/          stored bill texts, {bill_id}--{version}.txt
+registry/incoming/       source documents as retrieved (PDFs)
 ```
+
+Stored texts are **normalised**: line numbers, page furniture and running headers removed,
+wording untouched. They exist so versions can be diffed; the authoritative document is always
+the `source_url`.
 
 ## Changelog
 

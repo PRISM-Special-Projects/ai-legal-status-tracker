@@ -42,12 +42,14 @@
         {
           "label": "introduced/enrolled text",
           "date": "2022",
-          "source_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2022/legislation/H0720.pdf"
+          "source_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2022/legislation/H0720.pdf",
+          "text_path": "texts/id-hb720-2022--introduced.txt"
         },
         {
           "label": "enacted (Sess. Laws ch. 322)",
           "date": "2022-03-31",
-          "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/"
+          "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/",
+          "text_path": null
         }
       ],
       "key_clause": {
@@ -178,7 +180,8 @@
         {
           "label": "enacted",
           "date": "2023",
-          "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html"
+          "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html",
+          "text_path": null
         }
       ],
       "key_clause": null,
@@ -370,7 +373,8 @@
         {
           "label": "enrolled",
           "date": "2024",
-          "source_url": "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf"
+          "source_url": "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf",
+          "text_path": "texts/ut-hb249-2024--enrolled.txt"
         }
       ],
       "key_clause": {
@@ -606,7 +610,8 @@
         {
           "label": "introduced (2795H.01I)",
           "date": "2025-02-25",
-          "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
+          "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R",
+          "text_path": "texts/mo-hb1462-2025--introduced.txt"
         }
       ],
       "key_clause": {
@@ -691,7 +696,8 @@
         {
           "label": "as introduced",
           "date": "2025",
-          "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469"
+          "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469",
+          "text_path": "texts/oh-hb469-2025--as-introduced.txt"
         }
       ],
       "key_clause": {
@@ -771,12 +777,14 @@
         {
           "label": "as introduced — text not seen",
           "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
+          "text_path": null
         },
         {
           "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C)",
           "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
+          "text_path": "texts/mo-hb1746-2026--hcs.txt"
         }
       ],
       "key_clause": {
@@ -857,12 +865,14 @@
         {
           "label": "as introduced (4626H.01I) — verbatim HB 1462 clone, corporate-veil provision INTACT",
           "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1769/2026"
+          "source_url": "https://legiscan.com/MO/bill/HB1769/2026",
+          "text_path": "texts/mo-hb1769-2026--introduced.txt"
         },
         {
           "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) — veil provision REMOVED, NIST safe harbour and open-source carve-out ADDED",
           "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
+          "text_path": "texts/mo-hb1746-2026--hcs.txt"
         }
       ],
       "key_clause": {
@@ -942,7 +952,8 @@
         {
           "label": "as introduced (4600S.01I)",
           "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378",
+          "text_path": "texts/mo-sb859-2026--introduced.txt"
         }
       ],
       "key_clause": {
@@ -1017,7 +1028,8 @@
         {
           "label": "as introduced (6352S.01I)",
           "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370",
+          "text_path": "texts/mo-sb1474-2026--introduced.txt"
         }
       ],
       "key_clause": {
@@ -1092,12 +1104,14 @@
         {
           "label": "introduced",
           "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
+          "text_path": null
         },
         {
           "label": "SS#2 SCS (second senate committee substitute)",
           "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
+          "text_path": null
         }
       ],
       "key_clause": null,
@@ -1218,7 +1232,8 @@
         {
           "label": "as introduced",
           "date": "2026-01-29",
-          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959",
+          "text_path": "texts/wi-ab959-2026--as-introduced.txt"
         }
       ],
       "key_clause": {
@@ -1351,7 +1366,8 @@
         {
           "label": "as introduced",
           "date": "2026-02-06",
-          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932"
+          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932",
+          "text_path": "texts/wi-sb932-2026--as-introduced.txt"
         }
       ],
       "key_clause": {
@@ -1455,22 +1471,26 @@
         {
           "label": "introduced",
           "date": "2025-02-04",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
+          "text_path": null
         },
         {
           "label": "amendment SA0922",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
+          "text_path": null
         },
         {
           "label": "amendment HA0979",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
+          "text_path": null
         },
         {
           "label": "enacted (Pub. Ch. 781)",
           "date": "2026-04-28",
-          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt"
         }
       ],
       "key_clause": {
@@ -1553,22 +1573,26 @@
         {
           "label": "introduced",
           "date": "2025-02-04",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
+          "text_path": null
         },
         {
           "label": "amendment SA0922",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
+          "text_path": null
         },
         {
           "label": "amendment HA0979",
           "date": "2026",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
+          "text_path": null
         },
         {
           "label": "enacted (Pub. Ch. 781)",
           "date": "2026-04-28",
-          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt"
         }
       ],
       "key_clause": {
@@ -1701,17 +1725,20 @@
         {
           "label": "introduced",
           "date": "2025",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf",
+          "text_path": null
         },
         {
           "label": "amendment HA1260 (Amendment No. 4)",
           "date": "2026",
-          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf"
+          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
+          "text_path": null
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
           "date": "2026-04-23",
-          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt"
         }
       ],
       "key_clause": {
@@ -1794,17 +1821,20 @@
         {
           "label": "introduced",
           "date": "2025",
-          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf",
+          "text_path": null
         },
         {
           "label": "amendment HA1260 (Amendment No. 4)",
           "date": "2026",
-          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf"
+          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
+          "text_path": null
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
           "date": "2026-04-23",
-          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt"
         }
       ],
       "key_clause": {
@@ -1974,7 +2004,8 @@
         {
           "label": "amended_assembly",
           "date": "2026-06-25",
-          "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159"
+          "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159",
+          "text_path": null
         }
       ],
       "key_clause": {

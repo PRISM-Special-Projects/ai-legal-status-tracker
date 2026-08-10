@@ -1,0 +1,34 @@
+2025 ASSEMBLY BILL 959
+January 29, 2026 - Introduced by Representatives BRILL, DITTRICH, ARMSTRONG, BEHNKE, KNODL, MAXEY, MURPHY, NEYLON and O'CONNOR, cosponsored by Senators JACQUE and QUINN. Referred to Committee on Science, Technology, and AI.
+***AUTHORS SUBJECT TO CHANGE***
+
+AN ACT to amend 990.01 (26); to create 134.44 of the statutes; relating to: the legal status of artificial intelligence.
+
+Analysis by the Legislative Reference Bureau
+This bill specifies that artificial intelligence is not a person; cannot own, control, or hold title to property; and cannot be a spouse or a corporate officer or director.
+
+The people of the state of Wisconsin, represented in senate and assembly, do enact as follows:
+
+SECTION 1. 134.44 of the statutes is created to read:
+
+134.44 Legal status of artificial intelligence. (1) In this section:
+(a) "Artificial intelligence" means an engineered or machine-based system that varies in its level of autonomy and that can, for explicit or implicit objectives, infer from the input it receives how to generate outputs that can influence physical or virtual environments.
+(b) "Developer" means any person primarily responsible for the design, coding, and initial creation of artificial intelligence.
+(c) "Entity" has the meaning given in s. 180.0103 (8).
+(d) "Manufacturer" means any person that produces or supplies artificial intelligence or its physical apparatus, if any, for distribution or sale.
+(e) "Owner" means any person that creates, controls, deploys, operates, or otherwise exercises authority over artificial intelligence, but does not include the end user of artificial intelligence.
+
+(2) (a) Notwithstanding any other provision of law, artificial intelligence is not a person for any purpose under the law of this state.
+(b) Artificial intelligence may not be granted the status of person or any form of legal personhood and may not be considered to possess consciousness, self-awareness, sentience, or any similar traits of living beings.
+(c) Artificial intelligence may not be a spouse or domestic partner and may not hold any legal status analogous to marriage or union with a human or with other artificial intelligence.
+(d) Artificial intelligence may not be designated, be appointed, or serve as an officer, director, partner, manager, or member, or any similar role, of an entity.
+(e) Artificial intelligence may not own, control, or hold title to any form of property, including real estate, intellectual property, financial accounts, and digital assets. All assets and proprietary interests generated, managed, or otherwise associated with artificial intelligence shall be attributed to the developer, manufacturer, or owner of the artificial intelligence.
+(f) Artificial intelligence is not a person against which liability may be imposed.
+
+(3) Any action contrary to sub. (2) (c) is void and has no legal effect.
+
+SECTION 2. 990.01 (26) of the statutes is amended to read:
+990.01 (26) PERSON. "Person" includes all partnerships, associations and bodies politic or corporate. "Person" does not include artificial intelligence, as defined in s. 134.44 (1) (a).
+(END)
+
+Drafting reference: LRB-5476/1
