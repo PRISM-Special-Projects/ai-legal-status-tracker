@@ -158,6 +158,16 @@ records ship from day one regardless — those are just sourced facts.
 
 ## Step 12 — QA before anyone sees it
 
+**Add a rendered-layout check, not just a logic check.** The mobile matrix shipped broken
+because `table.matrix th, table.matrix td {display:none}` (specificity 0,1,2) out-ranked
+`th.bill {display:block}` (0,1,1), so every row rendered as an empty box below 760px. The
+Step 4 acceptance test passed throughout — it counted rows in JavaScript, which is blind to
+whether a cell is visible. Any check that only inspects the DOM or the data will miss this
+class of bug.
+
+Concretely: at 375px, 720px and desktop, assert that a sample row has non-zero height and at
+least two visible child cells.
+
 - Link check: every `sources.primary` and `versions[].source_url` resolves, or is flagged
 - 375px mobile pass
 - Light and dark

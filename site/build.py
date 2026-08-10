@@ -308,10 +308,11 @@ table.matrix tbody tr:hover .dot{background:var(--bg)}
   table.matrix tr{border:1px solid var(--line);border-radius:var(--radius);
     background:var(--card);margin-bottom:10px;padding:12px 14px}
   table.matrix th,table.matrix td{border:0;padding:0;text-align:left;display:none}
-  th.bill{display:block;white-space:normal;padding-left:0}
-  th.bill a{font-size:1.02rem}
-  .rowmeta{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
-  td.chipsum{display:block;margin-top:8px}
+  /* These two must out-specify the rule above (0,1,2), hence the table.matrix prefix. */
+  table.matrix th.bill{display:block;white-space:normal;padding-left:0}
+  table.matrix th.bill a{font-size:1.02rem}
+  table.matrix th.bill .rowmeta{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+  table.matrix td.chipsum{display:block;margin-top:8px}
   .rowcount{margin-left:0;width:100%}
 }
 
