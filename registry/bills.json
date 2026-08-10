@@ -96,7 +96,7 @@
         "state": "ND"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "N.D. Cent. Code § 1-01-49(8) (definition of 'person')",
       "derived_from": "id-hb720-2022",
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
@@ -105,14 +105,64 @@
       "constitutional_exposure": [],
       "sponsors": [
         {
-          "name": "Cole Christensen",
-          "party": "R",
-          "role": "sponsor"
+          "name": "Christensen",
+          "party": null,
+          "role": "house sponsor"
         },
         {
-          "name": "Jeff Hoverson",
-          "party": "R",
-          "role": "sponsor"
+          "name": "Bellew",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Heilman",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Hoverson",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Kasper",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Kempenich",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Koppelman",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Toman",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Larsen",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Magrum",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Vedaa",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Wobbema",
+          "party": null,
+          "role": "senate sponsor"
         }
       ],
       "versions": [
@@ -130,9 +180,9 @@
         "dodson2023"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Near-identical to Idaho HB 720 but amends the ND Century Code definition of 'person', so it changes personhood across the whole code. Amended after Catholic Conference testimony raised juridical-personhood concerns.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Signed by the governor, filed 12 April 2023. Amends subsection 8 of N.D. Cent. Code s 1-01-49, the general definition of 'person', so it changes personhood across the whole code. TWELVE sponsors, far more than the two the paper names. Amended after North Dakota Catholic Conference testimony raised juridical-personhood concerns. Full bill text not on the overview page - operative language still to be read from the Versions tab.",
       "id": "nd-hb1361-2023",
       "bill_number": "HB 1361",
       "chamber": "house",
@@ -160,7 +210,7 @@
           "https://legiscan.com/ND/bill/HB1361/2023"
         ]
       },
-      "effective_date": null
+      "effective_date": "2023-04-12"
     },
     {
       "jurisdiction": {
@@ -180,7 +230,47 @@
         {
           "name": "Cody Maynard",
           "party": "R",
-          "role": "sponsor"
+          "role": "principal author (House)"
+        },
+        {
+          "name": "David Bullard",
+          "party": null,
+          "role": "principal author (Senate)"
+        },
+        {
+          "name": "Hildebrant",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Olsen",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Pae",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Hall",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "CrosswhiteHader",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Clinton",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Stark",
+          "party": null,
+          "role": "coauthor"
         }
       ],
       "versions": [],
@@ -189,9 +279,9 @@
         "maynard_nd"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Idaho template, adding 'association' and 'nonprofit organization' to the entities that expressly retain personhood. Passed the House 94-2 in March 2026 (source: media, verify).",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Introduced 7 Feb 2026. Passed the House 23 March 2026 by 94-2. Placed on Senate General Order 21 April 2026. Title: 'Technology; personhood; artificial intelligence; effective date.' Idaho template. Operative text not on the status page - still to be read.",
       "id": "ok-hb3546-2026",
       "bill_number": "HB 3546",
       "chamber": "house",
@@ -202,7 +292,7 @@
       },
       "status": {
         "stage": "passed_one_chamber",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600"
       },
       "family": "A",
@@ -323,21 +413,32 @@
         "state": "SC"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "Would add S.C. Code art. 29 to ch. 1, tit. 1",
       "derived_from": "ut-hb249-2024",
       "definitional_anchor": "taxonomic",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Kilmartin",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Beach",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
       "versions": [],
       "key_clause": null,
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Reproduces Utah HB 249 nearly verbatim.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Introduced 28 Jan 2025, referred to House Judiciary the same day; no further action since. Would add Article 29 to Chapter 1, Title 1 of the SC Code, prohibiting a governmental entity from granting or recognising legal personhood in certain items. Utah template. Operative list not on the summary page - still to be read verbatim.",
       "id": "sc-hb3796-2025",
       "bill_number": "HB 3796",
       "chamber": "house",
@@ -348,7 +449,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B"
       },
       "family": "B",
@@ -381,14 +482,50 @@
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Abell",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Corry",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Chase",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Ley",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Marshall",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Walsh",
+          "party": null,
+          "role": "sponsor"
+        },
+        {
+          "name": "Dufault",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
       "versions": [],
       "key_clause": null,
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Reproduces Utah HB 249 nearly verbatim. First liberal-leaning / tech state to consider an Exclusion Bill.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. **CORRECTS THE PAPER.** Table 1 records this bill as 'Failed'. It is not. First reading and referral to House Civil Rights & Judiciary on 27 Feb 2025; 'reintroduced and retained in present status' on 12 Jan 2026; still in that committee today. Washington carries bills across the two years of a biennium, so it was reintroduced rather than dying. Seven sponsors, none named in the paper. Title: 'recognition of legal personhood by a governmental entity.'",
       "id": "wa-hb2029-2025",
       "bill_number": "HB 2029",
       "chamber": "house",
@@ -398,8 +535,8 @@
         "year_introduced": 2025
       },
       "status": {
-        "stage": "failed",
-        "as_of": "2026-05-12",
+        "stage": "in_committee",
+        "as_of": "2026-08-10",
         "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false"
       },
       "family": "B",
@@ -442,7 +579,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "seeded_unverified",
       "last_verified": null,
-      "notes": "Originator of Family C. First bill to declare AI non-conscious. Enumerates denied statuses: marriage, property ownership, responsibility for harms, liability, managerial positions in corporate entities. Died in committee 2025, reintroduced 2026 as four bills.",
+      "notes": "Originator of Family C. First bill to declare AI non-conscious. Enumerates denied statuses: marriage, property ownership, responsibility for harms, liability, managerial positions in corporate entities. Died in committee 2025, reintroduced 2026 as four bills. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
       "id": "mo-hb1462-2025",
       "bill_number": "HB 1462",
       "chamber": "house",
@@ -576,7 +713,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "seeded_unverified",
       "last_verified": null,
-      "notes": "Consolidated in committee with HB 1769 into a single replacement text.",
+      "notes": "Consolidated in committee with HB 1769 into a single replacement text. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
       "id": "mo-hb1746-2026",
       "bill_number": "HB 1746",
       "chamber": "house",
@@ -630,7 +767,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "seeded_unverified",
       "last_verified": null,
-      "notes": "Consolidated in committee with HB 1746 into a single replacement text.",
+      "notes": "Consolidated in committee with HB 1746 into a single replacement text. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
       "id": "mo-hb1769-2026",
       "bill_number": "HB 1769",
       "chamber": "house",
@@ -779,7 +916,13 @@
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Joe Nicola",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
       "versions": [
         {
           "label": "introduced",
@@ -787,7 +930,7 @@
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
         },
         {
-          "label": "committee_substitute",
+          "label": "SS#2 SCS (second senate committee substitute)",
           "date": "2026",
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
         }
@@ -795,9 +938,9 @@
       "key_clause": null,
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Missouri's leading vehicle. Omnibus: deepfakes, political ads, AI non-sentience and non-personhood. The non-sentience and non-personhood components were NOT in the original draft - added via committee substitute. Passed the Senate.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS AMBIGUOUS: the House Emerging Issues committee returned a Do Not Pass. Whether the Senate passed it first needs a human read of the action history - stage left at passed_one_chamber pending that.",
       "id": "mo-sb1012-2026",
       "bill_number": "SB 1012",
       "chamber": "senate",
@@ -816,7 +959,8 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "restricts_chatbot_claims"
       ],
       "sources": {
         "primary": [
@@ -826,7 +970,7 @@
           "https://legiscan.com/MO/bill/SB1012/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-08-28"
     },
     {
       "jurisdiction": {
@@ -1208,7 +1352,7 @@
         "state": "MN"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "Proposed amendment to Minn. Const. art. I, § 3",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
@@ -1218,16 +1362,16 @@
       "sponsors": [],
       "versions": [],
       "key_clause": {
-        "text": "Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?",
-        "source": "SF 4114 (2026)"
+        "text": "The right to freely speak, write, and publish sentiments on all subjects provided in this section does not apply to artificial intelligence.",
+        "source": "SF 4114 (2026), proposed amendment to Minn. Const. art. I, § 3"
       },
       "evidence_refs": [
         "mnhrd_nd"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Bipartisan. Would go to Minnesota voters at the 2026 general election if passed by the legislature. The only constitutional-amendment vehicle in the set.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Amends Minn. Const. art. I, s 3 (free speech) to exclude AI. Ballot question confirmed verbatim: 'Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?' Sponsors not listed on the text page - paper reports bipartisan sponsorship, still to confirm. Only constitutional-amendment vehicle in the set.",
       "id": "mn-sf4114-2026",
       "bill_number": "SF 4114",
       "chamber": "senate",
@@ -1248,7 +1392,8 @@
       ],
       "sources": {
         "primary": [
-          "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/"
+          "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/",
+          "https://www.revisor.mn.gov/bills/text.php?number=SF4114&version=0&session=ls94&session_year=2026&session_number=0"
         ],
         "tracker": [
           "https://legiscan.com/MN/bill/SF4114/2025"
@@ -1263,23 +1408,78 @@
         "state": "CA"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "Amends Cal. Gov. Code ss 7920.520, 9072, 11405.70, 11500; adds ss 8319, 11121.5, 11342.575, 11370.1.5, 54951.5; amends Pub. Res. Code ss 21066, 30111",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Cabaldon",
+          "party": null,
+          "role": "lead author (Senate)"
+        },
+        {
+          "name": "Allen",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Becker",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Jones",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Ochoa Bogh",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Weber Pierson",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Lowenthal",
+          "party": null,
+          "role": "coauthor (Assembly)"
+        },
+        {
+          "name": "Pacheco",
+          "party": null,
+          "role": "coauthor (Assembly)"
+        },
+        {
+          "name": "Zbur",
+          "party": null,
+          "role": "coauthor (Assembly)"
+        }
+      ],
+      "versions": [
+        {
+          "label": "amended_assembly",
+          "date": "2026-06-25",
+          "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159"
+        }
+      ],
+      "key_clause": {
+        "text": "'Person,' 'interested person,' 'member of the public,' and any other similar terms referring to those who may engage with governmental agencies under this division do not include artificial intelligence systems, autonomous agents, robots, or other nonhuman entities, whether physical or digital.",
+        "source": "SB 1159 (2026), as amended 25 June 2026"
+      },
       "evidence_refs": [
         "weinberg2026"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Narrowest bill in the set: 'person' does not refer to AI in statutes on public records, transparency and governance. Primarily but not exclusively Democratic-sponsored. Aimed at preventing AI-generated mass public-records requests.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. STATUS MOVED SINCE THE PAPER: amended in the Assembly 25 June 2026, i.e. past the Senate. Operative text is BROADER than the paper describes - it excludes 'artificial intelligence systems, autonomous agents, robots, or other nonhuman entities, whether physical or digital', not AI alone. Reaches 12 code sections across the Government Code and Public Resources Code. Coauthors span both parties (Jones and Ochoa Bogh are Republicans), supporting the paper's 'primarily though not exclusively Democratic' characterisation.",
       "id": "ca-sb1159-2026",
       "bill_number": "SB 1159",
       "chamber": "senate",
@@ -1289,8 +1489,8 @@
         "year_introduced": 2026
       },
       "status": {
-        "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "stage": "passed_one_chamber",
+        "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD"
       },
       "family": "other",
@@ -1315,21 +1515,42 @@
         "state": "CA"
       },
       "companion_group": "ca-2026-ab2023-sb1119",
-      "codified_at": null,
+      "codified_at": "Would add Cal. Bus. & Prof. Code ch. 22.6.1 (commencing with s 22610) to Division 8",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Wicks",
+          "party": null,
+          "role": "lead author (Assembly)"
+        },
+        {
+          "name": "Bauer-Kahan",
+          "party": null,
+          "role": "lead author (Assembly)"
+        },
+        {
+          "name": "Padilla",
+          "party": null,
+          "role": "principal coauthor (Senate)"
+        },
+        {
+          "name": "Lowenthal",
+          "party": null,
+          "role": "coauthor"
+        }
+      ],
       "versions": [],
       "key_clause": null,
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Child chatbot safety. Prohibits chatbots claiming to children that they are 'sentient', 'conscious' or 'human'. Part of a wider package including age verification and parental controls. Democratic-sponsored.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. Title: 'Companion chatbots: children's safety.' STATUS MOVED SINCE THE PAPER: past the Assembly, in Senate Appropriations, referred to the suspense file 3 August 2026 - a week before this check. Adds B&P Code ch. 22.6.1. The specific bar on chatbots claiming sentience/consciousness/humanity to children sits in the full text, not the status page - still to be read verbatim.",
       "id": "ca-ab2023-2026",
       "bill_number": "AB 2023",
       "chamber": "house",
@@ -1339,8 +1560,8 @@
         "year_introduced": 2026
       },
       "status": {
-        "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "stage": "passed_one_chamber",
+        "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023"
       },
       "family": "other",
@@ -1365,21 +1586,70 @@
         "state": "CA"
       },
       "companion_group": "ca-2026-ab2023-sb1119",
-      "codified_at": null,
+      "codified_at": "Adds Cal. Bus. & Prof. Code ch. 22.6.1, ss 22610-22617, to Division 8",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "unknown",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Padilla",
+          "party": null,
+          "role": "introduced by (Senate)"
+        },
+        {
+          "name": "Bauer-Kahan",
+          "party": null,
+          "role": "principal coauthor (Assembly)"
+        },
+        {
+          "name": "Wicks",
+          "party": null,
+          "role": "principal coauthor (Assembly)"
+        },
+        {
+          "name": "Arreguin",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Cortese",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Wahab",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Kalra",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Sanchez",
+          "party": null,
+          "role": "coauthor"
+        },
+        {
+          "name": "Lowenthal",
+          "party": null,
+          "role": "coauthor"
+        }
+      ],
       "versions": [],
-      "key_clause": null,
+      "key_clause": {
+        "text": "Claiming that the companion chatbot is sentient, conscious, or human.",
+        "source": "SB 1119 (2026), s 22612(d)(5)(G) - prohibited conduct"
+      },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Senate companion to AB 2023.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10. The operative bar sits at s 22612(d)(5)(G): a companion chatbot may not claim it 'is sentient, conscious, or human'. NUANCE: the paper frames this as a bar on such claims *to children*; the clause itself is not limited to children, though the chapter as a whole is a children's-safety measure. Adds B&P Code ss 22610-22617 covering definitions, operator duties, risk assessments, audits and civil enforcement.",
       "id": "ca-sb1119-2026",
       "bill_number": "SB 1119",
       "chamber": "senate",
@@ -1390,7 +1660,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119"
       },
       "family": "other",
