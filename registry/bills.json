@@ -694,7 +694,8 @@
         "bars_corporate_office",
         "imposes_safety_duties",
         "incident_reporting_duty",
-        "addresses_corporate_veil"
+        "addresses_corporate_veil",
+        "bars_ai_liability"
       ],
       "sources": {
         "primary": [
@@ -996,31 +997,90 @@
         "state": "WI"
       },
       "companion_group": "wi-2026-ab959-sb932",
-      "codified_at": null,
+      "codified_at": "Would create Wis. Stat. § 134.44 and amend § 990.01(26)",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "none",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "express_saving_clause",
       "constitutional_exposure": [],
       "sponsors": [
         {
-          "name": "Lindee Brill",
-          "party": "R",
-          "role": "primary"
+          "name": "Brill",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Dittrich",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Armstrong",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Behnke",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Knodl",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Maxey",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Murphy",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Neylon",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "O'Connor",
+          "party": null,
+          "role": "assembly author"
+        },
+        {
+          "name": "Jacque",
+          "party": null,
+          "role": "senate cosponsor"
+        },
+        {
+          "name": "Quinn",
+          "party": null,
+          "role": "senate cosponsor"
         }
       ],
-      "versions": [],
-      "key_clause": null,
+      "versions": [
+        {
+          "label": "as introduced",
+          "date": "2026-01-29",
+          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+        }
+      ],
+      "key_clause": {
+        "text": "(2)(a) Notwithstanding any other provision of law, artificial intelligence is not a person for any purpose under the law of this state. (b) Artificial intelligence may not be granted the status of person or any form of legal personhood and may not be considered to possess consciousness, self-awareness, sentience, or any similar traits of living beings.",
+        "source": "Wisconsin AB 959 (2026), proposed Wis. Stat. § 134.44(2)"
+      },
       "evidence_refs": [
         "brill2026",
         "barker2026",
         "wiseye2026"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "The only bill that BOTH amends the general statutory definition of 'person' AND bans AI personhood by standalone provision. Shorter than the Missouri/Ohio texts. Sponsor cites the Speaker's Task Force on Protecting Kids.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 29 Jan 2026, referred to the Assembly Committee on Science, Technology and AI. Nine Assembly authors and two Senate cosponsors (Jacque, Quinn); the paper names only Brill. The bill carries an '***AUTHORS SUBJECT TO CHANGE***' marker. HYBRID TECHNIQUE CONFIRMED ON THE FACE OF THE BILL: 'AN ACT to amend 990.01 (26); to create 134.44 of the statutes'. It both creates a standalone section and amends the general statutory definition of 'person'. The paper's claim that this is the only such bill holds. **IMPORTANT DIVERGENCE FROM OHIO AND MISSOURI.** Wisconsin does NOT assign liability to humans. s 134.44(2)(f) says only that AI 'is not a person against which liability may be imposed', and (2)(e) attributes ASSETS - not liability - to the developer, manufacturer or owner. There is no affirmative provision placing harm liability on any human, unlike Ohio s 1357.06. assigns_liability_to_humans has therefore been REMOVED and bars_ai_liability used instead. This is the textual basis for Daniel Barker's testimony that the bill creates an 'accountability vacuum' by denying AI personhood without assigning responsibility - the paper reports that objection; the text substantiates it. It also qualifies the paper's description of Family C as bills that 'clarify that human developers and users... are liable for any harms'. That is true of Ohio and Missouri, not of Wisconsin. THE AI DEFINITION IS THE OECD / EU AI ACT FORMULATION: 'an engineered or machine-based system that varies in its level of autonomy and that can, for explicit or implicit objectives, infer from the input it receives how to generate outputs that can influence physical or virtual environments.' This is materially narrower and more standard than Ohio's, which reaches 'rules-based logic'. Definitional quality varies enormously across the registry and is worth surfacing as a comparison axis. 'Owner' expressly EXCLUDES the end user, again unlike Ohio. VOIDING IS ASYMMETRIC: sub. (3) voids actions contrary to (2)(c) - marriage - only. Appointments to corporate office and property transfers are prohibited but not declared void, where Ohio voids both. CORPORATE PERSONHOOD EXPRESSLY RETAINED in the amended s 990.01(26): 'Person' still 'includes all partnerships, associations and bodies politic or corporate'. STATUS NOT CONFIRMED: this is the introduced text. The paper records the bill as Failed; after Washington HB 2029 turned out to be wrongly recorded as failed, the final disposition still needs checking.",
       "id": "wi-ab959-2026",
       "bill_number": "AB 959",
       "chamber": "house",
@@ -1039,7 +1099,10 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability"
       ],
       "sources": {
         "primary": [
@@ -1058,21 +1121,86 @@
         "state": "WI"
       },
       "companion_group": "wi-2026-ab959-sb932",
-      "codified_at": null,
+      "codified_at": "Would create Wis. Stat. § 134.44 and amend § 990.01(26)",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "none",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "express_saving_clause",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Jacque",
+          "party": null,
+          "role": "senate author"
+        },
+        {
+          "name": "Quinn",
+          "party": null,
+          "role": "senate author"
+        },
+        {
+          "name": "Brill",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Dittrich",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Armstrong",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Behnke",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Maxey",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Murphy",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Neylon",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "O'Connor",
+          "party": null,
+          "role": "assembly cosponsor"
+        },
+        {
+          "name": "Knodl",
+          "party": null,
+          "role": "assembly cosponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "as introduced",
+          "date": "2026-02-06",
+          "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932"
+        }
+      ],
+      "key_clause": {
+        "text": "(2)(a) Notwithstanding any other provision of law, artificial intelligence is not a person for any purpose under the law of this state. (b) Artificial intelligence may not be granted the status of person or any form of legal personhood and may not be considered to possess consciousness, self-awareness, sentience, or any similar traits of living beings.",
+        "source": "Wisconsin SB 932 (2026), proposed Wis. Stat. § 134.44(2)"
+      },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Senate companion to AB 959.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Introduced 6 February 2026, eight days after AB 959. OPERATIVE TEXT IS WORD-FOR-WORD IDENTICAL to AB 959 - the presumption of identity is now evidenced, not assumed. BUT THEY ARE SEPARATE DRAFTS: SB 932 is LRB-6000/1, AB 959 is LRB-5476/1. Two distinct Legislative Reference Bureau drafting jobs producing identical text, which is direct evidence of deliberate companion drafting rather than one bill being copied. SPONSOR ROLES ARE MIRRORED: Senators Jacque and Quinn are the authors here and cosponsors on AB 959; the nine Assembly members are cosponsors here and authors there. Same eleven people, inverted. DIFFERENT COMMITTEES, WHICH MATTERS FOR TRACKING: SB 932 went to Utilities, Technology and Tourism; AB 959 to Science, Technology and AI. A companion pair can die in one chamber and live in the other, so the two records must be tracked separately rather than collapsed. Carries the same '***AUTHORS SUBJECT TO CHANGE***' marker. STATUS NOT CONFIRMED: introduced text only; the paper records Failed and that still needs checking.",
       "id": "wi-sb932-2026",
       "bill_number": "SB 932",
       "chamber": "senate",
@@ -1091,7 +1219,10 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability"
       ],
       "sources": {
         "primary": [

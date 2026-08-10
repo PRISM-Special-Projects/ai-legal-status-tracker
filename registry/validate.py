@@ -10,7 +10,10 @@ PROV={"denies_legal_personhood","declares_non_sentient","assigns_liability_to_hu
       # added 2026-08-10 from the Ohio HB 469 text - the Family C bills do considerably
       # more than deny personhood and declare non-sentience
       "bars_marriage_or_union","bars_property_ownership","bars_corporate_office",
-      "imposes_safety_duties","incident_reporting_duty","addresses_corporate_veil"}
+      "imposes_safety_duties","incident_reporting_duty","addresses_corporate_veil",
+      # WI AB 959 negates AI liability without assigning it to anyone - distinct from
+      # OH s 1357.06, which affirmatively assigns it. Keep the two separable.
+      "bars_ai_liability"}
 FAM={"A","B","C","other"}
 ANCHOR={"taxonomic","enumerated_only","none","unknown"}
 AUG={"anchored","unanchored","unclear"}
