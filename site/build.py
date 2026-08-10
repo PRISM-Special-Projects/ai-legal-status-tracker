@@ -140,6 +140,72 @@ footer.site{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 46px
 footer.site p{margin:.3em 0;max-width:74ch}
 
 
+/* ---- visually hidden ---- */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- state tile grid (filter control, not a map) ---- */
+.mapwrap{margin:1.8em 0 1.4em}
+.tilegrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;max-width:620px}
+.tile{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--muted);
+  font:600 .62rem/1 ui-sans-serif,system-ui,sans-serif;padding:0;min-height:26px}
+.tile .n{font-size:.7rem;font-weight:700;color:var(--accent);margin-top:1px}
+.tile.has{background:var(--accent-weak);border-color:var(--accent);color:var(--fg);cursor:pointer}
+.tile.has:hover{background:var(--accent);color:var(--bg)}
+.tile.has:hover .n{color:var(--bg)}
+.tile.has[aria-pressed=true]{background:var(--accent);color:var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.tile.has[aria-pressed=true] .n{color:var(--bg)}
+.tile.has:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.maplegend{font-size:.78rem;margin:.7em 0 0;max-width:56ch}
+
+/* ---- filter controls ---- */
+.controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:1.4em 0 1em;
+  padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  font:.85rem/1.4 ui-sans-serif,system-ui,sans-serif}
+.controls label{display:flex;gap:6px;align-items:center;color:var(--muted)}
+.controls select{font:inherit;padding:4px 6px;border:1px solid var(--line);border-radius:4px;
+  background:var(--bg);color:var(--fg);max-width:210px}
+.controls button{font:inherit;padding:5px 10px;border:1px solid var(--line);border-radius:4px;
+  background:var(--bg);color:var(--fg);cursor:pointer}
+.rowcount{margin-left:auto;font-weight:600;color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* ---- provision matrix ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+table.matrix{border-collapse:collapse;width:100%;font:.85rem/1.4 ui-sans-serif,system-ui,sans-serif}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:center}
+table.matrix thead th{position:sticky;top:0;background:var(--card);z-index:1;
+  border-bottom:2px solid var(--line);vertical-align:bottom}
+th.pv{height:150px;padding:6px 2px;font-weight:500}
+th.pv>span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
+  font-size:.72rem;color:var(--muted)}
+td.pv{width:26px;min-width:26px}
+td.pv.on{background:var(--accent-weak)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+th.bill{text-align:left;white-space:nowrap;padding-left:12px}
+th.bill a{font-weight:600;text-decoration:none}
+th.bill a:hover{text-decoration:underline}
+.rowmeta{display:none}
+td.yr{font-variant-numeric:tabular-nums;color:var(--muted)}
+td.fam{color:var(--muted)}
+td.chipsum{display:none}
+table.matrix tbody tr:hover td.pv.on{background:var(--accent)}
+table.matrix tbody tr:hover .dot{background:var(--bg)}
+
+@media (max-width:760px){
+  .tilegrid{max-width:100%}
+  .tablewrap{overflow:visible;border:0;background:transparent}
+  table.matrix,table.matrix tbody,table.matrix tr{display:block;width:100%}
+  table.matrix thead{display:none}
+  table.matrix tr{border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--card);margin-bottom:10px;padding:12px 14px}
+  table.matrix th,table.matrix td{border:0;padding:0;text-align:left;display:none}
+  th.bill{display:block;white-space:normal;padding-left:0}
+  th.bill a{font-size:1.02rem}
+  .rowmeta{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+  td.chipsum{display:block;margin-top:8px}
+  .rowcount{margin-left:0;width:100%}
+}
+
 .crumb{font:.85rem/1 ui-sans-serif,system-ui,sans-serif;margin:0 0 1.2em}
 h1+.lede{margin-top:-.2em}
 .statusblock{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);
@@ -183,6 +249,119 @@ time{font-variant-numeric:tabular-nums}
   main{padding-top:24px}
   h1{font-size:1.6rem}
 }
+"""
+
+# ---------------------------------------------------------------- landing: map + matrix
+# Standard US tile grid: (row, col) on a 12-col lattice. Geography approximate by design —
+# this is a filter control, not a map. Equal-area tiles stop small states vanishing.
+TILES = {
+ "AK":(1,1),"ME":(1,12),
+ "VT":(2,11),"NH":(2,12),
+ "WA":(3,2),"ID":(3,3),"MT":(3,4),"ND":(3,5),"MN":(3,6),"IL":(3,7),"WI":(3,8),"MI":(3,9),
+ "NY":(3,10),"MA":(3,11),"RI":(3,12),
+ "OR":(4,2),"NV":(4,3),"WY":(4,4),"SD":(4,5),"IA":(4,6),"IN":(4,7),"OH":(4,8),"PA":(4,9),
+ "NJ":(4,10),"CT":(4,11),
+ "CA":(5,2),"UT":(5,3),"CO":(5,4),"NE":(5,5),"MO":(5,6),"KY":(5,7),"WV":(5,8),"VA":(5,9),
+ "MD":(5,10),"DE":(5,11),
+ "AZ":(6,3),"NM":(6,4),"KS":(6,5),"AR":(6,6),"TN":(6,7),"NC":(6,8),"SC":(6,9),"DC":(6,10),
+ "OK":(7,4),"LA":(7,5),"MS":(7,6),"AL":(7,7),"GA":(7,8),
+ "HI":(8,1),"TX":(8,2),"FL":(8,10),
+}
+PROV_ORDER = ["denies_legal_personhood","declares_non_sentient","covers_non_ai_entities",
+  "assigns_liability_to_humans","bars_ai_liability","addresses_corporate_veil",
+  "bars_marriage_or_union","bars_property_ownership","bars_corporate_office",
+  "imposes_safety_duties","incident_reporting_duty","provides_compliance_safe_harbor",
+  "restricts_chatbot_claims","restricts_ai_speech_rights","restricts_person_like_training",
+  "study_only"]
+
+def tile_map(bills):
+    counts={}
+    for b in bills: counts[b["jurisdiction"]["state"]]=counts.get(b["jurisdiction"]["state"],0)+1
+    cells=[]
+    for st,(r,c) in sorted(TILES.items(), key=lambda kv:(kv[1][0],kv[1][1])):
+        n=counts.get(st,0)
+        if n:
+            cells.append(f'<button type="button" class="tile has" data-state="{esc(st)}" '
+                         f'style="grid-row:{r};grid-column:{c}" '
+                         f'aria-label="{esc(st)}, {n} bill{"" if n==1 else "s"}. Filter.">'
+                         f'<span class="ab">{esc(st)}</span><span class="n">{n}</span></button>')
+        else:
+            cells.append(f'<div class="tile" style="grid-row:{r};grid-column:{c}" '
+                         f'aria-label="{esc(st)}, no legislation identified">'
+                         f'<span class="ab">{esc(st)}</span></div>')
+    return ('<div class="mapwrap"><div class="tilegrid" role="group" '
+            'aria-label="Filter by state">' + "".join(cells) + '</div>'
+            '<p class="maplegend muted">Tiles are positioned approximately, sized equally. '
+            'Numbers are bills held. States without a number: no legislation identified.</p></div>')
+
+def matrix(bills):
+    heads="".join(f'<th scope="col" class="pv"><span>{esc(PROVISION_LABEL[p])}</span></th>'
+                  for p in PROV_ORDER)
+    rows=[]
+    for b in bills:
+        st=b["jurisdiction"]["state"]; pset=set(b["provisions"])
+        tds="".join(
+          f'<td class="pv{" on" if p in pset else ""}" '
+          f'title="{esc(PROVISION_LABEL[p])}">'
+          f'{"<span class=dot aria-label=yes></span>" if p in pset else "<span class=vh>no</span>"}</td>'
+          for p in PROV_ORDER)
+        chipsum=" ".join(f'<span class="chip">{esc(PROVISION_LABEL[p])}</span>' for p in b["provisions"])
+        rows.append(
+          f'<tr data-state="{esc(st)}" data-family="{esc(b["family"])}" '
+          f'data-status="{esc(b["status"]["stage"])}" '
+          f'data-prov="{esc(" ".join(b["provisions"]))}">'
+          f'<th scope="row" class="bill"><a href="bills/{esc(b["id"])}/">{esc(st)} {esc(b["bill_number"])}</a>'
+          f'<span class="rowmeta">{esc(b["session"]["year_introduced"])} · fam {esc(b["family"])} · '
+          f'{esc(b["status"]["stage"].replace("_"," "))}</span></th>'
+          f'<td class="yr">{esc(b["session"]["year_introduced"])}</td>'
+          f'<td class="fam">{esc(b["family"])}</td>'
+          f'<td class="stt"><span class="chip s-{esc(b["status"]["stage"])}">'
+          f'{esc(b["status"]["stage"].replace("_"," "))}</span></td>'
+          f'{tds}<td class="chipsum">{chipsum}</td></tr>')
+    return (f'<div class="tablewrap"><table class="matrix" id="matrix">'
+            f'<caption class="vh">Bills by provision</caption><thead><tr>'
+            f'<th scope="col" class="bill">Bill</th><th scope="col" class="yr">Year</th>'
+            f'<th scope="col" class="fam">Family</th><th scope="col" class="stt">Status</th>'
+            f'{heads}<th scope="col" class="chipsum vh">Provisions</th>'
+            f'</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+
+FILTER_JS = """
+(function(){
+  var t=document.getElementById('matrix'); if(!t) return;
+  var rows=[].slice.call(t.tBodies[0].rows);
+  var sel={state:'',family:'',status:'',prov:''};
+  var count=document.getElementById('rowcount');
+  function apply(){
+    var n=0;
+    rows.forEach(function(r){
+      var ok=(!sel.state||r.dataset.state===sel.state)
+          && (!sel.family||r.dataset.family===sel.family)
+          && (!sel.status||r.dataset.status===sel.status)
+          && (!sel.prov||r.dataset.prov.split(' ').indexOf(sel.prov)>=0);
+      r.hidden=!ok; if(ok) n++;
+    });
+    count.textContent=n+(n===1?' bill':' bills')+(sel.state?' in '+sel.state:'');
+    document.querySelectorAll('.tile.has').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.state===sel.state ? 'true':'false');
+    });
+    document.getElementById('clear').hidden = !(sel.state||sel.family||sel.status||sel.prov);
+  }
+  document.querySelectorAll('.tile.has').forEach(function(b){
+    b.addEventListener('click',function(){
+      sel.state = (sel.state===b.dataset.state) ? '' : b.dataset.state; apply();
+    });
+  });
+  ['family','status','prov'].forEach(function(k){
+    var el=document.getElementById('f-'+k);
+    if(el) el.addEventListener('change',function(){ sel[k]=el.value; apply(); });
+  });
+  document.getElementById('clear').addEventListener('click',function(){
+    sel={state:'',family:'',status:'',prov:''};
+    ['family','status','prov'].forEach(function(k){var e=document.getElementById('f-'+k); if(e) e.value='';});
+    apply();
+  });
+  apply();
+})();
 """
 
 # ---------------------------------------------------------------- bill pages
@@ -351,16 +530,33 @@ def build():
         f'<span class="chip s-{esc(b["status"]["stage"])}">{esc(b["status"]["stage"].replace("_"," "))}</span>'
         f'</li>' for b in bills)
 
+    fam=sorted({b["family"] for b in bills})
+    sts=sorted({b["status"]["stage"] for b in bills})
+    provs=sorted({p for b in bills for p in b["provisions"]}, key=lambda x: PROV_ORDER.index(x))
+    opt=lambda vs,lab: "".join(f'<option value="{esc(v)}">{esc(lab(v))}</option>' for v in vs)
+
     body = f"""
 <h1>Legislation on the legal status of AI systems</h1>
 <p class="lede"><span class="count">{len(bills)}</span> bills across
 <span class="count">{len(states)}</span> US states since 2022, each read against its primary
-source. This is a descriptive record of what bills say, not an assessment of them.</p>
-<p class="muted" style="font-size:.9rem">Step 2 harness — the provision matrix and map filter
-land in step 4. Current disposition:
-{" · ".join(f"{v} {k.replace('_',' ')}" for k,v in sorted(st.items(), key=lambda x:-x[1]))}.</p>
-<h2>Bills</h2>
-<ul class="grid">{cards}</ul>
+source. A descriptive record of what these bills say — not an assessment of them.</p>
+
+{tile_map(bills)}
+
+<div class="controls">
+  <label>Family <select id="f-family"><option value="">any</option>{opt(fam, lambda v: v)}</select></label>
+  <label>Status <select id="f-status"><option value="">any</option>{opt(sts, lambda v: v.replace("_"," "))}</select></label>
+  <label>Provision <select id="f-prov"><option value="">any</option>{opt(provs, lambda v: PROVISION_LABEL[v])}</select></label>
+  <button type="button" id="clear" hidden>Clear filters</button>
+  <span class="rowcount" id="rowcount">{len(bills)} bills</span>
+</div>
+
+{matrix(bills)}
+
+<p class="muted small">Sorted by year introduced, then state. Order is chronological by
+design: sorting by anything that implies a ranking would be an editorial act, and this
+registry does not rank bills.</p>
+<script>{FILTER_JS}</script>
 """
     (DIST / "index.html").write_text(page("Bills", body, active=""))
 

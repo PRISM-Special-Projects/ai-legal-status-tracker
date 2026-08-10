@@ -8,7 +8,7 @@
 - [x] **Step 1c** — `derived_from_changes` (13/13 edges labelled) and `watch_dates` (10 events) added and validated
 - [x] **Step 2** — build harness: `site/build.py` → `site/dist/`, theme-aware CSS, status triplet, launch config `ai-legal-status` on :5201
 - [x] **Step 3** — per-bill pages: 23 pages at `/bills/{id}/`, every field rendered, readable provision labels, citation block; internal link check clean apart from `method/` and `data/` (steps 8–9)
-- [ ] **Step 4** — matrix + map filter
+- [x] **Step 4** — matrix + map filter: 23×16 matrix, 50-state tile grid as filter control, family/status/provision filters, no-JS fallback; acceptance test passes (MO → 6 rows, veil split visible)
 - [ ] **Step 5** — version diffs
 - [ ] **Step 6** — genealogy graph
 - [ ] **Step 7** — watch list
