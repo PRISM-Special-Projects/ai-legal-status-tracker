@@ -11,7 +11,7 @@
 - [x] **Step 4** — matrix + map filter: 23×16 matrix, 50-state tile grid as filter control, family/status/provision filters, no-JS fallback; acceptance test passes (MO → 6 rows, veil split visible)
 - [x] **Step 5** — version diffs: 3 diffs live (TN ×2, MO), operative-text-only comparison, mechanism amendment linked, landing-page callout
 - [x] **Step 6** — genealogy graph: `/lineage/`, 2 trees, 15 nodes, 13 labelled edges, 8 orphans listed; layout by generation depth, geometry verified non-overlapping
-- [ ] **Step 7** — watch list
+- [x] **Step 7** — watch list: 5 grouped rows on the landing page, ascending, companions merged, past events greyed not removed
 - [ ] **Step 8** — method page
 - [ ] **Step 9** — downloads
 - [ ] **Step 10** — signed commentary

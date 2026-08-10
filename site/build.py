@@ -168,6 +168,32 @@ ul.orphans{columns:2;column-gap:28px;list-style:none;padding-left:0;font-size:.9
 ul.orphans li{margin:.25em 0;break-inside:avoid}
 @media (max-width:700px){ ul.orphans{columns:1} }
 
+/* ---- watch list ---- */
+aside.watch{margin:2.2em 0}
+aside.watch h2{margin:0 0 .35em}
+aside.watch>p{margin:0 0 .9em;font-size:.9rem;color:var(--muted);max-width:70ch}
+table.watchtable{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  font:.88rem/1.5 ui-sans-serif,system-ui,sans-serif}
+table.watchtable th,table.watchtable td{padding:9px 12px;text-align:left;
+  border-bottom:1px solid var(--line);vertical-align:top}
+table.watchtable thead th{font:600 .74rem/1.3 ui-sans-serif,system-ui,sans-serif;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--accent-weak)}
+table.watchtable tbody tr:last-child td{border-bottom:0}
+td.wd{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+td.wk{white-space:nowrap;color:var(--accent);font-weight:500}
+td.we{max-width:44ch}
+td.wb{font-size:.84rem}
+table.watchtable tr.past{opacity:.5}
+table.watchtable tr.past td.wd::after{content:" (passed)";font-weight:400;color:var(--muted);font-size:.78rem}
+@media (max-width:700px){
+  table.watchtable thead{display:none}
+  table.watchtable,table.watchtable tbody,table.watchtable tr,table.watchtable td{display:block;width:100%}
+  table.watchtable tr{border-bottom:1px solid var(--line);padding:10px 12px}
+  table.watchtable td{border:0;padding:1px 0}
+  td.we{max-width:none}
+}
+
 aside.callout{border:1px solid var(--accent);border-left-width:3px;border-radius:var(--radius);
   background:var(--accent-weak);padding:14px 18px;margin:1.8em 0}
 aside.callout h2{margin:0 0 .35em;font-size:1.05rem}
@@ -386,6 +412,34 @@ def changed_callout(bills):
             f'<p>Where we hold both the introduced and the final text, the registry shows the '
             f'change itself rather than describing it. Companion bills share a text and appear once.</p>'
             f'<ul class="changed">{"".join(items)}</ul></aside>')
+
+# ---------------------------------------------------------------- watch list
+KIND_LABEL={"effective":"Takes effect","expiry":"Deadline passes","report":"Report due",
+            "ballot":"Goes to voters","deadline":"Deadline"}
+
+def watch_panel(bills, today):
+    grouped={}
+    for b in bills:
+        for w in b["watch_dates"]:
+            grouped.setdefault((w["date"],w["event"],w["kind"]),[]).append(b)
+    if not grouped: return ""
+    rows=[]
+    for (date,event,kind) in sorted(grouped):
+        bs=grouped[(date,event,kind)]
+        refs=", ".join(f'<a href="bills/{esc(x["id"])}/">{esc(x["jurisdiction"]["state"])} '
+                       f'{esc(x["bill_number"])}</a>' for x in bs)
+        past = date < today
+        rows.append(f'<tr{" class=past" if past else ""}>'
+                    f'<td class="wd"><time datetime="{esc(date)}">{esc(date)}</time></td>'
+                    f'<td class="wk">{esc(KIND_LABEL.get(kind,kind))}</td>'
+                    f'<td class="we">{esc(event)}</td>'
+                    f'<td class="wb">{refs}</td></tr>')
+    return (f'<aside class="watch"><h2>What happens next</h2>'
+            f'<p>Dated events the registry is holding, soonest first. Trackers are usually '
+            f'retrospective; these are commitments already written into bill text.</p>'
+            f'<table class="watchtable"><thead><tr><th scope="col">Date</th>'
+            f'<th scope="col">Event</th><th scope="col">Detail</th>'
+            f'<th scope="col">Bills</th></tr></thead><tbody>{"".join(rows)}</tbody></table></aside>')
 
 # ---------------------------------------------------------------- lineage graph
 def lineage(bills):
@@ -767,6 +821,8 @@ source. A descriptive record of what these bills say — not an assessment of th
 {tile_map(bills)}
 
 {changed_callout(bills)}
+
+{watch_panel(bills, SITE['published'])}
 
 <div class="controls">
   <label>Family <select id="f-family"><option value="">any</option>{opt(fam, lambda v: v)}</select></label>
