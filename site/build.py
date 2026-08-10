@@ -688,6 +688,8 @@ def watch_panel(bills, today):
             f'<th scope="col">Bills</th></tr></thead><tbody>{"".join(rows)}</tbody></table></aside>')
 
 # ---------------------------------------------------------------- lineage graph
+STAGE_SHORT={"passed_one_chamber":"passed 1 chamber","in_committee":"in committee"}
+
 def lineage(bills):
     byid={b["id"]:b for b in bills}
     kids={}
@@ -697,7 +699,7 @@ def lineage(bills):
     roots=[i for i in kids if not byid[i]["derived_from"]]
     orphans=[b for b in bills if b["id"] not in linked]
 
-    NW,NH,GX,GY,PAD = 168,44,96,16,14
+    NW,NH,GX,GY,PAD = 200,44,88,16,14
     trees=[]; edgedefs=[]
     for root in sorted(roots, key=lambda i:byid[i]["session"]["year_introduced"]):
         # depth-first layout: x = generation, y = running row
@@ -730,7 +732,7 @@ def lineage(bills):
               f'rx="5" class="nbox s-{esc(st)}"/>'
               f'<text x="{x0+11}" y="{y0+18}" class="nt">{esc(b["jurisdiction"]["state"])} {esc(b["bill_number"])}</text>'
               f'<text x="{x0+11}" y="{y0+34}" class="nm">{esc(b["session"]["year_introduced"])} · fam {esc(b["family"])} · '
-              f'{esc(st.replace("_"," "))}</text></a>')
+              f'{esc(STAGE_SHORT.get(st, st.replace("_"," ")))}</text></a>')
         trees.append(f'<figure class="tree"><figcaption>Template family rooted in '
                      f'{esc(byid[root]["jurisdiction"]["state"])} {esc(byid[root]["bill_number"])}</figcaption>'
                      f'<div class="svgscroll"><svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
