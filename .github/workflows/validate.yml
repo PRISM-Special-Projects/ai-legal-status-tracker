@@ -1,0 +1,71 @@
+name: Validate and build
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # No pip install step: the registry and the site builder use only the
+      # standard library, and that is a property worth protecting.
+
+      - name: Validate registry
+        run: python3 registry/validate.py
+
+      - name: Build site
+        run: python3 site/build.py
+
+      - name: Post-build assertions
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, re, csv, sys
+          fail=[]
+          reg=json.load(open("registry/bills.json")); bills=reg["bills"]
+
+          pages=[f for r,_,fs in os.walk("site/dist") for f in fs if f.endswith(".html")]
+          if len(pages) != len(bills)+4:
+              fail.append(f"expected {len(bills)+4} pages, got {len(pages)}")
+
+          for root,_,files in os.walk("site/dist"):
+              for f in files:
+                  if not f.endswith(".html"): continue
+                  h=pathlib.Path(root,f).read_text()
+                  for m in re.findall(r'href="(?!https?:|#|mailto:)([^"]+)"', h):
+                      t=m.split("#")[0]
+                      if not t: continue
+                      pth=os.path.normpath(os.path.join(root,t))
+                      if os.path.isdir(pth): pth=os.path.join(pth,"index.html")
+                      if not os.path.exists(pth): fail.append(f"broken link {root}/{f} -> {m}")
+                  if "http://" in h or re.search(r'(?:src|href)="https?://[^"]+"', h) and "/bills/" not in root and "lineage" not in root and "method" not in root and "data" not in root:
+                      pass
+
+          for b in bills:
+              for v in b["versions"]:
+                  tp=v.get("text_path")
+                  if tp and not os.path.exists(os.path.join("registry",tp)):
+                      fail.append(f"{b['id']}: missing text {tp}")
+
+          rows=list(csv.DictReader(open("site/dist/data/bills.csv")))
+          if len(rows)!=len(bills): fail.append(f"bills.csv {len(rows)} rows vs {len(bills)} records")
+
+          # every provision used must be documented in SCHEMA.md
+          schema=pathlib.Path("SCHEMA.md").read_text()
+          used={p for b in bills for p in b["provisions"]}
+          for p in sorted(used):
+              if f"`{p}`" not in schema: fail.append(f"provision '{p}' used but not documented in SCHEMA.md")
+
+          # no evaluative language in the structured fields
+          BAD=r"soften|degrad|overbroad|generous in form|made up its mind|weaken|remarkable"
+          for b in bills:
+              blob=" ".join(b["derived_from_changes"])
+              m=re.search(BAD, blob, re.I)
+              if m: fail.append(f"{b['id']}: evaluative language in derived_from_changes: {m.group()}")
+
+          print("\n".join(fail) if fail else "all post-build assertions passed")
+          sys.exit(1 if fail else 0)
+          PY

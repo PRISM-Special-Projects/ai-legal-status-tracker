@@ -825,7 +825,7 @@ def matrix(bills):
         tds="".join(
           f'<td class="pv{" on" if p in pset else ""}" '
           f'title="{esc(PROVISION_LABEL[p])}">'
-          f'{"<span class=dot aria-label=yes></span>" if p in pset else "<span class=vh>no</span>"}</td>'
+          f'{"<span class=dot aria-hidden=true></span><span class=vh>yes</span>" if p in pset else "<span class=vh>no</span>"}</td>'
           for p in PROV_ORDER)
         chipsum=" ".join(f'<span class="chip">{esc(PROVISION_LABEL[p])}</span>' for p in b["provisions"])
         rows.append(

@@ -267,3 +267,29 @@ The editorial-neutrality example quotes text that is not ours. Our actual fix re
 instances across `notes` and `derived_from_changes` and replaced "inverted" with a
 default/exception description that also states the registry takes no view on whether the two
 provisions differ in practice.
+
+---
+
+## Implemented from the second review batch (2026-08-10)
+
+**D1 CI — DONE.** `.github/workflows/validate.yml` runs the validator, builds the site, then
+asserts: page count, no broken internal links, every `text_path` resolves, CSV rows match the
+registry, every provision in use is documented in `SCHEMA.md`, and no evaluative language in
+`derived_from_changes`. Dry-run passes locally. **No `pip install` step** — the standard-library-only
+property is worth protecting, and the proposed spaCy install would have added ~50 MB per run
+for a dependency nothing uses.
+
+**Path bug — DONE.** `validate.py` chdir'd to its own directory. It previously required being
+run from `registry/`, so the proposed CI would have failed on its first run. Found by writing
+the CI, which is the point of CI.
+
+**E3 partial — DONE.** Every matrix cell now carries a visually-hidden text equivalent. The
+filled cells previously relied on `aria-label` on a `<span>`, which is not reliably announced,
+so a screen reader could reach a cell and hear nothing. Now `aria-hidden` on the dot plus
+`yes`/`no` in the accessible name.
+
+**Not adopted:** `role="gridcell"` on `<td>` — it overrides native table semantics, and without
+a full `role="grid"` structure it degrades screen-reader behaviour rather than improving it.
+Our table already has `th scope="col"`/`scope="row"`, so headers are announced automatically;
+the gap was the missing cell text, now fixed. Also not adopted: `!important` to fix the mobile
+collapse — that was a specificity bug and is already fixed by scoping the selectors properly.

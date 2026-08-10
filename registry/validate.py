@@ -1,5 +1,8 @@
 """Schema, vocabulary and referential checks for bills.json."""
-import json, csv, re, sys, collections, os
+import json, csv, re, sys, collections, os, pathlib
+
+ROOT = pathlib.Path(__file__).resolve().parent
+os.chdir(ROOT)   # registry paths are relative to this file, not the caller's cwd
 
 STAGE={"introduced","in_committee","passed_one_chamber","enacted","failed","dead"}
 TECH={"standalone_provision","amends_general_person_definition","amends_specific_statutes",
