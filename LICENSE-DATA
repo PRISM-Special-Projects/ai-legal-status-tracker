@@ -1,0 +1,22 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Mitch Alexander
+
+The registry data — registry/bills.json, registry/texts/, the generated CSVs, and the
+accompanying documentation — is licensed under CC BY 4.0.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt the material for any purpose, including commercially, provided you
+give appropriate credit, link to the licence, and indicate if changes were made.
+
+Suggested attribution:
+  AI Legal Status Tracker, Mitch Alexander, CC BY 4.0.
+  Record for [state and bill number], last verified [date shown on the record].
+
+NOTE ON THE UNDERLYING SOURCES
+Bill texts reproduced in registry/texts/ are US state legislative documents. Edicts of
+government are not subject to copyright in the United States. The CC BY licence applies to
+this registry's structuring, classification, verification metadata and documentation — not to
+the underlying legislative text, which is in the public domain.

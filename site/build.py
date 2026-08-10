@@ -525,9 +525,11 @@ library, and makes no network requests at runtime. Given the registry and the st
 every page here — including the matrix, the lineage graph and the diffs — is regenerable.</p>
 
 <h2>Licence</h2>
-<p class="pending"><strong>To be confirmed before launch.</strong> Our intention is to release
-the registry under a permissive licence so it can be reused, corrected and built on. Until that
-is settled, please contact us before redistributing, and cite the registry if you use it.</p>
+<p>Data and documentation: <strong>CC BY 4.0</strong>. Code: MIT. Reuse and adapt it, including
+commercially — give credit, link the licence, and say if you changed anything.</p>
+<p class="muted small">The underlying legislative texts are US government edicts and are in the
+public domain. The CC BY licence covers this registry's structuring, classification and
+verification metadata, not the statutes themselves.</p>
 
 <h2>Known gaps</h2>
 <ul>
