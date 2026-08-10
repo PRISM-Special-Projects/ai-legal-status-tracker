@@ -139,12 +139,197 @@ footer.site{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 46px
   font:.85rem/1.6 ui-sans-serif,system-ui,sans-serif;color:var(--muted);background:var(--card)}
 footer.site p{margin:.3em 0;max-width:74ch}
 
+
+.crumb{font:.85rem/1 ui-sans-serif,system-ui,sans-serif;margin:0 0 1.2em}
+h1+.lede{margin-top:-.2em}
+.statusblock{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);
+  padding:14px 16px;margin:1.4em 0 1.8em}
+.chip.big{font-size:.85rem;padding:5px 11px}
+.evidence{margin:.7em 0 0;font:.88rem/1.55 ui-sans-serif,system-ui,sans-serif;color:var(--fg)}
+.evidence .lbl{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;
+  letter-spacing:.06em;margin-bottom:2px}
+blockquote.clause{margin:1.6em 0;padding:16px 20px;border-left:3px solid var(--accent);
+  background:var(--accent-weak);border-radius:0 var(--radius) var(--radius) 0}
+blockquote.clause p{margin:0 0 .6em;font-size:1.02rem}
+blockquote.clause cite{font:.8rem/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--muted);font-style:normal}
+dl.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px;margin:1.4em 0}
+dl.facts>div{border-top:1px solid var(--line);padding-top:8px}
+dl.facts dt{font:.74rem/1.3 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
+dl.facts dd{margin:0;font-size:.94rem}
+.chips{margin:.4em 0 0}
+ul.changes,ul.sponsors,ul.versions,ul.watch,ul.urls{margin:.5em 0 0;padding-left:1.15em}
+ul.changes li,ul.watch li{margin:.35em 0}
+ul.sponsors{list-style:none;padding-left:0;columns:2;column-gap:26px}
+ul.sponsors li{margin:.2em 0;font-size:.94rem;break-inside:avoid}
+.party{font:600 .74rem ui-sans-serif,system-ui,sans-serif;color:var(--muted)}
+ul.versions li{margin:.35em 0;font-size:.94rem}
+.has-text{font:600 .68rem ui-sans-serif,system-ui,sans-serif;color:var(--add);
+  background:var(--add-bg);padding:2px 6px;border-radius:99px;margin-left:4px}
+ul.urls{list-style:none;padding-left:0}
+ul.urls li{margin:.3em 0}
+ul.urls a{font:.8rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+.notes p{font-size:.95rem;margin:.8em 0;max-width:74ch}
+.cite{font:.86rem/1.6 ui-sans-serif,system-ui,sans-serif;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;max-width:74ch}
+.small{font-size:.85rem}
+h3{font-size:.95rem;margin:1.4em 0 .3em;color:var(--muted);
+  font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+time{font-variant-numeric:tabular-nums}
+@media (max-width:700px){ ul.sponsors{columns:1} }
+
 @media (max-width:700px){
   header.site .wrap{flex-direction:column;align-items:flex-start}
   main{padding-top:24px}
   h1{font-size:1.6rem}
 }
 """
+
+# ---------------------------------------------------------------- bill pages
+STAGE_LABEL={"introduced":"Introduced","in_committee":"In committee",
+  "passed_one_chamber":"Passed one chamber","enacted":"Enacted","failed":"Failed","dead":"Dead"}
+PROVISION_LABEL={
+  "denies_legal_personhood":"Denies legal personhood",
+  "declares_non_sentient":"Declares non-sentient",
+  "assigns_liability_to_humans":"Assigns liability to humans",
+  "bars_ai_liability":"Bars AI liability",
+  "restricts_ai_speech_rights":"Restricts AI speech rights",
+  "restricts_chatbot_claims":"Restricts chatbot claims",
+  "restricts_person_like_training":"Restricts person-like training",
+  "covers_non_ai_entities":"Covers non-AI entities",
+  "study_only":"Study only",
+  "bars_marriage_or_union":"Bars marriage or union",
+  "bars_property_ownership":"Bars property ownership",
+  "bars_corporate_office":"Bars corporate office",
+  "imposes_safety_duties":"Imposes safety duties",
+  "incident_reporting_duty":"Incident-reporting duty",
+  "addresses_corporate_veil":"Addresses corporate veil",
+  "provides_compliance_safe_harbor":"Provides compliance safe harbour"}
+FIELD_LABEL={"technique":"Legislative technique","definitional_anchor":"Definitional anchor",
+  "augmented_human_exposure":"Augmented-human exposure",
+  "affects_algorithmic_entity_formation":"Effect on algorithmic entity formation",
+  "corporate_carve_out":"Corporate carve-out"}
+
+def dl(pairs):
+    rows="".join(f"<div><dt>{esc(k)}</dt><dd>{v}</dd></div>" for k,v in pairs if v)
+    return f"<dl class=facts>{rows}</dl>" if rows else ""
+
+def paras(t):
+    if not t: return ""
+    out=[]
+    for chunk in re.split(r"(?<=\.)\s+(?=[A-Z*\*])", t):
+        c=chunk.strip()
+        if not c: continue
+        c=esc(c)
+        c=re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", c)
+        out.append(c)
+    # regroup into readable paragraphs of ~2 sentences
+    ps=["".join(out[i:i+2]) if False else " ".join(out[i:i+3]) for i in range(0,len(out),3)]
+    return "".join(f"<p>{x}</p>" for x in ps)
+
+def bill_page(b, byid):
+    st=b["status"]; j=b["jurisdiction"]
+    head=f'{esc(j["state"])} {esc(b["bill_number"])}'
+    ev=st.get("evidence")
+    evhtml=(f'<p class="evidence"><span class="lbl">Action of record</span> '
+            f'{esc(ev["action"])} <span class="muted">&middot;</span> '
+            f'<time>{esc(ev["date"])}</time></p>') if ev else ""
+    chips=" ".join(f'<span class="chip">{esc(PROVISION_LABEL.get(p,p.replace("_"," ")))}</span>'
+                   for p in b["provisions"])
+
+    lineage=""
+    if b["derived_from"]:
+        par=byid[b["derived_from"]]
+        items="".join(f"<li>{esc(c)}</li>" for c in b["derived_from_changes"])
+        lineage=(f'<h2>Lineage</h2><p>Follows the template of '
+                 f'<a href="../{esc(par["id"])}/">{esc(par["jurisdiction"]["state"])} '
+                 f'{esc(par["bill_number"])}</a>. Differences:</p><ul class="changes">{items}</ul>')
+
+    comps=[x for x in byid.values() if b["companion_group"] and
+           x["companion_group"]==b["companion_group"] and x["id"]!=b["id"]]
+    comphtml=("<h2>Companion bills</h2><ul>"+"".join(
+        f'<li><a href="../{esc(c["id"])}/">{esc(c["jurisdiction"]["state"])} {esc(c["bill_number"])}</a></li>'
+        for c in comps)+"</ul>") if comps else ""
+
+    def _sp(s):
+        party = f' <span class="party">[{esc(s["party"])}]</span>' if s.get("party") else ""
+        return f'<li>{esc(s["name"])}{party} <span class="muted">— {esc(s["role"])}</span></li>'
+    sp="".join(_sp(s) for s in b["sponsors"])
+    sphtml=f"<h2>Sponsors</h2><ul class=sponsors>{sp}</ul>" if sp else \
+           '<h2>Sponsors</h2><p class="muted">Not established.</p>'
+
+    def _v(v):
+        dt = f' <time>{esc(v["date"])}</time>' if v.get("date") else ""
+        th = ' <span class="has-text">text held</span>' if v.get("text_path") else ""
+        return f'<li><a href="{esc(v["source_url"])}">{esc(v["label"])}</a>{dt}{th}</li>'
+    vs="".join(_v(v) for v in b["versions"])
+    vshtml=f"<h2>Versions</h2><ul class=versions>{vs}</ul>" if vs else ""
+
+    wd="".join(f'<li><time>{esc(w["date"])}</time> — {esc(w["event"])} '
+               f'<span class="muted">({esc(w["kind"])})</span></li>' for w in b["watch_dates"])
+    wdhtml=f"<h2>Dates ahead</h2><ul class=watch>{wd}</ul>" if wd else ""
+
+    ce="".join(f'<li>{esc(", ".join(c["amendments"]))} — claimed by <code>{esc(c["claimed_by"])}</code></li>'
+               for c in b["constitutional_exposure"])
+    cehtml=(f'<h2>Constitutional exposure claimed</h2><ul>{ce}</ul>'
+            f'<p class="muted small">Claims recorded with attribution. The tracker takes no view '
+            f'on whether any bill is constitutional.</p>') if ce else ""
+
+    src="".join(f'<li><a href="{esc(u)}">{esc(u)}</a></li>' for u in b["sources"].get("primary",[]))
+    trk="".join(f'<li><a href="{esc(u)}">{esc(u)}</a></li>' for u in b["sources"].get("tracker",[]))
+    srch=f"<h2>Sources</h2><h3>Primary</h3><ul class=urls>{src}</ul>"+ \
+         (f"<h3>Tracker</h3><ul class=urls>{trk}</ul>" if trk else "")
+
+    kc=""
+    if b["key_clause"]:
+        kc=(f'<blockquote class="clause"><p>{esc(b["key_clause"]["text"])}</p>'
+            f'<cite>{esc(b["key_clause"]["source"])}</cite></blockquote>')
+
+    cite=(f'{SITE["name"]}, “{j["state"]} {b["bill_number"]}”, {SITE["publisher"]}, '
+          f'record verified {b["last_verified"] or "—"}, accessed [date].')
+
+    body=f"""
+<p class="crumb"><a href="../../">All bills</a></p>
+<h1>{head}</h1>
+<p class="lede">{esc(b["session"].get("legislature") or "")} {esc(b["session"]["session"])},
+  introduced {esc(b["session"]["year_introduced"])} · {esc(b["chamber"])}</p>
+
+<div class="statusblock">
+  <span class="chip s-{esc(st["stage"])} big">{esc(STAGE_LABEL.get(st["stage"],st["stage"]))}</span>
+  <span class="muted">as of <time>{esc(st["as_of"])}</time></span>
+  {evhtml}
+</div>
+
+{kc}
+
+{dl([("Codified at", esc(b["codified_at"])),
+     ("Effective", esc(b["effective_date"])),
+     ("Family", esc(b["family"])),
+     *[(FIELD_LABEL[k], esc(str(b[k]).replace("_"," "))) for k in FIELD_LABEL if b.get(k) not in (None,"","unknown")]])}
+
+<h2>Provisions</h2>
+<div class="chips">{chips}</div>
+
+{lineage}
+{comphtml}
+{sphtml}
+{vshtml}
+{wdhtml}
+{cehtml}
+
+<h2>Notes</h2>
+<div class="notes">{paras(b["notes"])}</div>
+
+{srch}
+
+<h2>Record</h2>
+{dl([("Verification", esc(b["verification_status"].replace("_"," "))),
+     ("Last verified", esc(b["last_verified"])),
+     ("Provenance", esc(b["provenance"]))])}
+<h3>Cite this record</h3>
+<p class="cite">{esc(cite)}</p>
+"""
+    return page(head, body, depth=2, desc=f'{head}: status, provisions, sponsors and primary sources.')
 
 # ---------------------------------------------------------------- build
 def build():
@@ -178,6 +363,12 @@ land in step 4. Current disposition:
 <ul class="grid">{cards}</ul>
 """
     (DIST / "index.html").write_text(page("Bills", body, active=""))
+
+    byid={b["id"]:b for b in bills}
+    for b in bills:
+        outdir = DIST / "bills" / b["id"]
+        outdir.mkdir(parents=True, exist_ok=True)
+        (outdir / "index.html").write_text(bill_page(b, byid))
     return bills, st
 
 if __name__ == "__main__":
