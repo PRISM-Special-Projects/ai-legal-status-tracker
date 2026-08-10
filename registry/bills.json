@@ -1,0 +1,1412 @@
+{
+  "schema_version": "0.1",
+  "generated": "2026-08-10",
+  "as_of": "2026-05-12",
+  "source": "Smith, A., Caviola, L., & Alexander, H. (2026). Denying Personhood to AI. SSRN 6829981.",
+  "note": "Seed only. Every record is verification_status=seeded_unverified until a human opens the primary source.",
+  "bills": [
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "ID"
+      },
+      "companion_group": null,
+      "codified_at": "Idaho Code § 5-346",
+      "derived_from": null,
+      "definitional_anchor": "none",
+      "augmented_human_exposure": "unanchored",
+      "affects_algorithmic_entity_formation": "untested",
+      "corporate_carve_out": "express_saving_clause",
+      "constitutional_exposure": [
+        {
+          "amendments": [
+            "1st",
+            "5th",
+            "8th",
+            "9th",
+            "10th",
+            "14th"
+          ],
+          "claimed_by": "jaynes2024"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Tammy Nichols",
+          "party": "R",
+          "role": "primary"
+        }
+      ],
+      "versions": [
+        {
+          "label": "enacted",
+          "date": "2022",
+          "source_url": "https://legislature.idaho.gov/statutesrules/idstat/title5/t5ch3/sect5-346/"
+        }
+      ],
+      "key_clause": {
+        "text": "...environmental elements, artificial intelligence, nonhuman animals, and inanimate objects shall not be granted personhood in the State of Idaho.",
+        "source": "HB 720 (2022)"
+      },
+      "evidence_refs": [
+        "boone2022",
+        "iff2022",
+        "nichols2025a",
+        "nichols2025b"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "First in nation. Covers AI, nature, animals and inanimate objects. Saving clause preserves personhood of municipalities, corporations and other entities recognised before the effective date. codified_at from Jaynes (2024), not from the paper.",
+      "id": "id-hb720-2022",
+      "bill_number": "HB 720",
+      "chamber": "house",
+      "session": {
+        "legislature": "68th",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2022
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/"
+      },
+      "family": "A",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/",
+          "https://legislature.idaho.gov/statutesrules/idstat/title5/t5ch3/sect5-346/"
+        ],
+        "tracker": [
+          "https://legiscan.com/ID/bill/H0720/2022"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "ND"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "id-hb720-2022",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [
+        {
+          "name": "Cole Christensen",
+          "party": "R",
+          "role": "sponsor"
+        },
+        {
+          "name": "Jeff Hoverson",
+          "party": "R",
+          "role": "sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "enacted",
+          "date": "2023",
+          "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html"
+        }
+      ],
+      "key_clause": null,
+      "evidence_refs": [
+        "ndleg2023",
+        "ndcan2023",
+        "ndfa_nd",
+        "dodson2023"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Near-identical to Idaho HB 720 but amends the ND Century Code definition of 'person', so it changes personhood across the whole code. Amended after Catholic Conference testimony raised juridical-personhood concerns.",
+      "id": "nd-hb1361-2023",
+      "bill_number": "HB 1361",
+      "chamber": "house",
+      "session": {
+        "legislature": "68th",
+        "session": "Reg. Sess.",
+        "year_introduced": 2023
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html"
+      },
+      "family": "A",
+      "technique": "amends_general_person_definition",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html"
+        ],
+        "tracker": [
+          "https://legiscan.com/ND/bill/HB1361/2023"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "OK"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "id-hb720-2022",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [
+        {
+          "name": "Cody Maynard",
+          "party": "R",
+          "role": "sponsor"
+        }
+      ],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "maynard_nd"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Idaho template, adding 'association' and 'nonprofit organization' to the entities that expressly retain personhood. Passed the House 94-2 in March 2026 (source: media, verify).",
+      "id": "ok-hb3546-2026",
+      "bill_number": "HB 3546",
+      "chamber": "house",
+      "session": {
+        "legislature": "60th",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "passed_one_chamber",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600"
+      },
+      "family": "A",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600"
+        ],
+        "tracker": [
+          "https://legiscan.com/OK/bill/HB3546/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "UT"
+      },
+      "companion_group": null,
+      "codified_at": "Utah Code §§ 63G-31-101, 63G-31-102 (Chapter 31, Legal Personhood)",
+      "derived_from": "id-hb720-2022",
+      "definitional_anchor": "taxonomic",
+      "augmented_human_exposure": "anchored",
+      "affects_algorithmic_entity_formation": "bars",
+      "corporate_carve_out": "prospective_only",
+      "constitutional_exposure": [
+        {
+          "amendments": [
+            "1st",
+            "5th",
+            "8th",
+            "9th",
+            "10th",
+            "14th"
+          ],
+          "claimed_by": "jaynes2024"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Walt Brooks",
+          "party": "R",
+          "role": "chief sponsor"
+        },
+        {
+          "name": "Don L. Ipson",
+          "party": null,
+          "role": "senate sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "enrolled",
+          "date": "2024",
+          "source_url": "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf"
+        }
+      ],
+      "key_clause": {
+        "text": "a government entity may not grant legal personhood to, nor recognize legal personhood in: (1) artificial intelligence; (2) an inanimate object; (3) a body of water; (4) land; (5) real property; (6) atmospheric gases; (7) an astronomical object; (8) weather; (9) a plant; (10) a nonhuman animal; or (11) any other member of a taxonomic domain that is not a human being",
+        "source": "HB 249 (2024)"
+      },
+      "evidence_refs": [
+        "ut_house2024",
+        "ut_senate2024",
+        "roche2024",
+        "romero2024",
+        "williams2024",
+        "earthlaw2024",
+        "sogsl_nd",
+        "nhrp2025",
+        "banutah_complaint",
+        "banutah_dismissal"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED against the enrolled text 2026-08-10. Enacts Utah Code ch. 63G-31. Eleven enumerated categories; 'human being' is defined as 'a member of the species classified as Homo sapiens', which is the taxonomic anchor. 'Legal personhood' is defined to cover BOTH the rights/obligations of an individual AND of 'a person other than an individual', i.e. it reaches juridical personhood - relevant to the zero-member LLC question. 'Governmental entity' includes a court, the Legislature, and bodies with adjudicatory or rulemaking authority. Bars only granting NEW personhood, so needs no corporate saving clause. Triggered Ban v. Utah (NhRP), dismissed May 2025. Senate sponsor Don L. Ipson is not named in the paper.",
+      "id": "ut-hb249-2024",
+      "bill_number": "HB 249",
+      "chamber": "house",
+      "session": {
+        "legislature": null,
+        "session": "2024 Gen. Sess.",
+        "year_introduced": 2024
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://le.utah.gov/~2024/bills/static/HB0249.html"
+      },
+      "family": "B",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://le.utah.gov/~2024/bills/static/HB0249.html",
+          "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf"
+        ],
+        "tracker": [
+          "https://legiscan.com/UT/bill/HB0249/2024"
+        ]
+      },
+      "effective_date": "2024-05-01"
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "SC"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "ut-hb249-2024",
+      "definitional_anchor": "taxonomic",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Reproduces Utah HB 249 nearly verbatim.",
+      "id": "sc-hb3796-2025",
+      "bill_number": "HB 3796",
+      "chamber": "house",
+      "session": {
+        "legislature": "126th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B"
+      },
+      "family": "B",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B"
+        ],
+        "tracker": [
+          "https://legiscan.com/SC/bill/H3796/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "WA"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "ut-hb249-2024",
+      "definitional_anchor": "taxonomic",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Reproduces Utah HB 249 nearly verbatim. First liberal-leaning / tech state to consider an Exclusion Bill.",
+      "id": "wa-hb2029-2025",
+      "bill_number": "HB 2029",
+      "chamber": "house",
+      "session": {
+        "legislature": "69th",
+        "session": "Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "failed",
+        "as_of": "2026-05-12",
+        "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false"
+      },
+      "family": "B",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "covers_non_ai_entities"
+      ],
+      "sources": {
+        "primary": [
+          "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false"
+        ],
+        "tracker": [
+          "https://legiscan.com/WA/bill/HB2029/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": {
+        "text": "non-sentient entities [which shall not] be considered to possess consciousness, self-awareness, or similar traits of living beings",
+        "source": "HB 1462 (2025)"
+      },
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Originator of Family C. First bill to declare AI non-conscious. Enumerates denied statuses: marriage, property ownership, responsibility for harms, liability, managerial positions in corporate entities. Died in committee 2025, reintroduced 2026 as four bills.",
+      "id": "mo-hb1462-2025",
+      "bill_number": "HB 1462",
+      "chamber": "house",
+      "session": {
+        "legislature": "103rd",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "failed",
+        "as_of": "2026-05-12",
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/HB1462/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "OH"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unanchored",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [
+        {
+          "amendments": [
+            "1st"
+          ],
+          "claimed_by": "alexander_simon2025"
+        }
+      ],
+      "sponsors": [
+        {
+          "name": "Thaddeus Claggett",
+          "party": "R",
+          "role": "primary"
+        }
+      ],
+      "versions": [],
+      "key_clause": {
+        "text": "no AI system shall be considered to possess consciousness, self-awareness, or similar traits of living beings",
+        "source": "HB 469 (2025)"
+      },
+      "evidence_refs": [
+        "claggett2025",
+        "steinhauser2025",
+        "edmonson2025",
+        "scott2025",
+        "alexander_simon2025",
+        "evans2025",
+        "weyand2025",
+        "colbert2025",
+        "amipodcast2025",
+        "ohiohouse_nd"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Nearly identical language to Missouri HB 1462. Most media coverage of any bill in the set. Opposed by TechNet on definitional breadth; Alexander & Simon raise the neural-implant problem.",
+      "id": "oh-hb469-2025",
+      "bill_number": "HB 469",
+      "chamber": "house",
+      "session": {
+        "legislature": "136th",
+        "session": "Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.legislature.ohio.gov/legislation/136/hb469"
+        ],
+        "tracker": [
+          "https://legiscan.com/OH/bill/HB469/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": "mo-2026-family-c",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "mo_hb1746_test",
+        "berry2026"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Consolidated in committee with HB 1769 into a single replacement text.",
+      "id": "mo-hb1746-2026",
+      "bill_number": "HB 1746",
+      "chamber": "house",
+      "session": {
+        "legislature": "103rd",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/HB1746/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": "mo-2026-family-c",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "mo_hb1769_test"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Consolidated in committee with HB 1746 into a single replacement text.",
+      "id": "mo-hb1769-2026",
+      "bill_number": "HB 1769",
+      "chamber": "house",
+      "session": {
+        "legislature": "103rd",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1769&year=2026&code=R"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://house.mo.gov/Bill.aspx?bill=HB1769&year=2026&code=R"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/HB1769/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": "mo-2026-family-c",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Substantively equivalent Senate vehicle.",
+      "id": "mo-sb859-2026",
+      "bill_number": "SB 859",
+      "chamber": "senate",
+      "session": {
+        "legislature": "103rd",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/SB859/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": "mo-2026-family-c",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Substantively equivalent Senate vehicle.",
+      "id": "mo-sb1474-2026",
+      "bill_number": "SB 1474",
+      "chamber": "senate",
+      "session": {
+        "legislature": "103rd",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/SB1474/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MO"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [
+        {
+          "label": "introduced",
+          "date": "2026",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+        },
+        {
+          "label": "committee_substitute",
+          "date": "2026",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+        }
+      ],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Missouri's leading vehicle. Omnibus: deepfakes, political ads, AI non-sentience and non-personhood. The non-sentience and non-personhood components were NOT in the original draft - added via committee substitute. Passed the Senate.",
+      "id": "mo-sb1012-2026",
+      "bill_number": "SB 1012",
+      "chamber": "senate",
+      "session": {
+        "legislature": "103rd",
+        "session": "2nd Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "passed_one_chamber",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+      },
+      "family": "C",
+      "technique": "standalone_provision",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469"
+        ],
+        "tracker": [
+          "https://legiscan.com/MO/bill/SB1012/2026"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "WI"
+      },
+      "companion_group": "wi-2026-ab959-sb932",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [
+        {
+          "name": "Lindee Brill",
+          "party": "R",
+          "role": "primary"
+        }
+      ],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "brill2026",
+        "barker2026",
+        "wiseye2026"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "The only bill that BOTH amends the general statutory definition of 'person' AND bans AI personhood by standalone provision. Shorter than the Missouri/Ohio texts. Sponsor cites the Speaker's Task Force on Protecting Kids.",
+      "id": "wi-ab959-2026",
+      "bill_number": "AB 959",
+      "chamber": "house",
+      "session": {
+        "legislature": null,
+        "session": "2025-26 Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "failed",
+        "as_of": "2026-05-12",
+        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+      },
+      "family": "C",
+      "technique": "hybrid",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+        ],
+        "tracker": [
+          "https://legiscan.com/WI/bill/AB959/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "WI"
+      },
+      "companion_group": "wi-2026-ab959-sb932",
+      "codified_at": null,
+      "derived_from": "mo-hb1462-2025",
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Senate companion to AB 959.",
+      "id": "wi-sb932-2026",
+      "bill_number": "SB 932",
+      "chamber": "senate",
+      "session": {
+        "legislature": null,
+        "session": "2025-26 Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "failed",
+        "as_of": "2026-05-12",
+        "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932"
+      },
+      "family": "C",
+      "technique": "hybrid",
+      "provisions": [
+        "denies_legal_personhood",
+        "declares_non_sentient",
+        "assigns_liability_to_humans"
+      ],
+      "sources": {
+        "primary": [
+          "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932"
+        ],
+        "tracker": [
+          "https://legiscan.com/WI/bill/SB932/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "TN"
+      },
+      "companion_group": "tn-2025-hb849-sb837",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [
+        {
+          "label": "introduced",
+          "date": "2025",
+          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        },
+        {
+          "label": "amended",
+          "date": "2026",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf"
+        },
+        {
+          "label": "enacted",
+          "date": "2026",
+          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        }
+      ],
+      "key_clause": null,
+      "evidence_refs": [
+        "tn_sa0922"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "AMENDMENT DIFF MATTERS. Original draft provided that 'person', 'life' and 'natural person' cannot refer to AI across the Tennessee Code, AND defined 'human being' to include embryos 'from fertilization to full gestation'. The fetal-personhood provisions were removed after a committee hearing. Enacted 2026, AI-only.",
+      "id": "tn-hb849-2025",
+      "bill_number": "HB 849",
+      "chamber": "house",
+      "session": {
+        "legislature": "114th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+      },
+      "family": "other",
+      "technique": "amends_general_person_definition",
+      "provisions": [
+        "denies_legal_personhood"
+      ],
+      "sources": {
+        "primary": [
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        ],
+        "tracker": [
+          "https://legiscan.com/TN/bill/HB0849/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "TN"
+      },
+      "companion_group": "tn-2025-hb849-sb837",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "tn_sa0922"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Senate companion to HB 849. Amendment no. 1 (SA0922) removed the fetal-personhood provisions.",
+      "id": "tn-sb837-2025",
+      "bill_number": "SB 837",
+      "chamber": "senate",
+      "session": {
+        "legislature": "114th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+      },
+      "family": "other",
+      "technique": "amends_general_person_definition",
+      "provisions": [
+        "denies_legal_personhood"
+      ],
+      "sources": {
+        "primary": [
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        ],
+        "tracker": [
+          "https://legiscan.com/TN/bill/SB0837/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "TN"
+      },
+      "companion_group": "tn-2025-hb1455-sb1493",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [
+        {
+          "name": "Mary Littleton",
+          "party": null,
+          "role": "house sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "introduced",
+          "date": "2025",
+          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        },
+        {
+          "label": "amended",
+          "date": "2026",
+          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf"
+        },
+        {
+          "label": "enacted",
+          "date": "2026",
+          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        }
+      ],
+      "key_clause": null,
+      "evidence_refs": [
+        "tn_ha1260",
+        "tnga_nd",
+        "littleton_nd",
+        "roberts2026",
+        "ball2025a",
+        "ball2025b",
+        "tan2025"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "AMENDMENT DIFF MATTERS - the enacted text does NOT address AI legal status or consciousness. As introduced it would have made it a Class A felony (15-60 years) to train AI to provide emotional support, act as a companion, simulate a human being, or mirror human interactions. Amendment No. 4 (HA1260) replaced this with a study period. provisions=['study_only'] describes the ENACTED text; the introduced text carried restricts_person_like_training.",
+      "id": "tn-hb1455-2025",
+      "bill_number": "HB 1455",
+      "chamber": "house",
+      "session": {
+        "legislature": "114th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+      },
+      "family": "other",
+      "technique": "standalone_provision",
+      "provisions": [
+        "study_only"
+      ],
+      "sources": {
+        "primary": [
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        ],
+        "tracker": [
+          "https://legiscan.com/TN/bill/HB1455/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "TN"
+      },
+      "companion_group": "tn-2025-hb1455-sb1493",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [
+        {
+          "name": "Becky Massey",
+          "party": null,
+          "role": "senate sponsor"
+        }
+      ],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "tn_ha1260",
+        "massey_nd"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Senate companion to HB 1455. See that record for the amendment history.",
+      "id": "tn-sb1493-2025",
+      "bill_number": "SB 1493",
+      "chamber": "senate",
+      "session": {
+        "legislature": "114th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2025
+      },
+      "status": {
+        "stage": "enacted",
+        "as_of": "2026-05-12",
+        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+      },
+      "family": "other",
+      "technique": "standalone_provision",
+      "provisions": [
+        "study_only"
+      ],
+      "sources": {
+        "primary": [
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        ],
+        "tracker": [
+          "https://legiscan.com/TN/bill/SB1493/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "MN"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": {
+        "text": "Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?",
+        "source": "SF 4114 (2026)"
+      },
+      "evidence_refs": [
+        "mnhrd_nd"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Bipartisan. Would go to Minnesota voters at the 2026 general election if passed by the legislature. The only constitutional-amendment vehicle in the set.",
+      "id": "mn-sf4114-2026",
+      "bill_number": "SF 4114",
+      "chamber": "senate",
+      "session": {
+        "legislature": "94th",
+        "session": "1st Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/"
+      },
+      "family": "other",
+      "technique": "constitutional_amendment",
+      "provisions": [
+        "restricts_ai_speech_rights"
+      ],
+      "sources": {
+        "primary": [
+          "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/"
+        ],
+        "tracker": [
+          "https://legiscan.com/MN/bill/SF4114/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "CA"
+      },
+      "companion_group": null,
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [
+        "weinberg2026"
+      ],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Narrowest bill in the set: 'person' does not refer to AI in statutes on public records, transparency and governance. Primarily but not exclusively Democratic-sponsored. Aimed at preventing AI-generated mass public-records requests.",
+      "id": "ca-sb1159-2026",
+      "bill_number": "SB 1159",
+      "chamber": "senate",
+      "session": {
+        "legislature": null,
+        "session": "2025-26 Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD"
+      },
+      "family": "other",
+      "technique": "amends_specific_statutes",
+      "provisions": [
+        "denies_legal_personhood"
+      ],
+      "sources": {
+        "primary": [
+          "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD"
+        ],
+        "tracker": [
+          "https://legiscan.com/CA/bill/SB1159/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "CA"
+      },
+      "companion_group": "ca-2026-ab2023-sb1119",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Child chatbot safety. Prohibits chatbots claiming to children that they are 'sentient', 'conscious' or 'human'. Part of a wider package including age verification and parental controls. Democratic-sponsored.",
+      "id": "ca-ab2023-2026",
+      "bill_number": "AB 2023",
+      "chamber": "house",
+      "session": {
+        "legislature": null,
+        "session": "2025-26 Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023"
+      },
+      "family": "other",
+      "technique": "standalone_provision",
+      "provisions": [
+        "restricts_chatbot_claims"
+      ],
+      "sources": {
+        "primary": [
+          "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023"
+        ],
+        "tracker": [
+          "https://legiscan.com/CA/bill/AB2023/2025"
+        ]
+      },
+      "effective_date": null
+    },
+    {
+      "jurisdiction": {
+        "country": "US",
+        "level": "state",
+        "state": "CA"
+      },
+      "companion_group": "ca-2026-ab2023-sb1119",
+      "codified_at": null,
+      "derived_from": null,
+      "definitional_anchor": "unknown",
+      "augmented_human_exposure": "unclear",
+      "affects_algorithmic_entity_formation": "not_analysed",
+      "corporate_carve_out": "unknown",
+      "constitutional_exposure": [],
+      "sponsors": [],
+      "versions": [],
+      "key_clause": null,
+      "evidence_refs": [],
+      "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
+      "verification_status": "seeded_unverified",
+      "last_verified": null,
+      "notes": "Senate companion to AB 2023.",
+      "id": "ca-sb1119-2026",
+      "bill_number": "SB 1119",
+      "chamber": "senate",
+      "session": {
+        "legislature": null,
+        "session": "2025-26 Reg. Sess.",
+        "year_introduced": 2026
+      },
+      "status": {
+        "stage": "in_committee",
+        "as_of": "2026-05-12",
+        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119"
+      },
+      "family": "other",
+      "technique": "standalone_provision",
+      "provisions": [
+        "restricts_chatbot_claims"
+      ],
+      "sources": {
+        "primary": [
+          "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119"
+        ],
+        "tracker": [
+          "https://legiscan.com/CA/bill/SB1119/2025"
+        ]
+      },
+      "effective_date": null
+    }
+  ]
+}

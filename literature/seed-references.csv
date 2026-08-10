@@ -1,0 +1,52 @@
+ref_key,authors,year,title,venue,type,tier,strand,url_or_id
+alexander2026,"Alexander et al.",2026,"How Should the Law Treat Future AI Systems? Fictional Legal Personhood versus Legal Identity","Case Western Journal of Law, Technology & the Internet",article,core,legal_personhood,https://scholarlycommons.law.case.edu/jolti/vol17/iss1/3/
+arbel2026,"Arbel, Y.; Salib, P.; Goldstein, S.",2026,"How to Count AIs: Individuation and Liability for AI Agents",arXiv 2603.10028,preprint,core,legal_personhood,https://arxiv.org/abs/2603.10028
+bariach2026,"Bariach, B. et al.",2026,"Seemingly Conscious AI Risks",SSRN,preprint,core,consciousness_attribution,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6588659
+bengio2026,"Bengio, Y. et al.",2026,"International AI Safety Report 2026",arXiv 2602.21012,report,core,ai_safety,https://arxiv.org/abs/2602.21012
+birch2024,"Birch, J.",2024,"The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI",Oxford University Press,book,core,moral_status,
+birch2025,"Birch, J.",2025,"AI Consciousness: A Centrist Manifesto",PhilPapers,article,core,consciousness,https://philpapers.org/rec/BIRACA-4
+blair2015,"Blair, M. M.; Pollman, E.",2015,"The Derivative Nature of Corporate Constitutional Rights","William & Mary Law Review 56(5)",article,core,juridical_personhood,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2611299
+block2025,"Block, N.",2025,"Can only meat machines be conscious?",Trends in Cognitive Sciences,article,core,consciousness,https://philarchive.org/rec/BLOCOM-3
+bruner2022,"Bruner, C.",2022,"Artificially Intelligent Boards and the Future of Delaware Corporate Law","Journal of Corporate Law Studies 22(4)",article,core,juridical_personhood,https://digitalcommons.law.uga.edu/fac_artchop/1554/
+butlin2023,"Butlin, P. et al.",2023,"Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",arXiv 2308.08708,preprint,core,consciousness,https://arxiv.org/abs/2308.08708
+carlsmith2022,"Carlsmith, J.",2022,"Is Power-Seeking AI an Existential Risk?",arXiv 2206.13353,preprint,core,ai_safety,https://arxiv.org/abs/2206.13353
+caviola2025,"Caviola, L.",2025,"The Societal Response to Potentially Sentient AI",arXiv 2502.00388,preprint,core,public_attitudes,https://arxiv.org/abs/2502.00388
+caviola_forth,"Caviola, L.",2026,"AI consciousness will divide society","in Chace & Lappas (Eds.), Perspectives on Machine Consciousness, CRC Press",chapter,core,public_attitudes,https://osf.io/preprints/psyarxiv/sntva
+chopra2011,"Chopra, S.; White, L. F.",2011,"A Legal Theory for Autonomous Artificial Agents",University of Michigan Press,book,core,legal_personhood,https://www.fulcrum.org/concern/monographs/wp988k715
+forrest2024,"Forrest, K. B.",2024,"The Ethics and Challenges of Legal Personhood for AI",Yale Law Journal Forum,article,core,legal_personhood,https://www.yalelawjournal.org/forum/the-ethics-and-challenges-of-legal-personhood-for-ai
+goldstein2025,"Goldstein, S.; Kirk-Giannini, C. D.",2025,"AI Wellbeing",arXiv 2509.11913,preprint,core,moral_status,https://arxiv.org/abs/2509.11913
+goldstein2026,"Goldstein, S. et al.",2026,"AI Suffrage for Human Flourishing",Fordham Law Review,article,core,ai_rights,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6498678
+gray1997,"Gray, J. C.",1997,"The Nature and Sources of the Law",Routledge,book,core,juridical_personhood,
+hanson2016,"Hanson, R.",2016,"The Age of Em: Work, Love, and Life when Robots Are Smart",Oxford University Press,book,core,digital_minds_futures,
+ivanov2022,"Ivanov, D. et al.",2022,"Neuromorphic artificial intelligence systems",Frontiers in Neuroscience,article,core,architectures,https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.959626/full
+jaworska2021,"Jaworska, A.; Tannenbaum, J.",2021,"The Grounds of Moral Status",Stanford Encyclopedia of Philosophy,encyclopedia,core,moral_status,https://plato.stanford.edu/entries/grounds-moral-status/
+jin2026,"Jin, et al.",2026,"Whole-Brain Connectomic Graph Model Enables Whole-Body Locomotion Control in Fruit Fly",arXiv 2602.17997,preprint,core,architectures,https://arxiv.org/abs/2602.17997
+jones2025,"Jones, C. R.; Bergen, B. K.",2025,"Large Language Models Pass the Turing Test",arXiv 2503.23674,preprint,core,capabilities,https://arxiv.org/abs/2503.23674
+lerchner2026,"Lerchner, A.",2026,"The Abstraction Fallacy: Why AI Can Simulate But Not Instantiate Consciousness",PhilArchive / Google DeepMind,preprint,core,consciousness,https://deepmind.google/research/publications/231971/
+liebman2026,"Liebman, M.",2026,"Legislating Nonpersonhood","Wake Forest Law Review 61:115",article,core,exclusion_bills,https://www.wakeforestlawreview.com/2026/04/legislating-nonpersonhood/
+long2024,"Long, R. et al.",2024,"Taking AI Welfare Seriously",arXiv 2411.00986,preprint,core,moral_status,https://arxiv.org/abs/2411.00986
+novelli2025,"Novelli, C.; Floridi, L.; Sartor, G.; Teubner, G.",2025,"AI as legal persons: past, patterns, and prospects","Journal of Law and Society 52(4)",article,core,legal_personhood,https://philarchive.org/archive/NOVAAL
+okeefe2025,"O'Keefe, C. et al.",2025,"Law-following AI: Designing AI agents to obey human laws","Fordham Law Review 94(1)",article,core,ai_rights,https://law-ai.org/law-following-ai/
+ryan2021,"Ryan, E.; Curry, H. P.; Rule, H.",2021,"Environmental Rights for the 21st Century: A Comprehensive Analysis of the Public Trust Doctrine and Rights of Nature Movement","Cardozo Law Review 42(6)",article,core,rights_of_nature,https://larc.cardozo.yu.edu/clr/vol42/iss6/8/
+salib2024a,"Salib, P.; Goldstein, S.",2024,"AI Rights for Human Safety",SSRN 4913167,preprint,core,ai_rights,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4913167
+salib2024b,"Salib, P.; Goldstein, S.",2024,"AI Rights for Economic Flourishing",SSRN 5353214,preprint,core,ai_rights,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5353214
+schwitzgebel2025,"Schwitzgebel, E.",2025,"AI and Consciousness",arXiv 2510.09858,preprint,core,consciousness,https://arxiv.org/abs/2510.09858
+sebo2025,"Sebo, J.",2025,"The Moral Circle: Who Matters, What Matters, and Why",W.W. Norton,book,core,moral_status,
+seth2025,"Seth, A. K.",2025,"Conscious artificial intelligence and biological naturalism","Behavioral and Brain Sciences 48, e89",article,core,consciousness,https://doi.org/10.1017/S0140525X25000032
+shiller2026,"Shiller, D. et al.",2026,"Initial results of the Digital Consciousness Model",arXiv 2601.17060,preprint,core,consciousness,https://arxiv.org/abs/2601.17060
+sirbu2026,"Sirbu, R. A.; Floridi, L.",2026,"An Analysis of the Governance, Ethical, Legal and Social Implications of Biocomputing","Science and Engineering Ethics",article,core,architectures,https://doi.org/10.1007/s11948-025-00572-x
+solum1992,"Solum, L. B.",1992,"Legal Personhood for Artificial Intelligences","North Carolina Law Review 70(4)",article,core,legal_personhood,https://scholarship.law.unc.edu/nclr/vol70/iss4/4/
+vangulick2026,"Van Gulick, R.",2026,"Consciousness",Stanford Encyclopedia of Philosophy,encyclopedia,core,consciousness,https://plato.stanford.edu/archives/spr2026/entries/consciousness/
+wang2026,"Wang, et al.",2026,"Advances in Brain-Computer Interfaces (BCI): Challenges and Opportunities",Biomimetics,article,core,architectures,https://www.mdpi.com/2313-7673/11/2/157
+wei2023,"Wei, A. et al.",2023,"Jailbroken: How Does LLM Safety Training Fail?",arXiv 2307.02483,preprint,core,capabilities,https://arxiv.org/abs/2307.02483
+buck2024,"Buck, S.",2024,"Regulating AI Is Confusing",The Good Science Project,blog,marginal,definitions,https://goodscience.substack.com/p/regulating-ai-is-confusing
+curhan2025,"Curhan, et al.",2025,"State Policy Trends 2025: Midyear Analysis",Guttmacher Institute,report,marginal,fetal_personhood,https://www.guttmacher.org/2025/06/state-policy-trends-midyear-analysis
+fordham2025,"Fordham, R. F.",2025,"Citizens United and the Decline of US Democracy: Assessing the Decision's Impact 15 Years Later",Roosevelt Institute,report,marginal,juridical_personhood,https://rooseveltinstitute.org/publications/citizens-united-15-years-later/
+roberts2026,"Roberts, O.",2026,"Tennessee's AI Bill Would Criminalize the Training of AI Chatbots",National Law Review,commentary,marginal,exclusion_bills,https://natlawreview.com/article/tennessees-ai-bill-would-criminalize-training-ai-cha
+suleyman2025,"Suleyman, M.",2025,"We Must Build AI For People; Not to Be a Person",Personal site,essay,marginal,consciousness_attribution,https://mustafa-suleyman.ai/seemingly-conscious-ai-is-coming
+weinberg2026,"Weinberg, M.",2026,"California Sees Ways AI Can Support Policymaking. Here's What It Needs to Succeed",Carnegie Endowment,report,marginal,exclusion_bills,https://carnegieendowment.org/posts/2026/03/california-ai-sb-1159
+jaynes2024,"Jaynes, T. L.",2024,"Personhood for artificial intelligence? A cautionary tale from Idaho and Utah","AI & Society (Curmudgeon Corner)",commentary,core,exclusion_bills,https://doi.org/10.1007/s00146-024-02006-x
+bayern2014,"Bayern, S.",2015,"The Implications of Modern Business-Entity Law for the Regulation of Autonomous Systems","Stanford Technology Law Review (verify year/venue)",article,core,juridical_personhood,
+jaynes2021,"Jaynes, T. L.",2021,"On human genome manipulation and Homo technicus: the legal treatment of non-natural human subjects","AI and Ethics 1(3) 331-345",article,core,augmented_humans,https://doi.org/10.1007/s43681-021-00044-5
+attoe2023,"Attoe, A. D.; Segun, S. T.; Nweke, V.; Ezugwu, U. J.; Chimakonam, J. O. (eds)",2023,"Conversations on African Philosophy of Mind, Consciousness and Artificial Intelligence",Springer,book,core,non_western_personhood,https://doi.org/10.1007/978-3-031-36163-0
+nasir2023,"Nasir, N. et al.",2023,"Medical device regulation and oversight in African countries: a scoping review","BMJ Global Health 8:e012308",article,marginal,regulatory_diffusion,https://doi.org/10.1136/bmjgh-2023-012308
