@@ -93,6 +93,11 @@ silently promoted to `verified_primary`.
 verification of Utah HB 249: the enrolled text carries an effective date (1 May 2024) that
 appears nowhere in the bill status page or the paper, and a legal registry needs it.
 
+**Known limitation (2026-08-10).** `provisions` describes the record's *operative* text only.
+Missouri HB 1769 carried `addresses_corporate_veil` as introduced and lost it in committee, and
+that is currently captured in prose rather than structurally. Per-version provision tags are the
+obvious fix and should be considered at the checkpoint — the diff is the product.
+
 **Verification note.** The primary URLs in the paper point at bill *status* pages, not bill
 *text*. Version records need document-level URLs (e.g. Utah's enrolled PDF at
 `le.utah.gov/~2024/bills/hbillenr/HB0249.pdf`). Capture both: `sources.primary` for the

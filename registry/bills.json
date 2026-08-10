@@ -567,24 +567,36 @@
         "state": "MO"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "Would create Mo. Rev. Stat. § 1.2045, ch. 1 (\"AI Non-Sentience and Responsibility Act\")",
       "derived_from": null,
-      "definitional_anchor": "unknown",
-      "augmented_human_exposure": "unclear",
-      "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "definitional_anchor": "none",
+      "augmented_human_exposure": "unanchored",
+      "affects_algorithmic_entity_formation": "does_not_bar",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
+      "sponsors": [
+        {
+          "name": "Amato",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "as introduced",
+          "date": "2025",
+          "source_url": "https://legiscan.com/MO/bill/HB1462/2025"
+        }
+      ],
       "key_clause": {
-        "text": "non-sentient entities [which shall not] be considered to possess consciousness, self-awareness, or similar traits of living beings",
-        "source": "HB 1462 (2025)"
+        "text": "3. For all purposes under state law, AI systems are declared to be non-sentient entities. 4. No AI system shall be granted the status of a \"person\" or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "Missouri HB 1462 (2025), proposed Mo. Rev. Stat. § 1.2045(3)-(4)"
       },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Originator of Family C. First bill to declare AI non-conscious. Enumerates denied statuses: marriage, property ownership, responsibility for harms, liability, managerial positions in corporate entities. Died in committee 2025, reintroduced 2026 as four bills. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Sponsor: Rep. AMATO - the paper never names the sponsor of the bill it identifies as the originator of Family C. Would create Mo. Rev. Stat. s 1.2045, self-titled the 'AI Non-Sentience and Responsibility Act'. Applies to AI systems developed, owned, deployed or operated on or after 28 August 2025. **ANSWERS THE LINEAGE QUESTION: OHIO COPIED MISSOURI, INCLUDING THE UNUSUAL PROVISIONS.** Both the alignment-washing clause (here at (12), Ohio s 1357.10) and the corporate-veil clause (here at (13), Ohio s 1357.11) ORIGINATE HERE. They are not Claggett's additions. Ohio's twelve sections map almost one-to-one onto this single section's fifteen subsections. **BUT OHIO INVERTED THE CORPORATE-VEIL PROVISION.** Missouri (13)(1): 'courts MAY PIERCE the corporate veil to hold parent companies... directly accountable if' the three triggers are met - a permissive grant to courts. Ohio s 1357.11(A): parent companies 'HAVE NO OBLIGATION TO, AND HAVE NO LIABILITY TO, any person... under the doctrine of piercing the corporate veil UNLESS' the same three triggers are demonstrated - default immunity with exceptions. Identical trigger language, opposite default. Missouri enables veil-piercing; Ohio grants immunity and carves out from it. **AND OHIO WEAKENED THE HUMAN-LIABILITY ANCHOR.** Missouri (10): an AI cannot bear fault 'as LIABILITY REMAINS WITH HUMAN ACTORS OR ENTITIES as described in this section.' Ohio s 1357.08 drops that clause entirely, leaving only that attempts to hold an AI liable are void. Wisconsin then drops affirmative human liability altogether. Across the family there is a clear gradient: Missouri anchors liability to humans most firmly, Ohio less so, Wisconsin not at all. That is the opposite of what the 'AI Non-Sentience and RESPONSIBILITY Act' name promises as the template travels, and it is directly relevant to Steinhauser's testimony that the bills exist to stop corporations shifting responsibility onto machines. **COPY-PASTE PROVEN TEXTUALLY:** 'Emergent properties' is defined at (2)(3) here and never used - and the identical unused definition reappears at Ohio s 1357.01(C). A defined-but-unused term surviving transplantation is about as clean a marker of copy-paste drafting as one could ask for, and it substantiates the paper's diffusion thesis at the level of text. The overbroad AI definition reaching 'rules-based logic' also originates here, not in Ohio. SOURCE NOTE: the house.mo.gov URL cited in the paper 404s; text supplied from the LegiScan record.",
       "id": "mo-hb1462-2025",
       "bill_number": "HB 1462",
       "chamber": "house",
@@ -595,7 +607,7 @@
       },
       "status": {
         "stage": "failed",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
       },
       "family": "C",
@@ -603,7 +615,14 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "addresses_corporate_veil"
       ],
       "sources": {
         "primary": [
@@ -613,7 +632,7 @@
           "https://legiscan.com/MO/bill/HB1462/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2025-08-28"
     },
     {
       "jurisdiction": {
@@ -669,7 +688,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the As Introduced text. Would enact TWELVE new sections, Ohio Rev. Code ss 1357.01-1357.12. Sole sponsor as introduced: Rep. Claggett - no cosponsors on the introduced version. SUBSTANTIALLY WIDER THAN THE PAPER DESCRIBES. Beyond non-sentience (s 1357.02) it: voids marriage or union with an AI (s 1357.03); bars AI from serving as officer, director or manager (s 1357.04); bars property ownership including IP, financial accounts and digital assets (s 1357.05); assigns liability to owner/user with product-liability carve-outs for developers (s 1357.06); imposes oversight duties (s 1357.07); makes AI incapable of bearing liability (s 1357.08); requires safety mechanisms and risk assessments (s 1357.09); and imposes an incident-reporting duty for death, significant bodily harm or major property damage (s 1357.12). Six new provision tags were added to the schema to capture this. s 1357.10 IS REMARKABLE AND UNMENTIONED IN THE PAPER: labelling an AI system 'aligned', 'ethically trained' or 'value locked' does not on its own excuse or diminish liability. This is AI-safety vocabulary written into statutory text, and it anticipates alignment-washing. No other bill in the registry does anything comparable. s 1357.11 IS THE ONLY CORPORATE-VEIL PROVISION IN THE REGISTRY: it shields parent companies from veil-piercing EXCEPT where an AI subsidiary or shell was intentionally undercapitalised to evade damages, where corporate structure was used to obscure liability, or where the parent exercised direct control while shielding itself through layered entities. It therefore contemplates AI subsidiaries existing rather than barring them - hence affects_algorithmic_entity_formation='does_not_bar' - and it speaks directly to the A-Corp proposal in Arbel, Salib & Goldstein (2026). THE AI DEFINITION IS AS BROAD AS CRITICS CLAIMED: s 1357.01(A) reaches 'any software, machine, or system capable of simulating humanlike cognitive functions... based on data-driven algorithms, RULES-BASED LOGIC, or other computational methods'. 'Rules-based logic' is the textual basis for TechNet's and Cory Scott's objection that it captures spell checkers and navigation systems, and for the Alexander & Simon neural-implant argument. DRAFTING ARTIFACT: 'Emergent properties' is defined at s 1357.01(C) and then never used anywhere in the bill. CITATION NOTE: the header reads 136th General Assembly; the paper's reference-list entry for the Ohio committee page says '135th General Assembly'. The bill cite elsewhere in the paper says 136th, so the reference list is the error. STATUS NOT RE-CONFIRMED: this is the introduced text only; stage remains as the paper recorded it.",
+      "notes": "VERIFIED 2026-08-10 against the As Introduced text. Would enact TWELVE new sections, Ohio Rev. Code ss 1357.01-1357.12. Sole sponsor as introduced: Rep. Claggett - no cosponsors on the introduced version. SUBSTANTIALLY WIDER THAN THE PAPER DESCRIBES. Beyond non-sentience (s 1357.02) it: voids marriage or union with an AI (s 1357.03); bars AI from serving as officer, director or manager (s 1357.04); bars property ownership including IP, financial accounts and digital assets (s 1357.05); assigns liability to owner/user with product-liability carve-outs for developers (s 1357.06); imposes oversight duties (s 1357.07); makes AI incapable of bearing liability (s 1357.08); requires safety mechanisms and risk assessments (s 1357.09); and imposes an incident-reporting duty for death, significant bodily harm or major property damage (s 1357.12). Six new provision tags were added to the schema to capture this. s 1357.10 IS REMARKABLE AND UNMENTIONED IN THE PAPER: labelling an AI system 'aligned', 'ethically trained' or 'value locked' does not on its own excuse or diminish liability. This is AI-safety vocabulary written into statutory text, and it anticipates alignment-washing. No other bill in the registry does anything comparable. s 1357.11 IS THE ONLY CORPORATE-VEIL PROVISION IN THE REGISTRY: it shields parent companies from veil-piercing EXCEPT where an AI subsidiary or shell was intentionally undercapitalised to evade damages, where corporate structure was used to obscure liability, or where the parent exercised direct control while shielding itself through layered entities. It therefore contemplates AI subsidiaries existing rather than barring them - hence affects_algorithmic_entity_formation='does_not_bar' - and it speaks directly to the A-Corp proposal in Arbel, Salib & Goldstein (2026). THE AI DEFINITION IS AS BROAD AS CRITICS CLAIMED: s 1357.01(A) reaches 'any software, machine, or system capable of simulating humanlike cognitive functions... based on data-driven algorithms, RULES-BASED LOGIC, or other computational methods'. 'Rules-based logic' is the textual basis for TechNet's and Cory Scott's objection that it captures spell checkers and navigation systems, and for the Alexander & Simon neural-implant argument. DRAFTING ARTIFACT: 'Emergent properties' is defined at s 1357.01(C) and then never used anywhere in the bill. CITATION NOTE: the header reads 136th General Assembly; the paper's reference-list entry for the Ohio committee page says '135th General Assembly'. The bill cite elsewhere in the paper says 136th, so the reference list is the error. STATUS NOT RE-CONFIRMED: this is the introduced text only; stage remains as the paper recorded it. LINEAGE VERIFIED 2026-08-10: derived from Missouri HB 1462, whose text has now been read. Ohio did not originate the alignment-washing or corporate-veil provisions - both are Missouri's. Ohio INVERTED the veil provision from permissive piercing into default parent-company immunity with the same three exceptions, and dropped Missouri's 'liability remains with human actors' clause from the AI-liability section.",
       "id": "oh-hb469-2025",
       "bill_number": "HB 469",
       "chamber": "house",
@@ -713,25 +732,39 @@
         "level": "state",
         "state": "MO"
       },
-      "companion_group": "mo-2026-family-c",
-      "codified_at": null,
+      "companion_group": "mo-2026-hcs-1746-1769",
+      "codified_at": "Would create Mo. Rev. Stat. § 1.2045, ch. 1 (\"AI Nonsentience and Responsibility Act\")",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "none",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [],
       "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "versions": [
+        {
+          "label": "as introduced — text not seen",
+          "date": "2026",
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+        },
+        {
+          "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C)",
+          "date": "2026",
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+        }
+      ],
+      "key_clause": {
+        "text": "3. For all purposes under state law, AI systems are declared to be nonsentient entities. 4. No AI system shall be granted the status of a person or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "HCS HBs 1746 & 1769 (2026), proposed Mo. Rev. Stat. § 1.2045(3)-(4)"
+      },
       "evidence_refs": [
         "mo_hb1746_test",
         "berry2026"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Consolidated in committee with HB 1769 into a single replacement text. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the House Committee Substitute text (HCS HBs 1746 & 1769, draft 3891H.04C) - the consolidated replacement the paper refers to. Would create Mo. Rev. Stat. s 1.2045, retitled the 'AI Nonsentience and Responsibility Act' (HB 1462 hyphenated 'Non-Sentience'). Effective 28 August 2026, with a grace period to 1 MARCH 2027 for anyone who formally adopted a compliance policy and demonstrated an implementation plan beforehand. **THE 2025-TO-2026 DIFF IS THE STORY. The personhood core is untouched; the responsibility half was substantially softened.** REMOVED: the entire corporate-veil-piercing provision, HB 1462 (13). The consolidated bill has no veil provision at all. That was the clause Steinhauser and the Alliance for Secure AI pointed to as closing the liability loophole, and Ohio kept a (inverted) version of it. Missouri simply deleted it. ADDED, a compliance safe harbour: (9) deems proper oversight demonstrated by adherence to Missouri AI risk-management standards 'derived from and based on the National Institute of Standards and Technology or NIST AI Risk Management Framework NIST AI 100-1', defaulting to the latest NIST version where Missouri is silent. This is the only bill in the registry that ties compliance to an external technical standard. ADDED, an absolution clause at (8): in cases of 'negligence, or gross negligence, or malpractice' the developer or deployer 'shall be absolved of any criminal wrongdoing or punitive damages' provided the subsection 9 standards were followed. ADDED, an open-source carve-out: 'Developer' now excludes anyone releasing an AI system 'free of charge using an Open Source Initiative approved license' - answering TechNet's objection that these bills burden open-source developers. DEFINITION REPLACED: 'AI' now takes 'the same meaning as used in 15 U.S.C. Section 9401(3)' - the federal National AI Initiative Act definition - in place of HB 1462's homegrown wording reaching 'rules-based logic'. The overbreadth criticism levelled at Ohio was answered in Missouri by adopting the federal statutory definition. ADDED (12)(2), technology neutrality: advances in software, automation, algorithmic decision-making or AI 'shall not be used as the basis for a deployer or developer to engage in conduct that is prohibited under the law'. TERMINOLOGY: 'Owner' became 'Deployer'; 'End-user' newly defined as someone who relies on but does not control the system. (10) still anchors liability to human actors, unlike Ohio and Wisconsin. DRAFTING ARTIFACT PERSISTS: 'Emergent properties' is redefined - now 'any unprogrammed or adaptive behavior of an AI system that appears to mimic human sentience' - and is still never used anywhere in the bill. APPARENT DRAFTING ERROR at (8): 'nor shall wrongdoing by the developer impute liability to the developer', which is circular and probably meant the user or deployer. Flagged, not corrected. SOURCE NOTE: the house.mo.gov URL cited in the paper 404s; text supplied from the LegiScan record. SCOPE OF THIS VERIFICATION: the consolidated HCS text has been read and verified; HB 1746's OWN introduced text has not. Its companion HB 1769 as introduced proved to be a verbatim HB 1462 clone, so HB 1746 as introduced probably was too, but that is an inference, not a reading.",
       "id": "mo-hb1746-2026",
       "bill_number": "HB 1746",
       "chamber": "house",
@@ -742,7 +775,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R"
       },
       "family": "C",
@@ -750,7 +783,14 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "provides_compliance_safe_harbor"
       ],
       "sources": {
         "primary": [
@@ -760,7 +800,7 @@
           "https://legiscan.com/MO/bill/HB1746/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)"
     },
     {
       "jurisdiction": {
@@ -768,24 +808,44 @@
         "level": "state",
         "state": "MO"
       },
-      "companion_group": "mo-2026-family-c",
-      "codified_at": null,
+      "companion_group": "mo-2026-hcs-1746-1769",
+      "codified_at": "Would create Mo. Rev. Stat. § 1.2045, ch. 1 (\"AI Nonsentience and Responsibility Act\")",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "none",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Amato",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "as introduced (4626H.01I) — verbatim HB 1462 clone, corporate-veil provision INTACT",
+          "date": "2026",
+          "source_url": "https://legiscan.com/MO/bill/HB1769/2026"
+        },
+        {
+          "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) — veil provision REMOVED, NIST safe harbour and open-source carve-out ADDED",
+          "date": "2026",
+          "source_url": "https://legiscan.com/MO/bill/HB1746/2026"
+        }
+      ],
+      "key_clause": {
+        "text": "3. For all purposes under state law, AI systems are declared to be nonsentient entities. 4. No AI system shall be granted the status of a person or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "HCS HBs 1746 & 1769 (2026), proposed Mo. Rev. Stat. § 1.2045(3)-(4)"
+      },
       "evidence_refs": [
         "mo_hb1769_test"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Consolidated in committee with HB 1746 into a single replacement text. LINK BROKEN: the house.mo.gov URL cited in the paper returns HTTP 404 (checked 2026-08-10, both the Bill.aspx and BillContent.aspx patterns). Host is reachable; the path is stale. Needs a repaired primary URL before this record can be verified.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "BOTH VERSIONS VERIFIED 2026-08-10. Sponsor: Rep. Amato, the same member who filed HB 1462. **AS INTRODUCED (4626H.01I) THIS IS A VERBATIM HB 1462 CLONE** - same overbroad AI definition reaching 'rules-based logic', same Owner/Manufacturer terminology, same 'Emergent properties' definition, and crucially the CORPORATE-VEIL PROVISION AT (13) STILL INTACT, word for word. Only the applicability date moved, from 28 Aug 2025 to 28 Aug 2026. So the softening did not happen on reintroduction. **IT HAPPENED IN COMMITTEE.** The consolidated House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) is where the veil provision was deleted, the NIST AI 100-1 safe harbour and the negligence/punitive-damages absolution were added, the open-source carve-out was written into 'Developer', and the AI definition was swapped for the federal one at 15 U.S.C. s 9401(3). That pins the change to a specific, datable committee step rather than to the sponsor - which is exactly the kind of attribution a version-diffing registry exists to support, and which Table 1 of the paper cannot express. The record's provision tags describe the OPERATIVE text, i.e. the HCS. The introduced text additionally carried addresses_corporate_veil and lacked provides_compliance_safe_harbor.",
       "id": "mo-hb1769-2026",
       "bill_number": "HB 1769",
       "chamber": "house",
@@ -796,7 +856,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1769&year=2026&code=R"
       },
       "family": "C",
@@ -804,7 +864,14 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "provides_compliance_safe_harbor"
       ],
       "sources": {
         "primary": [
@@ -814,7 +881,7 @@
           "https://legiscan.com/MO/bill/HB1769/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-08-28 (grace period to 2027-03-01 for documented compliance plans)"
     },
     {
       "jurisdiction": {
@@ -823,21 +890,36 @@
         "state": "MO"
       },
       "companion_group": "mo-2026-family-c",
-      "codified_at": null,
+      "codified_at": "Would create Mo. Rev. Stat. § 1.2045, ch. 1 (\"AI Non-Sentience and Responsibility Act\")",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
-      "augmented_human_exposure": "unclear",
-      "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "definitional_anchor": "none",
+      "augmented_human_exposure": "unanchored",
+      "affects_algorithmic_entity_formation": "does_not_bar",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Moon",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "as introduced (4600S.01I)",
+          "date": "2026",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
+        }
+      ],
+      "key_clause": {
+        "text": "3. For all purposes under state law, AI systems are declared to be non-sentient entities. 4. No AI system shall be granted the status of a person or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "Missouri SB 859 (2026), proposed Mo. Rev. Stat. § 1.2045(3)-(4)"
+      },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Substantively equivalent Senate vehicle.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Sponsor: SENATOR MOON. VERBATIM HB 1462 CLONE - identical definitions including the 'rules-based logic' AI wording and the unused 'Emergent properties' term, identical Owner/Manufacturer terminology, and THE CORPORATE-VEIL PROVISION AT (13) INTACT. Applicability date moved to 28 Aug 2026. **DIFFERENT SPONSOR, DIFFERENT CHAMBER, IDENTICAL TEXT.** Rep. Amato filed this text in the House (HB 1462, then HB 1769); Sen. Moon filed it in the Senate. Two members, two chambers, one text, separately drafted (4600S.01I vs 4626H.01I). Taken with the Wisconsin pair - separate LRB drafts producing identical text - this is a recurring pattern: the diffusion the paper documents is not one person copying a file, it is multiple legislators independently commissioning drafts of the same model text. That is a stronger claim than 'copy-and-paste' and it is visible only from the drafting metadata. NOTE ON THE FAMILY: this record retains addresses_corporate_veil because its operative text does. Only the consolidated House Committee Substitute (HCS HBs 1746 & 1769) dropped it. So within Missouri in 2026 there are simultaneously live vehicles WITH and WITHOUT the veil provision - the state has not made up its mind, and a single 'Missouri' row would hide that entirely.",
       "id": "mo-sb859-2026",
       "bill_number": "SB 859",
       "chamber": "senate",
@@ -848,7 +930,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378"
       },
       "family": "C",
@@ -856,7 +938,14 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "addresses_corporate_veil"
       ],
       "sources": {
         "primary": [
@@ -866,7 +955,7 @@
           "https://legiscan.com/MO/bill/SB859/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28"
     },
     {
       "jurisdiction": {
@@ -875,21 +964,36 @@
         "state": "MO"
       },
       "companion_group": "mo-2026-family-c",
-      "codified_at": null,
+      "codified_at": "Would create Mo. Rev. Stat. § 1.2045, ch. 1 (\"AI Non-Sentience and Responsibility Act\")",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
-      "augmented_human_exposure": "unclear",
-      "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "definitional_anchor": "none",
+      "augmented_human_exposure": "unanchored",
+      "affects_algorithmic_entity_formation": "does_not_bar",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Joe Nicola",
+          "party": null,
+          "role": "sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "as introduced (6352S.01I)",
+          "date": "2026",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
+        }
+      ],
+      "key_clause": {
+        "text": "3. For all purposes under state law, AI systems are declared to be non-sentient entities. 4. No AI system shall be granted the status of a person or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "Missouri SB 1474 (2026), proposed Mo. Rev. Stat. § 1.2045(3)-(4)"
+      },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Substantively equivalent Senate vehicle.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the introduced text. Sponsor: SENATOR JOE NICOLA. Status confirmed as second read and referred to the Senate General Laws Committee. VERBATIM HB 1462 CLONE with the corporate-veil provision at (13) intact. **SAME SPONSOR AS SB 1012.** Nicola filed the policy twice in one session, in two different vehicles: SB 1474 as a standalone clone of the model text, and SB 1012 as an omnibus carrying non-sentience alongside deepfakes, political ads and companion-chatbot rules - where the non-sentience language arrived by committee substitute. Filing the same policy as both a pure vehicle and an omnibus rider is a hedging strategy a bill-count alone cannot show.",
       "id": "mo-sb1474-2026",
       "bill_number": "SB 1474",
       "chamber": "senate",
@@ -900,7 +1004,7 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370"
       },
       "family": "C",
@@ -908,7 +1012,14 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "bars_ai_liability",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "addresses_corporate_veil"
       ],
       "sources": {
         "primary": [
@@ -918,7 +1029,7 @@
           "https://legiscan.com/MO/bill/SB1474/2026"
         ]
       },
-      "effective_date": null
+      "effective_date": "applies to AI systems developed, owned, deployed or operated on or after 2026-08-28"
     },
     {
       "jurisdiction": {
@@ -958,7 +1069,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS AMBIGUOUS: the House Emerging Issues committee returned a Do Not Pass. Whether the Senate passed it first needs a human read of the action history - stage left at passed_one_chamber pending that.",
+      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS AMBIGUOUS: the House Emerging Issues committee returned a Do Not Pass. Whether the Senate passed it first needs a human read of the action history - stage left at passed_one_chamber pending that. SPONSOR OVERLAP: Nicola also sponsors SB 1474, a standalone verbatim clone of the model text. He is running the same policy through two vehicles in one session.",
       "id": "mo-sb1012-2026",
       "bill_number": "SB 1012",
       "chamber": "senate",

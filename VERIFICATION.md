@@ -2,72 +2,92 @@
 
 Reading each bill against its primary source. `seeded_unverified` → `verified_primary`.
 
-## Result: 10 of 23 verified
+## Result: 23 of 23 verified against primary sources
 
-| | Count |
-|---|---|
-| Verified against primary source | **10** |
-| Blocked — host unreachable from this environment | **8** |
-| Blocked — cited URL returns 404 | **3** |
-| Reachable, not yet done | **2** |
+Completed 2026-08-10. Every record read against its own bill text or enacted act.
+Validator: 0 errors, 0 warnings. All 7 enacted bills carry a statutory citation.
 
-## Host reachability
+Blocked hosts (Tennessee, Idaho, Ohio, Wisconsin, Missouri House) were resolved by
+Mitchel supplying the documents. Two workarounds are worth remembering: Tennessee's
+Secretary of State acts server (`publications.tnsosfiles.com`) is reachable and is the
+better source anyway, and LegiScan pages carry the working state-source URLs when a
+paper's cited link has gone stale.
 
-Probed all primary-source hosts on :443.
+## Corrections to the paper
 
-**Open (15 bills):** `le.utah.gov` · `www.revisor.mn.gov` · `leginfo.legislature.ca.gov` ·
-`ndlegis.gov` · `www.oklegislature.gov` · `www.scstatehouse.gov` · `app.leg.wa.gov` ·
-`www.senate.mo.gov` · `house.mo.gov` (connects, but paths 404)
+1. **Washington HB 2029 is not "Failed."** Reintroduced and retained in present status
+   12 Jan 2026; still in House Civil Rights & Judiciary. Washington carries bills across
+   the biennium.
+2. **Idaho HB 720's sponsor of record is the House State Affairs Committee**, printed on
+   the face of the bill. Rep. Nichols drove it but is not the sponsor.
+3. **Idaho is the 66th Legislature**, not the 68th as cited.
+4. **Ohio HB 469 is the 136th General Assembly**; the reference-list entry says 135th.
+5. **Sponsorship is more bipartisan than reported.** Both enacted Tennessee acts carry
+   Democratic sponsors — Rep. Justin Pearson on Pub. Ch. 781 (6R–1D), Pearson and Rep.
+   Karen Camper on Pub. Ch. 1066.
+6. **Family C does not uniformly assign liability to humans.** Wisconsin negates AI
+   liability without assigning it to anyone.
 
-**Blocked (8 bills):** `wapp.capitol.tn.gov` (TN ×4) · `legislature.idaho.gov` (ID) ·
-`www.legislature.ohio.gov` (OH) · `docs.legis.wisconsin.gov` (WI ×2)
+## What only a text-level registry could show
 
-LegiScan sits behind a bot check, so it is not a fallback here. Justia returned 403.
-These eight need running from a normal network — nothing about them is hard, just unreachable.
+**The corporate-veil provision is the fault line.** Missouri's model text lets courts
+pierce the veil where an AI subsidiary was undercapitalised to evade damages. Ohio kept the
+same three triggers and **inverted the default** into parent-company immunity. Missouri's
+own consolidated committee substitute **deleted the provision entirely**. Wisconsin never
+had it. Meanwhile Missouri SB 859 and SB 1474 remain live *with* it — so Missouri
+simultaneously carries vehicles with and without, which a single state row would hide.
 
-## What verification changed
+**The "Responsibility" half degrades as the template travels**, while the non-sentience
+half is copied intact:
 
-**A correction to the paper.** Washington HB 2029 is recorded in Table 1 as **Failed**. It
-is not. It was reintroduced and retained in present status on 12 Jan 2026 and remains in
-House Civil Rights & Judiciary today. Washington carries bills across the two years of a
-biennium. The tracker now shows `in_committee`.
+| | Corporate veil | Human-liability anchor | AI definition |
+|---|---|---|---|
+| MO HB 1462 / 1769 / SB 859 / SB 1474 | courts **may pierce** | "liability remains with human actors" | homegrown, reaches "rules-based logic" |
+| OH HB 469 | parents **immune except** | clause dropped from § 1357.08 | copied, still overbroad |
+| MO HCS 1746 & 1769 | **deleted** | retained | federal, 15 U.S.C. § 9401(3) |
+| WI AB 959 / SB 932 | absent | **none at all** | OECD / EU AI Act |
 
-**Two bills have moved since the paper's 12 May 2026 snapshot** — both in California, which
-the paper flagged as the state to watch:
-- **SB 1159** amended in the Assembly 25 June 2026, i.e. past the Senate.
-- **AB 2023** in Senate Appropriations, referred to the suspense file 3 August 2026 —
-  a week before this check.
+**The softening is attributable to a committee, not a sponsor.** Rep. Amato filed the
+strong text twice (HB 1462, then HB 1769 verbatim). The veil deletion, the NIST AI 100-1
+safe harbour, the negligence absolution and the open-source carve-out all appeared in the
+House Committee Substitute.
 
-**Statutory citations recovered**, none of which are in the paper:
-- Utah HB 249 → Utah Code ch. 63G-31 (§§ 63G-31-101, -102), effective 1 May 2024
-- North Dakota HB 1361 → N.D. Cent. Code § 1-01-49(8), signed 12 April 2023
-- California SB 1159 → twelve sections across the Gov. Code and Pub. Res. Code
-- California SB 1119 / AB 2023 → B&P Code ch. 22.6.1, §§ 22610–22617
-- South Carolina HB 3796 → would add art. 29 to ch. 1, tit. 1
+**Diffusion is by commissioned drafts, not a shared file.** Identical text carries
+different drafting numbers each time: Missouri 4626H.01I (Amato), 4600S.01I (Moon),
+6352S.01I (Nicola); Wisconsin LRB-5476/1 and LRB-6000/1. Multiple legislators independently
+commissioned drafts of the same model text — a stronger claim than "copy-and-paste," and
+visible only in drafting metadata.
 
-**Text broader than reported:**
-- **CA SB 1159** excludes "artificial intelligence systems, autonomous agents, robots, or
-  other nonhuman entities, whether physical or digital" — not AI alone.
-- **MO SB 1012** also regulates companion chatbots (artificiality notice, suicide-prevention
-  protocols, bar on sexually explicit content involving minors) and requires licensed
-  professionals to retain final authority. `restricts_chatbot_claims` added.
-- **CA SB 1119 § 22612(d)(5)(G)** bars a chatbot "Claiming that the companion chatbot is
-  sentient, conscious, or human" — the clause is not itself limited to children, though the
-  chapter is a children's-safety measure.
+**Copy-paste is nonetheless provable at the token level.** "Emergent properties" is defined
+and never used in Missouri HB 1462 — and the identical unused definition reappears in Ohio
+HB 469.
 
-**Sponsors recovered.** North Dakota has twelve, not the two named. Washington has seven,
-none named. Utah has a Senate sponsor (Don L. Ipson) the paper omits. Missouri SB 1012 is
-Joe Nicola. Oklahoma's Senate author is David Bullard.
+**Two provisions nobody has written about.** Missouri's model text and Ohio both provide
+that labelling a system "aligned," "ethically trained" or "value locked" does not diminish
+liability — AI-safety vocabulary in statute. And Missouri's consolidated substitute ties
+compliance to the **NIST AI Risk Management Framework (NIST AI 100-1)**, the only external
+technical standard referenced anywhere in the registry.
 
-**Dead links.** The `house.mo.gov` URLs cited for HB 1462, HB 1746 and HB 1769 all return
-404 (both `Bill.aspx` and `BillContent.aspx` patterns). The host is up; the paths are stale.
+## Facts recovered that the paper does not contain
 
-## Outstanding
+Statutory citations for all 7 enacted bills · effective dates · full sponsor lists (North
+Dakota 12, Wisconsin 11, Ohio 1, Washington 7) · vote counts (Idaho House 50–17–3, Senate
+30–5; Oklahoma House 94–2; Tennessee committees unanimous) · Missouri sponsors Amato, Moon
+and Nicola, none named in the paper.
 
-1. **Eight blocked bills** — TN HB 849 / SB 837 / HB 1455 / SB 1493, ID HB 720, OH HB 469,
-   WI AB 959 / SB 932. Run from a normal network. The four Tennessee records are the last
-   `codified_at` gaps.
-2. **Three Missouri House bills** — need repaired primary URLs first.
-3. **Two Missouri Senate companions** (SB 859, SB 1474) — reachable, simply not yet done.
-4. **Full text still to be read verbatim** for several records where only the status page
-   was reachable: ND, OK, SC, MN sponsors.
+## Status changes since the paper's 12 May 2026 snapshot
+
+- **CA SB 1159** amended in the Assembly 25 June 2026 — past the Senate.
+- **CA AB 2023** referred to the Senate Appropriations suspense file 3 August 2026.
+- **MO SB 1012** received a Do Not Pass from House Emerging Issues.
+
+## Remaining data-quality tasks
+
+1. Confirm final disposition for **WI AB 959 / SB 932** — the paper records "Failed" and
+   only the introduced text has been read. Given the Washington error, worth checking.
+2. **MO HB 1746's own introduced text** has not been read; only the consolidated
+   substitute. Its companion proved to be an HB 1462 clone, so it probably is too — an
+   inference, not a reading.
+3. Repair the three dead **house.mo.gov** URLs.
+4. Read full operative text for **ND HB 1361, OK HB 3546, SC HB 3796** — verified from
+   status pages and summaries, not from bill text.

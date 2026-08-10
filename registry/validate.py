@@ -13,7 +13,7 @@ PROV={"denies_legal_personhood","declares_non_sentient","assigns_liability_to_hu
       "imposes_safety_duties","incident_reporting_duty","addresses_corporate_veil",
       # WI AB 959 negates AI liability without assigning it to anyone - distinct from
       # OH s 1357.06, which affirmatively assigns it. Keep the two separable.
-      "bars_ai_liability"}
+      "bars_ai_liability","provides_compliance_safe_harbor"}
 FAM={"A","B","C","other"}
 ANCHOR={"taxonomic","enumerated_only","none","unknown"}
 AUG={"anchored","unanchored","unclear"}
