@@ -10,7 +10,7 @@
 - [x] **Step 3** — per-bill pages: 23 pages at `/bills/{id}/`, every field rendered, readable provision labels, citation block; internal link check clean apart from `method/` and `data/` (steps 8–9)
 - [x] **Step 4** — matrix + map filter: 23×16 matrix, 50-state tile grid as filter control, family/status/provision filters, no-JS fallback; acceptance test passes (MO → 6 rows, veil split visible)
 - [x] **Step 5** — version diffs: 3 diffs live (TN ×2, MO), operative-text-only comparison, mechanism amendment linked, landing-page callout
-- [ ] **Step 6** — genealogy graph
+- [x] **Step 6** — genealogy graph: `/lineage/`, 2 trees, 15 nodes, 13 labelled edges, 8 orphans listed; layout by generation depth, geometry verified non-overlapping
 - [ ] **Step 7** — watch list
 - [ ] **Step 8** — method page
 - [ ] **Step 9** — downloads

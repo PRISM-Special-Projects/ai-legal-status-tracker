@@ -34,7 +34,7 @@ def last_verified(bills):
 # ---------------------------------------------------------------- page shell
 def page(title, body, *, depth=0, desc="", active=""):
     up = "../" * depth
-    nav = [("", "Bills"), ("method/", "Method"), ("data/", "Data")]
+    nav = [("", "Bills"), ("lineage/", "Lineage"), ("method/", "Method"), ("data/", "Data")]
     links = "".join(
         f'<a href="{up}{h}"{" aria-current=page" if active==h else ""}>{esc(t)}</a>'
         for h, t in nav)
@@ -139,6 +139,34 @@ footer.site{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 46px
   font:.85rem/1.6 ui-sans-serif,system-ui,sans-serif;color:var(--muted);background:var(--card)}
 footer.site p{margin:.3em 0;max-width:74ch}
 
+
+/* ---- lineage graph ---- */
+figure.tree{margin:1.8em 0;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--card);overflow:hidden}
+figure.tree figcaption{padding:11px 16px;border-bottom:1px solid var(--line);
+  font:600 .86rem/1.4 ui-sans-serif,system-ui,sans-serif}
+.svgscroll{overflow-x:auto;padding:8px 12px}
+.svgscroll svg{max-width:none;display:block}
+path.edge{fill:none;stroke:var(--line);stroke-width:1.6}
+circle.ebadge{fill:var(--bg);stroke:var(--accent);stroke-width:1.4}
+text.ebadget{font:600 10px ui-sans-serif,system-ui,sans-serif;fill:var(--accent);text-anchor:middle}
+a.gnode rect.nbox{fill:var(--bg);stroke:var(--line);stroke-width:1.4}
+a.gnode:hover rect.nbox{stroke:var(--accent);stroke-width:2}
+rect.nbox.s-enacted{fill:var(--add-bg);stroke:var(--add)}
+rect.nbox.s-failed{fill:var(--del-bg);stroke:var(--del)}
+text.nt{font:600 12.5px ui-sans-serif,system-ui,sans-serif;fill:var(--fg)}
+text.nm{font:10.5px ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}
+.edgedef{border-top:1px solid var(--line);padding:12px 0}
+.edgedef h3{margin:0 0 .3em;font-size:.92rem;text-transform:none;letter-spacing:0;
+  color:var(--fg);font-family:ui-sans-serif,system-ui,sans-serif}
+.edgedef h3 .arrow{color:var(--muted)}
+.edgedef ul{margin:0;padding-left:1.15em;font-size:.9rem}
+.edgedef ul li{margin:.25em 0;max-width:78ch}
+.edgedef:target{background:var(--accent-weak);border-radius:var(--radius);
+  padding-left:12px;padding-right:12px}
+ul.orphans{columns:2;column-gap:28px;list-style:none;padding-left:0;font-size:.92rem}
+ul.orphans li{margin:.25em 0;break-inside:avoid}
+@media (max-width:700px){ ul.orphans{columns:1} }
 
 aside.callout{border:1px solid var(--accent);border-left-width:3px;border-radius:var(--radius);
   background:var(--accent-weak);padding:14px 18px;margin:1.8em 0}
@@ -358,6 +386,87 @@ def changed_callout(bills):
             f'<p>Where we hold both the introduced and the final text, the registry shows the '
             f'change itself rather than describing it. Companion bills share a text and appear once.</p>'
             f'<ul class="changed">{"".join(items)}</ul></aside>')
+
+# ---------------------------------------------------------------- lineage graph
+def lineage(bills):
+    byid={b["id"]:b for b in bills}
+    kids={}
+    for b in bills:
+        if b["derived_from"]: kids.setdefault(b["derived_from"],[]).append(b["id"])
+    linked={i for i in kids} | {c for v in kids.values() for c in v}
+    roots=[i for i in kids if not byid[i]["derived_from"]]
+    orphans=[b for b in bills if b["id"] not in linked]
+
+    NW,NH,GX,GY,PAD = 168,44,96,16,14
+    trees=[]; edgedefs=[]
+    for root in sorted(roots, key=lambda i:byid[i]["session"]["year_introduced"]):
+        # depth-first layout: x = generation, y = running row
+        pos={}; row=[0]
+        def place(nid, depth):
+            ch=sorted(kids.get(nid,[]), key=lambda i:(byid[i]["jurisdiction"]["state"],byid[i]["bill_number"]))
+            if not ch:
+                pos[nid]=(depth,row[0]); row[0]+=1; return pos[nid][1]
+            ys=[place(c,depth+1) for c in ch]
+            y=(min(ys)+max(ys))/2; pos[nid]=(depth,y); return y
+        place(root,0)
+        maxd=max(d for d,_ in pos.values()); maxr=max(y for _,y in pos.values())
+        W=PAD*2+(maxd+1)*NW+maxd*GX; H=PAD*2+(maxr+1)*(NH+GY)
+        X=lambda d: PAD+d*(NW+GX); Y=lambda y: PAD+y*(NH+GY)
+        paths=[];nodes=[]
+        for nid,(d,y) in pos.items():
+            b=byid[nid]; x0,y0=X(d),Y(y)
+            for c in kids.get(nid,[]):
+                cd,cy=pos[c]; x1,y1=X(cd),Y(cy)
+                mx=(x0+NW+x1)/2
+                paths.append(f'<path d="M{x0+NW} {y0+NH/2} C{mx} {y0+NH/2} {mx} {y1+NH/2} {x1} {y1+NH/2}" '
+                             f'class="edge"/>')
+                n=len(byid[c]["derived_from_changes"])
+                paths.append(f'<a href="#e-{esc(c)}"><circle cx="{mx}" cy="{(y0+y1)/2+NH/2}" r="9" class="ebadge"/>'
+                             f'<text x="{mx}" y="{(y0+y1)/2+NH/2+3.5}" class="ebadget">{n}</text></a>')
+                edgedefs.append((nid,c))
+            st=b["status"]["stage"]
+            nodes.append(
+              f'<a href="../bills/{esc(nid)}/" class="gnode"><rect x="{x0}" y="{y0}" width="{NW}" height="{NH}" '
+              f'rx="5" class="nbox s-{esc(st)}"/>'
+              f'<text x="{x0+11}" y="{y0+18}" class="nt">{esc(b["jurisdiction"]["state"])} {esc(b["bill_number"])}</text>'
+              f'<text x="{x0+11}" y="{y0+34}" class="nm">{esc(b["session"]["year_introduced"])} · fam {esc(b["family"])} · '
+              f'{esc(st.replace("_"," "))}</text></a>')
+        trees.append(f'<figure class="tree"><figcaption>Template family rooted in '
+                     f'{esc(byid[root]["jurisdiction"]["state"])} {esc(byid[root]["bill_number"])}</figcaption>'
+                     f'<div class="svgscroll"><svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+                     f'role="img" aria-label="Lineage diagram">{"".join(paths)}{"".join(nodes)}</svg></div></figure>')
+
+    defs=[]
+    for par,ch in edgedefs:
+        c=byid[ch]; pb=byid[par]
+        items="".join(f"<li>{esc(x)}</li>" for x in c["derived_from_changes"])
+        defs.append(f'<div class="edgedef" id="e-{esc(ch)}">'
+                    f'<h3><a href="../bills/{esc(par)}/">{esc(pb["jurisdiction"]["state"])} {esc(pb["bill_number"])}</a>'
+                    f' <span class="arrow">→</span> '
+                    f'<a href="../bills/{esc(ch)}/">{esc(c["jurisdiction"]["state"])} {esc(c["bill_number"])}</a></h3>'
+                    f'<ul>{items}</ul></div>')
+
+    orph="".join(f'<li><a href="../bills/{esc(b["id"])}/">{esc(b["jurisdiction"]["state"])} '
+                 f'{esc(b["bill_number"])}</a> <span class="muted">({esc(b["session"]["year_introduced"])})</span></li>'
+                 for b in orphans)
+    body=f"""
+<h1>Template lineage</h1>
+<p class="lede">Most of these bills are not independently drafted. {len(edgedefs)} documented
+descent relationships link {len(linked)} of the {len(bills)} bills into
+{len(roots)} template families. Numbers on the connectors count the differences between
+parent and child; each links to the detail below.</p>
+{"".join(trees)}
+<h2>What changed in transit</h2>
+<p class="muted small">Every line is a checkable statement about bill text, drawn from the
+verified records. Nothing here characterises a bill as better or worse than its parent.</p>
+{"".join(defs)}
+<h2>No documented template lineage</h2>
+<p class="muted small">{len(orphans)} bills we have not traced to a parent text. That means we
+found no evidence of descent, not that none exists.</p>
+<ul class="orphans">{orph}</ul>
+"""
+    return page("Template lineage", body, depth=1, active="lineage/",
+                desc="How AI legal-status bills descend from one another, and what changed at each step.")
 
 # ---------------------------------------------------------------- landing: map + matrix
 # Standard US tile grid: (row, col) on a 12-col lattice. Geography approximate by design —
@@ -675,6 +784,9 @@ registry does not rank bills.</p>
 <script>{FILTER_JS}</script>
 """
     (DIST / "index.html").write_text(page("Bills", body, active=""))
+
+    (DIST / "lineage").mkdir(parents=True, exist_ok=True)
+    (DIST / "lineage" / "index.html").write_text(lineage(bills))
 
     byid={b["id"]:b for b in bills}
     for b in bills:
