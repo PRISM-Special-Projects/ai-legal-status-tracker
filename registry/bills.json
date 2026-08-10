@@ -622,12 +622,12 @@
         "state": "OH"
       },
       "companion_group": null,
-      "codified_at": null,
+      "codified_at": "Would enact Ohio Rev. Code §§ 1357.01–1357.12",
       "derived_from": "mo-hb1462-2025",
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "none",
       "augmented_human_exposure": "unanchored",
-      "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "affects_algorithmic_entity_formation": "does_not_bar",
+      "corporate_carve_out": "none",
       "constitutional_exposure": [
         {
           "amendments": [
@@ -640,13 +640,19 @@
         {
           "name": "Thaddeus Claggett",
           "party": "R",
-          "role": "primary"
+          "role": "sponsor (sole, as introduced)"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "label": "as introduced",
+          "date": "2025",
+          "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469"
+        }
+      ],
       "key_clause": {
-        "text": "no AI system shall be considered to possess consciousness, self-awareness, or similar traits of living beings",
-        "source": "HB 469 (2025)"
+        "text": "(A) Notwithstanding any other law to the contrary, AI systems are declared to be nonsentient entities for all purposes under the laws of this state. (B) No AI system shall be granted the status of person or any form of legal personhood, nor be considered to possess consciousness, self-awareness, or similar traits of living beings.",
+        "source": "Ohio HB 469 (2025), proposed Ohio Rev. Code § 1357.02"
       },
       "evidence_refs": [
         "claggett2025",
@@ -661,9 +667,9 @@
         "ohiohouse_nd"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Nearly identical language to Missouri HB 1462. Most media coverage of any bill in the set. Opposed by TechNet on definitional breadth; Alexander & Simon raise the neural-implant problem.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the As Introduced text. Would enact TWELVE new sections, Ohio Rev. Code ss 1357.01-1357.12. Sole sponsor as introduced: Rep. Claggett - no cosponsors on the introduced version. SUBSTANTIALLY WIDER THAN THE PAPER DESCRIBES. Beyond non-sentience (s 1357.02) it: voids marriage or union with an AI (s 1357.03); bars AI from serving as officer, director or manager (s 1357.04); bars property ownership including IP, financial accounts and digital assets (s 1357.05); assigns liability to owner/user with product-liability carve-outs for developers (s 1357.06); imposes oversight duties (s 1357.07); makes AI incapable of bearing liability (s 1357.08); requires safety mechanisms and risk assessments (s 1357.09); and imposes an incident-reporting duty for death, significant bodily harm or major property damage (s 1357.12). Six new provision tags were added to the schema to capture this. s 1357.10 IS REMARKABLE AND UNMENTIONED IN THE PAPER: labelling an AI system 'aligned', 'ethically trained' or 'value locked' does not on its own excuse or diminish liability. This is AI-safety vocabulary written into statutory text, and it anticipates alignment-washing. No other bill in the registry does anything comparable. s 1357.11 IS THE ONLY CORPORATE-VEIL PROVISION IN THE REGISTRY: it shields parent companies from veil-piercing EXCEPT where an AI subsidiary or shell was intentionally undercapitalised to evade damages, where corporate structure was used to obscure liability, or where the parent exercised direct control while shielding itself through layered entities. It therefore contemplates AI subsidiaries existing rather than barring them - hence affects_algorithmic_entity_formation='does_not_bar' - and it speaks directly to the A-Corp proposal in Arbel, Salib & Goldstein (2026). THE AI DEFINITION IS AS BROAD AS CRITICS CLAIMED: s 1357.01(A) reaches 'any software, machine, or system capable of simulating humanlike cognitive functions... based on data-driven algorithms, RULES-BASED LOGIC, or other computational methods'. 'Rules-based logic' is the textual basis for TechNet's and Cory Scott's objection that it captures spell checkers and navigation systems, and for the Alexander & Simon neural-implant argument. DRAFTING ARTIFACT: 'Emergent properties' is defined at s 1357.01(C) and then never used anywhere in the bill. CITATION NOTE: the header reads 136th General Assembly; the paper's reference-list entry for the Ohio committee page says '135th General Assembly'. The bill cite elsewhere in the paper says 136th, so the reference list is the error. STATUS NOT RE-CONFIRMED: this is the introduced text only; stage remains as the paper recorded it.",
       "id": "oh-hb469-2025",
       "bill_number": "HB 469",
       "chamber": "house",
@@ -682,7 +688,13 @@
       "provisions": [
         "denies_legal_personhood",
         "declares_non_sentient",
-        "assigns_liability_to_humans"
+        "assigns_liability_to_humans",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "imposes_safety_duties",
+        "incident_reporting_duty",
+        "addresses_corporate_veil"
       ],
       "sources": {
         "primary": [

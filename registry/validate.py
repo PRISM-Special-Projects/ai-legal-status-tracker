@@ -6,7 +6,11 @@ TECH={"standalone_provision","amends_general_person_definition","amends_specific
       "constitutional_amendment","hybrid"}
 PROV={"denies_legal_personhood","declares_non_sentient","assigns_liability_to_humans",
       "restricts_ai_speech_rights","restricts_chatbot_claims","restricts_person_like_training",
-      "covers_non_ai_entities","study_only"}
+      "covers_non_ai_entities","study_only",
+      # added 2026-08-10 from the Ohio HB 469 text - the Family C bills do considerably
+      # more than deny personhood and declare non-sentience
+      "bars_marriage_or_union","bars_property_ownership","bars_corporate_office",
+      "imposes_safety_duties","incident_reporting_duty","addresses_corporate_veil"}
 FAM={"A","B","C","other"}
 ANCHOR={"taxonomic","enumerated_only","none","unknown"}
 AUG={"anchored","unanchored","unclear"}

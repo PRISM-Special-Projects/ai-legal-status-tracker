@@ -50,7 +50,9 @@ the UI group or ungroup as needed.
 
 **`provisions`** — `denies_legal_personhood` · `declares_non_sentient` ·
 `assigns_liability_to_humans` · `restricts_ai_speech_rights` · `restricts_chatbot_claims` ·
-`restricts_person_like_training` · `covers_non_ai_entities` · `study_only`
+`restricts_person_like_training` · `covers_non_ai_entities` · `study_only` ·
+`bars_marriage_or_union` · `bars_property_ownership` · `bars_corporate_office` ·
+`imposes_safety_duties` · `incident_reporting_duty` · `addresses_corporate_veil`
 
 ## Rules
 
@@ -73,6 +75,13 @@ registry/validate.py     schema + vocabulary + referential checks
 ```
 
 ## Changelog
+
+**v0.1.2 → v0.1.3 (2026-08-10).** Six provision tags added after reading Ohio HB 469 in full:
+`bars_marriage_or_union`, `bars_property_ownership`, `bars_corporate_office`,
+`imposes_safety_duties`, `incident_reporting_duty`, `addresses_corporate_veil`. The Family C
+bills do considerably more than deny personhood and declare non-sentience, and three tags on a
+twelve-section bill was losing most of what it actually does. Family C records other than Ohio
+still carry the old three tags and must be re-tagged as each is verified.
 
 **v0.1.1 → v0.1.2 (2026-08-10).** Added `verified_secondary` to `verification_status`. Some
 legislature hosts are unreachable, and a tracker record (LegiScan) can establish session-law
