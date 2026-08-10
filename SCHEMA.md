@@ -36,7 +36,7 @@ the UI group or ungroup as needed.
 | `evidence_refs` | array | `ref_key`s into the Evidence sheet |
 | `sources` | object | `{primary[], tracker[]}` |
 | `provenance` | string | Where the record came from |
-| `verification_status` | enum | `verified_primary` · `seeded_unverified` |
+| `verification_status` | enum | `verified_primary` · `verified_secondary` · `seeded_unverified` |
 | `last_verified` | date¦null | Null until someone reads the primary source |
 | `notes` | string | |
 
@@ -73,6 +73,12 @@ registry/validate.py     schema + vocabulary + referential checks
 ```
 
 ## Changelog
+
+**v0.1.1 → v0.1.2 (2026-08-10).** Added `verified_secondary` to `verification_status`. Some
+legislature hosts are unreachable, and a tracker record (LegiScan) can establish session-law
+chapter, effective date, sponsors and vote counts even when the enrolled text cannot be read.
+That is a real and distinct state: better than seeded, weaker than primary. It must never be
+silently promoted to `verified_primary`.
 
 **v0.1 → v0.1.1 (2026-08-10).** Added `effective_date` (string¦null). Discovered during
 verification of Utah HB 249: the enrolled text carries an effective date (1 May 2024) that

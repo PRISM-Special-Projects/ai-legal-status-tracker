@@ -12,7 +12,7 @@
         "state": "ID"
       },
       "companion_group": null,
-      "codified_at": "Idaho Code § 5-346",
+      "codified_at": "Idaho Code § 5-346; 2022 Idaho Sess. Laws ch. 322",
       "derived_from": null,
       "definitional_anchor": "none",
       "augmented_human_exposure": "unanchored",
@@ -33,16 +33,21 @@
       ],
       "sponsors": [
         {
-          "name": "Tammy Nichols",
-          "party": "R",
-          "role": "primary"
+          "name": "House State Affairs Committee",
+          "party": null,
+          "role": "sponsor of record (committee bill)"
         }
       ],
       "versions": [
         {
-          "label": "enacted",
-          "date": "2022",
-          "source_url": "https://legislature.idaho.gov/statutesrules/idstat/title5/t5ch3/sect5-346/"
+          "label": "introduced",
+          "date": "2022-03-01",
+          "source_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2022/legislation/H0720.pdf"
+        },
+        {
+          "label": "enacted (Sess. Laws ch. 322)",
+          "date": "2022-03-31",
+          "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/"
         }
       ],
       "key_clause": {
@@ -56,9 +61,9 @@
         "nichols2025b"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "First in nation. Covers AI, nature, animals and inanimate objects. Saving clause preserves personhood of municipalities, corporations and other entities recognised before the effective date. codified_at from Jaynes (2024), not from the paper.",
+      "verification_status": "verified_secondary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against the LegiScan record - SECONDARY source. legislature.idaho.gov is firewalled from this environment (connection timeout on both the bill page and the text PDF), so the enrolled text has NOT been read. Signed by the Governor 31 March 2022 as 2022 Session Law Chapter 322; effective 1 July 2022. SPONSOR CORRECTION: the sponsor of record is the HOUSE STATE AFFAIRS COMMITTEE - this is a committee bill. The paper says 'Introduced by Republican Representative (now Senator) Tammy Nichols'. Nichols was plainly the driving force and presented it publicly, but she is not the formal sponsor, and Idaho committee bills routinely carry no individual name. Worth rewording before we repeat the paper's attribution. VOTES WERE CONTESTED: House 50-17-3 (3 Mar 2022), Senate 30-5 (23 Mar 2022). Seventeen House nays is real opposition, which sits awkwardly with Jaynes's characterisation that it 'passed without significant fanfare' - the fanfare was low, the dissent was not negligible. STILL NEEDED: the enrolled text, to confirm the saving-clause wording that drives corporate_carve_out=express_saving_clause and to verify Idaho Code s 5-346 (currently taken from Jaynes, not read).",
       "id": "id-hb720-2022",
       "bill_number": "HB 720",
       "chamber": "house",
@@ -69,7 +74,7 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-05-12",
+        "as_of": "2026-08-10",
         "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/"
       },
       "family": "A",
@@ -87,7 +92,7 @@
           "https://legiscan.com/ID/bill/H0720/2022"
         ]
       },
-      "effective_date": null
+      "effective_date": "2022-07-01"
     },
     {
       "jurisdiction": {
@@ -1093,39 +1098,83 @@
         "state": "TN"
       },
       "companion_group": "tn-2025-hb849-sb837",
-      "codified_at": null,
+      "codified_at": "Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)",
       "derived_from": null,
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "enumerated_only",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "express_saving_clause",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Reneau",
+          "party": "R",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Bulso",
+          "party": "R",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Helton-Haynes",
+          "party": "R",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Reedy",
+          "party": "R",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Pearson",
+          "party": "D",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Todd",
+          "party": "R",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Powers",
+          "party": "R",
+          "role": "house sponsor"
+        }
+      ],
       "versions": [
         {
           "label": "introduced",
-          "date": "2025",
-          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+          "date": "2025-02-04",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
         },
         {
-          "label": "amended",
+          "label": "amendment SA0922",
           "date": "2026",
           "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf"
         },
         {
-          "label": "enacted",
+          "label": "amendment HA0979",
           "date": "2026",
-          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf"
+        },
+        {
+          "label": "enacted (Pub. Ch. 781)",
+          "date": "2026-04-28",
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
         }
       ],
-      "key_clause": null,
+      "key_clause": {
+        "text": "(20) \"Person\": (A) Includes a corporation, firm, company, or association; and (B) Does not include artificial intelligence, a computer algorithm, a software program, computer hardware, or any type of machine;",
+        "source": "Public Chapter No. 781 (2026), amending Tenn. Code Ann. § 1-3-105(a)(20)"
+      },
       "evidence_refs": [
         "tn_sa0922"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "AMENDMENT DIFF MATTERS. Original draft provided that 'person', 'life' and 'natural person' cannot refer to AI across the Tennessee Code, AND defined 'human being' to include embryos 'from fertilization to full gestation'. The fetal-personhood provisions were removed after a committee hearing. Enacted 2026, AI-only.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0.",
       "id": "tn-hb849-2025",
       "bill_number": "HB 849",
       "chamber": "house",
@@ -1136,8 +1185,8 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-05-12",
-        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        "as_of": "2026-08-10",
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1146,13 +1195,15 @@
       ],
       "sources": {
         "primary": [
-          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114",
+          "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+          "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
         ],
         "tracker": [
           "https://legiscan.com/TN/bill/HB0849/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-04-23"
     },
     {
       "jurisdiction": {
@@ -1161,23 +1212,63 @@
         "state": "TN"
       },
       "companion_group": "tn-2025-hb849-sb837",
-      "codified_at": null,
+      "codified_at": "Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)",
       "derived_from": null,
-      "definitional_anchor": "unknown",
+      "definitional_anchor": "enumerated_only",
       "augmented_human_exposure": "unclear",
       "affects_algorithmic_entity_formation": "not_analysed",
-      "corporate_carve_out": "unknown",
+      "corporate_carve_out": "express_saving_clause",
       "constitutional_exposure": [],
-      "sponsors": [],
-      "versions": [],
-      "key_clause": null,
+      "sponsors": [
+        {
+          "name": "Pody",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Gardenhire",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Bowling",
+          "party": null,
+          "role": "senate sponsor"
+        }
+      ],
+      "versions": [
+        {
+          "label": "introduced",
+          "date": "2025-02-04",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
+        },
+        {
+          "label": "amendment SA0922",
+          "date": "2026",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf"
+        },
+        {
+          "label": "amendment HA0979",
+          "date": "2026",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Amend/HA0979.pdf"
+        },
+        {
+          "label": "enacted (Pub. Ch. 781)",
+          "date": "2026-04-28",
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
+        }
+      ],
+      "key_clause": {
+        "text": "(20) \"Person\": (A) Includes a corporation, firm, company, or association; and (B) Does not include artificial intelligence, a computer algorithm, a software program, computer hardware, or any type of machine;",
+        "source": "Public Chapter No. 781 (2026), amending Tenn. Code Ann. § 1-3-105(a)(20)"
+      },
       "evidence_refs": [
         "tn_sa0922"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Senate companion to HB 849. Amendment no. 1 (SA0922) removed the fetal-personhood provisions.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 781 (TN Secretary of State). Enacted as SB 837, with HB 849 substituted out on 8 April 2026. Amends Tenn. Code Ann. s 1-3-105(a) by deleting subdivision (20) and substituting a new definition of 'person'. Effective on becoming law (23 April 2026); Public Chapter filed 28 April 2026. SCOPE DIFFERS FROM THE PAPER IN BOTH DIRECTIONS: the enacted text reaches only 'person' - the original draft's 'life' and 'natural person' terms were dropped along with the fetal-personhood provisions - but the exclusion itself is much wider than AI, covering 'a computer algorithm, a software program, computer hardware, or any type of machine'. 'Any type of machine' is the broadest exclusionary language in the whole registry. The same subdivision expressly RETAINS corporate personhood at (A), so the corporate carve-out is an express inclusion inside the amended definition rather than a separate saving clause. SPONSORS NOT IN THE PAPER: Senate - Pody, Gardenhire, Bowling; House - Reneau, Bulso, Helton-Haynes, Reedy, Pearson, Todd, Powers. Rep. Justin Pearson is a Democrat, so this enacted exclusion bill had cross-party sponsorship (6R-1D), which qualifies the paper's 'primarily Republican-sponsored' framing. A SECOND AMENDMENT, HA0979, is recorded alongside SA0922; the paper mentions only SA0922. Committee votes were unanimous: House Judiciary 17-0, Civil Justice Subcommittee 6-0.",
       "id": "tn-sb837-2025",
       "bill_number": "SB 837",
       "chamber": "senate",
@@ -1188,8 +1279,8 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-05-12",
-        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+        "as_of": "2026-08-10",
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf"
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1198,13 +1289,15 @@
       ],
       "sources": {
         "primary": [
-          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114"
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB0837&ga=114",
+          "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+          "https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf"
         ],
         "tracker": [
           "https://legiscan.com/TN/bill/SB0837/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-04-23"
     },
     {
       "jurisdiction": {

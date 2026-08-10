@@ -12,7 +12,7 @@ ANCHOR={"taxonomic","enumerated_only","none","unknown"}
 AUG={"anchored","unanchored","unclear"}
 ALGO={"bars","does_not_bar","untested","not_analysed"}
 CARVE={"express_saving_clause","prospective_only","none","unknown"}
-VERIF={"verified_primary","seeded_unverified"}
+VERIF={"verified_primary","verified_secondary","seeded_unverified"}
 CHAMBER={"house","senate","joint"}
 REQUIRED=["id","jurisdiction","bill_number","chamber","session","status","family","technique",
           "provisions","definitional_anchor","augmented_human_exposure",
@@ -62,7 +62,7 @@ for b in bills:
         chk(b["last_verified"] is None, f"{i}: unverified but has last_verified")
     if b["status"]["stage"]=="enacted" and not b["codified_at"]:
         warn.append(f"{i}: enacted but codified_at is null - needs primary-source verification")
-    if b["verification_status"]=="verified_primary":
+    if b["verification_status"].startswith("verified"):
         chk(b["last_verified"] is not None, f"{i}: verified but no last_verified date")
     if b["definitional_anchor"]=="taxonomic":
         chk(b["augmented_human_exposure"]!="unanchored", f"{i}: taxonomic anchor but unanchored exposure")
