@@ -12,7 +12,7 @@
         "state": "ID"
       },
       "companion_group": null,
-      "codified_at": "Idaho Code § 5-346; 2022 Idaho Sess. Laws ch. 322",
+      "codified_at": "Idaho Code § 5-346 (Personhood Status), added to ch. 3, tit. 5; 2022 Idaho Sess. Laws ch. 322",
       "derived_from": null,
       "definitional_anchor": "none",
       "augmented_human_exposure": "unanchored",
@@ -40,8 +40,8 @@
       ],
       "versions": [
         {
-          "label": "introduced",
-          "date": "2022-03-01",
+          "label": "introduced/enrolled text",
+          "date": "2022",
           "source_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2022/legislation/H0720.pdf"
         },
         {
@@ -51,8 +51,8 @@
         }
       ],
       "key_clause": {
-        "text": "...environmental elements, artificial intelligence, nonhuman animals, and inanimate objects shall not be granted personhood in the State of Idaho.",
-        "source": "HB 720 (2022)"
+        "text": "Notwithstanding any other provisions of law, environmental elements, artificial intelligence, nonhuman animals, and inanimate objects shall not be granted personhood in the state of Idaho. Nothing in this section revokes the status of legal person in or of any municipality, organization, corporation, or other legal or business entity recognized by the laws of the state of Idaho as such prior to July 1, 2022.",
+        "source": "Idaho HB 720 (2022), s 1, enacting Idaho Code s 5-346"
       },
       "evidence_refs": [
         "boone2022",
@@ -61,14 +61,14 @@
         "nichols2025b"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "verified_secondary",
+      "verification_status": "verified_primary",
       "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the LegiScan record - SECONDARY source. legislature.idaho.gov is firewalled from this environment (connection timeout on both the bill page and the text PDF), so the enrolled text has NOT been read. Signed by the Governor 31 March 2022 as 2022 Session Law Chapter 322; effective 1 July 2022. SPONSOR CORRECTION: the sponsor of record is the HOUSE STATE AFFAIRS COMMITTEE - this is a committee bill. The paper says 'Introduced by Republican Representative (now Senator) Tammy Nichols'. Nichols was plainly the driving force and presented it publicly, but she is not the formal sponsor, and Idaho committee bills routinely carry no individual name. Worth rewording before we repeat the paper's attribution. VOTES WERE CONTESTED: House 50-17-3 (3 Mar 2022), Senate 30-5 (23 Mar 2022). Seventeen House nays is real opposition, which sits awkwardly with Jaynes's characterisation that it 'passed without significant fanfare' - the fanfare was low, the dissent was not negligible. STILL NEEDED: the enrolled text, to confirm the saving-clause wording that drives corporate_carve_out=express_saving_clause and to verify Idaho Code s 5-346 (currently taken from Jaynes, not read).",
+      "notes": "VERIFIED 2026-08-10 against the enrolled bill text. Enacts Idaho Code s 5-346, 'PERSONHOOD STATUS', added to ch. 3, tit. 5 - confirming the citation Jaynes gives and the paper omits. 2022 Sess. Laws ch. 322. CITATION ERROR IN THE PAPER: 'Laws and Bills Cited' gives '68th Leg.'; the bill header reads SIXTY-SIXTH Legislature, Second Regular Session - 2022. SPONSOR: 'BY STATE AFFAIRS COMMITTEE' on the face of the bill - a committee bill, confirming that the paper's 'Introduced by Republican Representative (now Senator) Tammy Nichols' names the driving force rather than the sponsor of record. EMERGENCY CLAUSE: the act declares an emergency and takes effect 1 July 2022. SAVING CLAUSE IS DATE-BOUNDED: it preserves the legal-person status of any municipality, organization, corporation or other legal or business entity recognised 'as such prior to July 1, 2022'. It preserves existing status only; it says nothing about entity formation after that date, which is why affects_algorithmic_entity_formation stays 'untested' - the text simply does not reach the zero-member LLC question either way. NO HUMAN-ANCHORING DEFINITION AT ALL: unlike Utah, the section defines nothing and contains no taxonomic limiter, which is the textual basis for definitional_anchor=none and augmented_human_exposure=unanchored, and for Jaynes's concern about augmented patients. Votes: House 50-17-3, Senate 30-5. Signed by the Governor 31 March 2022.",
       "id": "id-hb720-2022",
       "bill_number": "HB 720",
       "chamber": "house",
       "session": {
-        "legislature": "68th",
+        "legislature": "66th",
         "session": "2nd Reg. Sess.",
         "year_introduced": 2022
       },
@@ -1306,7 +1306,7 @@
         "state": "TN"
       },
       "companion_group": "tn-2025-hb1455-sb1493",
-      "codified_at": null,
+      "codified_at": "Pub. Ch. 1066 (2026) — uncodified; caption references Tenn. Code Ann. tits. 29, 33, 39, 47 but the enacted text amends no code section",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
@@ -1315,8 +1315,68 @@
       "constitutional_exposure": [],
       "sponsors": [
         {
-          "name": "Mary Littleton",
+          "name": "Littleton",
           "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Reneau",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Russell",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Williams",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Eldridge",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Zachary",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Slater",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Todd",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Pearson",
+          "party": "D",
+          "role": "house sponsor"
+        },
+        {
+          "name": "Helton-Haynes",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Howell",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "McCalmon",
+          "party": null,
+          "role": "house sponsor"
+        },
+        {
+          "name": "Camper",
+          "party": "D",
           "role": "house sponsor"
         }
       ],
@@ -1324,20 +1384,23 @@
         {
           "label": "introduced",
           "date": "2025",
-          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf"
         },
         {
-          "label": "amended",
+          "label": "amendment HA1260 (Amendment No. 4)",
           "date": "2026",
           "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf"
         },
         {
-          "label": "enacted",
-          "date": "2026",
-          "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+          "label": "enacted (Pub. Ch. 1066)",
+          "date": "2026-04-23",
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
         }
       ],
-      "key_clause": null,
+      "key_clause": {
+        "text": "The Tennessee Advisory Commission on Intergovernmental Relations (TACIR) shall conduct a study and produce a report on artificial intelligence... (5) Identify the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care",
+        "source": "Public Chapter No. 1066 (2026), s 1"
+      },
       "evidence_refs": [
         "tn_ha1260",
         "tnga_nd",
@@ -1348,9 +1411,9 @@
         "tan2025"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "AMENDMENT DIFF MATTERS - the enacted text does NOT address AI legal status or consciousness. As introduced it would have made it a Class A felony (15-60 years) to train AI to provide emotional support, act as a companion, simulate a human being, or mirror human interactions. Amendment No. 4 (HA1260) replaced this with a study period. provisions=['study_only'] describes the ENACTED text; the introduced text carried restricts_person_like_training.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party.",
       "id": "tn-hb1455-2025",
       "bill_number": "HB 1455",
       "chamber": "house",
@@ -1361,8 +1424,8 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-05-12",
-        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        "as_of": "2026-08-10",
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -1371,13 +1434,14 @@
       ],
       "sources": {
         "primary": [
-          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114",
+          "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
         ],
         "tracker": [
           "https://legiscan.com/TN/bill/HB1455/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-04-23"
     },
     {
       "jurisdiction": {
@@ -1386,7 +1450,7 @@
         "state": "TN"
       },
       "companion_group": "tn-2025-hb1455-sb1493",
-      "codified_at": null,
+      "codified_at": "Pub. Ch. 1066 (2026) — uncodified; caption references Tenn. Code Ann. tits. 29, 33, 39, 47 but the enacted text amends no code section",
       "derived_from": null,
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
@@ -1395,21 +1459,45 @@
       "constitutional_exposure": [],
       "sponsors": [
         {
-          "name": "Becky Massey",
+          "name": "Massey",
+          "party": null,
+          "role": "senate sponsor"
+        },
+        {
+          "name": "Yager",
           "party": null,
           "role": "senate sponsor"
         }
       ],
-      "versions": [],
-      "key_clause": null,
+      "versions": [
+        {
+          "label": "introduced",
+          "date": "2025",
+          "source_url": "https://www.capitol.tn.gov/Bills/114/Bill/HB1455.pdf"
+        },
+        {
+          "label": "amendment HA1260 (Amendment No. 4)",
+          "date": "2026",
+          "source_url": "https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf"
+        },
+        {
+          "label": "enacted (Pub. Ch. 1066)",
+          "date": "2026-04-23",
+          "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
+        }
+      ],
+      "key_clause": {
+        "text": "The Tennessee Advisory Commission on Intergovernmental Relations (TACIR) shall conduct a study and produce a report on artificial intelligence... (5) Identify the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care",
+        "source": "Public Chapter No. 1066 (2026), s 1"
+      },
       "evidence_refs": [
         "tn_ha1260",
         "massey_nd"
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
-      "verification_status": "seeded_unverified",
-      "last_verified": null,
-      "notes": "Senate companion to HB 1455. See that record for the amendment history.",
+      "verification_status": "verified_primary",
+      "last_verified": "2026-08-10",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party.",
       "id": "tn-sb1493-2025",
       "bill_number": "SB 1493",
       "chamber": "senate",
@@ -1420,8 +1508,8 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-05-12",
-        "source_url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+        "as_of": "2026-08-10",
+        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -1430,13 +1518,14 @@
       ],
       "sources": {
         "primary": [
-          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114"
+          "https://wapp.capitol.tn.gov/apps/Billinfo/Default.aspx?BillNumber=SB1493&ga=114",
+          "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf"
         ],
         "tracker": [
           "https://legiscan.com/TN/bill/SB1493/2025"
         ]
       },
-      "effective_date": null
+      "effective_date": "2026-04-23"
     },
     {
       "jurisdiction": {
