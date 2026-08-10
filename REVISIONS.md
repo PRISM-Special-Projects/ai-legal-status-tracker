@@ -3,7 +3,7 @@
 Source: GPT red-team (23 findings + a 10-item publication gate), with additions from a second
 review and from our own follow-up. Ordered by whether it blocks publication.
 
-**Done: 9 · Remaining: 17**
+**Done: 18 · Remaining: 11**
 
 ---
 
@@ -293,3 +293,39 @@ a full `role="grid"` structure it degrades screen-reader behaviour rather than i
 Our table already has `th scope="col"`/`scope="row"`, so headers are announced automatically;
 the gap was the missing cell text, now fixed. Also not adopted: `!important` to fix the mobile
 collapse — that was a specificity bug and is already fixed by scoping the selectors properly.
+
+
+---
+
+## Hardening pass — implemented 2026-08-10
+
+Working from the specification's principle: turn each finding into a constraint or a test, so
+the *class* of error becomes hard to reproduce.
+
+| Item | Implemented |
+|---|---|
+| **Regression suite (D)** | `registry/test_regressions.py` — one test per bug actually found: Utah code-not-bill, Washington-carryover-is-not-life, Wisconsin's explicit failure line, verification dimensionality, terminal statuses require evidence, enacted `codified_at` needs code provenance, vocabulary drift, lineage edges resolve, stored texts exist, no evaluative language, no ambiguous `as_of`. All pass |
+| **B1 — version-level provisions** | `versions[].provisions` populated for 19 of 32 versions, and `provision_changes` derived as structured added/removed/retained. `restricts_person_like_training` now attaches to Tennessee HB 1455 *as introduced* instead of vanishing |
+| **Structured lineage deltas** | Change objects rather than prose, so neutrality is structural rather than policed by regex |
+| **`status.basis`** | `explicit_action` (15) · `session_rule` (2) · `secondary_source` (6). The site can now say "Failed — by session rule" rather than implying the legislature recorded it. This is the Washington error turned into a permanent safeguard |
+| **Session-rules registry** | `registry/session_rules.json` — carryover and expiration rules for WA, WI and MO, each sourced, each recording whether the state posts a terminal action. **Deliberately not used to compute status** |
+| **Source manifest** | `registry/source_manifest.json` — SHA-256 for 10 source documents and 16 normalised texts; 12 versions now link to the exact hashed document they derive from. Answers "is this transcription faithful?" without taking our word |
+| **Audit summary** | The validator now reports the evidentiary state — operative text read 16/23, `codified_at` code-verified 5/7, status evidence 14/23 — before the pass/fail line. "ERRORS (0)" was reading as stronger than the evidence warranted |
+| **Publication gate** | ERROR = cannot publish · WARNING = publishable with a caveat |
+| **`PROVISIONS.md`** | Operational test, positive example, **negative examples** and exclusions for every tag. The Wisconsin `assigns_liability_to_humans` case is written up as the worked negative example. Adding a tag now requires an entry in the same commit |
+| **Three new tags** | `defines_human_to_include_unborn`, `creates_criminal_offence`, `creates_private_right_of_action` — added because tagging versions revealed the vocabulary could not express what Tennessee actually removed |
+
+### Deliberately not implemented
+
+**Per-field epistemic wrappers** (`{value, source, source_type, verified}` on every field).
+Roughly quadruples record size and adds friction to every edit, for value the per-dimension
+`verification` object already delivers at 23 records. Revisit at 200.
+
+**A separate claims layer.** The `notes` → `analysis` split (B5, still open) achieves most of
+it at a fraction of the cost.
+
+**A discovery ledger.** Correct for Phase 4; premature while discovery is manual.
+
+**Computing status from session rules.** The rules registry exists so a human can *see* when a
+non-terminal status has become implausible. Deriving status from a calendar would replace a
+sourced fact with a calculation — the same move that produced the Washington error.

@@ -56,7 +56,11 @@ the UI group or ungroup as needed.
 `restricts_person_like_training` · `covers_non_ai_entities` · `study_only` ·
 `bars_marriage_or_union` · `bars_property_ownership` · `bars_corporate_office` ·
 `imposes_safety_duties` · `incident_reporting_duty` · `addresses_corporate_veil` ·
-`bars_ai_liability` · `provides_compliance_safe_harbor`
+`bars_ai_liability` · `provides_compliance_safe_harbor` · `defines_human_to_include_unborn` ·
+`creates_criminal_offence` · `creates_private_right_of_action`
+
+Operational tests, with negative examples, are in `PROVISIONS.md`. A tag may not be added
+without an entry there in the same commit.
 
 **These are authoritative.** `registry/validate.py` must accept exactly this set and no other;
 a drift check belongs in CI.

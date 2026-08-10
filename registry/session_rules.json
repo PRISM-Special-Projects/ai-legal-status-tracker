@@ -1,0 +1,39 @@
+{
+  "_doc": "How a bill dies in each state, sourced. Status must never be COMPUTED from these rules — they exist so a human can see when a non-terminal status has become implausible, and so status_basis can be stated honestly.",
+  "rules": {
+    "WA": {
+      "2025-2026": {
+        "type": "biennium",
+        "carryover": "First year to second year, by resolution ('reintroduced and retained in present status').",
+        "expiration": "Unpassed bills die at sine die of the second-year session.",
+        "sine_die": "2026-03-12",
+        "posts_terminal_action": false,
+        "note": "Washington records no death action; the page continues to show the last committee location. Absence of a terminal action is NOT evidence of life. This is the rule we misread.",
+        "source": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false"
+      }
+    },
+    "WI": {
+      "2025-2026": {
+        "type": "biennium",
+        "carryover": "Within the biennium only.",
+        "expiration": "Unpassed bills fail at the end of the final floor period.",
+        "sine_die": "2026-03-23",
+        "posts_terminal_action": true,
+        "terminal_action_text": "Failed to pass pursuant to Senate Joint Resolution 1",
+        "note": "Wisconsin posts an explicit failure line, so status is evidenced by action, not inferred from the calendar.",
+        "source": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959"
+      }
+    },
+    "MO": {
+      "2025": {
+        "type": "annual",
+        "carryover": "None. Bills die at adjournment and must be refiled.",
+        "expiration": "Unpassed bills die at adjournment sine die.",
+        "sine_die": "2025-05-16",
+        "posts_terminal_action": false,
+        "note": "Missouri records no death action; a bill simply stops. HB 1462's last action was a committee referral on 15 May 2025, the penultimate day.",
+        "source": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R"
+      }
+    }
+  }
+}

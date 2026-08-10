@@ -42,13 +42,19 @@
           "label": "introduced/enrolled text",
           "date": "2022",
           "source_url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2022/legislation/H0720.pdf",
-          "text_path": "texts/id-hb720-2022--introduced.txt"
+          "text_path": "texts/id-hb720-2022--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "covers_non_ai_entities"
+          ],
+          "text_sha256": "a45dae266b4b2e32aad8fce9cba473f943529f357983069829c4a32f80735aa2"
         },
         {
           "label": "enacted (Sess. Laws ch. 322)",
           "date": "2022-03-31",
           "source_url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         }
       ],
       "key_clause": {
@@ -80,7 +86,8 @@
         "evidence": {
           "action": "Reported Signed by Governor on March 31, 2022 Session Law Chapter 322 Effective: 07/01/2022",
           "date": "2022-03-31"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "A",
       "technique": "standalone_provision",
@@ -108,7 +115,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -191,7 +199,8 @@
           "label": "enacted",
           "date": "2023",
           "source_url": "https://ndlegis.gov/assembly/68-2023/regular/bill-overview/bo1361.html",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         }
       ],
       "key_clause": null,
@@ -220,7 +229,8 @@
         "evidence": {
           "action": "Signed by the governor; filed April 12",
           "date": "2023-04-12"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "A",
       "technique": "amends_general_person_definition",
@@ -250,7 +260,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -337,7 +348,8 @@
         "evidence": {
           "action": "Passed House 94-2 (2026-03-23); Placed on General Order, Senate",
           "date": "2026-04-21"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "A",
       "technique": "standalone_provision",
@@ -366,7 +378,8 @@
         "codified_at_source": "n/a",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -411,13 +424,19 @@
           "label": "enrolled",
           "date": "2024",
           "source_url": "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf",
-          "text_path": "texts/ut-hb249-2024--enrolled.txt"
+          "text_path": "texts/ut-hb249-2024--enrolled.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "covers_non_ai_entities"
+          ],
+          "text_sha256": "631f89678dcf2aeb51ff974a8e721d47a9d7c1875c28cd5e5913ec92d3c6fe94"
         },
         {
           "label": "as codified (Utah Code ch. 63G-32)",
           "date": "2024-05-01",
           "source_url": "https://le.utah.gov/xcode/Title63G/Chapter32/C63G-32_2024050120240501.pdf",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         }
       ],
       "key_clause": {
@@ -455,7 +474,8 @@
         "evidence": {
           "action": "Enrolled; s 3: 'This bill takes effect on May 1, 2024'",
           "date": "2024-05-01"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -488,7 +508,8 @@
         "codified_at_source": "code",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -535,7 +556,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -564,7 +586,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -639,7 +662,8 @@
         "evidence": {
           "action": "Carried over 12 Jan 2026 ('By resolution, reintroduced and retained in present status'), never advanced from House Civil Rights & Judiciary; died on adjournment sine die of the 2025-26 biennium, 12 March 2026",
           "date": "2026-03-12"
-        }
+        },
+        "basis": "session_rule"
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -668,7 +692,8 @@
         "codified_at_source": "n/a",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -696,7 +721,20 @@
           "label": "introduced (2795H.01I)",
           "date": "2025-02-25",
           "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1462&year=2025&code=R",
-          "text_path": "texts/mo-hb1462-2025--introduced.txt"
+          "text_path": "texts/mo-hb1462-2025--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil"
+          ],
+          "text_sha256": "edaf06d0f6c7752cdd23ffaa627339f2e15c1baccf826cd1611b9a73c7eff4ad"
         }
       ],
       "key_clause": {
@@ -723,7 +761,8 @@
         "evidence": {
           "action": "Last action 05/15/2025 - Referred: Emerging Issues(H) (H Jrn 2835); no hearing ever scheduled; died on adjournment of the 2025 regular session",
           "date": "2025-05-15"
-        }
+        },
+        "basis": "session_rule"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -758,7 +797,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -793,7 +833,20 @@
           "label": "as introduced",
           "date": "2025",
           "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469",
-          "text_path": "texts/oh-hb469-2025--as-introduced.txt"
+          "text_path": "texts/oh-hb469-2025--as-introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil",
+            "bars_ai_liability"
+          ],
+          "text_sha256": "27cf1e9fc2fbdcef15e3d79ba965dd18b37b60d509d147146c40dbafc1f2fed2"
         }
       ],
       "key_clause": {
@@ -828,7 +881,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -868,7 +922,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -890,13 +945,27 @@
           "label": "as introduced — text not seen",
           "date": "2026",
           "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         },
         {
           "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C)",
           "date": "2026",
           "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
-          "text_path": "texts/mo-hb1746-2026--hcs.txt"
+          "text_path": "texts/mo-hb1746-2026--hcs.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "provides_compliance_safe_harbor"
+          ],
+          "text_sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff"
         }
       ],
       "key_clause": {
@@ -926,7 +995,8 @@
         "evidence": {
           "action": "03/11/2026 - Referred: Rules - Administrative(H) (H Jrn 1241), following HCS Reported Do Pass 10-0",
           "date": "2026-03-11"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -979,7 +1049,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1007,13 +1078,39 @@
           "label": "as introduced (4626H.01I) — verbatim HB 1462 clone, corporate-veil provision INTACT",
           "date": "2026",
           "source_url": "https://legiscan.com/MO/bill/HB1769/2026",
-          "text_path": "texts/mo-hb1769-2026--introduced.txt"
+          "text_path": "texts/mo-hb1769-2026--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil"
+          ],
+          "text_sha256": "2a3074322b9a7feb2b1c35e6897d404ca367a5ee833e7c27ee4da85941cbd168"
         },
         {
           "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) — veil provision REMOVED, NIST safe harbour and open-source carve-out ADDED",
           "date": "2026",
           "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
-          "text_path": "texts/mo-hb1746-2026--hcs.txt"
+          "text_path": "texts/mo-hb1746-2026--hcs.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "provides_compliance_safe_harbor"
+          ],
+          "text_sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff"
         }
       ],
       "key_clause": {
@@ -1042,7 +1139,8 @@
         "evidence": {
           "action": "02/26/2026 - HCS Reported Do Pass (H) AYES: 10 NOES: 0 (H Jrn 1004); no further action - consolidated into HB 1746",
           "date": "2026-02-26"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1091,7 +1189,30 @@
         "codified_at_source": "bill",
         "versions_with_text": 2,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": [
+        {
+          "from": "as introduced (4626H.01I) — verbatim HB 1462 clone, corporate-veil provision INTACT",
+          "to": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) — veil provision REMOVED, NIST safe harbour and open-source carve-out ADDED",
+          "removed": [
+            "addresses_corporate_veil"
+          ],
+          "added": [
+            "provides_compliance_safe_harbor"
+          ],
+          "retained": [
+            "assigns_liability_to_humans",
+            "bars_ai_liability",
+            "bars_corporate_office",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "declares_non_sentient",
+            "denies_legal_personhood",
+            "imposes_safety_duties",
+            "incident_reporting_duty"
+          ]
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1119,7 +1240,20 @@
           "label": "as introduced (4600S.01I)",
           "date": "2026",
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378",
-          "text_path": "texts/mo-sb859-2026--introduced.txt"
+          "text_path": "texts/mo-sb859-2026--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil"
+          ],
+          "text_sha256": "6e28fcfb244afee1b9a9fc6aec7f8037fb0e0348c9fa915ffd5c42cdf9aaa8e4"
         }
       ],
       "key_clause": {
@@ -1143,7 +1277,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1186,7 +1321,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1214,7 +1350,20 @@
           "label": "as introduced (6352S.01I)",
           "date": "2026",
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370",
-          "text_path": "texts/mo-sb1474-2026--introduced.txt"
+          "text_path": "texts/mo-sb1474-2026--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil"
+          ],
+          "text_sha256": "5704b1cfecd38e8be53e99777f07ba5e2ce0fb01db436d9935a8f0a4bf255175"
         }
       ],
       "key_clause": {
@@ -1238,7 +1387,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=52370",
-        "evidence": null
+        "evidence": null,
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1281,7 +1431,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1309,13 +1460,15 @@
           "label": "introduced",
           "date": "2026",
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         },
         {
           "label": "SS#2 SCS (second senate committee substitute)",
           "date": "2026",
           "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         }
       ],
       "key_clause": null,
@@ -1336,7 +1489,8 @@
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1374,7 +1528,8 @@
         "codified_at_source": "n/a",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1457,7 +1612,16 @@
           "label": "as introduced",
           "date": "2026-01-29",
           "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/asm/bill/ab959",
-          "text_path": "texts/wi-ab959-2026--as-introduced.txt"
+          "text_path": "texts/wi-ab959-2026--as-introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability"
+          ],
+          "text_sha256": "605267821d150c77f0aa4df7776fa612ed0839d2a9a701114944ebcafc0af82c"
         }
       ],
       "key_clause": {
@@ -1488,7 +1652,8 @@
         "evidence": {
           "action": "Failed to pass pursuant to Senate Joint Resolution 1",
           "date": "2026-03-23"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "hybrid",
@@ -1524,7 +1689,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1607,7 +1773,16 @@
           "label": "as introduced",
           "date": "2026-02-06",
           "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/reg/sen/bill/sb932",
-          "text_path": "texts/wi-sb932-2026--as-introduced.txt"
+          "text_path": "texts/wi-sb932-2026--as-introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability"
+          ],
+          "text_sha256": "1236f3a198b5dfaf44b944519fc39efc902c0378457b940d1d8491de90f1f280"
         }
       ],
       "key_clause": {
@@ -1634,7 +1809,8 @@
         "evidence": {
           "action": "Failed to pass pursuant to Senate Joint Resolution 1",
           "date": "2026-03-23"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "hybrid",
@@ -1667,7 +1843,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 1,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -1725,25 +1902,49 @@
           "label": "as introduced (Feb 2025) — fetal-personhood definitions present",
           "date": "2025-02-04",
           "source_url": "https://web.archive.org/web/20250421024713id_/https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
-          "text_path": "texts/tn-sb837-2025--introduced.txt"
+          "text_path": "texts/tn-sb837-2025--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "defines_human_to_include_unborn"
+          ],
+          "text_sha256": "4bd81d825ebdd25eb21d3e0c8c6fc29089f89689709229d964b2fe7e8c695654",
+          "derived_from_document": {
+            "path": "incoming/wb-hb0849.pdf",
+            "sha256": "e60746b33a5accd8807c955646039fc2862f87d494780073e55f5ccea6b8b9bd"
+          }
         },
         {
           "label": "Senate Judiciary Amendment No. 1 (SA0922) — deletes all language after the enacting clause",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513075519id_/https://capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
-          "text_path": "texts/tn-amend-SA0922.txt"
+          "text_path": "texts/tn-amend-SA0922.txt",
+          "provisions": null,
+          "text_sha256": "032396794741ab79648ed42c237dc417101391231f213778bb83cd897e6a3cd1",
+          "derived_from_document": {
+            "path": "incoming/tn-SA0922.pdf",
+            "sha256": "21f884a9a9f9003f1246201f180dfb7309fdd824ee5b8c2d463bf34635425ae7"
+          }
         },
         {
           "label": "House Amendment (HA0979)",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513075518id_/https://capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         },
         {
           "label": "enacted (Pub. Ch. 781)",
           "date": "2026-04-28",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
-          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt"
+          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt",
+          "provisions": [
+            "denies_legal_personhood"
+          ],
+          "text_sha256": "13b63d22676ec6f12a7406fc07e5b25e8b4126f80bae423bcd15ca4cf9f7c895",
+          "derived_from_document": {
+            "path": "incoming/tn-pc0781.pdf",
+            "sha256": "42958fadba12645de8a86e4d594228869d1b32d0af4d8e7e2a84d8b97561b6e7"
+          }
         }
       ],
       "key_clause": {
@@ -1772,7 +1973,8 @@
         "evidence": {
           "action": "Comp. became Pub. Ch. 781",
           "date": "2026-04-28"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1800,7 +2002,20 @@
         "codified_at_source": "code",
         "versions_with_text": 3,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": [
+        {
+          "from": "as introduced (Feb 2025) — fetal-personhood definitions present",
+          "to": "enacted (Pub. Ch. 781)",
+          "removed": [
+            "defines_human_to_include_unborn"
+          ],
+          "added": [],
+          "retained": [
+            "denies_legal_personhood"
+          ]
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -1838,25 +2053,49 @@
           "label": "as introduced (Feb 2025) — fetal-personhood definitions present",
           "date": "2025-02-04",
           "source_url": "https://web.archive.org/web/20250421024713id_/https://www.capitol.tn.gov/Bills/114/Bill/HB0849.pdf",
-          "text_path": "texts/tn-sb837-2025--introduced.txt"
+          "text_path": "texts/tn-sb837-2025--introduced.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "defines_human_to_include_unborn"
+          ],
+          "text_sha256": "4bd81d825ebdd25eb21d3e0c8c6fc29089f89689709229d964b2fe7e8c695654",
+          "derived_from_document": {
+            "path": "incoming/wb-hb0849.pdf",
+            "sha256": "e60746b33a5accd8807c955646039fc2862f87d494780073e55f5ccea6b8b9bd"
+          }
         },
         {
           "label": "Senate Judiciary Amendment No. 1 (SA0922) — deletes all language after the enacting clause",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513075519id_/https://capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
-          "text_path": "texts/tn-amend-SA0922.txt"
+          "text_path": "texts/tn-amend-SA0922.txt",
+          "provisions": null,
+          "text_sha256": "032396794741ab79648ed42c237dc417101391231f213778bb83cd897e6a3cd1",
+          "derived_from_document": {
+            "path": "incoming/tn-SA0922.pdf",
+            "sha256": "21f884a9a9f9003f1246201f180dfb7309fdd824ee5b8c2d463bf34635425ae7"
+          }
         },
         {
           "label": "House Amendment (HA0979)",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513075518id_/https://capitol.tn.gov/Bills/114/Amend/HA0979.pdf",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         },
         {
           "label": "enacted (Pub. Ch. 781)",
           "date": "2026-04-28",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
-          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt"
+          "text_path": "texts/tn-sb837-2025--enacted-pc781.txt",
+          "provisions": [
+            "denies_legal_personhood"
+          ],
+          "text_sha256": "13b63d22676ec6f12a7406fc07e5b25e8b4126f80bae423bcd15ca4cf9f7c895",
+          "derived_from_document": {
+            "path": "incoming/tn-pc0781.pdf",
+            "sha256": "42958fadba12645de8a86e4d594228869d1b32d0af4d8e7e2a84d8b97561b6e7"
+          }
         }
       ],
       "key_clause": {
@@ -1885,7 +2124,8 @@
         "evidence": {
           "action": "Comp. became Pub. Ch. 781",
           "date": "2026-04-28"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "amends_general_person_definition",
@@ -1913,7 +2153,20 @@
         "codified_at_source": "code",
         "versions_with_text": 3,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": [
+        {
+          "from": "as introduced (Feb 2025) — fetal-personhood definitions present",
+          "to": "enacted (Pub. Ch. 781)",
+          "removed": [
+            "defines_human_to_include_unborn"
+          ],
+          "added": [],
+          "retained": [
+            "denies_legal_personhood"
+          ]
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -2001,19 +2254,43 @@
           "label": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
           "date": "2025",
           "source_url": "https://web.archive.org/web/20251230002609id_/https://www.capitol.tn.gov/Bills/114/Bill/SB1493.pdf",
-          "text_path": "texts/tn-sb1493-2025--introduced.txt"
+          "text_path": "texts/tn-sb1493-2025--introduced.txt",
+          "provisions": [
+            "restricts_person_like_training",
+            "creates_criminal_offence",
+            "creates_private_right_of_action"
+          ],
+          "text_sha256": "d31a88de4138a7f753c75b020e2490be0b7733732530bf2b7ab5882ba38dccc1",
+          "derived_from_document": {
+            "path": "incoming/try-20251230002609.pdf",
+            "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd"
+          }
         },
         {
           "label": "Amendment No. 4 (HA1260) — deletes all language after the enacting clause",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513074036id_/https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
-          "text_path": "texts/tn-amend-HA1260.txt"
+          "text_path": "texts/tn-amend-HA1260.txt",
+          "provisions": null,
+          "text_sha256": "895f04b6d5ce43fd9b48168b8551092657bc34e11ccdf88faa63b4e0e18342ef",
+          "derived_from_document": {
+            "path": "incoming/tn-HA1260.pdf",
+            "sha256": "ea39d731687c0b8e2332f24ec3a5e8c7dfc7f03b3eae7424c7dc70c1fb2f0a02"
+          }
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
           "date": "2026-04-23",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
-          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt"
+          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
+          "provisions": [
+            "study_only"
+          ],
+          "text_sha256": "5ede042feef09321b400b8734c6055e1d7bdd2a3617f4bb7ae0e6bb44b61f92f",
+          "derived_from_document": {
+            "path": "incoming/tn-pc1066.pdf",
+            "sha256": "06fd80661b4f14e89f99f5003d71b3605f994df4eae5c700316d2678ed4cc065"
+          }
         }
       ],
       "key_clause": {
@@ -2048,7 +2325,8 @@
         "evidence": {
           "action": "Passed; became Public Chapter No. 1066",
           "date": "2026-04-23"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2081,7 +2359,22 @@
         "codified_at_source": "code",
         "versions_with_text": 3,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": [
+        {
+          "from": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
+          "to": "enacted (Pub. Ch. 1066)",
+          "removed": [
+            "creates_criminal_offence",
+            "creates_private_right_of_action",
+            "restricts_person_like_training"
+          ],
+          "added": [
+            "study_only"
+          ],
+          "retained": []
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -2114,19 +2407,43 @@
           "label": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
           "date": "2025",
           "source_url": "https://web.archive.org/web/20251230002609id_/https://www.capitol.tn.gov/Bills/114/Bill/SB1493.pdf",
-          "text_path": "texts/tn-sb1493-2025--introduced.txt"
+          "text_path": "texts/tn-sb1493-2025--introduced.txt",
+          "provisions": [
+            "restricts_person_like_training",
+            "creates_criminal_offence",
+            "creates_private_right_of_action"
+          ],
+          "text_sha256": "d31a88de4138a7f753c75b020e2490be0b7733732530bf2b7ab5882ba38dccc1",
+          "derived_from_document": {
+            "path": "incoming/try-20251230002609.pdf",
+            "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd"
+          }
         },
         {
           "label": "Amendment No. 4 (HA1260) — deletes all language after the enacting clause",
           "date": "2026",
           "source_url": "https://web.archive.org/web/20260513074036id_/https://capitol.tn.gov/Bills/114/Amend/HA1260.pdf",
-          "text_path": "texts/tn-amend-HA1260.txt"
+          "text_path": "texts/tn-amend-HA1260.txt",
+          "provisions": null,
+          "text_sha256": "895f04b6d5ce43fd9b48168b8551092657bc34e11ccdf88faa63b4e0e18342ef",
+          "derived_from_document": {
+            "path": "incoming/tn-HA1260.pdf",
+            "sha256": "ea39d731687c0b8e2332f24ec3a5e8c7dfc7f03b3eae7424c7dc70c1fb2f0a02"
+          }
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
           "date": "2026-04-23",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
-          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt"
+          "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
+          "provisions": [
+            "study_only"
+          ],
+          "text_sha256": "5ede042feef09321b400b8734c6055e1d7bdd2a3617f4bb7ae0e6bb44b61f92f",
+          "derived_from_document": {
+            "path": "incoming/tn-pc1066.pdf",
+            "sha256": "06fd80661b4f14e89f99f5003d71b3605f994df4eae5c700316d2678ed4cc065"
+          }
         }
       ],
       "key_clause": {
@@ -2156,7 +2473,8 @@
         "evidence": {
           "action": "Passed; became Public Chapter No. 1066",
           "date": "2026-04-23"
-        }
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2189,7 +2507,22 @@
         "codified_at_source": "code",
         "versions_with_text": 3,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": [
+        {
+          "from": "as introduced (Feb 2025) — Class A felony training offence and $150,000 civil damages",
+          "to": "enacted (Pub. Ch. 1066)",
+          "removed": [
+            "creates_criminal_offence",
+            "creates_private_right_of_action",
+            "restricts_person_like_training"
+          ],
+          "added": [
+            "study_only"
+          ],
+          "retained": []
+        }
+      ]
     },
     {
       "jurisdiction": {
@@ -2230,7 +2563,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "other",
       "technique": "constitutional_amendment",
@@ -2263,7 +2597,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -2331,7 +2666,8 @@
           "label": "amended_assembly",
           "date": "2026-06-25",
           "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159",
-          "text_path": null
+          "text_path": null,
+          "provisions": null
         }
       ],
       "key_clause": {
@@ -2357,7 +2693,8 @@
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1159#98AMD",
-        "evidence": null
+        "evidence": null,
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "amends_specific_statutes",
@@ -2383,7 +2720,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -2440,7 +2778,8 @@
         "stage": "passed_one_chamber",
         "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB2023",
-        "evidence": null
+        "evidence": null,
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2466,7 +2805,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     },
     {
       "jurisdiction": {
@@ -2551,7 +2891,8 @@
         "stage": "in_committee",
         "as_of": "2026-08-10",
         "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119",
-        "evidence": null
+        "evidence": null,
+        "basis": "secondary_source"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2577,7 +2918,8 @@
         "codified_at_source": "bill",
         "versions_with_text": 0,
         "last_verified": "2026-08-10"
-      }
+      },
+      "provision_changes": []
     }
   ],
   "baseline_snapshot": "2026-05-12",

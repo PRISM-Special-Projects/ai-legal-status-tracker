@@ -16,7 +16,10 @@ PROV={"denies_legal_personhood","declares_non_sentient","assigns_liability_to_hu
       "imposes_safety_duties","incident_reporting_duty","addresses_corporate_veil",
       # WI AB 959 negates AI liability without assigning it to anyone - distinct from
       # OH s 1357.06, which affirmatively assigns it. Keep the two separable.
-      "bars_ai_liability","provides_compliance_safe_harbor"}
+      "bars_ai_liability","provides_compliance_safe_harbor",
+      # version-only tags: present on introduced texts that were later replaced
+      "defines_human_to_include_unborn","creates_criminal_offence",
+      "creates_private_right_of_action"}
 FAM={"A","B","C","other"}
 ANCHOR={"taxonomic","enumerated_only","none","unknown"}
 AUG={"anchored","unanchored","unclear"}
@@ -99,11 +102,53 @@ for b in bills:
 for g,ms in collections.Counter(b["companion_group"] for b in bills if b["companion_group"]).items():
     chk(ms>=2, f"companion_group '{g}' has only {ms} member")
 
+
+# ---------------------------------------------------------------- audit summary
+def audit(bills, err, warn):
+    """Zero validator errors is not the same as a strong evidentiary state.
+    This prints what is actually known, so the gap cannot hide behind a green tick."""
+    import collections as C
+    n=len(bills)
+    ot=C.Counter(b.get("verification",{}).get("operative_text") for b in bills)
+    vs=C.Counter(b["verification_status"] for b in bills)
+    sb=C.Counter(b["status"].get("basis") for b in bills)
+    enacted=[b for b in bills if b["status"]["stage"]=="enacted"]
+    code=sum(1 for b in enacted if b.get("verification",{}).get("codified_at_source")=="code")
+    ev=sum(1 for b in bills if b["status"].get("evidence"))
+    term=[b for b in bills if b["status"]["stage"] in ("enacted","failed","dead")]
+    vt=sum(1 for b in bills for v in b["versions"] if v.get("text_path"))
+    vp=sum(1 for b in bills for v in b["versions"] if v.get("provisions") is not None)
+    tv=sum(len(b["versions"]) for b in bills)
+    print("\n" + "="*66)
+    print("AUDIT SUMMARY".center(66))
+    print("="*66)
+    print(f"  Records                                        {n}")
+    print(f"  Status established from a primary/citable record {vs.get('verified_primary',0)}")
+    print(f"    of which basis = explicit legislative action   {sb.get('explicit_action',0)}")
+    print(f"    basis = session rule (derived, not recorded)   {sb.get('session_rule',0)}")
+    print(f"    basis = secondary source                       {sb.get('secondary_source',0)}")
+    print(f"  Operative text read in full                    {ot.get('read_in_full',0)} of {n}")
+    print(f"    partial                                        {ot.get('partial',0)}")
+    print(f"    NOT read                                       {ot.get('not_read',0)}")
+    print(f"  Enacted laws                                   {len(enacted)}")
+    print(f"    codified_at verified against the CODE           {code}")
+    print(f"    codified_at from bill text only                 {len(enacted)-code}")
+    print(f"  Status evidence present                        {ev} of {n}  (terminal: {sum(1 for b in term if b['status'].get('evidence'))} of {len(term)})")
+    print(f"  Versions                                       {tv}")
+    print(f"    with stored text                               {vt}")
+    print(f"    with provision tags                            {vp}")
+    print("-"*66)
+    print(f"  ERRORS   {len(err):>3}   (publication gate — must be zero)")
+    print(f"  WARNINGS {len(warn):>3}   (publishable, but each needs a caveat on the record)")
+    print("="*66)
+
 print(f"bills: {len(bills)}  states: {len({b['jurisdiction']['state'] for b in bills})}")
 print(f"stages: {dict(collections.Counter(b['status']['stage'] for b in bills))}")
 print(f"families: {dict(collections.Counter(b['family'] for b in bills))}")
 print(f"verified: {dict(collections.Counter(b['verification_status'] for b in bills))}")
 print(f"lineage edges: {sum(1 for b in bills if b['derived_from'])}")
 print(f"\nERRORS ({len(err)}):"); [print('  ✗',e) for e in err] or print('  none')
-print(f"WARNINGS ({len(warn)}):"); [print('  !',w) for w in warn] or print('  none')
+if warn:
+    print(f"\nWARNINGS ({len(warn)}) - publishable with a caveat:"); [print("  !",w) for w in warn]
+audit(bills, err, warn)
 sys.exit(1 if err else 0)

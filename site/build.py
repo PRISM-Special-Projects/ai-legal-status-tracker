@@ -905,7 +905,10 @@ PROVISION_LABEL={
   "imposes_safety_duties":"Imposes safety duties",
   "incident_reporting_duty":"Incident-reporting duty",
   "addresses_corporate_veil":"Addresses corporate veil",
-  "provides_compliance_safe_harbor":"Provides compliance safe harbour"}
+  "provides_compliance_safe_harbor":"Provides compliance safe harbour",
+  "defines_human_to_include_unborn":"Defines human to include the unborn",
+  "creates_criminal_offence":"Creates a criminal offence",
+  "creates_private_right_of_action":"Creates a private right of action"}
 FIELD_LABEL={"technique":"Legislative technique","definitional_anchor":"Definitional anchor",
   "augmented_human_exposure":"Augmented-human exposure",
   "affects_algorithmic_entity_formation":"Effect on algorithmic entity formation",
