@@ -81,6 +81,10 @@ evidence (verbatim clause + citation) · versions.
 
 ## Phase 3 — Static site and views · ~2–3 days
 
+**Design settled 2026-08-10 — see `PRESENTATION-DESIGN.md`.** Matrix-first landing view,
+map demoted to a filter control, version diffs as the signature feature, argument split out
+into separate signed commentary, corrections held pending the authors' response.
+
 Built from the registry at build time. No database, no backend.
 
 1. **Per-bill pages first** — these carry the citations and make the resource findable
