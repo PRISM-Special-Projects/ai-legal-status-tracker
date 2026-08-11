@@ -11,8 +11,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      # No pip install step: the registry and the site builder use only the
-      # standard library, and that is a property worth protecting.
+      # The registry and the site builder import only the standard library, and
+      # that is a property worth protecting: nothing below installs a runtime
+      # dependency. Ruff is a lint tool, run in its own job so this one stays
+      # pip-free and proves the build needs nothing.
 
       - name: Validate registry
         run: python3 registry/validate.py
@@ -83,3 +85,16 @@ jobs:
           print("\n".join(fail) if fail else "all post-build assertions passed")
           sys.exit(1 if fail else 0)
           PY
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # A deliberately narrow rule set: dead imports, undefined names, syntax
+      # errors. This is here to catch residue after a refactor — the previous
+      # differ rewrite left an unused import behind — not to enforce a style.
+      - run: pip install ruff==0.6.9
+      - run: ruff check --select F,E9 registry site

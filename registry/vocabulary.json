@@ -1,0 +1,104 @@
+{
+  "_doc": "The controlled provision vocabulary, in one machine-readable place. The validator takes the allowed keys from here and the site takes its labels and column order from here, so the two cannot drift. PROVISIONS.md holds the operational test, positive and negative examples for each key; SCHEMA.md holds the record definition. The validator checks that every key here is documented in both, and that every key used in bills.json exists here.",
+  "generated": "2026-08-10",
+  "provisions": [
+    {
+      "key": "denies_legal_personhood",
+      "label": "Denies legal personhood",
+      "in_matrix": true
+    },
+    {
+      "key": "declares_non_sentient",
+      "label": "Declares non-sentient",
+      "in_matrix": true
+    },
+    {
+      "key": "covers_non_ai_entities",
+      "label": "Covers non-AI entities",
+      "in_matrix": true
+    },
+    {
+      "key": "assigns_liability_to_humans",
+      "label": "Assigns liability to humans",
+      "in_matrix": true
+    },
+    {
+      "key": "bars_ai_liability",
+      "label": "Bars AI liability",
+      "in_matrix": true
+    },
+    {
+      "key": "addresses_corporate_veil",
+      "label": "Addresses corporate veil",
+      "in_matrix": true
+    },
+    {
+      "key": "bars_marriage_or_union",
+      "label": "Bars marriage or union",
+      "in_matrix": true
+    },
+    {
+      "key": "bars_property_ownership",
+      "label": "Bars property ownership",
+      "in_matrix": true
+    },
+    {
+      "key": "bars_corporate_office",
+      "label": "Bars corporate office",
+      "in_matrix": true
+    },
+    {
+      "key": "imposes_safety_duties",
+      "label": "Imposes safety duties",
+      "in_matrix": true
+    },
+    {
+      "key": "incident_reporting_duty",
+      "label": "Incident-reporting duty",
+      "in_matrix": true
+    },
+    {
+      "key": "provides_compliance_safe_harbor",
+      "label": "Provides compliance safe harbour",
+      "in_matrix": true
+    },
+    {
+      "key": "restricts_chatbot_claims",
+      "label": "Restricts chatbot claims",
+      "in_matrix": true
+    },
+    {
+      "key": "restricts_ai_speech_rights",
+      "label": "Restricts AI speech rights",
+      "in_matrix": true
+    },
+    {
+      "key": "restricts_person_like_training",
+      "label": "Restricts person-like training",
+      "in_matrix": true
+    },
+    {
+      "key": "study_only",
+      "label": "Study only",
+      "in_matrix": true
+    },
+    {
+      "key": "defines_human_to_include_unborn",
+      "label": "Defines human to include the unborn",
+      "in_matrix": false,
+      "note": "version-only: describes a text that was replaced, so it attaches to no record's operative provisions"
+    },
+    {
+      "key": "creates_criminal_offence",
+      "label": "Creates a criminal offence",
+      "in_matrix": false,
+      "note": "version-only: describes a text that was replaced, so it attaches to no record's operative provisions"
+    },
+    {
+      "key": "creates_private_right_of_action",
+      "label": "Creates a private right of action",
+      "in_matrix": false,
+      "note": "version-only: describes a text that was replaced, so it attaches to no record's operative provisions"
+    }
+  ]
+}

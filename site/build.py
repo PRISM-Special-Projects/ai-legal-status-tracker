@@ -4,7 +4,7 @@
 Reads ../registry/bills.json and writes ./dist/. No network, no dependencies.
 Run: python3 site/build.py
 """
-import json, os, shutil, html, pathlib, datetime, re
+import json, shutil, html, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent
 REG  = ROOT.parent / "registry"
@@ -397,9 +397,6 @@ _FALLBACK_NOTE = (
 _AMB_NOTE = ("Some provisions had repeated structural labels and could not be uniquely aligned. "
              "They are listed without a comparison.")
 
-_KIND_CLASS = {"unchanged": "same", "removed": "del", "added": "add",
-               "modified": "mod", "renumbered": "renum", "ambiguous": "amb"}
-
 
 def render_diff(b):
     vs = [v for v in b["versions"] if v.get("text_path")]
@@ -428,7 +425,6 @@ def render_diff(b):
         run = []
 
     for e in r.entries:
-        cls = _KIND_CLASS[e.kind]
         if e.kind == "unchanged":
             run.append(line("same", e.label, e.old or e.new)); continue
         flush()
@@ -491,8 +487,11 @@ def changed_callout(bills):
     for b in bills:
         _,d = render_diff(b)
         if not d: continue
-        key=(d["removed"],d["added"])
-        if key in seen: continue      # companion pairs share a text; show once
+        # Companion bills share a text and should appear once. Key on the companion
+        # group, never on the diff counts: two unrelated bills with the same number
+        # of removals and additions would silently collapse into one.
+        key=b.get("companion_group") or b["id"]
+        if key in seen: continue
         seen.add(key)
         items.append(f'<li><a href="bills/{esc(b["id"])}/#main">'
                      f'{esc(b["jurisdiction"]["state"])} {esc(b["bill_number"])}</a> — '
@@ -918,12 +917,11 @@ TILES = {
  "OK":(7,4),"LA":(7,5),"MS":(7,6),"AL":(7,7),"GA":(7,8),
  "HI":(8,1),"TX":(8,2),"FL":(8,10),
 }
-PROV_ORDER = ["denies_legal_personhood","declares_non_sentient","covers_non_ai_entities",
-  "assigns_liability_to_humans","bars_ai_liability","addresses_corporate_veil",
-  "bars_marriage_or_union","bars_property_ownership","bars_corporate_office",
-  "imposes_safety_duties","incident_reporting_duty","provides_compliance_safe_harbor",
-  "restricts_chatbot_claims","restricts_ai_speech_rights","restricts_person_like_training",
-  "study_only"]
+# Labels and column order come from registry/vocabulary.json, the same file the
+# validator reads its allowed keys from.
+_VOCAB = json.loads((REG / "vocabulary.json").read_text())
+PROVISION_LABEL = {p["key"]: p["label"] for p in _VOCAB["provisions"]}
+PROV_ORDER = [p["key"] for p in _VOCAB["provisions"] if p.get("in_matrix")]
 
 def tile_map(bills):
     counts={}
@@ -938,12 +936,14 @@ def tile_map(bills):
                          f'<span class="ab">{esc(st)}</span><span class="n">{n}</span></button>')
         else:
             cells.append(f'<div class="tile" style="grid-row:{r};grid-column:{c}" '
-                         f'aria-label="{esc(st)}, no legislation identified">'
+                         f'aria-label="{esc(st)}, no bills in this registry">'
                          f'<span class="ab">{esc(st)}</span></div>')
     return ('<div class="mapwrap"><div class="tilegrid" role="group" '
             'aria-label="Filter by state">' + "".join(cells) + '</div>'
             '<p class="maplegend muted">Tiles are positioned approximately, sized equally. '
-            'Numbers are bills held. States without a number: no legislation identified.</p></div>')
+            'Numbers are bills held. States without a number: no bills in this registry — '
+            'which is not the same as none existing, since the inclusion methodology is '
+            'not yet established.</p></div>')
 
 def matrix(bills):
     heads="".join(f'<th scope="col" class="pv"><span>{esc(PROVISION_LABEL[p])}</span></th>'
@@ -1018,26 +1018,6 @@ FILTER_JS = """
 # ---------------------------------------------------------------- bill pages
 STAGE_LABEL={"introduced":"Introduced","in_committee":"In committee",
   "passed_one_chamber":"Passed one chamber","enacted":"Enacted","failed":"Failed","dead":"Dead"}
-PROVISION_LABEL={
-  "denies_legal_personhood":"Denies legal personhood",
-  "declares_non_sentient":"Declares non-sentient",
-  "assigns_liability_to_humans":"Assigns liability to humans",
-  "bars_ai_liability":"Bars AI liability",
-  "restricts_ai_speech_rights":"Restricts AI speech rights",
-  "restricts_chatbot_claims":"Restricts chatbot claims",
-  "restricts_person_like_training":"Restricts person-like training",
-  "covers_non_ai_entities":"Covers non-AI entities",
-  "study_only":"Study only",
-  "bars_marriage_or_union":"Bars marriage or union",
-  "bars_property_ownership":"Bars property ownership",
-  "bars_corporate_office":"Bars corporate office",
-  "imposes_safety_duties":"Imposes safety duties",
-  "incident_reporting_duty":"Incident-reporting duty",
-  "addresses_corporate_veil":"Addresses corporate veil",
-  "provides_compliance_safe_harbor":"Provides compliance safe harbour",
-  "defines_human_to_include_unborn":"Defines human to include the unborn",
-  "creates_criminal_offence":"Creates a criminal offence",
-  "creates_private_right_of_action":"Creates a private right of action"}
 FIELD_LABEL={"technique":"Legislative technique","definitional_anchor":"Definitional anchor",
   "augmented_human_exposure":"Augmented-human exposure",
   "affects_algorithmic_entity_formation":"Effect on algorithmic entity formation",
@@ -1184,14 +1164,6 @@ def build():
     st = {}
     for b in bills: st[b["status"]["stage"]] = st.get(b["status"]["stage"], 0) + 1
     states = sorted({b["jurisdiction"]["state"] for b in bills})
-
-    cards = "".join(
-        f'<li class="card"><h3><a href="bills/{esc(b["id"])}/">{esc(b["jurisdiction"]["state"])} '
-        f'{esc(b["bill_number"])}</a></h3>'
-        f'<p class="meta">{esc(b["session"]["year_introduced"])} · family {esc(b["family"])} · '
-        f'{len(b["provisions"])} provision{"" if len(b["provisions"])==1 else "s"}</p>'
-        f'<span class="chip s-{esc(b["status"]["stage"])}">{esc(b["status"]["stage"].replace("_"," "))}</span>'
-        f'</li>' for b in bills)
 
     fam=sorted({b["family"] for b in bills})
     sts=sorted({b["status"]["stage"] for b in bills})

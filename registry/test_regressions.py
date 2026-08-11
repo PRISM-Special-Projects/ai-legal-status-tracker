@@ -57,13 +57,21 @@ for b in REG["bills"]:
         check(src=="code" or "CODIFIED_AT PROVENANCE" in b["notes"],
               f"{b['id']}: enacted codified_at is bill-sourced and not flagged as such")
 
-# --- documented vocabulary and validator vocabulary must agree
-val = (ROOT/"validate.py").read_text()
-vocab = set(re.findall(r'"([a-z_]+)"', val[val.index("PROV={"):val.index("}", val.index("PROV={"))]))
+# --- documented vocabulary and machine vocabulary must agree
+# This test used to regex the PROV set out of validate.py, which is the brittle
+# source-parsing the vocabulary file was introduced to end. It reads the file now.
+VOCAB = json.load(open("vocabulary.json"))
+vocab = {p["key"] for p in VOCAB["provisions"]}
+check(len(vocab) == len(VOCAB["provisions"]), "duplicate key in vocabulary.json")
 for p in vocab:
-    check(f"`{p}`" in SCHEMA, f"provision '{p}' accepted by validator but not documented in SCHEMA.md")
+    check(f"`{p}`" in SCHEMA, f"provision '{p}' in the vocabulary but not documented in SCHEMA.md")
 used = {p for b in REG["bills"] for p in b["provisions"]}
-check(used <= vocab, f"provisions in use but not in validator vocabulary: {used - vocab}")
+check(used <= vocab, f"provisions in use but not in the vocabulary: {used - vocab}")
+# The site's matrix columns must be a subset, or a column would render with no label.
+labels = {p["key"] for p in VOCAB["provisions"] if p.get("in_matrix")}
+check(labels <= vocab, "in_matrix keys must exist in the vocabulary")
+check(used <= labels | {p["key"] for p in VOCAB["provisions"] if not p.get("in_matrix")},
+      "a provision in use appears in no vocabulary group")
 
 # --- lineage edges must resolve and be labelled
 for b in REG["bills"]:
@@ -87,6 +95,85 @@ for b in REG["bills"]:
 check("baseline_snapshot" in REG and "verified_as_of" in REG,
       "registry must separate baseline_snapshot from verified_as_of")
 check("as_of" not in REG, "ambiguous top-level 'as_of' has returned")
+
+# --- The validator's own checks must fire. A check that never fails is decoration,
+# --- which is precisely the criticism external review made of the stored hashes.
+# --- Each case below breaks one thing in a throwaway copy and asserts the message.
+import shutil, subprocess, tempfile
+
+def validator_says(mutate, expect):
+    """Run validate.py over a mutated copy of the registry; assert it objects."""
+    with tempfile.TemporaryDirectory() as td:
+        dst = pathlib.Path(td) / "registry"
+        shutil.copytree(ROOT, dst, ignore=shutil.ignore_patterns("__pycache__", "incoming"))
+        # The validator reads SCHEMA.md and PROVISIONS.md from the repo root, so the
+        # copy needs them too or every vocabulary check fires spuriously.
+        for doc in ("SCHEMA.md", "PROVISIONS.md"):
+            shutil.copy(ROOT.parent / doc, pathlib.Path(td) / doc)
+        data = json.loads((dst / "bills.json").read_text())
+        mutate(data)
+        (dst / "bills.json").write_text(json.dumps(data))
+        r = subprocess.run([sys.executable, str(dst / "validate.py")],
+                           capture_output=True, text=True, timeout=120)
+        out = r.stdout + r.stderr
+        check("Traceback" not in out, f"validator crashed instead of reporting: {expect}")
+        check(expect in out, f"validator did not report {expect!r}\n{out[-700:]}")
+
+def _first(data):
+    return data["bills"][0]
+
+def validator_says_vocab(mutate, expect):
+    """Same, but mutating vocabulary.json rather than bills.json."""
+    with tempfile.TemporaryDirectory() as td:
+        dst = pathlib.Path(td) / "registry"
+        shutil.copytree(ROOT, dst, ignore=shutil.ignore_patterns("__pycache__", "incoming"))
+        for doc in ("SCHEMA.md", "PROVISIONS.md"):
+            shutil.copy(ROOT.parent / doc, pathlib.Path(td) / doc)
+        vocab = json.loads((dst / "vocabulary.json").read_text())
+        mutate(vocab)
+        (dst / "vocabulary.json").write_text(json.dumps(vocab))
+        r = subprocess.run([sys.executable, str(dst / "validate.py")],
+                           capture_output=True, text=True, timeout=120)
+        out = r.stdout + r.stderr
+        check("Traceback" not in out, f"validator crashed instead of reporting: {expect}")
+        check(expect in out, f"validator did not report {expect!r}\n{out[-500:]}")
+
+validator_says(lambda d: _first(d).__setitem__("status", "failed"),
+               "'status' should be an object")
+validator_says(lambda d: _first(d).__setitem__("watch_dates", {"date": "2026-01-01"}),
+               "'watch_dates' should be a list")
+validator_says(lambda d: _first(d).__setitem__("versions", "introduced"),
+               "'versions' should be a list")
+validator_says(lambda d: _first(d)["status"].__setitem__("source_url", "javascript:alert(1)"),
+               "is not an http(s) URL")
+
+def _escape_path(d):
+    for b in d["bills"]:
+        for v in b["versions"]:
+            if v.get("text_path"):
+                v["text_path"] = "../../site/build.py"
+                v.pop("text_sha256", None)
+                return
+validator_says(_escape_path, "text_path escapes registry/texts")
+
+def _break_hash(d):
+    for b in d["bills"]:
+        for v in b["versions"]:
+            if v.get("text_sha256"):
+                v["text_sha256"] = "0" * 64
+                return
+validator_says(_break_hash, "stored text hash does not match file")
+
+# An undocumented vocabulary entry, and a tag used but not in the vocabulary.
+validator_says_vocab(
+    lambda v: v["provisions"].append({"key": "invents_a_new_category", "label": "x",
+                                      "in_matrix": False}),
+    "is not documented in SCHEMA.md")
+validator_says_vocab(
+    lambda v: v.__setitem__("provisions",
+                            [p for p in v["provisions"]
+                             if p["key"] != "denies_legal_personhood"]),
+    "bad provisions")
 
 print(f"{len(fails)} failure(s)")
 for f in fails: print("  ✗", f)

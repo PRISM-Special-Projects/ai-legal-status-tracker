@@ -318,7 +318,6 @@ class Alignment(unittest.TestCase):
              'SECTION 2. Added.\n(1) "Life":\n'
              '(B) Does not include artificial intelligence;\n')
         r = L.diff_texts(a, z)
-        kinds = [e.kind for e in r.entries]
         self.assertNotIn("renumbered", [e.kind for e in r.entries
                                         if "(B)" in e.label and "→" not in e.label])
         self.assertEqual(r.removed, 1, "the (B) clause is a removal, not an inheritance")
