@@ -14,6 +14,9 @@ jobs:
       - name: Validate claim evidence
         run: python3 registry/validate_claim_evidence.py
 
+      - name: Dry-run immutable version ID migration
+        run: python3 registry/migrate_version_ids.py
+
       - name: Build normal site
         run: python3 site/build.py
 
