@@ -50,14 +50,29 @@ versions not yet addressed by structured provenance may still lack a `version_id
 
 ## Current migration boundary
 
-The first production migration contains the four records that passed the Workstream F pilot:
+Eight records currently have structured claim-level evidence.
+
+The first production cohort contains the four records that passed the Workstream F pilot:
 
 - `wa-hb2029-2025` — derived terminal status;
 - `ut-hb249-2024` — current code location versus enactment-time numbering;
 - `tn-sb837-2025` — derived effective date, statutory destination and amendment mechanism;
 - `mo-hb1769-2026` — version-specific provision presence, checked absence and removal.
 
-Corpus-wide mapping is intentionally incremental. The next expansion should prioritise
+The second bounded cohort, promoted on 2026-08-11, replaces secondary-basis status assertions
+with direct official action-history support where the displayed stage did not need to change:
+
+- `sc-hb3796-2025` — House Judiciary referral;
+- `oh-hb469-2025` — House Technology and Innovation referral;
+- `mo-sb859-2026` — Senate General Laws hearing conducted;
+- `mn-sf4114-2026` — Senate Judiciary and Public Safety referral.
+
+`mo-sb1012-2026` was deliberately excluded from that cohort because its House Do Not Pass action
+and completed session require a separate terminal-stage classification review. `ca-sb1119-2026`
+was also excluded because the retrievable live LegInfo status surface was stale relative to the
+later amendment history already documented in the audit.
+
+Corpus-wide mapping remains intentionally incremental. The next expansion should prioritise
 high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and source-observed
 version-specific provision assessments) rather than attempting to map every sentence in
 `notes`.
