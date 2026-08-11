@@ -1,0 +1,42 @@
+name: Claim provenance pilot
+
+on: [push, pull_request]
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate claim-evidence pilot
+        run: python3 registry/pilot/validate_claim_evidence.py
+
+      - name: Build normal site
+        run: python3 site/build.py
+
+      - name: Render one-record provenance pilot
+        run: python3 site/pilot_claim_evidence.py
+
+      - name: Assert pilot rendering
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('site/dist/bills/tn-sb837-2025/index.html')
+          h=p.read_text()
+          required=[
+            'Claim evidence',
+            '(pilot)',
+            'effective_date',
+            '2026-04-23',
+            'tn-pc0781',
+            'tn-sb0837-actions',
+            'Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)',
+          ]
+          missing=[x for x in required if x not in h]
+          if missing:
+              raise SystemExit('pilot render missing: '+repr(missing))
+          print('claim provenance pilot render: PASS')
+          PY
