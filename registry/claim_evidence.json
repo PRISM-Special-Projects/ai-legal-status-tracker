@@ -21,7 +21,7 @@
       "claims": [
         {
           "claim": {"field": "codified_at"},
-          "value": "Utah Code §§ 63G-32-101, 63G-32-102; 2024 Utah Laws ch. 451",
+          "value": "Utah Code §§ 63G-32-101, 63G-32-102 (ch. 32, Legal Personhood); 2024 Utah Laws ch. 451",
           "mode": "direct",
           "supports": [
             {"source_ref": "ut-hb249-code", "locator": "Title 63G, Chapter 32, §§ 101-102"}
