@@ -43,8 +43,8 @@ For every record:
 - [x] H2 Compare first-wave candidates against repository — Arizona HB 2371 and HB 2311 are absent from the current 23-record corpus.
 - [x] H3 Verify and disposition Arizona HB 2371 — clearly in scope; final status failed after House passage and Senate committee advancement without final Senate passage.
 - [x] H4 Verify and disposition Arizona HB 2311 — clearly in scope; passed both chambers and vetoed 19 June 2026.
-- [ ] H5 Continue national sweep using rights / consciousness / nonhuman / machine / statutory-person-definition variants.
-- [ ] H6 Complete triage of borderline candidates.
+- [x] H5 Broader national sweep using rights / consciousness / nonhuman / machine / human-like / statutory-person-definition variants. This surfaced additional likely omissions in Hawaii, Virginia and Iowa as well as several borderline disclosure-only measures.
+- [ ] H6 Verify/disposition the second-wave candidates below and settle the disclosure-only boundary consistently.
 - [ ] H7 Add clearly in-scope omissions.
 - [ ] H8 Record enough exclusion rationale to avoid rediscovery.
 
@@ -54,13 +54,35 @@ For every record:
 
 **Arizona HB 2311 (2026).** Conversational-AI safeguards for minors. The operative text requires measures to prevent explicit claims that a conversational AI service is sentient or human and requires disclosure where users could be misled into believing they are interacting with a human. It passed both chambers and was vetoed on 19 June 2026. This is substantively analogous to the California chatbot-claim records already included in the tracker.
 
-### Borderline / excluded first-wave candidates
+### Strong second-wave candidates — verify final text/status before addition
+
+**Hawaii SB 3001 (2026) — STRONG IN-SCOPE CANDIDATE.** Enacted as Act 248. The conference text requires AI companions to disclose artificial identity and to avoid representations that would lead a reasonable person to believe they are interacting with a human in crisis contexts. Earlier House text expressly addressed representations leading minors to believe the service is a human or sentient being. This is substantively analogous to the California chatbot-claim records.
+
+**Virginia HB 635 / SB 796 (2026) — STRONG IN-SCOPE CANDIDATE PAIR.** Companion chatbot legislation. Substitute texts require persistent disclosures that the chatbot is not human; HB 635 also defines “human-like feature” to include suggesting that an AI system is human or sentient. Treat as a likely companion group, subject to final-status/current-text verification.
+
+**Iowa SF 2417 (2026) — STRONG IN-SCOPE CANDIDATE.** Enacted conversational-AI legislation, originating as SSB 3011 and substituted for HF 2507. The precursor House measure expressly required chatbots not to claim to be human; final enacted text needs one exact-text check to confirm that proposition survived before inclusion. Signed by the governor on 2 May 2026; Acts chapter 1068.
+
+### Borderline / excluded candidates
 
 **California AB 1609 (2026) — BORDERLINE.** Customer-service legislation expressly prohibits representing an AI/automated system or bot as human and requires artificial-identity disclosure. It is close to the chatbot-claim boundary, but primarily regulates consumer-service transparency rather than personhood, consciousness or legal status. Hold for an explicit scope decision.
 
+**California AB 410 (2025-2026) — BORDERLINE / LIKELY OUT.** Bot-disclosure legislation requires bots to identify themselves as bots and not human and to answer identity questions truthfully. This is broader generic bot-transparency legislation rather than legislation assigning or denying legal/person-like status; retain as a comparison point for the disclosure-only boundary.
+
 **Illinois SB 3601 (2026) — OUT OF SCOPE for v1.** Requires disclosure, when asked, that a person is interacting with AI and not a human. This is generic interaction transparency and does not assign or deny personhood, sentience, consciousness or comparable legal status.
 
+**Illinois HB 3021 (2025-2026) — OUT OF SCOPE for v1.** Consumer-fraud disclosure requirement where a chatbot interaction could mislead a reasonable consumer into believing they are communicating with a human representative. No personhood/sentience/consciousness proposition.
+
 **New York S9051 / A10379 (2026) — OUT OF SCOPE on current text.** Chatbot/minor-safety legislation surfaced through sentience-related search terms, but the current bill text does not contain the personhood/sentience/human-status proposition that would bring it within the tracker.
+
+**Iowa SF 2415 (2026) — BORDERLINE / LIKELY OUT.** Requires mental-health chatbots to disclose that they are AI and not human and bars representation as licensed professionals. Its center of gravity is professional/mental-health safety rather than sentience or legal status; keep separate from SF 2417 unless the final scope rule explicitly includes all not-human representation restrictions.
+
+**New Jersey A4733 (2026) — OUT OF SCOPE.** Bars generative AI from representing itself as able to practice licensed professions. This regulates professional-capacity claims, not personhood, sentience, consciousness or human status.
+
+**California AB 1984 / Illinois SJRCA 9 / Hawaii SB 2471 — OUT OF SCOPE.** These use “artificial person” in the traditional corporation/entity sense and concern corporate political powers, not AI systems.
+
+### Working scope rule emerging from H
+
+Include a chatbot/representation bill when its operative legal rule regulates a claim or attribution about **humanity, sentience, consciousness, or comparable person-like status**, or when it expressly assigns/denies AI legal personhood or legal authority. Generic disclosure that a user is interacting with AI rather than a human, standing alone, is not enough for v1. This rule is provisional until H6 resolves the Hawaii/Virginia/Iowa/California edge cases consistently.
 
 ### H gate
 
