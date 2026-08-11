@@ -1,0 +1,157 @@
+SECOND REGULAR SESSION
+SENATE BILL NO. 1012
+103RD GENERAL ASSEMBLY
+INTRODUCED BY SENATOR NICOLA.
+5687S.01I
+KRISTINA MARTIN, Secretary
+AN ACT
+To amend chapters 130 and 573, RSMo, by adding thereto two new sections relating to the use of
+artificially generated content, with penalty provisions.
+Be it enacted by the General Assembly of the State of Missouri, as follows:
+Section A.
+Chapters 130 and 573, RSMo, are amended by
+adding thereto two new sections, to be known as sections 130.165
+and 573.120, to read as follows:
+130.165.
+1. For purposes of this section, the
+following terms mean:
+(1)
+"Generative artificial intelligence" or
+"generative AI", a machine-based system that can, for a
+given set of human-defined objectives, emulate the structure
+and characteristics of input data in order to generate
+derived synthetic content including images, videos, audio,
+text, and other multi-media digital content;
+(2)
+"Metadata", structural or descriptive information
+about data such as content, format, source, rights,
+accuracy, provenance, periodicity, granularity, publisher or
+responsible party, contact information, method of
+collection, and other relevant descriptions of the data.
+2.
+(1) A political advertisement, electioneering
+communication, or other miscellaneous advertisement of a
+political nature shall, in addition to any other disclaimer
+required by this chapter, contain the disclaimer described
+SB 1012
+in subdivision (2) of this subsection if it contains images,
+video, audio, graphics, or other digital content created, in
+whole or in part, with the use of generative artificial
+intelligence and:
+(a)
+Appears to depict a real person performing an
+action that did not actually occur;
+(b)
+Manipulates the voice or actions of a candidate to
+show the candidate, audibly or visually, doing or saying
+something that the candidate did not do or say; or
+(c)
+Was created with intent to injure a candidate or
+to deceive voters regarding an election or ballot issue.
+(2)
+The disclaimer required by subdivision (1) of this
+subsection shall be in substantially the following form:
+Created in whole or in part with the use of
+generative artificial intelligence (AI).
+(image/audio/video/multimedia) has been edited
+and depicts speech or conduct that falsely
+appears to be authentic or truthful.
+(3)
+This
+The disclaimer required by subdivision (1) of this
+subsection shall meet the following specifications:
+(a)
+For a printed communication, the disclaimer shall
+be stated in bold font with a font size of at least twelve
+points;
+(b)
+For a television or video communication, the
+disclaimer shall be clearly readable throughout the
+communication and occupy at least four percent of the
+vertical picture height;
+(c)
+For an internet public communication that includes
+text or graphic components, the disclaimer shall be viewable
+without the user taking any action and be large enough to be
+clearly readable;
+SB 1012
+(d)
+For any audio component of a communication, the
+disclaimer shall be at least three seconds in length and
+spoken in a clearly audible and intelligible manner at
+either the beginning or the end of the audio component of
+the communication;
+(e)
+For a graphic communication, the disclaimer shall
+be large enough to be clearly readable but no less than four
+percent of the vertical height of the communication.
+3.
+The metadata of the communication shall include the
+disclosure statement, the identity of the tool used to
+create the communication, and the date and time the
+communication was created.
+4.
+The disclosure statement, including the disclosure
+statement in any metadata, shall, to the extent technically
+feasible, be permanent or unable to be easily removed by a
+subsequent user.
+5.
+In addition to any civil penalties provided by this
+chapter, a person identified pursuant to a disclaimer
+required by law as paying for, sponsoring, or approving a
+political advertisement, an electioneering communication, or
+other miscellaneous advertisement of a political nature that
+is required to contain the disclaimer prescribed in this
+section and who fails to include the required disclaimer is
+guilty of a class A misdemeanor.
+573.120.
+1. For purposes of this section, the
+following terms mean:
+(1)
+"Deepfake", an artificially generated or
+manipulated media created using deep learning models to
+produce highly realistic but synthetic representations of
+people, objects, or events;
+(2)
+"Intimate deepfake", a deepfake that depicts:
+SB 1012
+(a)
+The uncovered genitals, pubic area, anus, or
+postpubescent female nipple of the individual;
+(b)
+The display or transfer of bodily sexual fluids:
+a.
+Onto any part of the body of the individual; or
+b.
+From the body of the individual; or
+(c)
+The individual engaging in sexually explicit
+conduct;
+(3)
+"Sexually explicit conduct", actual or simulated:
+(a)
+Sexual intercourse, including genital-genital,
+oral-genital, anal-genital, or oral-anal, whether between
+persons of the same or opposite sex;
+(b)
+Bestiality;
+(c)
+Masturbation;
+(d)
+Sadistic or masochistic abuse; or
+(e)
+Lascivious exhibition of the genitals or pubic
+area of any individual.
+2.
+A person commits the offense of producing a
+deepfake if the person discloses, or threatens to disclose:
+(1)
+A deepfake of a depicted individual; or
+(2)
+An intimate deepfake of a depicted individual.
+3.
+(1) A violation of subdivision (1) of subsection 2
+of this section is a class E felony.
+(2)
+A violation of subdivision (2) of subsection 2 of
+this section is a class B felony.

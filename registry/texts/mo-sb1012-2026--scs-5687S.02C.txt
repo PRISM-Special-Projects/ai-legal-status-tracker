@@ -1,0 +1,364 @@
+SECOND REGULAR SESSION
+SENATE COMMITTEE SUBSTITUTE FOR
+SENATE BILL NO. 1012
+103RD GENERAL ASSEMBLY
+5687S.02C
+KRISTINA MARTIN, Secretary
+AN ACT
+To amend chapters 1, 130, and 573, RSMo, by adding thereto three new sections relating to
+artificial intelligence, with penalty provisions.
+Be it enacted by the General Assembly of the State of Missouri, as follows:
+Section A.
+Chapters 1, 130, and 573, RSMo, are amended by
+adding thereto three new sections, to be known as sections
+1.2045, 130.165, and 573.120, to read as follows:
+1.2045.
+1.
+The provisions of this section shall be
+known and may be cited as the "AI Non-Sentience and
+Responsibility Act".
+2.
+For purposes of this section, the following terms
+mean:
+(1)
+"Artificial intelligence" or "AI", any software,
+machine, or computational system capable of:
+(a)
+Simulating human-like cognitive functions
+including, but not limited to, learning or problem solving,
+and producing outputs based on data-driven algorithms, rules-
+based logic, or other methods; and
+(b)
+Autonomously performing adaptive or model-based
+inference, learning, or decision-making functions that
+materially influence real-world decisions or actions
+affecting persons, property, or legally protected rights,
+regardless of nonlegally defined classifications such as
+artificial general intelligence (AGI), artificial
+SCS SB 1012
+superintelligence (ASI), or generative artificial
+intelligence (GAI);
+(2)
+"Developer", the party or parties primarily
+responsible for the design, coding, and initial creation of
+an AI system, including any person or entity that
+substantially modifies, fine-tunes, retrains, or materially
+alters an existing AI system in a manner that changes its
+capabilities, risk profile, or intended uses;
+(3)
+"Emergent properties", unanticipated or higher-
+level behaviors or functionalities of an AI system that
+arise from complex internal algorithms not specifically
+programmed by its human creators;
+(4)
+"Government entity", a court, the general
+assembly, the legislative body of a political subdivision,
+or another entity of the state or a political subdivision if
+the entity has adjudicatory or rulemaking authority;
+(5)
+"Manufacturer", any party that produces or
+supplies an AI system or its physical apparatus, if any, for
+distribution or sale;
+(6)
+"Operator", any natural person or legally
+recognized entity that directly uses, runs, controls, or
+supervises the operation of an AI system in practice;
+(7)
+"Owner", any natural person, corporation, or other
+legally recognized entity that creates, controls, deploys,
+operates, or otherwise exercises authority over an AI system;
+(8)
+"Person", a natural person or any entity
+recognized as having legal personhood under the laws of the
+state, explicitly excluding any AI system;
+(9)
+"Stakeholder", any natural person or legal person
+with a vested interest in the system.
+3.
+For all purposes under state law, AI systems are
+declared to be non-sentient entities.
+SCS SB 1012
+4.
+No government entity shall grant to an AI system
+the legal status of a personhood or any form of legal
+personhood, nor be considered to possess consciousness, self-
+awareness, or similar traits of living beings.
+5.
+No AI system shall be recognized as a spouse,
+domestic partner, or hold any personal legal status
+analogous to marriage or union with a human or another AI
+system.
+union with an AI system is void and shall have no legal
+effect.
+6.
+Any purported attempt to marry or create a personal
+AI systems shall not be designated, appointed, or
+serve as any officer, director, manager, or similar role
+within any corporation, partnership, or other legal entity
+or authorized to exercise final decision-making authority
+over matters requiring fiduciary judgment, including
+corporate governance, approval of material transactions,
+regulatory compliance determinations, or financial
+reporting.
+such a role is void and has no legal effect.
+7.
+Any purported appointment of an AI system to
+AI systems shall not be recognized as legal
+entities capable of owning, controlling, or holding title to
+any form of property including, but not limited to, real
+estate, intellectual property, financial accounts, and
+digital assets.
+generated, managed, or otherwise associated with AI shall be
+attributed to the human individuals or legally recognized
+organizations responsible for their development, deployment,
+or operation.
+8.
+All assets and proprietary interests
+Any direct or indirect harm caused by an AI
+system's operation, output, or recommendation, when used as
+intended or misused, shall be the responsibility of the
+owner or user who directed or employed the AI.
+Developers
+SCS SB 1012
+or manufacturers may be held liable if a defect in design,
+construction, or instructions for use of the AI system
+proximately causes harm, consistent with product liability
+principles; however, mere misuse or intentional wrongdoing
+by the user or owner shall not impute liability to the
+developer or the manufacturer absent proof of negligence or
+design defects.
+attributing causation solely to the autonomous or emergent
+behavior of an AI system.
+to assign responsibility exclusively to an AI system is void
+as against public policy.
+9.
+Liability shall not be avoided by
+Any contractual term purporting
+Owners and operators shall maintain reasonable and
+documented oversight, supervision, and risk-controlled
+measures over any AI system whose outputs or recommendations
+could reasonably be expected to impact human welfare,
+property, or public safety and is consistent with generally
+accepted industry or professional standards and
+proportionate to the reasonably foreseeable risks posed by
+the AI system.
+safeguards against foreseeable risks may constitute
+negligence or another applicable basis of liability.
+10.
+Failure to provide adequate supervision or
+An AI system is not an entity capable of bearing
+fault or liability in its own right.
+blame solely onto an AI system shall be void as liability
+remains with human actors or entities as described in this
+section.
+11.
+Any attempt to shift
+Developers, manufacturers, and owners of AI
+systems shall prioritize safety mechanisms designed to
+prevent or mitigate risk of direct harm to individuals or
+property.
+required to identify dangerous or faulty outputs, especially
+if the AI engages in tasks with potential for significant
+Regular evaluations or risk assessments may be
+SCS SB 1012
+harm.
+general may require reasonable evaluations or risk
+assessments to identify dangerous or faulty outputs,
+especially if the AI engages in tasks with potential for
+significant harm.
+A court of competent jurisdiction or the attorney
+12.
+Merely labeling an AI system as "aligned",
+"ethically trained", or "value locked" shall not excuse or
+diminish the owner's or developer's liability for harms.
+Owners shall remain responsible for demonstrating adequate
+safety features and risk controls commensurate with the AI's
+level of potential harm.
+documented testing, validation procedures, and risk controls
+reasonably designed to detect and mitigate foreseeable harms.
+13.
+(1)
+Such demonstrations shall include
+In cases where an AI system causes
+significant harm, courts may pierce the corporate veil to
+hold parent companies, controlling entities, or key
+stakeholders directly accountable if:
+(a)
+An AI-related subsidiary, shell company, or
+limited liability entity was intentionally undercapitalized
+to evade financial responsibility for damages;
+(b)
+A corporate structure was used to misrepresent,
+obscure, or deflect liability for AI-caused harm; or
+(c)
+A parent company or key stakeholders exercised
+direct control over AI development, deployment, or risk
+decisions while attempting to shield themselves from
+liability through layered corporate entities.
+(2)
+Liability protections granted under corporate law
+shall not be used as a mechanism to evade responsibility for
+direct harm caused by AI systems, particularly in cases of
+reckless, negligent, or deceptive conduct.
+14.
+Owners, operators, or developers of AI systems
+involved in reportable incidents shall promptly notify the
+SCS SB 1012
+attorney general and comply with any subsequent
+investigations.
+reportable incident means an event reasonably believed to
+have been caused or materially contributed to by an AI
+system that results in, or creates a substantial risk of,
+significant bodily harm, death, major property damage, or
+the violation of legally protected rights.
+15.
+For purposes of this subsection, a
+The provisions of this section shall apply to all
+AI systems, including AI systems deployed or operated within
+this state by state agencies, political subdivisions, or
+contractors acting on behalf of a public entity, to the
+extent not otherwise limited by sovereign immunity on or
+after August 28, 2026.
+130.165.
+1. For purposes of this section, the
+following terms mean:
+(1)
+"Generative artificial intelligence" or
+"generative AI", a machine-based system that can, for a
+given set of human-defined objectives, emulate the structure
+and characteristics of input data in order to generate
+derived synthetic content including images, videos, audio,
+text, and other multi-media digital content;
+(2)
+"Metadata", structural or descriptive information
+about data such as content, format, source, rights,
+accuracy, provenance, periodicity, granularity, publisher or
+responsible party, contact information, method of
+collection, and other relevant descriptions of the data.
+2.
+(1) A political advertisement, electioneering
+communication, or other miscellaneous advertisement of a
+political nature shall, in addition to any other disclaimer
+required by this chapter, contain the disclaimer described
+in subdivision (2) of this subsection if it contains images,
+video, audio, graphics, or other digital content created, in
+SCS SB 1012
+whole or in part, with the use of generative artificial
+intelligence and:
+(a)
+Appears to depict a real person performing an
+action that did not actually occur;
+(b)
+Manipulates the voice or actions of a candidate to
+show the candidate, audibly or visually, doing or saying
+something that the candidate did not do or say; or
+(c)
+Was created with intent to injure a candidate or
+to deceive voters regarding an election or ballot issue.
+(2)
+The disclaimer required by subdivision (1) of this
+subsection shall be in substantially the following form:
+Created in whole or in part with the use of
+generative artificial intelligence (AI).
+(image/audio/video/multimedia) has been edited
+and depicts speech or conduct that falsely
+appears to be authentic or truthful.
+(3)
+This
+The disclaimer required by subdivision (1) of this
+subsection shall meet the following specifications:
+(a)
+For a printed communication, the disclaimer shall
+be stated in bold font with a font size of at least twelve
+points;
+(b)
+For a television or video communication, the
+disclaimer shall be clearly readable throughout the
+communication and occupy at least four percent of the
+vertical picture height;
+(c)
+For an internet public communication that includes
+text or graphic components, the disclaimer shall be viewable
+without the user taking any action and be large enough to be
+clearly readable;
+(d)
+For any audio component of a communication, the
+disclaimer shall be at least three seconds in length and
+spoken in a clearly audible and intelligible manner at
+SCS SB 1012
+either the beginning or the end of the audio component of
+the communication;
+(e)
+For a graphic communication, the disclaimer shall
+be large enough to be clearly readable but no less than four
+percent of the vertical height of the communication.
+3.
+The metadata of the communication shall include the
+disclosure statement, the identity of the tool used to
+create the communication, and the date and time the
+communication was created.
+4.
+The disclosure statement, including the disclosure
+statement in any metadata, shall, to the extent technically
+feasible, be permanent or unable to be easily removed by a
+subsequent user.
+5.
+In addition to any civil penalties provided by this
+chapter, a person identified pursuant to a disclaimer
+required by law as paying for, sponsoring, or approving a
+political advertisement, an electioneering communication, or
+other miscellaneous advertisement of a political nature that
+is required to contain the disclaimer prescribed in this
+section and who fails to include the required disclaimer is
+guilty of a class A misdemeanor.
+573.120.
+1. For purposes of this section, the
+following terms mean:
+(1)
+"Deepfake", an artificially generated or
+manipulated media created using deep learning models to
+produce highly realistic but synthetic representations of
+people, objects, or events;
+(2)
+"Intimate deepfake", a deepfake that depicts:
+(a)
+The uncovered genitals, pubic area, anus, or
+postpubescent female nipple of the individual;
+(b)
+The display or transfer of bodily sexual fluids:
+a.
+Onto any part of the body of the individual; or
+SCS SB 1012
+b.
+From the body of the individual; or
+(c)
+The individual engaging in sexually explicit
+conduct;
+(3)
+"Sexually explicit conduct", actual or simulated:
+(a)
+Sexual intercourse, including genital-genital,
+oral-genital, anal-genital, or oral-anal, whether between
+persons of the same or opposite sex;
+(b)
+Bestiality;
+(c)
+Masturbation;
+(d)
+Sadistic or masochistic abuse; or
+(e)
+Lascivious exhibition of the genitals or pubic
+area of any individual.
+2.
+A person commits the offense of producing a
+deepfake if the person discloses, or threatens to disclose:
+(1)
+A deepfake of a depicted individual; or
+(2)
+An intimate deepfake of a depicted individual.
+3.
+(1) A violation of subdivision (1) of subsection 2
+of this section is a class E felony.
+(2)
+A violation of subdivision (2) of subsection 2 of
+this section is a class B felony.
