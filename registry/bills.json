@@ -360,8 +360,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. Introduced 7 Feb 2026. Passed the House 23 March 2026 by 94-2. Placed on Senate General Order 21 April 2026. Title: 'Technology; personhood; artificial intelligence; effective date.' Idaho template. Operative text not on the status page - still to be read.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10. Introduced 7 Feb 2026. Passed the House 23 March 2026 by 94-2. Placed on Senate General Order 21 April 2026. Title: 'Technology; personhood; artificial intelligence; effective date.' Idaho template. Official introduced and House floor texts reviewed 2026-08-11; operative personhood clause confirmed. STATUS CORRECTION: bill did not receive Senate floor passage before the 2026 session adjourned sine die, so current stage is failed.",
       "id": "ok-hb3546-2026",
       "bill_number": "HB 3546",
       "chamber": "house",
@@ -371,14 +371,14 @@
         "year_introduced": 2026
       },
       "status": {
-        "stage": "passed_one_chamber",
-        "as_of": "2026-08-10",
+        "stage": "failed",
+        "as_of": "2026-08-11",
         "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=hb3546&Session=2600",
         "evidence": {
-          "action": "Passed House 94-2 (2026-03-23); Placed on General Order, Senate",
+          "action": "Last action: Placed on General Order in Senate 04/21/2026; 2026 regular session adjourned sine die without Senate passage",
           "date": "2026-04-21"
         },
-        "basis": "explicit_action"
+        "basis": "session_rule"
       },
       "family": "A",
       "technique": "standalone_provision",
@@ -401,12 +401,12 @@
       "watch_dates": [],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "not_read",
-        "operative_text_note": "Verified from the status page; operative text not read",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Official introduced and House floor texts reviewed; operative personhood clause unchanged.",
         "sponsors": "established",
         "codified_at_source": "n/a",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -573,7 +573,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-11",
-      "notes": "VERIFIED 2026-08-10. Introduced 28 Jan 2025, referred to House Judiciary the same day; no further action since. Would add Article 29 to Chapter 1, Title 1 of the SC Code, prohibiting a governmental entity from granting or recognising legal personhood in certain items. Utah template. Operative list not on the summary page - still to be read verbatim.",
+      "notes": "VERIFIED 2026-08-10. Introduced 28 Jan 2025, referred to House Judiciary the same day; no further action since. Would add Article 29 to Chapter 1, Title 1 of the SC Code, prohibiting a governmental entity from granting or recognising legal personhood in certain items. Utah template. Official bill text reviewed 2026-08-11; operative list confirmed. STATUS CORRECTION: no action followed the 2025 Judiciary referral before the 126th regular session adjourned sine die on 14 May 2026, so current stage is failed.",
       "id": "sc-hb3796-2025",
       "bill_number": "HB 3796",
       "chamber": "house",
@@ -583,14 +583,14 @@
         "year_introduced": 2025
       },
       "status": {
-        "stage": "in_committee",
+        "stage": "failed",
         "as_of": "2026-08-11",
-        "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B",
+        "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/3796.htm",
         "evidence": {
-          "action": "Referred to Committee on Judiciary",
+          "action": "Last action: Referred to House Judiciary 01/28/2025; 126th regular session adjourned sine die 05/14/2026 without further action",
           "date": "2025-01-28"
         },
-        "basis": "explicit_action"
+        "basis": "session_rule"
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -613,8 +613,8 @@
       "watch_dates": [],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "not_read",
-        "operative_text_note": "Verified from the summary page; operative text not read",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Official South Carolina bill text reviewed in full.",
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 0,
