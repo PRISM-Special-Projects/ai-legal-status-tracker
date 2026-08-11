@@ -21,9 +21,9 @@ A **material version** is one whose change would alter the tracker's substantive
 - [x] G2 Missouri HB 1746 — substantive history verified.
 - [x] G3 Missouri SB 1012 — substantive history verified. Remaining structural-parser work is backlog, not a release blocker.
 - [x] G4 Tennessee HB 1455 / SB 1493 — material history reconciled: introduced criminal/civil regime → SA1113 Advisory Council study → HA1260/final TACIR study.
-- [ ] G5 California SB 1159 — verify current operative text and status.
-- [ ] G6 California AB 2023 — read relevant operative text; confirm material intent-only → child-safety regime transition and current status.
-- [ ] G7 California SB 1119 — read relevant operative text; confirm material intent-only → child-safety regime transition and current status.
+- [x] G5 California SB 1159 — operative June 25 text verified; tracker correctly captures exclusion of AI/nonhuman entities from specified government-participation/person terminology. Bill remains alive after Senate passage and Assembly committee action; stale LegInfo indexing is not treated as a substantive blocker.
+- [x] G6 California AB 2023 — material intent-only → child-safety regime transition verified. Amended text expressly treats chatbot claims of being sentient, conscious, or human as covered/prohibited conduct; bill remains alive in Senate committee process.
+- [x] G7 California SB 1119 — material intent-only → child-safety regime transition verified. Operative text and July 2 Assembly committee re-referral to Appropriations already supported in the registry.
 - [ ] G8 Remaining records — quick seven-question screen for scope/status/text/tags/material history/evidence.
 
 ### G gate
