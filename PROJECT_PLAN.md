@@ -1,5 +1,13 @@
 # AI Legal Status Tracker — Project Plan
 
+> **Planning record, superseded.** This is the design document as written before the build, kept
+> for the decision trail. Where it disagrees with the artefact, the artefact governs — see
+> `README.md`, `IMPLEMENTATION-REPORT.md` and `DIFF-REPORT.md`. Two decisions recorded here were
+> reversed after external review: the state tiles no longer say "no legislation identified" (it
+> claims more than the inclusion methodology can support, and now reads "no bills in this
+> registry"), and the version differ is structural rather than sentence-level. Last checked
+> against the artefact 2026-08-11.
+
 **Status:** draft for review · **Date:** 2026-08-09 · **Owner:** Mitchel (PRISM)
 
 ## What we are building

@@ -1,13 +1,25 @@
 # Implementation report — response to red-team review
 
-**Date:** 2026-08-10 · **Repo:** https://github.com/PRISM-Special-Projects/ai-legal-status-tracker
+**Repo:** https://github.com/PRISM-Special-Projects/ai-legal-status-tracker ·
+**describes commit:** `a0aeb46` · **last reconciled:** 2026-08-11
 
-Two external reviews produced ~29 findings. This records what was implemented, what was
+Three external reviews have produced ~47 findings. This records what was implemented, what was
 rejected and why, and what still blocks publication. **The rejections matter more than the
 implementations** — each carries a rationale that will suppress future scrutiny if it is wrong.
 
+Verify any claim below by checking out that commit and running:
+
+```bash
+python3 registry/validate.py && python3 registry/test_regressions.py \
+  && python3 site/test_diff.py && python3 site/build.py
+```
+
+The third review found that this report described files that were not on `origin/main`, because
+the work had not been pushed. That is why the commit is named here. If the tree you are reading
+lacks `site/legdiff.py` and `registry/vocabulary.json`, this report does not describe it.
+
 Written by the same party that did the implementation, so nothing here has been independently
-checked.
+checked. `DIFF-REPORT.md` covers the differ and the hardening pass in detail.
 
 ---
 
@@ -73,8 +85,15 @@ identified by their full path (`1.2045 / 2 / (1)`), never by the visible designa
 under one subsection is never aligned with `(1)` under another. Statutory citations and internal
 cross-references are masked before designators are looked for. Redesignation is a separate
 category from amendment. Where structure cannot be established the comparison falls back to
-block-level text matching and says so on the page. `site/test_diff.py` holds 22 tests, including
+block-level text matching and says so on the page. `site/test_diff.py` holds 37 tests, including
 synthetic fixtures built to break the parser.
+
+**Amended after a third review (see `DIFF-REPORT.md`).** Two inferential rules in that first
+implementation were withdrawn: a child was no longer taken to have moved with its redesignated
+parent, and blank `( )` designators are no longer keyed by the term they define. Both were measured
+before removal — the first changed one provision pair in the whole corpus, the second changed no
+counts at all. Definition matching by defined term survived, because without it Missouri reports
+"Emergent properties" as amended into "Developer".
 
 **Kept from the rejection:** no spaCy, and no dependencies. The reason is now the one that
 survives scrutiny — the structural parser is inspectable and the unit is the provision — rather
@@ -119,10 +138,17 @@ accessible text — is fixed.
 ### R7 — `!important` to fix the mobile collapse
 **Rejected because:** it was a specificity bug, fixed properly by scoping selectors.
 
-### R8 — Parsing `SCHEMA.md` to load the controlled vocabulary
-**Rejected because:** extracting terms from markdown prose is brittle in the way that caused
-the original drift. **Note this is only partly mitigated** — CI checks that every tag in use
-is documented, but the vocabulary still lives in two places.
+### R8 — Parsing `SCHEMA.md` to load the controlled vocabulary — **RESOLVED, 2026-08-11**
+**Originally rejected because:** extracting terms from markdown prose is brittle in the way that
+caused the original drift. That reasoning was right about the proposed remedy and wrong to stop
+there: the vocabulary was left in four places — `validate.py`, `build.py` twice, and prose in
+`SCHEMA.md` and `PROVISIONS.md` — and CI only checked one direction, that every tag in use was
+documented. A documented tag the validator did not accept would have passed.
+
+**What was built instead:** `registry/vocabulary.json`, a machine-readable list the validator takes
+its allowed keys from and the site takes its labels and column order from. The validator now checks
+**both** directions, and a regression test that used to regex the vocabulary out of `validate.py`
+source — the same brittleness, one level up — reads the file instead.
 
 ### R9 — Fail-fast validation
 **Rejected because:** accumulate-and-report makes a bulk fix tractable; fail-fast turns a

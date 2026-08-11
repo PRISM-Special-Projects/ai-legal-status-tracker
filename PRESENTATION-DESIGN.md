@@ -1,7 +1,16 @@
 # Phase 3 — presentation design
 
+> **Planning record, superseded.** This is the design document as written before the build, kept
+> for the decision trail. Where it disagrees with the artefact, the artefact governs — see
+> `README.md`, `IMPLEMENTATION-REPORT.md` and `DIFF-REPORT.md`. Two decisions recorded here were
+> reversed after external review: the state tiles no longer say "no legislation identified" (it
+> claims more than the inclusion methodology can support, and now reads "no bills in this
+> registry"), and the version differ is structural rather than sentence-level. Last checked
+> against the artefact 2026-08-11.
+
 Draft for the checkpoint. 23 verified records, 16 provision tags, 13 lineage edges,
-three genuine amendment diffs, six corrections to the source paper.
+three genuine amendment diffs, five corrections to the source paper (a sixth was
+claimed here and later retracted — see `VERIFICATION.md`).
 
 ## The central call: the map is not the hero
 

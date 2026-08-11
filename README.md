@@ -46,8 +46,9 @@ registry/texts/              16 normalised bill texts, used for diffs
 registry/incoming/           source PDFs as retrieved
 registry/source_manifest.json SHA-256 for every document and text
 registry/session_rules.json  how a bill dies in each state, sourced
+registry/vocabulary.json     the controlled provision vocabulary — one machine-readable source
 registry/validate.py         validation + audit summary
-registry/test_regressions.py one test per bug ever found here
+registry/test_regressions.py one test per bug ever found here, plus negative validator cases
 site/build.py                builds the site from the registry
 site/legdiff.py              structural differ — aligns provisions by statutory path
 site/test_diff.py            adversarial + corpus tests for the differ
@@ -78,10 +79,16 @@ record *who claimed it*, with attribution.
 The intent is that this is equally usable by people who support these bills and people who
 oppose them.
 
-**Every claim cites something.** Each record carries per-dimension provenance: how the status
-was established, whether the operative text was read, whether the statutory citation was
-verified against the code or only the bill. `status.basis` distinguishes a status the
-legislature recorded from one derived from a session rule.
+**Every structured claim records its evidentiary basis.** Each record states how its status was
+established, whether the operative text was read, and whether the statutory citation was verified
+against the code or only against the bill. `status.basis` distinguishes a status the legislature
+recorded from one derived from a session rule.
+
+This is deliberately weaker than "every claim cites something", which this registry said until
+2026-08-11 and could not support: there is **no field-level link from an individual claim to an
+individual source**. The narrative `notes` may contain several observations supported collectively
+by the record's cited sources, and a reader cannot currently map one sentence to one source.
+Closing that gap is a publication blocker, not a refinement.
 
 **Errors are recorded, not quietly fixed.** `VERIFICATION.md` documents our own mistakes,
 including a correction to the source paper that we later retracted.

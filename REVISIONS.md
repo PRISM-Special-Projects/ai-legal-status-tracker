@@ -340,23 +340,58 @@ been built, so "we have a better plan" was doing the work of "we have a better i
 
 | # | Finding | Status |
 |---|---|---|
-| 1 | **R1 overturn** — shipped differ was a punctuation differ, knowingly indefensible | **DONE.** `site/legdiff.py` + 22 tests. See `IMPLEMENTATION-REPORT.md` §3 R1 |
+| 1 | **R1 overturn** — shipped differ was a punctuation differ, knowingly indefensible | **DONE.** `site/legdiff.py` + 37 tests. See `IMPLEMENTATION-REPORT.md` §3 R1 and `DIFF-REPORT.md` |
 | 2 | R2 overturn — session rules are a review aid, not a safeguard; nothing forces review | open |
 | 3 | R3 overturn — `verification` records state, not provenance; no field-level source links | open |
-| 4 | `verification.status` vs top-level `verification_status` can disagree and the validator never checks | open |
+| 4 | `verification.status` vs top-level `verification_status` can disagree and the validator never checks | open — the validator is now shape-safe, but still does not reconcile the two |
 | 5 | R4 overturn — `notes`/`analysis` are locations, not epistemic categories | open |
-| 6 | R8 overturn — vocabulary still lives in `PROVISIONS.md` and in `validate.py` | open |
+| 6 | R8 overturn — vocabulary still lives in `PROVISIONS.md` and in `validate.py` | **DONE 2026-08-11.** `registry/vocabulary.json`; validator checks both directions |
 | 7 | Terminal status without evidence is a warning, so the publication gate does not enforce its own requirement | open |
-| 8 | Regression tests pin instances, not failure classes | partly addressed for the differ: the tests assert properties (citations never become nodes, reused labels never collapse) as well as the Utah/Washington-style fixtures |
+| 8 | Regression tests pin instances, not failure classes | **largely addressed.** The differ suite asserts properties and conservation, not just fixtures; the validator now has 10 negative cases that break one thing each and assert the message. Writing those found two crash sites the hardening pass had missed |
 | 9 | The three new provision tags need an ontology inclusion rule, not just textual support | open |
 | 10 | `PROVISIONS.md` tests are not all genuinely binary; drop the two-reader claim | open |
 | 11 | `session_rules.json` covers 3 of 12 states but reads as general infrastructure | open |
 | 12 | Washington's rule source is the bill page, which does not state the consequence of sine die | open |
 | 13 | README "every claim cites something" outruns the data model | open |
-| 14 | Hashes prove file identity, not faithful transcription; needs a transformation manifest | open |
+| 14 | Hashes prove file identity, not faithful transcription; needs a transformation manifest | partly: the validator now **recomputes and compares** every hash, so they are load-bearing rather than decorative. The transformation manifest — proving the normalised text is a faithful transform of the source — is still not built |
 | 15 | 19 version-provision assignments, one coder, no reliability testing | open |
 | 16 | `render_diff` called version `vs[1]` the "mechanism" by array position | **DONE** before this round: selected by label match |
 | 17 | R5 partial overturn — a manual discovery ledger should precede any completeness claim | open |
 | 18 | The data model still cannot separate observed fact from researcher inference | open — the architectural finding, and the one the report understated |
 
 Nothing in this table is closed by having been argued about. Items 2–18 are open.
+
+---
+
+## Third red-team round — triage (2026-08-11)
+
+The review was conducted against `origin/main`, which was two commits behind: the structural
+differ had been built but not pushed, so the reviewer audited the superseded inline differ. Its
+two headline findings — that the report did not describe HEAD, and that the differ collapsed
+duplicate paths via `dict(A), dict(Z)` — were accurate about the tree they read and already fixed
+in the tree they could not see. **That was a process failure on this side, not a defect in the
+review.** Its judgement on the mechanisms actually present stands on its own, and most of it was
+adopted.
+
+| Finding | Status |
+|---|---|
+| Report does not describe HEAD | **Cause identified: unpushed commits.** Fixed by pushing, and by naming the commit in `IMPLEMENTATION-REPORT.md` and `DIFF-REPORT.md` |
+| `dict(A), dict(Z)` collapses duplicate paths | Already fixed before the review; nodes are a list, duplicates are retained and reported ambiguous |
+| D1 — ancestor-inherited redesignation is too inferential | **ADOPTED.** Withdrawn after measuring it: one provision pair in the whole corpus |
+| D3 — blank designators keyed by defined term | **ADOPTED.** Withdrawn; it changed no counts at all. Replaced with a positional ordinal |
+| D2 — definitions matched by defined term | **Kept, with evidence.** Without it Missouri reports "Emergent properties" amended into "Developer". Its trigger is the narrow one the reviewer said would be acceptable |
+| `renumbered` should not be a primary category | **Partly.** Renamed observationally and now rests only on exact text; whether it belongs at all is open |
+| Validator crashes on malformed nested data | **DONE.** Shape-safe throughout, with 10 negative cases |
+| Hashes are decorative | **DONE.** Recomputed and compared by the validator |
+| `text_path` unconstrained | **DONE.** Must resolve beneath `registry/texts/` |
+| Vocabulary in several places | **DONE.** `registry/vocabulary.json`, checked both ways |
+| CI does not run the regression suite | **DONE** |
+| No linting | **DONE.** Ruff in a separate CI job, `--select F,E9`. Found a dead HTML block being computed and discarded |
+| Callout dedupes on `(removed, added)` | **DONE.** Keyed on companion group |
+| "No legislation identified" overclaims | **DONE.** Scoped to the registry |
+| README "every claim cites something" overclaims | **DONE 2026-08-11.** Replaced with what the data model supports, and the gap named as a blocker |
+| Adversarial fixtures and mutation properties | **DONE.** 37 differ tests |
+| Structural-mode test too weak | **Open.** Coverage threshold and warnings stand in for "did every marker form a coherent hierarchy" |
+| Intermediate versions silently ignored | **Open.** Still an endpoint comparison; the minimum fix — saying so on the record — is not done |
+| Transformation manifest for normalised texts | **Open** |
+| "No legislation identified" / completeness methodology | **Open.** Still no `METHODOLOGY.md` |

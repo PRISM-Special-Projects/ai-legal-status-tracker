@@ -1,5 +1,13 @@
 # Phase 3 — concrete build steps
 
+> **Planning record, superseded.** This is the design document as written before the build, kept
+> for the decision trail. Where it disagrees with the artefact, the artefact governs — see
+> `README.md`, `IMPLEMENTATION-REPORT.md` and `DIFF-REPORT.md`. Two decisions recorded here were
+> reversed after external review: the state tiles no longer say "no legislation identified" (it
+> claims more than the inclusion methodology can support, and now reads "no bills in this
+> registry"), and the version differ is structural rather than sentence-level. Last checked
+> against the artefact 2026-08-11.
+
 ## Progress
 
 - [x] **Step 0** — decisions: Observatory subpath · "AI Legal Status Tracker"
