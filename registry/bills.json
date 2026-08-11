@@ -678,7 +678,7 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
+      "last_verified": "2026-08-11",
       "notes": "VERIFIED 2026-08-10. **THIS RECORD PREVIOUSLY CARRIED AN INCORRECT 'CORRECTION' TO THE PAPER, NOW RETRACTED.** We recorded the bill as in_committee on the basis of the 12 Jan 2026 action 'By resolution, reintroduced and retained in present status', and asserted the paper was wrong to call it Failed. That was a misreading. In Washington that resolution is the routine carryover from the first to the second year of a biennium - it keeps a bill alive INTO the 2026 session, not beyond it. Washington's 2026 regular session adjourned SINE DIE ON 12 MARCH 2026, and bills not passed by the end of the biennium die. The complete action history is: first reading and referral 27 Feb 2025; carryover resolution 12 Jan 2026; nothing further. The bill therefore died at sine die and THE PAPER'S 'FAILED' WAS CORRECT. WHY THE ERROR HAPPENED: Washington posts no terminal action - the page still shows the last committee location - so an absent 'failed' line was read as evidence of continuing life. Absence of a death notice is not evidence of life. CONSEQUENCE FOR THE WISCONSIN COMPARISON: we also claimed Washington and Wisconsin differ in outcome because of carryover rules. They do not. Both sets of bills died at the end of the 2025-26 biennium. They differ only in RECORD-KEEPING CONVENTION: Wisconsin posts an explicit 'Failed to pass pursuant to Senate Joint Resolution 1'; Washington posts nothing. Seven sponsors: Abell, Corry, Chase, Ley, Marshall, Walsh, Dufault - none named in the paper. Title: 'recognition of legal personhood by a governmental entity.' Utah template. Operative text not read.",
       "id": "wa-hb2029-2025",
       "bill_number": "HB 2029",
@@ -719,12 +719,12 @@
       "watch_dates": [],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "not_read",
-        "operative_text_note": "Verified from the bill-summary page; operative text not read",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Official Washington bill text reviewed in full during the tracker-focused G8 screen.",
         "sponsors": "established",
         "codified_at_source": "n/a",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -2990,8 +2990,8 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. Title: 'Companion chatbots: children's safety.' STATUS MOVED SINCE THE PAPER: past the Assembly, in Senate Appropriations, referred to the suspense file 3 August 2026 - a week before this check. Adds B&P Code ch. 22.6.1. The specific bar on chatbots claiming sentience/consciousness/humanity to children sits in the full text, not the status page - still to be read verbatim.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10. Title: 'Companion chatbots: children's safety.' STATUS MOVED SINCE THE PAPER: past the Assembly, in Senate Appropriations, referred to the suspense file 3 August 2026 - a week before this check. Adds B&P Code ch. 22.6.1. The amended full text was reviewed directly on 2026-08-11; the covered/prohibited conduct includes a companion chatbot claiming that it is sentient, conscious, or human.",
       "id": "ca-ab2023-2026",
       "bill_number": "AB 2023",
       "chamber": "house",
@@ -3025,12 +3025,12 @@
       "watch_dates": [],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "not_read",
-        "operative_text_note": "Verified from the status page; the operative bar sits in the full text, read via companion SB 1119",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Current amended California text reviewed during G6; the chatbot sentience/consciousness/humanity clause was confirmed directly.",
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
