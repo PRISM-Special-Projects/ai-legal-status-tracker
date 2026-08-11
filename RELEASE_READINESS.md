@@ -37,14 +37,28 @@ For every record:
 6. material earlier changes represented where relevant;
 7. important conclusions traceable to adequate sources.
 
-## H — Fresh corpus-completeness search — NEXT
+## H — Fresh corpus-completeness search — IN PROGRESS
 
-- [ ] Search state legislation using personhood/legal-person/legal-status/nonhuman/AI-rights variants and terminology learned from the existing corpus.
-- [ ] Triage new candidates as IN SCOPE / BORDERLINE / OUT OF SCOPE.
-- [ ] Add any clearly in-scope omissions.
-- [ ] Record enough exclusion rationale to avoid rediscovery.
+- [x] H1 First national keyword sweep: artificial intelligence + personhood / legal person / legal status / sentient / human / chatbot terminology.
+- [x] H2 Compare first-wave candidates against repository — Arizona HB 2371 and HB 2311 are absent from the current 23-record corpus.
+- [ ] H3 Verify and disposition Arizona HB 2371.
+- [ ] H4 Verify and disposition Arizona HB 2311.
+- [ ] H5 Continue national sweep using rights / consciousness / nonhuman / machine / statutory-person-definition variants.
+- [ ] H6 Triage all new candidates as IN SCOPE / BORDERLINE / OUT OF SCOPE.
+- [ ] H7 Add any clearly in-scope omissions.
+- [ ] H8 Record enough exclusion rationale to avoid rediscovery.
 
-## I — 23-record publication audit
+### First-wave candidates
+
+**IN-SCOPE CANDIDATE — Arizona HB 2371 (2026).** AI-assisted divorce arbitration. The bill defines the computational arbitration system as not a legal person and as lacking independent legal authority. It passed the House and advanced through Senate committees but did not receive final Senate passage before session end. This is directly relevant to AI legal status even though the declaration is limited to a specific adjudicatory context.
+
+**IN-SCOPE CANDIDATE — Arizona HB 2311 (2026).** Conversational-AI safeguards for minors. The operative text requires measures to prevent explicit claims that a conversational AI service is sentient or human and requires disclosure where users could be misled into believing they are interacting with a human. It passed both chambers and was vetoed on 19 June 2026. This is substantively analogous to the California chatbot-claim records already included in the tracker.
+
+### H gate
+
+H passes when the search methodology and candidate disposition log give us good reason to believe no clearly in-scope state legislation remains omitted. New omissions must be added before advancing to I.
+
+## I — publication audit
 
 - [ ] Correct bill/session/state.
 - [ ] Correct current status and latest action/date.
