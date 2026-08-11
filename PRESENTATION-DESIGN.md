@@ -5,7 +5,12 @@
 > `README.md`, `IMPLEMENTATION-REPORT.md` and `DIFF-REPORT.md`. Two decisions recorded here were
 > reversed after external review: the state tiles no longer say "no legislation identified" (it
 > claims more than the inclusion methodology can support, and now reads "no bills in this
-> registry"), and the version differ is structural rather than sentence-level. Last checked
+> registry"), and the version differ is structural rather than sentence-level. A third was
+> reversed on 2026-08-11: the equal-area tile grid is gone, replaced by an actual map of the
+> United States. The argument here — that a choropleth encodes a quantity it cannot support —
+> holds against a colour ramp and was wrongly extended to geography itself; orientation is the
+> map's assigned job and recognition is the whole of that job. Fill is categorical and counts
+> are numerals, so no ramp returns. Last checked
 > against the artefact 2026-08-11.
 
 Draft for the checkpoint. 23 verified records, 16 provision tags, 13 lineage edges,

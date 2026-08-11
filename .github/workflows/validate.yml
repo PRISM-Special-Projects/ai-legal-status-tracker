@@ -64,6 +64,51 @@ jobs:
           rows=list(csv.DictReader(open("site/dist/data/bills.csv")))
           if len(rows)!=len(bills): fail.append(f"bills.csv {len(rows)} rows vs {len(bills)} records")
 
+          # ---- state map. The registry decides what is on the map; the map never decides.
+          home=pathlib.Path("site/dist/index.html").read_text()
+          counts={}
+          for b in bills:
+              s=b["jurisdiction"]["state"]; counts[s]=counts.get(s,0)+1
+
+          shapes=re.findall(r'<(?:g|path)[^>]*class="st\b', home)
+          if len(shapes)!=51:
+              fail.append(f"state map: expected 51 state shapes (50 + DC), got {len(shapes)}")
+
+          interactive=set(re.findall(r'class="st has"[^>]*data-state="([A-Z]{2})"', home))
+          if interactive!=set(counts):
+              fail.append(f"state map: interactive states {sorted(interactive)} "
+                          f"!= registry states {sorted(counts)}")
+          for st,n in counts.items():
+              want=f'{n} bill{"" if n==1 else "s"}. Filter."'
+              if want not in home or f'data-state="{st}"' not in home:
+                  fail.append(f"state map: {st} is not labelled with {n} bill(s)")
+          listbtns=set(re.findall(r'class="mrow" data-state="([A-Z]{2})"', home))
+          if listbtns!=set(counts):
+              fail.append(f"state map: fallback list {sorted(listbtns)} != registry {sorted(counts)}")
+
+          # Descriptive-first, mechanically: categorical fill only. Two CSS rules carry the
+          # two fills, so any per-state fill or gradient means a ramp has crept in.
+          css=pathlib.Path("site/dist/style.css").read_text()
+          svg=home[home.find('<svg class="usmap"'):home.find('</svg>')]
+          if re.search(r'<(linear|radial)Gradient', svg):
+              fail.append("state map: a gradient is present; fill must be categorical")
+          if re.search(r'<(?:g|path)[^>]*\bfill=', svg) or "fill-opacity" in svg:
+              fail.append("state map: per-shape fill attribute; fill must come from the two CSS rules")
+          # [^;}]+ not [^;]+ — a rule with no trailing semicolon lets a greedy class run
+          # past the closing brace and swallow the next rule, which silently merges two
+          # fills into one match and would let a real ramp through.
+          fills=re.findall(r'\.usmap \.st(?:\.has)? path\{fill:([^;}]+)', css)
+          if len(set(fills))>2:
+              fail.append(f"state map: {len(set(fills))} distinct state fills; at most 2 allowed")
+
+          if "not the same as none existing" not in home:
+              fail.append("state map: the absence caveat is missing")
+
+          if not os.path.exists("site/geo/LICENSE-us-atlas"):
+              fail.append("site/geo/LICENSE-us-atlas is missing; ISC requires the notice to ship")
+          if "LICENSE-us-atlas" not in pathlib.Path("LICENSE-DATA").read_text():
+              fail.append("LICENSE-DATA does not account for the vendored geometry")
+
           # every provision used must be documented in SCHEMA.md
           schema=pathlib.Path("SCHEMA.md").read_text()
           used={p for b in bills for p in b["provisions"]}

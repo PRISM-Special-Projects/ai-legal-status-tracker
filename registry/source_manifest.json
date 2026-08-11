@@ -1,234 +1,251 @@
 {
-  "_doc": "Hashes let anyone confirm that a normalised text derives from the document we say it does. Normalisation removes page furniture and line numbers only; wording is untouched.",
-  "generated": "2026-08-10",
-  "documents": [
-    {
-      "path": "incoming/id-hb720-2022-text.txt",
-      "sha256": "241f28feef9319460369da81822424fb36982d0eb3ddb096c77b942ef86642e3",
-      "bytes": 1352
-    },
-    {
-      "path": "incoming/tn-HA0979.pdf",
-      "sha256": "f3c6e9361e716568e324e2ac81d3b1c2dd47818f95ba288ecafb1ff0933c4ddf",
-      "bytes": 9155
-    },
-    {
-      "path": "incoming/tn-HA1260.pdf",
-      "sha256": "ea39d731687c0b8e2332f24ec3a5e8c7dfc7f03b3eae7424c7dc70c1fb2f0a02",
-      "bytes": 11277
-    },
-    {
-      "path": "incoming/tn-SA0922.pdf",
-      "sha256": "21f884a9a9f9003f1246201f180dfb7309fdd824ee5b8c2d463bf34635425ae7",
-      "bytes": 9159
-    },
-    {
-      "path": "incoming/tn-pc0781.pdf",
-      "sha256": "42958fadba12645de8a86e4d594228869d1b32d0af4d8e7e2a84d8b97561b6e7",
-      "bytes": 49828
-    },
-    {
-      "path": "incoming/tn-pc1066.pdf",
-      "sha256": "06fd80661b4f14e89f99f5003d71b3605f994df4eae5c700316d2678ed4cc065",
-      "bytes": 69062
-    },
-    {
-      "path": "incoming/try-20251230002609.pdf",
-      "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd",
-      "bytes": 55579
-    },
-    {
-      "path": "incoming/try-20260114215317.pdf",
-      "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd",
-      "bytes": 55579
-    },
-    {
-      "path": "incoming/try-20260123063137.pdf",
-      "sha256": "175c9d0d2b0ba91a177d14e8d88dc3c933c2ec602f0933ebffc634ac22075eeb",
-      "bytes": 55578
-    },
-    {
-      "path": "incoming/wb-hb0849.pdf",
-      "sha256": "e60746b33a5accd8807c955646039fc2862f87d494780073e55f5ccea6b8b9bd",
-      "bytes": 10188
-    }
-  ],
-  "texts": [
-    {
-      "path": "texts/id-hb720-2022--introduced.txt",
-      "sha256": "a45dae266b4b2e32aad8fce9cba473f943529f357983069829c4a32f80735aa2",
-      "bytes": 1352,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/mo-hb1462-2025--introduced.txt",
-      "sha256": "edaf06d0f6c7752cdd23ffaa627339f2e15c1baccf826cd1611b9a73c7eff4ad",
-      "bytes": 6079,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/mo-hb1746-2026--hcs.txt",
-      "sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff",
-      "bytes": 6224,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/mo-hb1769-2026--introduced.txt",
-      "sha256": "2a3074322b9a7feb2b1c35e6897d404ca367a5ee833e7c27ee4da85941cbd168",
-      "bytes": 6079,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/mo-sb1474-2026--introduced.txt",
-      "sha256": "5704b1cfecd38e8be53e99777f07ba5e2ce0fb01db436d9935a8f0a4bf255175",
-      "bytes": 6074,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/mo-sb859-2026--introduced.txt",
-      "sha256": "6e28fcfb244afee1b9a9fc6aec7f8037fb0e0348c9fa915ffd5c42cdf9aaa8e4",
-      "bytes": 6071,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/oh-hb469-2025--as-introduced.txt",
-      "sha256": "27cf1e9fc2fbdcef15e3d79ba965dd18b37b60d509d147146c40dbafc1f2fed2",
-      "bytes": 6080,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-amend-HA1260.txt",
-      "sha256": "895f04b6d5ce43fd9b48168b8551092657bc34e11ccdf88faa63b4e0e18342ef",
-      "bytes": 1651,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-amend-SA0922.txt",
-      "sha256": "032396794741ab79648ed42c237dc417101391231f213778bb83cd897e6a3cd1",
-      "bytes": 614,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
-      "sha256": "5ede042feef09321b400b8734c6055e1d7bdd2a3617f4bb7ae0e6bb44b61f92f",
-      "bytes": 1925,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-sb1493-2025--introduced.txt",
-      "sha256": "d31a88de4138a7f753c75b020e2490be0b7733732530bf2b7ab5882ba38dccc1",
-      "bytes": 6363,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-sb837-2025--enacted-pc781.txt",
-      "sha256": "13b63d22676ec6f12a7406fc07e5b25e8b4126f80bae423bcd15ca4cf9f7c895",
-      "bytes": 767,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/tn-sb837-2025--introduced.txt",
-      "sha256": "4bd81d825ebdd25eb21d3e0c8c6fc29089f89689709229d964b2fe7e8c695654",
-      "bytes": 1610,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/ut-hb249-2024--enrolled.txt",
-      "sha256": "631f89678dcf2aeb51ff974a8e721d47a9d7c1875c28cd5e5913ec92d3c6fe94",
-      "bytes": 2346,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/wi-ab959-2026--as-introduced.txt",
-      "sha256": "605267821d150c77f0aa4df7776fa612ed0839d2a9a701114944ebcafc0af82c",
-      "bytes": 3165,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    },
-    {
-      "path": "texts/wi-sb932-2026--as-introduced.txt",
-      "sha256": "1236f3a198b5dfaf44b944519fc39efc902c0378457b940d1d8491de90f1f280",
-      "bytes": 3169,
-      "normalisation": [
-        "removed_line_numbers",
-        "removed_page_furniture",
-        "normalised_whitespace"
-      ],
-      "substantive_text_changed": false
-    }
-  ]
+ "_doc": "Hashes let anyone confirm that a normalised text derives from the document we say it does. Normalisation removes page furniture and line numbers only; wording is untouched. Paths in 'documents' and 'texts' are relative to registry/; paths in 'geometry' are relative to the repository root, because the geometry is a site asset rather than registry data.",
+ "generated": "2026-08-10",
+ "documents": [
+  {
+   "path": "incoming/id-hb720-2022-text.txt",
+   "sha256": "241f28feef9319460369da81822424fb36982d0eb3ddb096c77b942ef86642e3",
+   "bytes": 1352
+  },
+  {
+   "path": "incoming/tn-HA0979.pdf",
+   "sha256": "f3c6e9361e716568e324e2ac81d3b1c2dd47818f95ba288ecafb1ff0933c4ddf",
+   "bytes": 9155
+  },
+  {
+   "path": "incoming/tn-HA1260.pdf",
+   "sha256": "ea39d731687c0b8e2332f24ec3a5e8c7dfc7f03b3eae7424c7dc70c1fb2f0a02",
+   "bytes": 11277
+  },
+  {
+   "path": "incoming/tn-SA0922.pdf",
+   "sha256": "21f884a9a9f9003f1246201f180dfb7309fdd824ee5b8c2d463bf34635425ae7",
+   "bytes": 9159
+  },
+  {
+   "path": "incoming/tn-pc0781.pdf",
+   "sha256": "42958fadba12645de8a86e4d594228869d1b32d0af4d8e7e2a84d8b97561b6e7",
+   "bytes": 49828
+  },
+  {
+   "path": "incoming/tn-pc1066.pdf",
+   "sha256": "06fd80661b4f14e89f99f5003d71b3605f994df4eae5c700316d2678ed4cc065",
+   "bytes": 69062
+  },
+  {
+   "path": "incoming/try-20251230002609.pdf",
+   "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd",
+   "bytes": 55579
+  },
+  {
+   "path": "incoming/try-20260114215317.pdf",
+   "sha256": "b1d90b89e1adbf82fb3e521da2c4b7155d8bb549eab28822bfb61022b2753bdd",
+   "bytes": 55579
+  },
+  {
+   "path": "incoming/try-20260123063137.pdf",
+   "sha256": "175c9d0d2b0ba91a177d14e8d88dc3c933c2ec602f0933ebffc634ac22075eeb",
+   "bytes": 55578
+  },
+  {
+   "path": "incoming/wb-hb0849.pdf",
+   "sha256": "e60746b33a5accd8807c955646039fc2862f87d494780073e55f5ccea6b8b9bd",
+   "bytes": 10188
+  }
+ ],
+ "texts": [
+  {
+   "path": "texts/id-hb720-2022--introduced.txt",
+   "sha256": "a45dae266b4b2e32aad8fce9cba473f943529f357983069829c4a32f80735aa2",
+   "bytes": 1352,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/mo-hb1462-2025--introduced.txt",
+   "sha256": "edaf06d0f6c7752cdd23ffaa627339f2e15c1baccf826cd1611b9a73c7eff4ad",
+   "bytes": 6079,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/mo-hb1746-2026--hcs.txt",
+   "sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff",
+   "bytes": 6224,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/mo-hb1769-2026--introduced.txt",
+   "sha256": "2a3074322b9a7feb2b1c35e6897d404ca367a5ee833e7c27ee4da85941cbd168",
+   "bytes": 6079,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/mo-sb1474-2026--introduced.txt",
+   "sha256": "5704b1cfecd38e8be53e99777f07ba5e2ce0fb01db436d9935a8f0a4bf255175",
+   "bytes": 6074,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/mo-sb859-2026--introduced.txt",
+   "sha256": "6e28fcfb244afee1b9a9fc6aec7f8037fb0e0348c9fa915ffd5c42cdf9aaa8e4",
+   "bytes": 6071,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/oh-hb469-2025--as-introduced.txt",
+   "sha256": "27cf1e9fc2fbdcef15e3d79ba965dd18b37b60d509d147146c40dbafc1f2fed2",
+   "bytes": 6080,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-amend-HA1260.txt",
+   "sha256": "895f04b6d5ce43fd9b48168b8551092657bc34e11ccdf88faa63b4e0e18342ef",
+   "bytes": 1651,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-amend-SA0922.txt",
+   "sha256": "032396794741ab79648ed42c237dc417101391231f213778bb83cd897e6a3cd1",
+   "bytes": 614,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
+   "sha256": "5ede042feef09321b400b8734c6055e1d7bdd2a3617f4bb7ae0e6bb44b61f92f",
+   "bytes": 1925,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-sb1493-2025--introduced.txt",
+   "sha256": "d31a88de4138a7f753c75b020e2490be0b7733732530bf2b7ab5882ba38dccc1",
+   "bytes": 6363,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-sb837-2025--enacted-pc781.txt",
+   "sha256": "13b63d22676ec6f12a7406fc07e5b25e8b4126f80bae423bcd15ca4cf9f7c895",
+   "bytes": 767,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/tn-sb837-2025--introduced.txt",
+   "sha256": "4bd81d825ebdd25eb21d3e0c8c6fc29089f89689709229d964b2fe7e8c695654",
+   "bytes": 1610,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/ut-hb249-2024--enrolled.txt",
+   "sha256": "631f89678dcf2aeb51ff974a8e721d47a9d7c1875c28cd5e5913ec92d3c6fe94",
+   "bytes": 2346,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/wi-ab959-2026--as-introduced.txt",
+   "sha256": "605267821d150c77f0aa4df7776fa612ed0839d2a9a701114944ebcafc0af82c",
+   "bytes": 3165,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  },
+  {
+   "path": "texts/wi-sb932-2026--as-introduced.txt",
+   "sha256": "1236f3a198b5dfaf44b944519fc39efc902c0378457b940d1d8491de90f1f280",
+   "bytes": 3169,
+   "normalisation": [
+    "removed_line_numbers",
+    "removed_page_furniture",
+    "normalised_whitespace"
+   ],
+   "substantive_text_changed": false
+  }
+ ],
+ "geometry": [
+  {
+   "path": "site/geo/states-albers-10m.json",
+   "sha256": "6e7bb086a3c791490361968a3094f377f7726c5d0c4900fec03cc42db2305a3d",
+   "bytes": 82031,
+   "source": "https://unpkg.com/us-atlas@3/states-albers-10m.json",
+   "version": "us-atlas 3.0.1",
+   "retrieved": "2026-08-11",
+   "licence": "ISC \u2014 see site/geo/LICENSE-us-atlas",
+   "note": "Unmodified. Projection already applied by the publisher: d3.geoAlbersUsa().scale(1300).translate([487.5, 305]), fitted to 975x610, Alaska and Hawaii placed bottom-left. Underlying boundaries are US Census, public domain. 51 geometries: 50 states + DC, no territories."
+  },
+  {
+   "path": "site/geo/LICENSE-us-atlas",
+   "sha256": "8048290dfdb6e83fbed17e8985c8cfc4ce9da9b842642f3d3e497280790cfa31",
+   "bytes": 734
+  }
+ ]
 }

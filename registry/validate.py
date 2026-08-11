@@ -191,9 +191,12 @@ for g,ms in collections.Counter(b.get("companion_group") for b in bills
 mpath = ROOT / "source_manifest.json"
 if mpath.exists():
     man = json.load(open(mpath))
-    for group in ("documents", "texts"):
+    # 'geometry' holds the vendored map boundaries, which are a site asset rather than
+    # registry data, so its paths are relative to the repository root. The check is the
+    # same one: altered geometry must fail validation exactly as an altered bill text does.
+    for group, base in (("documents", ROOT), ("texts", ROOT), ("geometry", ROOT.parent)):
         for rec in man.get(group, []):
-            f = (ROOT / rec["path"]).resolve()
+            f = (base / rec["path"]).resolve()
             if not f.is_file():
                 err.append(f"source_manifest: {group} entry missing on disk: {rec['path']}")
             elif rec.get("sha256") and sha256_of(f) != rec["sha256"]:

@@ -268,20 +268,44 @@ ul.changed .k.add{color:var(--add)}
 /* ---- visually hidden ---- */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ---- state tile grid (filter control, not a map) ---- */
-.mapwrap{margin:1.8em 0 1.4em}
-.tilegrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;max-width:620px}
-.tile{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--muted);
-  font:600 .62rem/1 ui-sans-serif,system-ui,sans-serif;padding:0;min-height:26px}
-.tile .n{font-size:.7rem;font-weight:700;color:var(--accent);margin-top:1px}
-.tile.has{background:var(--accent-weak);border-color:var(--accent);color:var(--fg);cursor:pointer}
-.tile.has:hover{background:var(--accent);color:var(--bg)}
-.tile.has:hover .n{color:var(--bg)}
-.tile.has[aria-pressed=true]{background:var(--accent);color:var(--bg);box-shadow:0 0 0 2px var(--accent)}
-.tile.has[aria-pressed=true] .n{color:var(--bg)}
-.tile.has:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
-.maplegend{font-size:.78rem;margin:.7em 0 0;max-width:56ch}
+/* ---- state map (filter control) ----
+   Two fills only, and they are categorical: holds bills / holds none. No ramp, no
+   graded shade — a count is printed as a numeral instead, because a numeral cannot be
+   misread as intensity and this registry does not rank states. Selection is marked by
+   stroke weight as well as fill, so it survives greyscale and colour-blind viewing. */
+.mapwrap{margin:1.8em 0 1.4em;max-width:720px}
+.usmap{display:block;width:100%;height:auto}
+/* --line is the token for subtle borders and disappears against --card at map scale in
+   both themes (they differ by a couple of steps). --muted held back with stroke-opacity
+   gives an outline that reads as a country without competing with the filled states. */
+.usmap .st path{fill:var(--card);stroke:var(--muted);stroke-opacity:.45;stroke-width:1;
+  vector-effect:non-scaling-stroke}
+.usmap .st.has path{fill:var(--accent-weak);stroke:var(--accent);stroke-width:1.75}
+.usmap .st.has{cursor:pointer}
+.usmap .ab{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;fill:var(--fg);
+  text-anchor:middle;pointer-events:none}
+.usmap .n{font:700 11px/1 ui-sans-serif,system-ui,sans-serif;fill:var(--accent);
+  text-anchor:middle;pointer-events:none;font-variant-numeric:tabular-nums}
+.usmap .lead{stroke:var(--accent);stroke-width:.75;fill:none}
+.usmap .st.has:hover path{fill:var(--accent)}
+.usmap .st.has:hover .ab,.usmap .st.has:hover .n{fill:var(--bg)}
+.usmap .st.has[aria-pressed=true] path{fill:var(--accent);stroke:var(--fg);stroke-width:2.5}
+.usmap .st.has[aria-pressed=true] .ab,.usmap .st.has[aria-pressed=true] .n{fill:var(--bg)}
+.usmap .st.has:focus-visible{outline:none}
+.usmap .st.has:focus-visible path{stroke:var(--fg);stroke-width:3;stroke-dasharray:4 2}
+.usmap .inset{stroke:var(--line);stroke-width:1;fill:none;stroke-dasharray:3 3}
+.usmap .insetlab{font:500 9px/1 ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}
+.maplegend{font-size:.78rem;margin:.7em 0 0;max-width:60ch}
+.maplist{font:.82rem/1.5 ui-sans-serif,system-ui,sans-serif;margin:.5em 0 0}
+.maplist summary{color:var(--accent);cursor:pointer}
+.maplist table{border-collapse:collapse;margin:.6em 0 0;font-size:.98em}
+.maplist td{border-bottom:1px solid var(--line);padding:2px 14px 2px 0}
+.maplist td.c{font-variant-numeric:tabular-nums;text-align:right}
+.maplist button.mrow{font:inherit;color:var(--accent);background:none;border:0;padding:4px 0;
+  min-height:32px;cursor:pointer;text-align:left;text-decoration:underline;
+  text-underline-offset:2px}
+.maplist button.mrow[aria-pressed=true]{color:var(--fg);font-weight:600;text-decoration:none}
+.maplist button.mrow:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 
 /* ---- filter controls ---- */
 .controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:1.4em 0 1em;
@@ -317,7 +341,8 @@ table.matrix tbody tr:hover td.pv.on{background:var(--accent)}
 table.matrix tbody tr:hover .dot{background:var(--bg)}
 
 @media (max-width:760px){
-  .tilegrid{max-width:100%}
+  .usmap .ab{font-size:13px}
+  .usmap .n{font-size:13px}
   .tablewrap{overflow:visible;border:0;background:transparent}
   table.matrix,table.matrix tbody,table.matrix tr{display:block;width:100%}
   table.matrix thead{display:none}
@@ -902,20 +927,32 @@ found no evidence of descent, not that none exists.</p>
                 desc="How AI legal-status bills descend from one another, and what changed at each step.")
 
 # ---------------------------------------------------------------- landing: map + matrix
-# Standard US tile grid: (row, col) on a 12-col lattice. Geography approximate by design —
-# this is a filter control, not a map. Equal-area tiles stop small states vanishing.
-TILES = {
- "AK":(1,1),"ME":(1,12),
- "VT":(2,11),"NH":(2,12),
- "WA":(3,2),"ID":(3,3),"MT":(3,4),"ND":(3,5),"MN":(3,6),"IL":(3,7),"WI":(3,8),"MI":(3,9),
- "NY":(3,10),"MA":(3,11),"RI":(3,12),
- "OR":(4,2),"NV":(4,3),"WY":(4,4),"SD":(4,5),"IA":(4,6),"IN":(4,7),"OH":(4,8),"PA":(4,9),
- "NJ":(4,10),"CT":(4,11),
- "CA":(5,2),"UT":(5,3),"CO":(5,4),"NE":(5,5),"MO":(5,6),"KY":(5,7),"WV":(5,8),"VA":(5,9),
- "MD":(5,10),"DE":(5,11),
- "AZ":(6,3),"NM":(6,4),"KS":(6,5),"AR":(6,6),"TN":(6,7),"NC":(6,8),"SC":(6,9),"DC":(6,10),
- "OK":(7,4),"LA":(7,5),"MS":(7,6),"AL":(7,7),"GA":(7,8),
- "HI":(8,1),"TX":(8,2),"FL":(8,10),
+# State boundaries come from us-atlas 3.0.1, vendored at site/geo/ and hashed in
+# registry/source_manifest.json. The publisher has already applied the projection —
+# d3.geoAlbersUsa fitted to 975x610, Alaska and Hawaii placed bottom-left — so nothing
+# here projects anything; it decodes TopoJSON arcs into SVG paths and stops.
+GEO = ROOT / "geo" / "states-albers-10m.json"
+
+# FIPS is what the geometry carries; postal codes are what the registry keys on. Derived
+# from the Census reference file https://www2.census.gov/geo/docs/reference/state.txt and
+# cross-checked both ways against the vendored geometry: 51 codes, 51 geometries, every
+# STATE_NAME identical. _load_geometry re-asserts the coverage at build time.
+FIPS_USPS = {
+ "01":"AL","02":"AK","04":"AZ","05":"AR","06":"CA","08":"CO","09":"CT","10":"DE","11":"DC",
+ "12":"FL","13":"GA","15":"HI","16":"ID","17":"IL","18":"IN","19":"IA","20":"KS","21":"KY",
+ "22":"LA","23":"ME","24":"MD","25":"MA","26":"MI","27":"MN","28":"MS","29":"MO","30":"MT",
+ "31":"NE","32":"NV","33":"NH","34":"NJ","35":"NM","36":"NY","37":"NC","38":"ND","39":"OH",
+ "40":"OK","41":"OR","42":"PA","44":"RI","45":"SC","46":"SD","47":"TN","48":"TX","49":"UT",
+ "50":"VT","51":"VA","53":"WA","54":"WV","55":"WI","56":"WY",
+}
+
+# The north-eastern seaboard cannot hold a label inside its own outline at this scale —
+# Maryland's centroid and DC's are four units apart. These states get the label pushed
+# clear with a leader line back to the shape. Present now though none of them yet holds a
+# bill, because discovering the collision after the registry gains Delaware is worse.
+LABEL_OFFSET = {
+ "DC":(74,26), "MD":(80,-2), "DE":(66,10), "NJ":(60,-14), "RI":(46,10),
+ "CT":(52,-6), "MA":(58,-20), "NH":(40,-26), "VT":(-34,-24),
 }
 # Labels and column order come from registry/vocabulary.json, the same file the
 # validator reads its allowed keys from.
@@ -923,27 +960,144 @@ _VOCAB = json.loads((REG / "vocabulary.json").read_text())
 PROVISION_LABEL = {p["key"]: p["label"] for p in _VOCAB["provisions"]}
 PROV_ORDER = [p["key"] for p in _VOCAB["provisions"] if p.get("in_matrix")]
 
-def tile_map(bills):
-    counts={}
-    for b in bills: counts[b["jurisdiction"]["state"]]=counts.get(b["jurisdiction"]["state"],0)+1
-    cells=[]
-    for st,(r,c) in sorted(TILES.items(), key=lambda kv:(kv[1][0],kv[1][1])):
-        n=counts.get(st,0)
-        if n:
-            cells.append(f'<button type="button" class="tile has" data-state="{esc(st)}" '
-                         f'style="grid-row:{r};grid-column:{c}" '
-                         f'aria-label="{esc(st)}, {n} bill{"" if n==1 else "s"}. Filter.">'
-                         f'<span class="ab">{esc(st)}</span><span class="n">{n}</span></button>')
-        else:
-            cells.append(f'<div class="tile" style="grid-row:{r};grid-column:{c}" '
-                         f'aria-label="{esc(st)}, no bills in this registry">'
-                         f'<span class="ab">{esc(st)}</span></div>')
-    return ('<div class="mapwrap"><div class="tilegrid" role="group" '
-            'aria-label="Filter by state">' + "".join(cells) + '</div>'
-            '<p class="maplegend muted">Tiles are positioned approximately, sized equally. '
-            'Numbers are bills held. States without a number: no bills in this registry — '
-            'which is not the same as none existing, since the inclusion methodology is '
-            'not yet established.</p></div>')
+def _decode_topology(topo):
+    """TopoJSON -> {usps: (name, path_d, label_point)}. Standard library only.
+
+    Coordinates are rounded to whole units: the map renders about 720 CSS px wide against
+    a 975-unit viewBox, so sub-unit precision is 39 KB of path data nobody can see.
+    """
+    sx, sy = topo["transform"]["scale"]
+    tx, ty = topo["transform"]["translate"]
+    arcs = []
+    for arc in topo["arcs"]:                       # delta-encoded and quantized
+        x = y = 0
+        pts = []
+        for dx, dy in arc:
+            x += dx; y += dy
+            p = (round(x * sx + tx), round(y * sy + ty))
+            if not pts or p != pts[-1]:
+                pts.append(p)
+        arcs.append(pts)
+
+    def ring(idxs):
+        out = []
+        for i in idxs:                             # negative index = arc reversed
+            seg = arcs[~i][::-1] if i < 0 else arcs[i]
+            out.extend(seg if not out else seg[1:])
+        return out
+
+    def centroid(pts):
+        """Area-weighted centroid of one ring, or None if it is degenerate."""
+        a = cx = cy = 0.0
+        for i in range(len(pts) - 1):
+            x0, y0 = pts[i]; x1, y1 = pts[i + 1]
+            cr = x0 * y1 - x1 * y0
+            a += cr; cx += (x0 + x1) * cr; cy += (y0 + y1) * cr
+        if abs(a) < 1e-9:
+            return None
+        a *= 0.5
+        return (cx / (6 * a), cy / (6 * a), abs(a))
+
+    out = {}
+    for g in topo["objects"]["states"]["geometries"]:
+        polys = g["arcs"] if g["type"] == "MultiPolygon" else [g["arcs"]]
+        d = "".join("M" + "L".join(f"{x},{y}" for x, y in ring(r)) + "Z"
+                    for poly in polys for r in poly)
+        # Label the largest polygon, not the bounding box: a bbox centre falls in Lake
+        # Michigan for Michigan and in the Gulf for Louisiana.
+        best = None
+        for poly in polys:
+            c = centroid(ring(poly[0]))
+            if c and (best is None or c[2] > best[2]):
+                best = c
+        out[FIPS_USPS[g["id"]]] = (g["properties"]["name"], d,
+                                   (round(best[0]), round(best[1])))
+    return out
+
+
+def _load_geometry():
+    topo = json.loads(GEO.read_text())
+    geo = _decode_topology(topo)
+    # The FIPS table and the geometry must agree, or a state silently vanishes from the
+    # map while every count elsewhere on the page keeps including its bills.
+    missing = [g["id"] for g in topo["objects"]["states"]["geometries"]
+               if g["id"] not in FIPS_USPS]
+    if missing:
+        raise SystemExit(f"build: geometry has FIPS codes absent from FIPS_USPS: {missing}")
+    for g in topo["objects"]["states"]["geometries"]:
+        name = geo[FIPS_USPS[g["id"]]][0]
+        if name != g["properties"]["name"]:
+            raise SystemExit(f"build: FIPS {g['id']} name mismatch: {name!r}")
+    # The file's own bbox, not 0 0 975 610 — Aleutian geometry sits left of zero and a
+    # 975-wide box clips it.
+    x0, y0, x1, y1 = topo["bbox"]
+    view = f"{int(x0) - 2} {int(y0) - 2} {int(x1 - x0) + 4} {int(y1 - y0) + 4}"
+    return geo, view
+
+
+GEOMETRY, VIEWBOX = _load_geometry()
+
+
+def state_map(bills):
+    """The landing page's state filter, as a map.
+
+    Fill is categorical and two-valued; the count is a numeral. Only states that hold
+    bills are labelled or reachable by keyboard — labelling all fifty at this size is
+    noise, and announcing thirty-nine "no bills" nodes to a screen reader is worse than
+    the list that follows the map, which carries every state.
+    """
+    counts = {}
+    for b in bills:
+        st = b["jurisdiction"]["state"]
+        counts[st] = counts.get(st, 0) + 1
+    unknown = sorted(set(counts) - set(GEOMETRY))
+    if unknown:
+        raise SystemExit(f"build: registry states absent from the geometry: {unknown}")
+
+    shapes, labels = [], []
+    for usps, (name, d, (lx, ly)) in sorted(GEOMETRY.items()):
+        n = counts.get(usps, 0)
+        if not n:
+            shapes.append(f'<g class="st" aria-hidden="true"><path d="{d}"/></g>')
+            continue
+        dx, dy = LABEL_OFFSET.get(usps, (0, 0))
+        tx_, ty_ = lx + dx, ly + dy
+        lead = (f'<path class="lead" d="M{lx},{ly}L{tx_},{ty_}"/>' if (dx or dy) else "")
+        labels.append(
+            f'<g class="st has" role="button" tabindex="0" data-state="{esc(usps)}" '
+            f'aria-pressed="false" '
+            f'aria-label="{esc(name)}, {n} bill{"" if n == 1 else "s"}. Filter.">'
+            f'<path d="{d}"/>{lead}'
+            f'<text class="ab" x="{tx_}" y="{ty_ - 2}">{esc(usps)}</text>'
+            f'<text class="n" x="{tx_}" y="{ty_ + 10}">{n}</text></g>')
+
+    # Insets are the projection's doing, not geography. Say so on the face of the map.
+    insets = ('<rect class="inset" x="-60" y="438" width="268" height="170" rx="3"/>'
+              '<text class="insetlab" x="-56" y="452">Alaska (inset, not to scale)</text>'
+              '<rect class="inset" x="232" y="536" width="150" height="70" rx="3"/>'
+              '<text class="insetlab" x="234" y="531">Hawaii (inset)</text>')
+
+    # The list is the text alternative to the map, and also the reliable way to filter:
+    # South Carolina's outline is about 15px across on a phone, well under a usable tap
+    # target, and a keyboard user should not have to hunt a shape either.
+    rows = "".join(
+        f'<tr><td><button type="button" class="mrow" data-state="{esc(s)}" '
+        f'aria-pressed="false">{esc(GEOMETRY[s][0])}</button></td>'
+        f'<td class="c">{counts[s]}</td></tr>'
+        for s in sorted(counts, key=lambda s: (-counts[s], GEOMETRY[s][0])))
+    none = ", ".join(sorted(GEOMETRY[s][0] for s in GEOMETRY if s not in counts))
+
+    return ('<div class="mapwrap">'
+            f'<svg class="usmap" viewBox="{VIEWBOX}" role="group" '
+            f'aria-label="Filter by state" xmlns="http://www.w3.org/2000/svg">'
+            f'{"".join(shapes)}{insets}{"".join(labels)}</svg>'
+            '<p class="maplegend muted">Numbers are bills held. '
+            'States without a number: no bills in this registry — which is not the same as '
+            'none existing, since the inclusion methodology is not yet established.</p>'
+            '<details class="maplist"><summary>States and bill counts as a list</summary>'
+            f'<table><tbody>{rows}</tbody></table>'
+            f'<p class="muted">No bills in this registry: {esc(none)}.</p>'
+            '</details></div>')
 
 def matrix(bills):
     heads="".join(f'<th scope="col" class="pv"><span>{esc(PROVISION_LABEL[p])}</span></th>'
@@ -978,6 +1132,10 @@ def matrix(bills):
 
 FILTER_JS = """
 (function(){
+  // The map shapes and the fallback list are the same control; a real <button> in the
+  // list needs no key handling, an SVG <g role="button"> does. Matrix rows also carry
+  // data-state, so the selector must not be attribute-only.
+  var STATEBTN='.usmap .st.has, .maplist button[data-state]';
   var t=document.getElementById('matrix'); if(!t) return;
   var rows=[].slice.call(t.tBodies[0].rows);
   var sel={state:'',family:'',status:'',prov:''};
@@ -992,14 +1150,20 @@ FILTER_JS = """
       r.hidden=!ok; if(ok) n++;
     });
     count.textContent=n+(n===1?' bill':' bills')+(sel.state?' in '+sel.state:'');
-    document.querySelectorAll('.tile.has').forEach(function(b){
+    document.querySelectorAll(STATEBTN).forEach(function(b){
       b.setAttribute('aria-pressed', b.dataset.state===sel.state ? 'true':'false');
     });
     document.getElementById('clear').hidden = !(sel.state||sel.family||sel.status||sel.prov);
   }
-  document.querySelectorAll('.tile.has').forEach(function(b){
-    b.addEventListener('click',function(){
+  // An SVG <g role="button"> is not a real button: it gets no keyboard activation for
+  // free, so Enter and Space are wired by hand.
+  document.querySelectorAll(STATEBTN).forEach(function(b){
+    function toggle(){
       sel.state = (sel.state===b.dataset.state) ? '' : b.dataset.state; apply();
+    }
+    b.addEventListener('click',toggle);
+    b.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); toggle(); }
     });
   });
   ['family','status','prov'].forEach(function(k){
@@ -1179,7 +1343,7 @@ established from a primary or citable source; operative text has been read in fu
 of them, and each record states what was checked. A descriptive record of what these bills
 say — not an assessment of them.</p>
 
-{tile_map(bills)}
+{state_map(bills)}
 
 {changed_callout(bills)}
 
