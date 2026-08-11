@@ -198,14 +198,19 @@
           "claim": {
             "field": "status.stage"
           },
-          "value": "in_committee",
-          "mode": "direct",
+          "value": "failed",
+          "mode": "derived",
           "supports": [
             {
               "source_ref": "sc-hb3796-actions",
-              "locator": "2025-01-28 — Referred to Committee on Judiciary"
+              "locator": "2025-01-28 — Referred to Committee on Judiciary; no later bill action"
+            },
+            {
+              "source_ref": "sc-2026-session-end",
+              "locator": "Regular annual session adjourned sine die on 2026-05-14"
             }
-          ]
+          ],
+          "derivation": "H.3796 received no action after its 2025 Judiciary referral before the 126th regular session adjourned sine die; it therefore failed at session end."
         }
       ]
     },

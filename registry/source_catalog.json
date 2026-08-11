@@ -266,6 +266,14 @@
       "url": "https://www.senate.mo.gov/26info/pdf-bill/perf/SB1012.pdf",
       "jurisdiction": "MO",
       "note": "Official perfected text."
+    },
+    {
+      "id": "sc-2026-session-end",
+      "label": "South Carolina General Assembly — 2026 regular-session sine die record",
+      "kind": "session_record",
+      "url": "https://www.scstatehouse.gov/sess126_2025-2026/sj26/20260515.htm",
+      "jurisdiction": "SC",
+      "note": "Official Senate Journal states that the regular annual session adjourned sine die on May 14, 2026."
     }
   ]
 }
