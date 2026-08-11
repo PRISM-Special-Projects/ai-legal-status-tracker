@@ -1,0 +1,74 @@
+{
+  "schema_version": "0.1.0-pilot",
+  "sources": [
+    {
+      "id": "wa-hb2029-actions",
+      "kind": "action_history",
+      "url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false",
+      "jurisdiction": "WA",
+      "note": "Official bill/action page."
+    },
+    {
+      "id": "wa-2025-26-session-rule",
+      "kind": "session_rule",
+      "registry_ref": "registry/session_rules.json#WA/2025-2026",
+      "jurisdiction": "WA",
+      "note": "Project rule object backed by its cited Washington source."
+    },
+    {
+      "id": "ut-hb249-code",
+      "kind": "code",
+      "url": "https://le.utah.gov/xcode/Title63G/Chapter32/63G-32.html",
+      "jurisdiction": "UT",
+      "note": "Official published Utah Code, Title 63G, Chapter 32."
+    },
+    {
+      "id": "ut-hb249-enrolled",
+      "kind": "enrolled_bill",
+      "url": "https://le.utah.gov/~2024/bills/hbillenr/HB0249.pdf",
+      "jurisdiction": "UT",
+      "note": "Official enrolled HB 249 text."
+    },
+    {
+      "id": "tn-pc0781",
+      "kind": "session_law",
+      "url": "https://publications.tnsosfiles.com/acts/114/pub/pc0781.pdf",
+      "jurisdiction": "TN",
+      "note": "Official Public Chapter 781."
+    },
+    {
+      "id": "tn-sb0837-actions",
+      "kind": "action_history",
+      "url": "https://wapp.capitol.tn.gov/apps/Billinfo/Default?BillNumber=SB0837&ga=114",
+      "jurisdiction": "TN",
+      "note": "Official Tennessee General Assembly bill history."
+    },
+    {
+      "id": "tn-sa0922",
+      "kind": "amendment",
+      "url": "https://www.capitol.tn.gov/Bills/114/Amend/SA0922.pdf",
+      "jurisdiction": "TN",
+      "note": "Official Senate Amendment 0922."
+    },
+    {
+      "id": "mo-hb1769-actions",
+      "kind": "action_history",
+      "url": "https://house.mo.gov/BillDocumentMobile.aspx?bill=HB1769&code=R%20&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official Missouri HB 1769 document/history page; identifies introduced LR 4626H.01I and replacement by the HB 1746 substitute."
+    },
+    {
+      "id": "mo-hcs-3891H04C",
+      "kind": "committee_substitute",
+      "url": "https://documents.house.mo.gov/billtracking/bills261/hlrbillspdf/3891H.04C.pdf",
+      "jurisdiction": "MO",
+      "note": "Official HCS HBs 1746 & 1769, LR 3891H.04C."
+    },
+    {
+      "id": "provision-tests",
+      "kind": "method",
+      "registry_ref": "PROVISIONS.md",
+      "note": "Repository operational tests for provision tags."
+    }
+  ]
+}
