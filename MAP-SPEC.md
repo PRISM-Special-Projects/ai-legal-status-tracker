@@ -323,3 +323,28 @@ the landing page — 63 KB to 131 KB — which is 29.5 KB gzipped, the number th
 **Not verified:** the assertions ran locally, not on CI; no screen reader was used, only the
 accessibility tree; no real browser other than the one driven here; and the label positions were
 checked by eye at two widths rather than computed for collisions.
+
+## 11. Added after review (2026-08-11)
+
+Two changes made in response to reviewing the built map, neither of which the spec anticipated.
+
+**The selection indicator was a box, not a border.** Focus and selection used
+`stroke-dasharray: 4 2`. At this scale the dashes stop reading as a boundary: on a
+near-rectangular state such as Tennessee the result looks like an arbitrary rectangle laid over
+the map. Both indicators are now a solid stroke on the state's own path, so the highlight is the
+border. `outline:none` also moved from `:focus-visible` to `:focus`, because the other thing that
+draws a box is the browser's own focus ring, which is the element's bounding box and appears on
+mouse focus where `:focus-visible` does not match.
+
+**Clicking a state appeared to do nothing.** It did filter the matrix — verified 23 rows to 6 —
+but the matrix begins a full viewport below the bottom of the map, so every consequence of the
+click was off-screen. §5 specified the filter contract and never asked where the feedback lands,
+which is the more important question for a reader. A panel now sits directly under the map: the
+state's name, its bill count, and each bill as a link with its year, status and family, ordered
+chronologically then by number so no ranking is implied. It carries a link into the provisions
+table and a control to clear the selection. Twelve panels are pre-rendered and hidden; the
+selection unhides one. With JavaScript off nothing is lost that the matrix does not already
+carry.
+
+CI asserts one panel per state holding bills, each listing exactly that state's bills, all hidden
+by default, plus the no-selection hint. Each assertion was checked by breaking it.

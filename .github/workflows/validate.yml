@@ -104,6 +104,22 @@ jobs:
           if "not the same as none existing" not in home:
               fail.append("state map: the absence caveat is missing")
 
+          # One panel per state holding bills, listing exactly that state's bills, and all
+          # of them hidden until a selection is made.
+          panels=dict(re.findall(r'<div class="spanel" id="sp-([A-Z]{2})"([^>]*)>', home))
+          if set(panels)!=set(counts):
+              fail.append(f"state panels: {sorted(panels)} != registry states {sorted(counts)}")
+          for st,attrs in panels.items():
+              if "hidden" not in attrs:
+                  fail.append(f"state panels: sp-{st} is not hidden by default")
+          for st,n in counts.items():
+              seg=home.split(f'<div class="spanel" id="sp-{st}"',1)[-1].split('</div>',1)[0]
+              got=len(re.findall(r'<li><a href="bills/', seg))
+              if got!=n:
+                  fail.append(f"state panels: sp-{st} lists {got} bills, registry has {n}")
+          if 'id="sp-hint"' not in home:
+              fail.append("state panels: the no-selection hint is missing")
+
           if not os.path.exists("site/geo/LICENSE-us-atlas"):
               fail.append("site/geo/LICENSE-us-atlas is missing; ISC requires the notice to ship")
           if "LICENSE-us-atlas" not in pathlib.Path("LICENSE-DATA").read_text():

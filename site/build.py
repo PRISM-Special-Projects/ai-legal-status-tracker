@@ -291,8 +291,12 @@ ul.changed .k.add{color:var(--add)}
 .usmap .st.has:hover .ab,.usmap .st.has:hover .n{fill:var(--bg)}
 .usmap .st.has[aria-pressed=true] path{fill:var(--accent);stroke:var(--fg);stroke-width:2.5}
 .usmap .st.has[aria-pressed=true] .ab,.usmap .st.has[aria-pressed=true] .n{fill:var(--bg)}
-.usmap .st.has:focus-visible{outline:none}
-.usmap .st.has:focus-visible path{stroke:var(--fg);stroke-width:3;stroke-dasharray:4 2}
+/* No dashes, and no UA outline. Both draw something that is not the state: a dashed
+   stroke at this scale reads as an arbitrary box on a near-rectangular state like
+   Tennessee, and the browser's own ring is the element's bounding box. The indicator has
+   to be the border itself, so it is a solid stroke on the same path. */
+.usmap .st.has:focus{outline:none}
+.usmap .st.has:focus-visible path{stroke:var(--fg);stroke-width:3}
 .usmap .inset{stroke:var(--line);stroke-width:1;fill:none;stroke-dasharray:3 3}
 .usmap .insetlab{font:500 9px/1 ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}
 .maplegend{font-size:.78rem;margin:.7em 0 0;max-width:60ch}
@@ -306,6 +310,21 @@ ul.changed .k.add{color:var(--add)}
   text-underline-offset:2px}
 .maplist button.mrow[aria-pressed=true]{color:var(--fg);font-weight:600;text-decoration:none}
 .maplist button.mrow:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+
+/* ---- selected-state panel (sits under the map, where the click happened) ---- */
+.spanels{margin:1.2em 0 0;min-height:2.4em}
+.spanel-hint{font-size:.86rem;margin:0}
+.spanel{border-left:3px solid var(--accent);padding:2px 0 2px 14px}
+.sptitle{font-size:1.06rem;margin:0 0 .5em;letter-spacing:-.01em}
+.splist{list-style:none;margin:0;padding:0;display:grid;gap:7px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.splist li{display:flex;flex-direction:column;gap:2px}
+.splist a{font-weight:600}
+.spmeta{font:.78rem/1.3 ui-sans-serif,system-ui,sans-serif;color:var(--muted)}
+.spmore{font:.8rem/1.4 ui-sans-serif,system-ui,sans-serif;margin:.9em 0 0;color:var(--muted)}
+.spmore button.spclear{font:inherit;color:var(--accent);background:none;border:0;padding:0;
+  cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.spmore button.spclear:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 
 /* ---- filter controls ---- */
 .controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:1.4em 0 1em;
@@ -1099,6 +1118,40 @@ def state_map(bills):
             f'<p class="muted">No bills in this registry: {esc(none)}.</p>'
             '</details></div>')
 
+def state_panels(bills):
+    """What a selected state holds, directly under the map.
+
+    Clicking a state does filter the matrix, but the matrix begins a full screen below
+    the map, so the only evidence of the click was off-screen. This answers where the
+    click happened. Bills are listed chronologically, then by number: any other order
+    would imply a ranking the registry does not make.
+    """
+    by_state = {}
+    for b in bills:
+        by_state.setdefault(b["jurisdiction"]["state"], []).append(b)
+
+    panels = ['<p class="spanel-hint muted" id="sp-hint">Select a state to list the bills '
+              'this registry holds for it. The table below filters at the same time.</p>']
+    for st, bs in sorted(by_state.items()):
+        bs = sorted(bs, key=lambda b: (b["session"]["year_introduced"], b["bill_number"]))
+        items = "".join(
+            f'<li><a href="bills/{esc(b["id"])}/">{esc(st)} {esc(b["bill_number"])}</a>'
+            f'<span class="spmeta">{esc(b["session"]["year_introduced"])} · '
+            f'<span class="chip s-{esc(b["status"]["stage"])}">'
+            f'{esc(STAGE_LABEL[b["status"]["stage"]])}</span> · '
+            f'fam {esc(b["family"])}</span></li>'
+            for b in bs)
+        panels.append(
+            f'<div class="spanel" id="sp-{esc(st)}" hidden>'
+            f'<h2 class="sptitle">{esc(GEOMETRY[st][0])} — '
+            f'<span class="count">{len(bs)}</span> bill{"" if len(bs) == 1 else "s"}</h2>'
+            f'<ul class="splist">{items}</ul>'
+            f'<p class="spmore"><a href="#matrix">See these in the provisions table below</a>'
+            f' · <button type="button" class="spclear">Clear the state filter</button></p>'
+            f'</div>')
+    return f'<div class="spanels">{"".join(panels)}</div>'
+
+
 def matrix(bills):
     heads="".join(f'<th scope="col" class="pv"><span>{esc(PROVISION_LABEL[p])}</span></th>'
                   for p in PROV_ORDER)
@@ -1154,7 +1207,16 @@ FILTER_JS = """
       b.setAttribute('aria-pressed', b.dataset.state===sel.state ? 'true':'false');
     });
     document.getElementById('clear').hidden = !(sel.state||sel.family||sel.status||sel.prov);
+    // The matrix is a screen below the map, so the panel is what the reader actually sees
+    // change when they click a state.
+    document.querySelectorAll('.spanel').forEach(function(p){
+      p.hidden = (p.id !== 'sp-'+sel.state);
+    });
+    var hint=document.getElementById('sp-hint'); if(hint) hint.hidden = !!sel.state;
   }
+  document.querySelectorAll('.spclear').forEach(function(b){
+    b.addEventListener('click',function(){ sel.state=''; apply(); });
+  });
   // An SVG <g role="button"> is not a real button: it gets no keyboard activation for
   // free, so Enter and Space are wired by hand.
   document.querySelectorAll(STATEBTN).forEach(function(b){
@@ -1344,6 +1406,8 @@ of them, and each record states what was checked. A descriptive record of what t
 say — not an assessment of them.</p>
 
 {state_map(bills)}
+
+{state_panels(bills)}
 
 {changed_callout(bills)}
 
