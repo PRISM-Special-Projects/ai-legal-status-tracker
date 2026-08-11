@@ -18,6 +18,13 @@ script does the comparison afterwards.
 
 This is the whole methodological content of the protocol. Everything else is bookkeeping.
 
+Two fields escape it, and saying so is better than pretending otherwise. The heading has to name
+the record, so it prints the recorded `bill_number` — which is why `bill_number` is one of the five
+fields never scored. And the `status_stage` question has to print the controlled vocabulary; it
+prints all six values, so it points at none. `audit/test_audit.py` asserts both — that no other
+recorded value appears in a generated sheet, and that no sheet prints a subset of the stage
+vocabulary.
+
 ## Who can run it
 
 Anyone with the source documents: the project lead, an external reviewer with browsing, or a
@@ -63,6 +70,7 @@ The checker prints agreements, mismatches and gaps, and writes `audit/results/<r
 | `not_stated` | The source does not support the recorded value | The record is not necessarily wrong, but it is unsourced. Either find a source that states it or downgrade the field's verification level. |
 | `unreachable` | Source could not be retrieved | Not a finding about the record. Note it and move on; `registry/NEEDED.md` exists for this. |
 | `extra` | Source states something the record omits | Fill the gap. Missing `status.evidence` is the commonest case. |
+| `review` | Not scored. The two values differ in a way notation alone explains — one of the five review fields, or a sponsor list naming the same people with different completeness | A human accepts or rejects it. Recording an accepted `review` as agreement is fine; recording it as *verified* is not, unless the values are the same fact. |
 
 A field is only *verified* when an auditor who did not compile it extracted the same value from a
 primary source. Agreement with a tracker is weaker and should be recorded as such.

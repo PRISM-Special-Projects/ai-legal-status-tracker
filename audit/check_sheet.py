@@ -40,6 +40,29 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", " ", str(s or "").lower()).strip()
 
 
+# Titles a legislature's page prints and a registry record does not, or the reverse.
+HONORIFICS = {"sen", "sens", "senator", "senators", "rep", "reps", "representative",
+              "representatives", "del", "delegate", "assemblymember", "assembly", "member",
+              "asm", "hon", "mr", "mrs", "ms", "dr", "the"}
+SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
+
+
+def person(s):
+    """A sponsor name reduced for comparison: role notes and honorifics dropped.
+
+    "Sen. Moon" and "Moon" are the same fact about who sponsored a bill, and scoring them
+    as a discrepancy teaches an auditor to discount real ones.
+    """
+    s = re.sub(r"\([^)]*\)", " ", str(s or ""))          # "(sole, as introduced)", "(Senate)"
+    return " ".join(t for t in norm(s).split() if t not in HONORIFICS)
+
+
+def surname(s):
+    """Last name token. Sources differ on whether a given name is printed at all."""
+    toks = [t for t in person(s).split() if t not in SUFFIXES]
+    return toks[-1] if toks else ""
+
+
 def recorded(b):
     st = b["status"]
     ev = st.get("evidence") or {}
@@ -67,19 +90,31 @@ def compare(answers, rec, b):
         if key in REVIEW_FIELDS and got.upper() not in SENTINELS:
             rows.append((key, "extra" if recval in (None, "", []) else "review", got, recval))
             continue
-        if key == "sponsors":
-            # Compare as a set of surnames: order and punctuation vary by source.
-            a = {norm(x) for x in re.split(r"[;,]", got) if norm(x)}
-            r = {norm(x) for x in re.split(r"[;,]", str(recval)) if norm(x)}
-            rows.append((key, "match" if a == r else ("partial" if a & r else "mismatch"),
-                         got, recval))
-            continue
         if got.upper() in SENTINELS:
             verdict = "unreachable" if got.upper() == "UNREACHABLE" else (
                 "extra" if not recval else "not_stated")
             rows.append((key, verdict, got, recval)); continue
         if recval in (None, "", []):
             rows.append((key, "extra", got, recval)); continue
+        if key == "sponsors":
+            # Order, punctuation, honorifics and role labels vary by source; none of that is
+            # a disagreement about who sponsored the bill. Compare people first, then
+            # surnames, and hand a name-completeness difference to a human instead of
+            # scoring it — "Claggett" against "Thaddeus Claggett" is not a finding.
+            a = {person(x) for x in re.split(r"[;,]", got) if person(x)}
+            r = {person(x) for x in re.split(r"[;,]", str(recval)) if person(x)}
+            if a == r:
+                verdict = "match"
+            else:
+                sa, sr = {surname(x) for x in a}, {surname(x) for x in r}
+                if sa == sr:
+                    verdict = "review"
+                elif (a & r) or (sa & sr):
+                    verdict = "partial"
+                else:
+                    verdict = "mismatch"
+            rows.append((key, verdict, got, recval))
+            continue
         if norm(got) == norm(recval):
             rows.append((key, "match", got, recval))
         elif norm(got) in norm(recval) or norm(recval) in norm(got):
@@ -132,7 +167,8 @@ def run(path, bills):
     print(f"  -- {counts.get('match',0)} match · "
           + " · ".join(f"{v} {k}" for k, v in sorted(counts.items()) if k != "match"))
     if counts.get("review"):
-        print("     » = needs a human verdict; notation differs legitimately between sources")
+        print("     » = needs a human verdict; notation or name completeness differs "
+              "legitimately between sources")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     (RESULTS / f"{rid}.json").write_text(json.dumps({

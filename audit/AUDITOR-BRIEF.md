@@ -21,6 +21,8 @@ internal checks were performed by the party that produced the thing being checke
    derived from a summary page or a tracker rather than a recorded legislative action, and none
    carries an evidence line.
 2. Fill in every `answer.` line from the sources. Copy values as printed — do not tidy or convert.
+   Each sheet carries a short **Conventions** section: which source wins, the one field you are
+   asked to classify rather than copy, and the dates you must not calculate. Read it once.
 3. Write `NOT STATED` where the source is silent, `UNREACHABLE` where you cannot retrieve it,
    `CANNOT TELL` for a provision test you could not apply. **These are the most valuable answers
    you can give**: they separate a wrong record from an unsourced one.

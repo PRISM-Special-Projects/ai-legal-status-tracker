@@ -25,6 +25,9 @@ jobs:
       - name: Differ tests
         run: python3 site/test_diff.py
 
+      - name: Audit instrument tests
+        run: python3 audit/test_audit.py
+
       - name: Build site
         run: python3 site/build.py
 

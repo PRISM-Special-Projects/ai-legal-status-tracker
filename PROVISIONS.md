@@ -90,19 +90,28 @@ which binds courts, not chatbots.
 **Note.** Applies to no operative text in the registry; it survives only on the introduced
 version of the Tennessee bill. This is intended, not an error.
 
-## `restricts_ai_speech_rights` · `covers_non_ai_entities` · `study_only`
-**Tests.** Respectively: excludes AI from free-expression protection; extends the same
-prohibition to non-AI entities such as animals, bodies of water or inanimate objects; directs
-a study or report and creates no operative prohibition.
+## `restricts_ai_speech_rights`
+**Test.** The text excludes AI from free-expression protection.
+
+## `covers_non_ai_entities`
+**Test.** The text extends the same prohibition to non-AI entities such as animals, bodies of
+water or inanimate objects.
+
+## `study_only`
+**Test.** The text directs a study or report and creates no operative prohibition.
 
 ## `defines_human_to_include_unborn`
 **Test.** The text defines "human being" or an equivalent term to include the unborn.
 **Note.** Present only on Tennessee HB 849 **as introduced**. Recorded because it was removed
 in committee, and a registry that tagged only operative text would lose it entirely.
 
-## `creates_criminal_offence` · `creates_private_right_of_action`
-**Tests.** Respectively: makes defined conduct a criminal offence; creates a civil cause of
-action for private parties. Both present only on Tennessee HB 1455 as introduced.
+## `creates_criminal_offence`
+**Test.** The text makes defined conduct a criminal offence.
+**Note.** Present only on Tennessee HB 1455 as introduced.
+
+## `creates_private_right_of_action`
+**Test.** The text creates a civil cause of action for private parties.
+**Note.** Present only on Tennessee HB 1455 as introduced.
 
 ---
 
@@ -113,3 +122,7 @@ action for private parties. Both present only on Tennessee HB 1455 as introduced
 2. If a tag requires reading intent rather than text, it is the wrong tag.
 3. `not_assessed` is different from absent. Absent means checked and not present.
 4. Adding a tag requires adding an entry here in the same commit. CI enforces this.
+5. One heading per test. A heading may name several keys only where they share a single
+   `**Test.**` line, as the three status bars do. Keys with distinct tests get their own
+   heading, because `audit/make_sheets.py` quotes each key's test into the audit sheets and
+   a "respectively" list cannot be split back into its keys reliably.
