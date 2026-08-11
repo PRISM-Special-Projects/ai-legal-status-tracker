@@ -131,7 +131,7 @@ No material data inconsistency remains from the publication audit.
 - [x] Evidence policy and known access limitations — `METHODOLOGY.md` and refreshed `VERIFICATION.md`.
 - [x] Opus/future-maintainer handoff — `RESEARCH_HANDOFF.md`, including source recovery and failure modes.
 - [x] Obsolete one-shot migration helpers removed; parser/differ work clearly separated as non-blocking technical backlog.
-- [x] README corrected to the 29-record/16-state release-candidate state; generated site counts remain data-driven.
+- [x] README corrected to the 29-record/16-state state; generated site counts remain data-driven.
 - [x] Final CI after documentation/handoff changes — PASS.
 
 ### J findings
@@ -144,12 +144,27 @@ The README and verification narrative had still described the original 23-record
 
 The repository contents and CI are release-ready; only the GitHub repository description needs a manual metadata update.
 
-## Final release gate — NEXT
+## Final release gate — COMPLETE
 
-Independently reconstruct a deliberately difficult sample from tracker claim → source → exact text/action → same substantive conclusion. The sample should include an enacted personhood prohibition, a session-rule-derived failure, a materially amended bill, a code-renumbering case, a chatbot-status bill, and an access-limitation case.
+A six-case **source-first reconstruction** was completed and recorded in `FINAL_RELEASE_AUDIT.md` before comparing conclusions with the registry. The sample covered:
 
-## Non-blocking technical backlog
+- Utah HB 249 — enacted personhood prohibition and enactment/current-code numbering;
+- Washington HB 2029 — session-rule-derived failure;
+- Tennessee HB 1455 / SB 1493 — material amendment sequence and effective date;
+- North Dakota HB 1361 — current-code renumbering;
+- Iowa SF 2417 — chatbot sentience/human-status scope boundary;
+- Idaho HB 720 — enacted personhood law plus the known official-code access limitation.
 
+No sample produced a material contradiction. Utah, Washington, Tennessee, North Dakota and Iowa were directly reconstructed from accessible official public sources. Idaho reproduced the already documented limitation: the live Idaho Legislature/code portal was blocked to the audit retrieval environment, so direct live-code inspection could not be newly repeated; the registry correctly retains bill/session-law-level codification provenance rather than overstating verification.
+
+### Final gate — PASS WITH DOCUMENTED LIMITATIONS
+
+**v1 COMPLETE.** The tracker has passed the substantive verification, corpus-completeness, publication, documentation/handoff and independent source-first reconstruction gates. The remaining items below are maintenance or technical backlog, not release blockers.
+
+## Non-blocking post-v1 actions / backlog
+
+- Manually update the GitHub repository description from `23 bills / 12 states` to `29 bills / 16 states`.
 - Missouri SB 1012 structural-differ perfection for source-specific PDF formatting.
 - Exhaustive intermediate-version graphs where they do not alter tracker-facing conclusions.
 - Further parser and normalisation hardening not needed for P0–P4.
+- Repeat corpus-completeness/status sweeps as new state legislation is introduced, amended or carried into later sessions.
