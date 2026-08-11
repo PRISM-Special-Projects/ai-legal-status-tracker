@@ -550,6 +550,154 @@
           "derivation": "Public Chapter 1066 takes effect upon becoming law; the official bill history records governor signature and effective date on 22 May 2026."
         }
       ]
+    },
+    {
+      "record_id": "mo-hb1746-2026",
+      "claims": [
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hb1746-3891H.01I",
+            "item": "addresses_corporate_veil"
+          },
+          "value": true,
+          "assessment": "present",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-hb1746-intro",
+              "locator": "proposed § 1.2045(13)"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hb1746-3891H.04C",
+            "item": "addresses_corporate_veil"
+          },
+          "value": false,
+          "assessment": "checked_absent",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "full proposed § 1.2045; no corporate-veil subsection"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hb1746-3891H.01I",
+            "item": "provides_compliance_safe_harbor"
+          },
+          "value": false,
+          "assessment": "checked_absent",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-hb1746-intro",
+              "locator": "full proposed § 1.2045; no NIST safe-harbour language"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "provides_compliance_safe_harbor operational test"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hb1746-3891H.04C",
+            "item": "provides_compliance_safe_harbor"
+          },
+          "value": true,
+          "assessment": "present",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "proposed § 1.2045(9), NIST AI RMF oversight standard"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "provides_compliance_safe_harbor operational test"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-hb1746-3891H.01I",
+            "to_version_id": "mo-hb1746-3891H.04C",
+            "item": "addresses_corporate_veil"
+          },
+          "value": "removed",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "mo-hb1746-intro",
+              "locator": "§ 1.2045(13)"
+            },
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "full proposed § 1.2045"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
+          ],
+          "derivation": "The operational-test clause is present in 3891H.01I and checked absent in 3891H.04C."
+        },
+        {
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-hb1746-3891H.01I",
+            "to_version_id": "mo-hb1746-3891H.04C",
+            "item": "provides_compliance_safe_harbor"
+          },
+          "value": "added",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "mo-hb1746-intro",
+              "locator": "full proposed § 1.2045"
+            },
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "§ 1.2045(9)"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "provides_compliance_safe_harbor operational test"
+            }
+          ],
+          "derivation": "The operational-test clause is checked absent in 3891H.01I and present in 3891H.04C."
+        },
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-hb1746-actions",
+              "locator": "2026-03-30 — Reported Do Pass (H), AYES 9 NOES 0"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -211,6 +211,21 @@
       "kind": "enrolled_bill",
       "url": "https://ndlegis.gov/assembly/68-2023/regular/documents/23-0346-05000.pdf",
       "jurisdiction": "ND"
+    },
+    {
+      "id": "mo-hb1746-intro",
+      "label": "Missouri House — HB 1746 introduced 3891H.01I",
+      "kind": "bill_text",
+      "url": "https://documents.house.mo.gov/billtracking/bills261/hlrbillspdf/3891H.01I.pdf",
+      "jurisdiction": "MO"
+    },
+    {
+      "id": "mo-hb1746-actions",
+      "label": "Missouri House — HB 1746 official actions",
+      "kind": "action_history",
+      "url": "https://house.mo.gov/BillActions.aspx?bill=HB1746&code=&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official action history through 30 March 2026."
     }
   ]
 }

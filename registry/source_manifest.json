@@ -262,6 +262,17 @@
         "normalised_whitespace"
       ],
       "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-hb1746-2026--introduced-3891H.01I.txt",
+      "sha256": "e7861f3f5857a9108ab1397ab730392d96ccaaf6a0255001c18863ce95214547",
+      "bytes": 6077,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
     }
   ],
   "geometry": [

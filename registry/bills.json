@@ -975,19 +975,39 @@
       "affects_algorithmic_entity_formation": "not_analysed",
       "corporate_carve_out": "none",
       "constitutional_exposure": [],
-      "sponsors": [],
+      "sponsors": [
+        {
+          "name": "Scott Miller",
+          "party": null,
+          "role": "sponsor (District 069)"
+        }
+      ],
       "versions": [
         {
-          "label": "as introduced — text not seen",
-          "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
-          "text_path": null,
-          "provisions": null
+          "version_id": "mo-hb1746-3891H.01I",
+          "label": "introduced — 3891H.01I",
+          "date": "2025-12-01",
+          "source_url": "https://documents.house.mo.gov/billtracking/bills261/hlrbillspdf/3891H.01I.pdf",
+          "text_path": "texts/mo-hb1746-2026--introduced-3891H.01I.txt",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "bars_ai_liability",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "addresses_corporate_veil"
+          ],
+          "text_sha256": "e7861f3f5857a9108ab1397ab730392d96ccaaf6a0255001c18863ce95214547"
         },
         {
-          "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C)",
-          "date": "2026",
-          "source_url": "https://legiscan.com/MO/bill/HB1746/2026",
+          "version_id": "mo-hb1746-3891H.04C",
+          "label": "House Committee Substitute — HCS HBs 1746 & 1769, 3891H.04C",
+          "date": "2026-02-25",
+          "source_url": "https://documents.house.mo.gov/billtracking/bills261/hlrbillspdf/3891H.04C.pdf",
           "text_path": "texts/mo-hb1746-2026--hcs.txt",
           "provisions": [
             "denies_legal_personhood",
@@ -1014,8 +1034,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the House Committee Substitute text (HCS HBs 1746 & 1769, draft 3891H.04C) - the consolidated replacement the paper refers to. Would create Mo. Rev. Stat. s 1.2045, retitled the 'AI Nonsentience and Responsibility Act' (HB 1462 hyphenated 'Non-Sentience'). Effective 28 August 2026, with a grace period to 1 MARCH 2027 for anyone who formally adopted a compliance policy and demonstrated an implementation plan beforehand. **THE 2025-TO-2026 DIFF.** The personhood and non-sentience provisions are carried over unchanged; the liability and enforcement provisions were substantially rewritten, as itemised below. REMOVED: the entire corporate-veil-piercing provision, HB 1462 (13). The consolidated bill has no veil provision at all. That was the clause Steinhauser and the Alliance for Secure AI pointed to as closing the liability loophole, and Ohio kept a (inverted) version of it. Missouri simply deleted it. ADDED, a compliance safe harbour: (9) deems proper oversight demonstrated by adherence to Missouri AI risk-management standards 'derived from and based on the National Institute of Standards and Technology or NIST AI Risk Management Framework NIST AI 100-1', defaulting to the latest NIST version where Missouri is silent. This is the only bill in the registry that ties compliance to an external technical standard. ADDED, an absolution clause at (8): in cases of 'negligence, or gross negligence, or malpractice' the developer or deployer 'shall be absolved of any criminal wrongdoing or punitive damages' provided the subsection 9 standards were followed. ADDED, an open-source carve-out: 'Developer' now excludes anyone releasing an AI system 'free of charge using an Open Source Initiative approved license' - answering TechNet's objection that these bills burden open-source developers. DEFINITION REPLACED: 'AI' now takes 'the same meaning as used in 15 U.S.C. Section 9401(3)' - the federal National AI Initiative Act definition - in place of HB 1462's homegrown wording reaching 'rules-based logic'. The overbreadth criticism levelled at Ohio was answered in Missouri by adopting the federal statutory definition. ADDED (12)(2), technology neutrality: advances in software, automation, algorithmic decision-making or AI 'shall not be used as the basis for a deployer or developer to engage in conduct that is prohibited under the law'. TERMINOLOGY: 'Owner' became 'Deployer'; 'End-user' newly defined as someone who relies on but does not control the system. (10) still anchors liability to human actors, unlike Ohio and Wisconsin. DRAFTING ARTIFACT PERSISTS: 'Emergent properties' is redefined - now 'any unprogrammed or adaptive behavior of an AI system that appears to mimic human sentience' - and is still never used anywhere in the bill. APPARENT DRAFTING ERROR at (8): 'nor shall wrongdoing by the developer impute liability to the developer', which is circular and probably meant the user or deployer. Flagged, not corrected. SOURCE NOTE: the house.mo.gov URL cited in the paper 404s; text supplied from the LegiScan record. ACTION HISTORY VERIFIED 2026-08-10 (and the house.mo.gov URL works; my earlier 404 was a blocked fetch, not a dead link). Prefiled 1 Dec 2025; read first time 7 Jan 2026; referred to Emerging Issues 8 Jan 2026; PUBLIC HEARING COMPLETED 2 FEB 2026; executive session continued and ACTION POSTPONED 16 Feb 2026; executive session completed and HCS VOTED DO PASS 25 Feb 2026; HCS REPORTED DO PASS 26 Feb 2026, AYES 10 NOES 0; referred to Rules - Administrative 11 March 2026. **THIS DATES THE REWRITE PRECISELY.** The committee substitute that deleted the corporate-veil clause and added the NIST safe harbour, the negligence absolution and the open-source carve-out was produced between the 2 Feb public hearing and the 25 Feb executive session - with business postponed on 16 Feb, which suggests it was negotiated rather than routine. It then passed committee UNANIMOUSLY, 10-0. The changes listed above were adopted without a dissenting vote, within a three-week window. HB 1746 IS THE SURVIVING VEHICLE: it alone was referred onward to Rules; HB 1769 stopped at the committee report.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10 against the House Committee Substitute text (HCS HBs 1746 & 1769, draft 3891H.04C) - the consolidated replacement the paper refers to. Would create Mo. Rev. Stat. s 1.2045, retitled the 'AI Nonsentience and Responsibility Act' (HB 1462 hyphenated 'Non-Sentience'). Effective 28 August 2026, with a grace period to 1 MARCH 2027 for anyone who formally adopted a compliance policy and demonstrated an implementation plan beforehand. **THE 2025-TO-2026 DIFF.** The personhood and non-sentience provisions are carried over unchanged; the liability and enforcement provisions were substantially rewritten, as itemised below. REMOVED: the entire corporate-veil-piercing provision, HB 1462 (13). The consolidated bill has no veil provision at all. That was the clause Steinhauser and the Alliance for Secure AI pointed to as closing the liability loophole, and Ohio kept a (inverted) version of it. Missouri simply deleted it. ADDED, a compliance safe harbour: (9) deems proper oversight demonstrated by adherence to Missouri AI risk-management standards 'derived from and based on the National Institute of Standards and Technology or NIST AI Risk Management Framework NIST AI 100-1', defaulting to the latest NIST version where Missouri is silent. This is the only bill in the registry that ties compliance to an external technical standard. ADDED, an absolution clause at (8): in cases of 'negligence, or gross negligence, or malpractice' the developer or deployer 'shall be absolved of any criminal wrongdoing or punitive damages' provided the subsection 9 standards were followed. ADDED, an open-source carve-out: 'Developer' now excludes anyone releasing an AI system 'free of charge using an Open Source Initiative approved license' - answering TechNet's objection that these bills burden open-source developers. DEFINITION REPLACED: 'AI' now takes 'the same meaning as used in 15 U.S.C. Section 9401(3)' - the federal National AI Initiative Act definition - in place of HB 1462's homegrown wording reaching 'rules-based logic'. The overbreadth criticism levelled at Ohio was answered in Missouri by adopting the federal statutory definition. ADDED (12)(2), technology neutrality: advances in software, automation, algorithmic decision-making or AI 'shall not be used as the basis for a deployer or developer to engage in conduct that is prohibited under the law'. TERMINOLOGY: 'Owner' became 'Deployer'; 'End-user' newly defined as someone who relies on but does not control the system. (10) still anchors liability to human actors, unlike Ohio and Wisconsin. DRAFTING ARTIFACT PERSISTS: 'Emergent properties' is redefined - now 'any unprogrammed or adaptive behavior of an AI system that appears to mimic human sentience' - and is still never used anywhere in the bill. APPARENT DRAFTING ERROR at (8): 'nor shall wrongdoing by the developer impute liability to the developer', which is circular and probably meant the user or deployer. Flagged, not corrected. ACTION HISTORY RECHECKED 2026-08-11 against the official Missouri House record. Prefiled 1 Dec 2025; read first time 7 Jan 2026; referred to Emerging Issues 8 Jan 2026; PUBLIC HEARING COMPLETED 2 FEB 2026; executive session continued and ACTION POSTPONED 16 Feb 2026; executive session completed and HCS VOTED DO PASS 25 Feb 2026; HCS REPORTED DO PASS 26 Feb 2026, AYES 10 NOES 0; referred to Rules - Administrative 11 March 2026. **THIS DATES THE REWRITE PRECISELY.** The committee substitute that deleted the corporate-veil clause and added the NIST safe harbour, the negligence absolution and the open-source carve-out was produced between the 2 Feb public hearing and the 25 Feb executive session - with business postponed on 16 Feb, which suggests it was negotiated rather than routine. It then passed committee UNANIMOUSLY, 10-0. The changes listed above were adopted without a dissenting vote, within a three-week window. HB 1746 IS THE SURVIVING VEHICLE: it alone was referred onward to Rules; HB 1769 stopped at the committee report. VERSION HISTORY AUDIT 2026-08-11: official Bill Text lists 3891H.01I (Introduced) and 3891H.04C (Committee). Direct comparison confirms the introduced bill carried the corporate-veil provision at § 1.2045(13); the HCS removes it and adds the NIST-based compliance safe harbour. Both official texts are now stored and read in full. STATUS RECHECK: the official action history continues beyond the previously recorded 11 March referral through 30 March 2026, when Rules - Administrative reported the HCS do pass 9-0.",
       "id": "mo-hb1746-2026",
       "bill_number": "HB 1746",
       "chamber": "house",
@@ -1026,11 +1046,11 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
-        "source_url": "https://house.mo.gov/Bill.aspx?bill=HB1746&year=2026&code=R",
+        "as_of": "2026-08-11",
+        "source_url": "https://house.mo.gov/BillActions.aspx?bill=HB1746&code=&year=2026",
         "evidence": {
-          "action": "03/11/2026 - Referred: Rules - Administrative(H) (H Jrn 1241), following HCS Reported Do Pass 10-0",
-          "date": "2026-03-11"
+          "action": "03/30/2026 - Reported Do Pass (H) - AYES: 9 NOES: 0 PRESENT: 0",
+          "date": "2026-03-30"
         },
         "basis": "explicit_action"
       },
@@ -1079,14 +1099,36 @@
       ],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "partial",
-        "operative_text_note": "Consolidated HCS text read; this bill's own introduced text not read",
-        "sponsors": "not_established",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Official introduced 3891H.01I and committee substitute 3891H.04C read in full during Workstream G2.",
+        "sponsors": "established",
         "codified_at_source": "bill",
-        "versions_with_text": 1,
-        "last_verified": "2026-08-10"
+        "versions_with_text": 2,
+        "last_verified": "2026-08-11"
       },
-      "provision_changes": []
+      "provision_changes": [
+        {
+          "from": "introduced — 3891H.01I",
+          "to": "House Committee Substitute — HCS HBs 1746 & 1769, 3891H.04C",
+          "removed": [
+            "addresses_corporate_veil"
+          ],
+          "added": [
+            "provides_compliance_safe_harbor"
+          ],
+          "retained": [
+            "assigns_liability_to_humans",
+            "bars_ai_liability",
+            "bars_corporate_office",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "declares_non_sentient",
+            "denies_legal_personhood",
+            "imposes_safety_duties",
+            "incident_reporting_duty"
+          ]
+        }
+      ]
     },
     {
       "jurisdiction": {
