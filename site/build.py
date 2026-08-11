@@ -437,8 +437,8 @@ def render_diff(b):
             parts.append(line("del", e.label, e.old, tag))
             parts.append(line("add", "", e.new))
         elif e.kind == "renumbered":
-            parts.append(line("renum", e.label,
-                              e.new or e.old, '<span class="renumtag">redesignated</span>'))
+            parts.append(line("renum", e.label, e.new or e.old,
+                              '<span class="renumtag">same text, new designator</span>'))
         elif e.kind == "ambiguous":
             parts.append(line("amb", e.label, e.old,
                               '<span class="ambtag">not aligned</span>'))
@@ -457,9 +457,11 @@ def render_diff(b):
               f'<span class="k add">{r.added} added</span>',
               f'<span class="k mod">{r.modified} modified</span>']
     if r.renumbered:
-        counts.append(f'<span class="k renum">{r.renumbered} redesignated</span>')
+        counts.append(f'<span class="k renum">{r.renumbered} same text, '
+                      f'new designator</span>')
     if r.ambiguous:
-        counts.append(f'<span class="k amb">{r.ambiguous} not aligned</span>')
+        counts.append(f'<span class="k amb">{r.ambiguous} identity not '
+                      f'established</span>')
     counts.append(f'<span class="muted">{r.unchanged} of {total} provisions unchanged</span>')
 
     note = _STRUCTURAL_NOTE if r.mode == "structural" else _FALLBACK_NOTE
@@ -714,18 +716,26 @@ subsection is a different provision from <code>(1)</code> under another, and the
 aligned. A statutory citation such as <code>Section 1-3-105(a)</code> or
 <code>N.D. Cent. Code § 1-01-49(8)</code> is not structure, and stays inside the sentence that
 cites it.</li>
-<li><strong>Redesignation is distinguished from change.</strong> Inserting one subdivision
-renumbers every later one. Where a provision's text is unchanged but its number is not, it is
-reported as <em>redesignated</em>. Two routes qualify, both requiring exact text: text that
-occurs once in each version, or a provision whose ancestor has already been shown to have moved.
-Never similarity — so a provision that was both renumbered <em>and</em> amended is reported as a
-removal and an addition, which overstates the change.</li>
+<li><strong>Identical text under a new designator is reported as such.</strong> Inserting one
+subdivision renumbers every later one, and treating that as deletion-plus-insertion overstates
+the change. The test is exact text occurring once in each version — nothing weaker. A provision
+that was both renumbered <em>and</em> amended is therefore reported as a removal and an addition,
+and so is boilerplate that recurs verbatim, because neither can be matched on text alone.</li>
+<li><strong>A parent's move says nothing about its children.</strong> An earlier version of this
+differ inferred that a child whose text was identical had moved with its redesignated parent.
+That inference was withdrawn after external review: it is not observable in the documents, and it
+made this project's most-quoted comparison read more cleanly, which is the wrong reason to keep
+a rule.</li>
 <li><strong>Definitions are matched by the term they define.</strong> In a list where every
-sibling opens with a quoted term, the term is the identity, so re-alphabetising a definitions
-subsection does not report each definition as having been rewritten into the next one.</li>
-<li><strong>Ambiguity is shown, not resolved.</strong> Where a designator is reused and no
-secondary key separates the provisions, they are listed as <em>not aligned</em> rather than
-compared. Tennessee's blank <code>( )</code> placeholders are the live case.</li>
+sibling opens with a quoted term and the terms are unique on both sides, the term is the
+identity, so re-alphabetising a definitions subsection does not report each definition as having
+been rewritten into the next one. Where that condition does not hold, the rule does not fire.</li>
+<li><strong>Ambiguity is shown, not resolved.</strong> Where the same designator repeats on both
+sides, the provisions are listed as <em>identity not established</em> rather than compared —
+pairing them would require a positional guess. The same applies to a blank
+<code>( )</code> designator, which Tennessee uses for subdivisions the code reviser will number
+later: it can be matched on exact text and on nothing else. Such provisions are kept distinct
+from one another by position, which is a reading aid and not a claim about identity.</li>
 <li><strong>Fallback is labelled.</strong> If structure cannot be identified reliably, the
 comparison falls back to block-level text matching and says so on the record. A fallback
 comparison makes no claim that any block is the same provision amended.</li>

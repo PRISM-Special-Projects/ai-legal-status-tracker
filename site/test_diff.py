@@ -125,6 +125,107 @@ class Hierarchy(unittest.TestCase):
                                      ("1.2045", "2", "(1)"), ("1.2045", "2", "(2)")])
 
 
+class Adversarial(unittest.TestCase):
+    """Fixtures proposed by an external reviewer, not by the parser's author."""
+
+    def test_usc_citations_do_not_become_provisions(self):
+        t = ('SECTION 1. Findings.\n'
+             '(a) Copyright vests under 17 U.S.C. 101 in a human author.\n'
+             '(b) "AI" has the meaning used in 15 U.S.C. 9401(3).\n'
+             '(c) Effective on passage.\n')
+        self.assertEqual(paths(t), [("1",), ("1", "(a)"), ("1", "(b)"), ("1", "(c)")])
+        self.assertIn("15 U.S.C. 9401(3)", bodies(t)[("1", "(b)")])
+
+    def test_section_word_in_prose_is_not_a_marker(self):
+        t = ('SECTION 1. Construction.\n'
+             '(a) Nothing in this SECTION 1. shall be construed as a grant of status.\n'
+             '(b) A machine is not a person.\n(c) Effective on passage.\n')
+        p = L.parse(t)
+        self.assertEqual(len([n for n in p.nodes if n.level == 0]), 1,
+                         "only one section should be recognised")
+
+    def test_decimal_number_opening_a_sentence(self):
+        t = ('SECTION 1. Fees.\n'
+             '(a) The fee is set at 2.50 per filing.\n'
+             '(b) 3.75 is the reduced fee. The department shall publish it.\n'
+             '(c) Effective on passage.\n')
+        got = paths(t)
+        self.assertEqual(got, [("1",), ("1", "(a)"), ("1", "(b)"), ("1", "(c)")])
+        self.assertIn("3.75", bodies(t)[("1", "(b)")])
+
+    def test_duplicate_identical_provision_under_same_parent(self):
+        """Reviewer fixture A: both nodes must survive; neither may overwrite."""
+        t = ('SECTION 1. Definitions.\n(1) First.\n(A) Alpha.\n(A) Duplicate alpha.\n')
+        nodes = L.parse(t).nodes
+        alphas = [n for n in nodes if n.path[-1] == "(A)"]
+        self.assertEqual(len(alphas), 2)
+        self.assertEqual([n.ordinal for n in alphas], [1, 2])
+        self.assertEqual(alphas[0].path, alphas[1].path)          # same identity...
+        self.assertNotEqual(alphas[0].text, alphas[1].text)       # ...different content
+
+    def test_duplicate_paths_on_both_sides_are_not_aligned(self):
+        a = 'SECTION 1. Definitions.\n(1) First.\n(A) Alpha one.\n(A) Alpha two.\n'
+        z = 'SECTION 1. Definitions.\n(1) First.\n(A) Alpha three.\n(A) Alpha four.\n'
+        r = L.diff_texts(a, z)
+        self.assertEqual(r.modified, 0, "duplicates must not be paired positionally")
+        self.assertEqual(r.ambiguous, 4)
+
+    def test_roman_numeral_ambiguity_is_reported(self):
+        t = ('SECTION 1. Definitions.\n(a) A term means:\n(i) one thing;\n(ii) another.\n')
+        p = L.parse(t)
+        self.assertTrue(any("roman numeral" in w for w in p.warnings),
+                        "the letter/roman collision must be surfaced")
+
+
+class Properties(unittest.TestCase):
+    """Mutation properties: what must NOT change when something else does."""
+
+    BASE = ('SECTION 1. Definitions.\n(a) First provision here.\n'
+            '(b) Second provision here.\n(c) Third provision here.\n')
+
+    def _kinds(self, a, z):
+        return {e.label: e.kind for e in L.diff_texts(a, z).entries}
+
+    def test_editing_one_provision_leaves_the_others_unchanged(self):
+        z = self.BASE.replace("(b) Second provision here.", "(b) Second provision, amended.")
+        k = self._kinds(self.BASE, z)
+        self.assertEqual(k["SECTION 1. (b)"], "modified")
+        self.assertEqual(k["SECTION 1. (a)"], "unchanged")
+        self.assertEqual(k["SECTION 1. (c)"], "unchanged")
+
+    def test_appending_a_provision_leaves_the_others_unchanged(self):
+        z = self.BASE + "(d) Fourth provision here.\n"
+        k = self._kinds(self.BASE, z)
+        self.assertEqual(k["SECTION 1. (d)"], "added")
+        for lab in ("SECTION 1. (a)", "SECTION 1. (b)", "SECTION 1. (c)"):
+            self.assertEqual(k[lab], "unchanged")
+
+    def test_removing_a_provision_does_not_alter_another_body(self):
+        z = self.BASE.replace("(b) Second provision here.\n", "")
+        r = L.diff_texts(self.BASE, z)
+        for e in r.entries:
+            if e.kind == "unchanged":
+                self.assertEqual(e.old, e.new)
+        self.assertEqual(r.removed, 1)
+        self.assertEqual(r.modified, 0)
+
+    def test_duplicating_a_label_never_reduces_the_node_count(self):
+        """The failure the old differ had: dict() collapse loses provisions."""
+        base = len(L.parse(self.BASE).nodes)
+        dup = L.parse(self.BASE + "(c) A second provision labelled c.\n")
+        self.assertEqual(len(dup.nodes), base + 1)
+
+    def test_punctuation_change_does_not_alter_structural_identity(self):
+        z = self.BASE.replace("First provision here.", "First provision here;")
+        self.assertEqual(paths(self.BASE), paths(z))
+
+    def test_renumbering_leaves_unrelated_provisions_alone(self):
+        z = self.BASE.replace("(c) Third", "(d) Third")
+        k = self._kinds(self.BASE, z)
+        self.assertEqual(k["SECTION 1. (a)"], "unchanged")
+        self.assertEqual(k["SECTION 1. (b)"], "unchanged")
+
+
 class Alignment(unittest.TestCase):
 
     def test_same_path_changed_body_is_one_modification(self):
@@ -165,12 +266,16 @@ class Alignment(unittest.TestCase):
         r = L.diff_texts(a, z)
         self.assertGreater(r.ambiguous, 0)
         self.assertEqual(r.modified, 0)
-        self.assertTrue(any("could not be uniquely aligned" in w for w in r.parser_warnings))
+        self.assertTrue(any("identity was not established" in w for w in r.parser_warnings))
         self.assertTrue(any("Repeated structural labels" in e.note
                             for e in r.entries if e.kind == "ambiguous"))
 
-    def test_blank_designators_separate_by_defined_term(self):
-        """Tennessee's "( )" placeholders are identified by the term they define."""
+    def test_blank_designators_are_not_matched_by_defined_term(self):
+        """A drafter who leaves the designator blank has not told us the identity.
+
+        Matching these on the term they define would be reading legal structure out
+        of a semantic cue. Where both versions carry blank designators, the correct
+        answer is that identity is not established."""
         a = ('SECTION 2. Amended.\n( ) "Human being" means a member of the species.\n'
              '( ) "Life" means the condition that distinguishes animals.\n'
              '( ) "Natural person" means an individual.\n')
@@ -178,24 +283,46 @@ class Alignment(unittest.TestCase):
              '( ) "Life" means something narrower.\n'
              '( ) "Natural person" means an individual.\n')
         r = L.diff_texts(a, z)
-        self.assertEqual(r.ambiguous, 0)
-        self.assertEqual((r.modified, r.added, r.removed), (1, 0, 0))
+        self.assertGreater(r.ambiguous, 0, "blank designators must not be silently aligned")
+        self.assertEqual(r.modified, 0)
+        # Every provision must still survive parsing on both sides.
+        self.assertEqual(len(L.parse(a).nodes), 4)
+        self.assertEqual(len(L.parse(z).nodes), 4)
 
-    def test_child_inherits_an_established_redesignation(self):
-        """Boilerplate recurs, so it cannot be paired on text alone — but its parent can."""
+    def test_blank_designators_are_distinguishable_in_display(self):
+        """Retained without semantics: position, not the defined term."""
+        t = ('SECTION 2. Amended.\n( ) "Human being" means one thing.\n'
+             '( ) "Life" means another.\n( ) "Natural person" means a third.\n')
+        nodes = [n for n in L.parse(t).nodes if n.confidence == "blank_label"]
+        self.assertEqual(len(nodes), 3)
+        self.assertEqual([n.ordinal for n in nodes], [1, 2, 3])
+        for n in nodes:
+            self.assertNotIn("Human being", "".join(n.path))
+            self.assertNotIn("Life", "".join(n.path))
+
+    def test_parent_movement_does_not_imply_child_movement(self):
+        """Route 2 was removed: an ancestor's move is not evidence about its children.
+
+        The identical sentence under (19)(B) and (20)(B) is reported as a removal and
+        an addition. That overstates the change, and is preferred to inferring a
+        correspondence the documents do not state."""
+        # The (B) sentence recurs verbatim under SECTION 2, exactly as in the real
+        # bill, so exact-text pairing cannot fire and only an inherited inference
+        # could pair it. There must be no such inference.
         a = ('SECTION 1. Amended.\n(19) "Person":\n(A) Includes a corporation; and\n'
              '(B) Does not include artificial intelligence;\n'
-             'SECTION 2. Added.\n( ) "Life":\n(B) Does not include artificial intelligence;\n')
+             'SECTION 2. Added.\n(1) "Life":\n'
+             '(B) Does not include artificial intelligence;\n')
         z = ('SECTION 1. Amended.\n(20) "Person":\n(A) Includes a corporation; and\n'
+             '(B) Does not include artificial intelligence;\n'
+             'SECTION 2. Added.\n(1) "Life":\n'
              '(B) Does not include artificial intelligence;\n')
         r = L.diff_texts(a, z)
-        kinds = {e.label: e.kind for e in r.entries}
-        self.assertEqual(kinds.get("SECTION 1. (19) (B) → SECTION 1. (20) (B)"), "renumbered")
-        self.assertEqual(r.added, 0)
-        # The identical sentence under SECTION 2 has no renumbered ancestor, so it is
-        # a removal and must not be swept into the pairing.
-        self.assertTrue(any(e.kind == "removed" and e.label.startswith("SECTION 2.")
-                            for e in r.entries))
+        kinds = [e.kind for e in r.entries]
+        self.assertNotIn("renumbered", [e.kind for e in r.entries
+                                        if "(B)" in e.label and "→" not in e.label])
+        self.assertEqual(r.removed, 1, "the (B) clause is a removal, not an inheritance")
+        self.assertEqual(r.added, 1)
 
     def test_modified_is_not_a_removal_plus_an_addition(self):
         a = 'SECTION 1. A.\n(a) may not be granted;\n(b) unchanged;\n(c) unchanged too;\n'
@@ -316,7 +443,7 @@ class Corpus(unittest.TestCase):
 # and they are not independently verified provision counts. Update deliberately, in a commit
 # that says why.
 MO = {"removed": 8, "added": 4, "modified": 11, "renumbered": 0, "unchanged": 7, "ambiguous": 0}
-TN = {"removed": 8, "added": 0, "modified": 1, "renumbered": 4, "unchanged": 0, "ambiguous": 0}
+TN = {"removed": 9, "added": 1, "modified": 1, "renumbered": 3, "unchanged": 0, "ambiguous": 0}
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

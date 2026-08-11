@@ -12,9 +12,13 @@ carry most of the weight:
 
 1. **Identity is the full path, never the visible marker.** `(1)` under
    subsection 2 is a different provision from `(1)` under subsection 3.
-2. **Reused labels are not silently collapsed.** A path that occurs more than
-   once keeps every node. If a secondary key cannot separate them, the
-   provisions are reported as ambiguous rather than compared.
+2. **Reused labels are not silently collapsed, and never guessed at.** A path
+   that occurs more than once keeps every node, and where the same path repeats
+   on both sides the provisions are reported ambiguous rather than paired.
+   Pairing them would require a positional or semantic guess, and neither is
+   evidence. The same applies to a blank designator: a drafter who left the
+   number to the code reviser has not told us the identity, so a blank can be
+   paired on exact text and on nothing else.
 
 Nesting is inferred from the local sequence of markers, not from a fixed
 precedence: Tennessee runs `SECTION 1.` -> `(19)` -> `(A)`, Missouri runs
@@ -102,10 +106,10 @@ def _mask_citations(text: str) -> str:
 # ---------------------------------------------------------------- markers
 
 MARKER_RE = re.compile(
-    # A section marker at the start of a line: "SECTION 1.", "Sec. 3.", "Section 4."
+    # A section marker, only at the start of a line. Mid-line it is prose or a
+    # citation: Idaho's title recites "A NEW SECTION 5-346, IDAHO CODE", and a bill
+    # may write "nothing in this SECTION 1. shall be construed".
     r"(?:(?m:^)[ \t]*)(?P<sec>(?:SECTION|SEC\.|Section|Sec\.)[ \t]+[0-9A-Za-z][0-9A-Za-z\-\.]*\.)"
-    # An all-caps SECTION mid-line is unambiguous: citations in this corpus use "Section".
-    r"|(?P<secinline>\bSECTION[ \t]+[0-9A-Z][0-9A-Za-z\-\.]*\.)"
     # A statute-style section number opening a line: "1.2045.", "39-17-2002."
     r"|(?:(?m:^)[ \t]*)(?P<statsec>\d+[\-\.][\d\-\.]*\d\.)"
     # A numbered subsection: "2. For purposes of this section..."
@@ -120,7 +124,7 @@ MARKER_RE = re.compile(
 # citation or a sentence, not structure.
 _OPENERS = set(".;:)—")
 
-_TYPE = {"sec": "sec", "secinline": "sec", "statsec": "sec", "sub": "sub"}
+_TYPE = {"sec": "sec", "statsec": "sec", "sub": "sub"}
 
 
 def _marker_type(kind: str, raw: str) -> str:
@@ -135,7 +139,7 @@ def _marker_type(kind: str, raw: str) -> str:
 
 
 def _context_ok(masked: str, start: int, kind: str) -> bool:
-    if kind in ("sec", "secinline", "statsec"):
+    if kind in ("sec", "statsec"):
         return True
     i = start - 1
     while i >= 0 and masked[i] in " \t":
@@ -168,6 +172,7 @@ class LegislativeNode:
     start: int
     end: int
     confidence: str      # "labelled" | "blank_label"
+    ordinal: int = 1     # position among provisions sharing this path, 1-based
 
 
 @dataclass
@@ -195,22 +200,12 @@ def parse(text: str) -> ParseResult:
 
     nodes, stack = [], []
     first_depth: dict = {}
+    seen_paths: dict = {}
     for i, (s, e, kind, raw) in enumerate(marks):
         stop = marks[i + 1][0] if i + 1 < len(marks) else len(text)
         t = _marker_type(kind, raw)
         body_raw = _norm(text[e:stop])
-        key = _label_key(raw)
-        if t == "blank":
-            # Tennessee leaves the designator blank ("( ) \"Human being\" means...")
-            # for subdivisions the code reviser will number later. The drafting
-            # convention identifies these by the term they define, so use it —
-            # otherwise every one of them collapses onto the same path and the
-            # subtrees beneath them become indistinguishable.
-            head = body_raw.lstrip()
-            term = _QUOTED.match(head) if head.startswith('"') else None
-            if term:
-                key = f'("{term.group(1).strip()}")'
-        entry = (t, key, _label_text(raw))
+        entry = (t, _label_key(raw), _label_text(raw))
         if t == "sec":
             stack = [entry]
         else:
@@ -219,6 +214,15 @@ def parse(text: str) -> ParseResult:
                 stack = stack[:types.index(t)] + [entry]
             else:                                # a new depth beneath the current one
                 stack = stack + [entry]
+        # "(i)" is both the ninth letter and roman one. Nothing in the text settles
+        # which, and the stack will treat it as a letter sibling — which is wrong if
+        # the drafter meant a roman child. Say so rather than hide it.
+        if t == "alpha" and raw.strip("()").strip() in ("i", "v", "x"):
+            w = (f"designator '{_label_text(raw)}' is ambiguous between a letter and a "
+                 f"roman numeral; its nesting may be wrong")
+            if w not in warnings:
+                warnings.append(w)
+
         depth = len(stack) - 1
         if t != "sec" and first_depth.setdefault(t, depth) != depth:
             w = f"designator type '{t}' is used at more than one depth in this text"
@@ -227,15 +231,21 @@ def parse(text: str) -> ParseResult:
 
         if not body_raw:
             continue
+        path = tuple(x[1] for x in stack)
+        seen_paths[path] = seen_paths.get(path, 0) + 1
         nodes.append(LegislativeNode(
-            path=tuple(x[1] for x in stack),
+            path=path,
             labels=tuple(x[2] for x in stack),
             level=len(stack) - 1,
             marker=_label_text(raw),
             text=_norm(body_raw),
             raw_text=body_raw,
             start=s, end=stop,
-            confidence="blank_label" if t == "blank" else "labelled"))
+            confidence="blank_label" if t == "blank" else "labelled",
+            # Position among provisions sharing this path. Used to keep them
+            # distinguishable for a reader — never to align them across versions,
+            # which would be positional guessing.
+            ordinal=seen_paths[path]))
 
     if not nodes:
         return ParseResult([], False, ["markers found but no provision bodies"])
@@ -285,19 +295,6 @@ class DiffResult:
 _QUOTED = re.compile(r'"([^"]{2,60})"')
 
 
-def _secondary(node: LegislativeNode) -> str:
-    """A key for separating provisions that share a path.
-
-    Definitional provisions are identified by the term they define, which is the
-    drafting convention Tennessee relies on when it leaves the designator blank
-    ("( ) \"Human being\" means..."). Failing that, the opening words.
-    """
-    m = _QUOTED.search(node.text)
-    if m:
-        return "term:" + m.group(1).strip().lower()
-    return "head:" + " ".join(node.text.split()[:6]).lower()
-
-
 def _group(nodes):
     out = {}
     for n in nodes:
@@ -306,7 +303,8 @@ def _group(nodes):
 
 
 def _lab(n):
-    return " ".join(n.labels)
+    lab = " ".join(n.labels)
+    return f"{lab} ·{n.ordinal}" if n.ordinal > 1 else lab
 
 
 def diff_nodes(A, Z, warnings=None) -> DiffResult:
@@ -320,7 +318,10 @@ def diff_nodes(A, Z, warnings=None) -> DiffResult:
     later one — which path identity alone would report as a removal plus an
     addition. Uniqueness on both sides is required, so boilerplate that recurs
     («Does not include artificial intelligence…» appears three times in
-    Tennessee SB 837 as introduced) is never paired this way.
+    Tennessee SB 837 as introduced) is never paired this way, and is reported as a
+    removal and an addition instead. An earlier version inferred those pairings
+    from an ancestor's move; that inference was withdrawn after external review,
+    because a parent's redesignation is not evidence about its children.
 
     **Structural path.** Everything left is matched on the full path, parent
     context included, never on the visible marker. Where a path is reused, a
@@ -359,6 +360,20 @@ def diff_nodes(A, Z, warnings=None) -> DiffResult:
     GA, GZ = _group(A2), _group(Z2)
     for path in list(GA) + [p for p in GZ if p not in GA]:
         a_list, z_list = GA.get(path, []), GZ.get(path, [])
+        if any(n.confidence == "blank_label" for n in a_list + z_list):
+            # A blank designator carries no identity — the drafter left the number to
+            # the code reviser — so the path cannot pair it, and pairing the residue
+            # would be a positional guess. Exact text already had its chance above.
+            if a_list and z_list:
+                ambiguous += a_list + z_list
+                r.parser_warnings.append(
+                    f"designator {'/'.join(path)} is blank in both versions; identity was "
+                    f"not established")
+            else:
+                removed.extend(a_list)
+                added.extend(z_list)
+            continue
+
         if len(a_list) <= 1 and len(z_list) <= 1:
             if a_list and z_list:
                 a, z = a_list[0], z_list[0]
@@ -376,51 +391,13 @@ def diff_nodes(A, Z, warnings=None) -> DiffResult:
             added.extend(z_list)
             continue
 
-        ka, kz = [_secondary(n) for n in a_list], [_secondary(n) for n in z_list]
-        if len(set(ka)) == len(ka) and len(set(kz)) == len(kz):
-            ma, mz = dict(zip(ka, a_list)), dict(zip(kz, z_list))
-            for k in list(ma) + [k for k in mz if k not in ma]:
-                a, z = ma.get(k), mz.get(k)
-                if a is not None and z is not None:
-                    matches.append((a, z, "unchanged" if a.text == z.text else "modified"))
-                elif a is not None:
-                    removed.append(a)
-                else:
-                    added.append(z)
-        else:
-            ambiguous += a_list + z_list
-            r.parser_warnings.append(
-                f"designator {'/'.join(path)} occurs {len(a_list)}x in the earlier version and "
-                f"{len(z_list)}x in the later one and could not be uniquely aligned")
-
-    # Inherit an established redesignation. Where an ancestor has already been shown
-    # to have moved — (19) became (20) — a child whose text is identical moved with
-    # it. This follows from a pairing already made rather than from resemblance, so
-    # it does not soften the rule against guessing: exact text is still required, and
-    # the destination must be unique. It matters because boilerplate that recurs
-    # verbatim ("Does not include artificial intelligence…" appears three times in
-    # Tennessee SB 837 as introduced, and once in the enacted text)
-    # can never be paired on text alone.
-    remap = {a.path: z.path for a, z, k in matches if a.path != z.path}
-    if remap and removed and added:
-        dest = {}
-        for z in added:
-            dest.setdefault((z.path, z.text), []).append(z)
-        keep = []
-        for a in removed:
-            hit = None
-            for old, new in remap.items():
-                if len(a.path) > len(old) and a.path[:len(old)] == old:
-                    cand = dest.get((new + a.path[len(old):], a.text))
-                    if cand and len(cand) == 1 and cand[0] in added:
-                        hit = cand[0]
-                        break
-            if hit is None:
-                keep.append(a)
-            else:
-                matches.append((a, hit, "renumbered"))
-                added.remove(hit)
-        removed = keep
+        # A designator that repeats on both sides cannot be aligned without a
+        # positional or semantic guess, and neither is evidence. Abstain: every
+        # provision is retained and reported, none is paired.
+        ambiguous += a_list + z_list
+        r.parser_warnings.append(
+            f"designator {'/'.join(path)} occurs {len(a_list)}x in the earlier version and "
+            f"{len(z_list)}x in the later one; identity was not established")
 
     # Reading order: follow the earlier version, and place a provision that exists
     # only in the later version after whatever preceded it there.
