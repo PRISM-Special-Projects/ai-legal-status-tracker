@@ -177,6 +177,70 @@ class Adversarial(unittest.TestCase):
                         "the letter/roman collision must be surfaced")
 
 
+class OutOfCorpus(unittest.TestCase):
+    """Drafting this parser had never seen. Found real bugs; keep it pointed here.
+
+    The fixture is South Carolina H. 3796 (2025), a bill the registry does not
+    contain. It is a reconstruction from the Statehouse HTML, not a hash-verified
+    registry text — see the header in the fixture file. Its value is the shape:
+    SECTION -> Section 1-1-1910. -> (A) -> (1) -> (a), with statutory citations
+    closing lines, which is unlike anything in Missouri or Tennessee.
+    """
+
+    FIX = pathlib.Path(__file__).resolve().parent / "fixtures" / "sc-h3796-2025--introduced.txt"
+
+    def setUp(self):
+        self.text = L.strip_preamble(self.FIX.read_text())
+        self.nodes = L.parse(self.text).nodes
+
+    def test_a_citation_ending_a_line_does_not_eat_the_next_designator(self):
+        """`Section 2-7-76.` closing a line swallowed the `(7)` that opened the next.
+
+        That deleted a provision outright: "(7) Real property" disappeared into (6)'s
+        body. Conservation could not catch it, because both sides of the comparison
+        derive from the same lossy parse."""
+        bodies = {"/".join(n.path): n.text for n in self.nodes}
+        self.assertTrue(any('"Real property"' in b and b.startswith('"Real property"')
+                            for b in bodies.values()),
+                        'the "Real property" definition must be its own provision')
+        self.assertTrue(any('"State" means' in b and b.startswith('"State"')
+                            for b in bodies.values()))
+
+    def test_masking_never_consumes_something_that_opens_a_line(self):
+        """The invariant behind the fix, asserted directly on the raw text."""
+        import re as _re
+        for text in [self.text] + [ (TEXTS / f.name).read_text()
+                                    for f in sorted(TEXTS.glob("*.txt")) ]:
+            masked = L._mask_citations(L._unify(text))
+            for m in _re.finditer(r"(?m)^[ \t]*(\([ \t]*[\w]{0,4}[ \t]*\)"
+                                  r"|(?:SECTION|SEC\.|Section|Sec\.)[ \t]+[0-9A-Za-z][\w\-\.]*\.)",
+                                  L._unify(text)):
+                self.assertNotIn(L.FILL, masked[m.start(1):m.end(1)],
+                                 f"citation masking consumed a line-opening designator: "
+                                 f"{m.group(1)!r}")
+
+    def test_the_statutory_section_heading_is_structure_not_a_citation(self):
+        self.assertTrue(any("1-1-1910" in "/".join(n.path) for n in self.nodes),
+                        "Section 1-1-1910. opens a line and is a section heading")
+
+    def test_the_two_subsection_levels_do_not_collapse(self):
+        """(A) definitions and (B) prohibitions each carry their own (1)...(n)."""
+        paths = ["/".join(n.path) for n in self.nodes]
+        self.assertTrue(any(p.endswith("/(A)") for p in paths), "(A) must be a provision")
+        self.assertTrue(any(p.endswith("/(B)") for p in paths), "(B) must be a provision")
+        # The eleven prohibited categories must not be confused with the definitions.
+        self.assertEqual(len(set(paths)), len(paths),
+                         "no two provisions may share a path in this bill")
+
+    def test_nested_lettered_items_attach_to_their_own_definition(self):
+        paths = ["/".join(n.path) for n in self.nodes]
+        gov = [p for p in paths if p.endswith("/(2)/(a)")]
+        pers = [p for p in paths if p.endswith("/(5)/(a)")]
+        self.assertTrue(gov and pers,
+                        "(a) under (2) and (a) under (5) are different provisions")
+        self.assertNotEqual(gov[0], pers[0])
+
+
 class Properties(unittest.TestCase):
     """Mutation properties: what must NOT change when something else does."""
 
@@ -420,6 +484,30 @@ class Corpus(unittest.TestCase):
                              f"{b['id']}: provisions lost or double-counted")
             self.assertEqual(len(r.entries), r.nodes_total, b["id"])
 
+    def test_every_stored_text_parses_as_recorded(self):
+        """The corpus-wide false-marker check, as an assertion rather than an audit.
+
+        Wisconsin used to produce two phantom provisions from one line —
+        "Any action contrary to sub. (2) (c) is void" — where the cross-reference was
+        read as structure, truncating the real provision and inventing a duplicate.
+        Nothing but a pinned table catches that class across sixteen texts."""
+        missing = set(CORPUS_PARSE) - {f.name for f in TEXTS.glob("*.txt")}
+        self.assertFalse(missing, f"pinned texts no longer present: {missing}")
+        for f in sorted(TEXTS.glob("*.txt")):
+            self.assertIn(f.name, CORPUS_PARSE, f"{f.name} is unpinned — add it deliberately")
+            p = L.parse(L.strip_preamble(f.read_text()))
+            got = [len(p.nodes), len(p.nodes) - len({n.path for n in p.nodes}), len(p.warnings)]
+            self.assertEqual(got, CORPUS_PARSE[f.name],
+                             f"{f.name}: parse changed [nodes, dupes, warnings]")
+
+    def test_no_provision_is_a_bare_fragment(self):
+        """A body of pure punctuation is the signature of a false structural marker."""
+        import re as _re
+        for f in sorted(TEXTS.glob("*.txt")):
+            for n in L.parse(L.strip_preamble(f.read_text())).nodes:
+                self.assertFalse(_re.fullmatch(r"[\s\.;:,\)\(]*", n.text),
+                                 f"{f.name}: provision {'/'.join(n.path)} has no words")
+
     def test_every_corpus_pair_reports_a_mode(self):
         import json
         reg = json.loads((TEXTS.parent / "bills.json").read_text())
@@ -435,6 +523,31 @@ class Corpus(unittest.TestCase):
             checked += 1
         self.assertGreater(checked, 0)
 
+
+# Every stored text's parse, pinned: [nodes, duplicate paths, warnings]. A new false
+# structural marker anywhere in the corpus changes one of these numbers and fails CI.
+# Two entries are non-zero and both are understood: Tennessee SB 837 as introduced has
+# four blank "( )" designators the parser correctly refuses to identify, and SB 1493 as
+# introduced warns about the letter/roman collision and designator depth. Anything else
+# moving means look at the text before touching the number.
+CORPUS_PARSE = {
+  "id-hb720-2022--introduced.txt": [3, 0, 0],
+  "mo-hb1462-2025--introduced.txt": [26, 0, 0],
+  "mo-hb1746-2026--hcs.txt": [22, 0, 0],
+  "mo-hb1769-2026--introduced.txt": [26, 0, 0],
+  "mo-sb1474-2026--introduced.txt": [26, 0, 0],
+  "mo-sb859-2026--introduced.txt": [26, 0, 0],
+  "oh-hb469-2025--as-introduced.txt": [27, 0, 0],
+  "tn-amend-HA1260.txt": [10, 0, 0],
+  "tn-amend-SA0922.txt": [5, 0, 0],
+  "tn-sb1493-2025--enacted-pc1066.txt": [10, 0, 0],
+  "tn-sb1493-2025--introduced.txt": [39, 0, 4],
+  "tn-sb837-2025--enacted-pc781.txt": [5, 0, 0],
+  "tn-sb837-2025--introduced.txt": [13, 4, 1],
+  "ut-hb249-2024--enrolled.txt": [28, 0, 0],
+  "wi-ab959-2026--as-introduced.txt": [15, 0, 0],
+  "wi-sb932-2026--as-introduced.txt": [15, 0, 0],
+}
 
 # Recorded output, not a specification — these are what the parser reports today, so that a
 # change in the parser has to be noticed and explained rather than silently absorbed. They are

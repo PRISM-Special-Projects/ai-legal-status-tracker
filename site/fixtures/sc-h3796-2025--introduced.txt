@@ -1,0 +1,46 @@
+# Test fixture, NOT a registry text.
+#
+# Drafting shape of South Carolina H. 3796 (2025), a bill this registry does not
+# contain, reconstructed from the Statehouse HTML page rather than transcribed from
+# a source PDF. It is therefore NOT hash-verified, NOT in source_manifest.json, and
+# must never be cited as this project's record of that bill.
+#
+# It exists because the differ had only ever been run against Missouri and
+# Tennessee drafting, and this shape - SECTION -> Section 1-1-1910. -> (A) -> (1)
+# -> (a), with citations closing lines - broke it. See test_diff.py.
+#
+Be it enacted by the General Assembly of the State of South Carolina:
+
+SECTION 1. Chapter 1, Title 1 of the S.C. Code is amended by adding:
+
+Article 29 - Legal Personhood
+
+Section 1-1-1910. (A) As used in this article:
+(1) "Body of water" means any natural or man-made accumulation of water, regardless of whether the accumulation of water is static or subject to a force that causes a hydrological current.
+(2) "Governmental entity" means:
+(a) a court;
+(b) the General Assembly;
+(c) the governing body of a political subdivision; or
+(d) another entity of the State or a political subdivision, if the entity has adjudicatory or rulemaking authority.
+(3) "Human being" means a member of the species classified as Homo sapiens;
+(4) "Land" means the solid terrestrial surface or subsurface of the earth.
+(5) "Legal personhood" means:
+(a) the legal rights and obligations of an individual under the laws of this State; or
+(b) the legal rights and obligations of a person other than an individual under the laws of this State.
+(6) "Political subdivision" means the same as that term is defined in Section 2-7-76.
+(7) "Real property" means any building, fixture, improvement, appurtenance, structure, or other development that is affixed permanently to land.
+(8) "State" means the same as that term is defined in Section 1-3-490.
+(B) Notwithstanding any other provision of law, a governmental entity may not grant legal personhood to, nor recognize legal personhood in:
+(1) artificial intelligence;
+(2) an inanimate object;
+(3) a body of water;
+(4) land;
+(5) real property;
+(6) atmospheric gases;
+(7) an astronomical object;
+(8) weather;
+(9) a plant;
+(10) a nonhuman animal; or
+(11) any other member of a taxonomic domain that is not a human being.
+
+SECTION 2. This act takes effect upon approval by the Governor.

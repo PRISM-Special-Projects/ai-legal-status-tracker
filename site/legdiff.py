@@ -75,28 +75,45 @@ FILL = "\x00"
 
 CITE_RE = re.compile(
     r"""
-      §+\s*[\d][\d\-\.:]*(?:\s*\([\w ]{1,4}\))*          # § 1-01-49(8)
+      §+[ \t]*[\d][\d\-\.:]*(?:[ \t]*\([\w ]{1,4}\))*     # § 1-01-49(8)
     | \b[A-Z][a-z]*\.\s*(?:[A-Z][a-z]*\.\s*)*                 # N.D. Cent. Code § ...
         (?:Code|Stat|Stats|Laws)\.?\s*(?:Ann\.)?
-        (?:\s*§+\s*[\d][\d\-\.:]*)?(?:\s*\([\w ]{1,4}\))*
+        (?:[ \t]*§+[ \t]*[\d][\d\-\.:]*)?(?:[ \t]*\([\w ]{1,4}\))*
     | \b(?:[Ss]ection|[Ss]ections|[Ss]ubsection|[Ss]ubsections
         |[Ss]ubdivision|[Ss]ubdivisions|[Cc]hapter|[Cc]hapters
         |[Tt]itle|[Pp]aragraph|[Aa]rticle|[Cc]lause)
-        \s+[\d][\d\-\.]*(?:\s*\([\w ]{1,4}\))*                # Section 1-3-105(a)
-    | \b\d+[\-\.]\d[\d\-\.]*\s*\([\w]{1,3}\)                  # 39-17-2002(a)
+        [ \t]+[\d][\d\-\.]*(?:[ \t]*\([\w ]{1,4}\))*           # Section 1-3-105(a)
+    | \b\d+[\-\.]\d[\d\-\.]*[ \t]*\([\w]{1,3}\)               # 39-17-2002(a)
     | \b(?:[Ss]ection|[Ss]ections|[Ss]ubsection|[Ss]ubsections
         |[Ss]ubdivision|[Ss]ubdivisions|[Pp]aragraph|[Ss]ubparagraph
         |[Cc]lause|[Ii]tem)s?
-        \s*\(\s*\w{1,4}\s*\)(?:\s*\(\s*\w{1,4}\s*\))*         # subdivision (b)(1)
+        [ \t]*\([ \t]*\w{1,4}[ \t]*\)(?:[ \t]*\([ \t]*\w{1,4}[ \t]*\))*   # subdivision (b)(1)
+    | \b(?:ss?|subs?|pars?|subds?|subchs?|chs?|arts?)\.[ \t]*        # Wisconsin style:
+        (?:\d[\d\-\.]*)?(?:[ \t]*\([ \t]*\w{1,4}[ \t]*\))*            # sub. (2) (c), s. 180.0103 (8)
     | \b(?:January|February|March|April|May|June|July|August|September
         |October|November|December)\s+\d{1,2}\b               # January 1. -> not a subsection
     """,
     re.X)
 
 
+# Whatever opens a line is structure and must survive masking. South Carolina
+# writes "Section 1-1-1910." as a section heading, which the citation pattern for
+# "Section 1-3-105(a)" matches exactly; and a citation closing one line used to
+# swallow the designator opening the next, deleting that provision outright.
+PROTECTED_RE = re.compile(
+    r"(?m)^[ \t]*("
+    r"(?:SECTION|SEC\.|Section|Sec\.)[ \t]+[0-9A-Za-z][0-9A-Za-z\-\.]*\."
+    r"|\([ \t]*[\w]{0,4}[ \t]*\)"
+    r"|\d+[\-\.][\d\-\.]*\d\."
+    r")")
+
+
 def _mask_citations(text: str) -> str:
+    protected = [(m.start(1), m.end(1)) for m in PROTECTED_RE.finditer(text)]
     out = list(text)
     for m in CITE_RE.finditer(text):
+        if any(m.start() < pe and ps < m.end() for ps, pe in protected):
+            continue                     # overlaps something that opens a line
         for i in range(m.start(), m.end()):
             if out[i] != "\n":          # keep line structure intact
                 out[i] = FILL
@@ -122,7 +139,7 @@ MARKER_RE = re.compile(
 # A designator only opens a provision at the start of a line or after the close
 # of the previous one. `(a)` following an alphanumeric token is part of a
 # citation or a sentence, not structure.
-_OPENERS = set(".;:)—")
+_OPENERS = set(".;:)—") | {FILL}   # FILL: a masked citation may precede a designator
 
 _TYPE = {"sec": "sec", "statsec": "sec", "sub": "sub"}
 
