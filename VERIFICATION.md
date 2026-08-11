@@ -1,164 +1,113 @@
-# Verification pass — 2026-08-10
+# Verification and audit history
 
-Reading each bill against its primary source. `seeded_unverified` → `verified_primary`.
+Last substantive audit: **2026-08-11**.
 
-## Result: 23 of 23 records verified; operative text read in full for 16
+This document records what was verified, material corrections made during the project, and known evidentiary limitations. Current per-record state lives in `registry/bills.json`; this file is an audit narrative, not a second registry.
 
-Completed 2026-08-10. **Corrected 2026-08-10 after external review**, which found that the
-earlier headline — "every record read against its own bill text or enacted act" — was
-contradicted by this document's own caveats. It was.
+## Current result
 
-What is actually true, now recorded per record under `verification`:
-
-| Dimension | Result |
+| Dimension | Current state |
 |---|---|
-| Status established from a primary or citable record | **23 of 23** |
-| **Operative text read in full** | **16 of 23** |
-| Operative text read in part | 1 — MO HB 1746 (consolidated substitute read, its own introduced text not) |
-| Operative text **not** read | 6 — ND HB 1361, OK HB 3546, SC HB 3796, WA HB 2029, CA AB 2023, MO SB 1012, each verified from an official status page or summary, each saying so |
-| Sponsors established | 21 of 23 |
-| `codified_at` verified against the **code** | 5 of 7 enacted (Idaho and North Dakota still bill-sourced) |
-| Validator | 0 errors, 0 warnings |
+| Records | **29 across 16 states** |
+| Status established from a primary/citable record | **29 of 29** |
+| Status basis: explicit legislative action | 23 |
+| Status basis: sourced session-rule derivation | 6 |
+| Status basis: secondary source | **0** |
+| Operative text read in full | **29 of 29** |
+| Enacted laws | 9 |
+| `codified_at` checked against published code | 6 |
+| `codified_at` established from bill/session law only | 3 |
+| Terminal statuses carrying evidence | **18 of 18** |
+| Core validator / publication audit | 0 blocking errors on the I-gate clean state |
 
-`verified_primary` describes how a record's **status** was established. It never meant that
-every version of every bill had been read, and the site should not have implied otherwise.
+The corpus-completeness sweep and publication audit are described in `METHODOLOGY.md` and `RELEASE_READINESS.md`.
 
-## Corrections to our own work
+## Important corrections to the registry
 
-**Utah's codified citation was wrong.** This registry published
-`Utah Code §§ 63G-31-101, 63G-31-102`. That is what the **enrolled bill** says it enacts.
-Utah renumbered on codification: the published sections are **§§ 63G-32-101 and 63G-32-102**,
-ch. 32 "Legal Personhood", effective 1 May 2024, enacted by 2024 Utah Laws ch. 451 — verified
-against `le.utah.gov/xcode/Title63G/Chapter32/`.
+### Utah HB 249 — enacted numbering versus current code
 
-The cause generalises. A bill states what it *intends* to enact; the code states the *result*,
-and renumbering on codification is routine. **For an enacted law, `codified_at` must be
-verified against the code, not the bill.** Idaho and North Dakota remain bill-sourced on that
-field and are flagged as such in their records.
+The registry initially used **Utah Code §§ 63G-31-101 and 63G-31-102**, matching the enrolled bill. Utah renumbered the provisions on codification. The published code is **§§ 63G-32-101 and 63G-32-102**, Chapter 32, Legal Personhood.
 
-Found by external red-team review, not by us — exactly the class of error this registry exists
-to catch, and the strongest available argument for adversarial review before publication.
+The correction established a general rule for this project: an enrolled bill is evidence of the enactment-time destination; the published code is the authority for the codified result. Both can be preserved where the distinction matters.
 
-**RETRACTED: our "correction" to Washington HB 2029 was wrong.** We recorded the bill as still
-in committee and said the paper was wrong to call it Failed. The basis was its 12 Jan 2026
-action, "By resolution, reintroduced and retained in present status". That resolution is
-Washington's routine carryover from the first to the second year of a biennium — it keeps a
-bill alive *into* the 2026 session, not beyond it. **Washington's 2026 session adjourned sine
-die on 12 March 2026**, and unpassed bills die at the end of the biennium. HB 2029 never
-advanced past its first referral. The paper's "Failed" was correct.
+### Washington HB 2029 — carryover was misread as continued life
 
-The reasoning error is worth naming: Washington posts **no terminal action**, so the page still
-shows the last committee location. We treated the absence of a "failed" line as evidence of
-life. Absence of a death notice is not evidence of life.
+An earlier project pass treated the 12 January 2026 action “reintroduced and retained in present status” as evidence that HB 2029 remained alive after the 2026 session. That was wrong. It was the ordinary carryover into the second year of the biennium. The 2026 session then adjourned sine die without passage, so the bill failed.
 
-This also corrects a second claim of ours. We said Washington and Wisconsin differ in
-*outcome* because of carryover rules. They do not — both sets of bills died at the end of the
-2025–26 biennium. They differ only in **record-keeping convention**: Wisconsin posts an
-explicit "Failed to pass pursuant to Senate Joint Resolution 1"; Washington posts nothing.
+The failure mode matters: absence of a bill-history entry saying `failed` is not evidence that a bill remains live. Session-end rules must be consulted when a legislature does not post terminal actions for unpassed bills.
 
-Flagged by external red-team review as "suspicion worth checking" — from a reviewer that could
-not reach the primary sources and reasoned from general knowledge of biennial sessions. It was
-right.
+### Tennessee HB 1455 / SB 1493 — effective date
 
-## Corrections to the paper (five, after one retraction)
+The registry initially carried **23 April 2026**, the date of final legislative concurrence, as the effective date. The enacted act took effect when signed by the governor on **22 May 2026**. The registry now distinguishes the legislative-completion date from the date the act became law.
 
-1. **Idaho HB 720's sponsor of record is the House State Affairs Committee**, printed on
-   the face of the bill. Rep. Nichols drove it but is not the sponsor.
-2. **Idaho is the 66th Legislature**, not the 68th as cited.
-3. **Ohio HB 469 is the 136th General Assembly**; the reference-list entry says 135th.
-4. **Sponsorship is more bipartisan than reported.** Both enacted Tennessee acts carry
-   Democratic sponsors — Rep. Justin Pearson on Pub. Ch. 781 (6R–1D), Pearson and Rep.
-   Karen Camper on Pub. Ch. 1066.
-5. **Family C does not uniformly assign liability to humans.** Wisconsin negates AI
-   liability without assigning it to anyone.
+### North Dakota HB 1361 — current code renumbering
 
-## What only a text-level registry could show
+HB 1361 enacted the relevant definition in 2023 as **N.D. Cent. Code § 1-01-49(8)**. The current published code places the same AI exclusion in **§ 1-01-49(17)** after later renumbering. The registry preserves both the enactment-time and current-code locations rather than treating the renumbering as a change made by HB 1361 itself.
 
-**The corporate-veil provision is the fault line.** Missouri's model text lets courts
-pierce the veil where an AI subsidiary was undercapitalised to evade damages. Ohio kept the
-same three triggers and **inverted the default** into parent-company immunity. Missouri's
-own consolidated committee substitute **deleted the provision entirely**. Wisconsin never
-had it. Meanwhile Missouri SB 859 and SB 1474 remain live *with* it — so Missouri
-simultaneously carries vehicles with and without, which a single state row would hide.
+### Missouri SB 1012 — current status
 
-**The "Responsibility" half degrades as the template travels**, while the non-sentience
-half is copied intact:
+The bill passed the Senate but later received a House committee Do Not Pass action and did not pass the House before session end. The current stage is therefore `failed`; `passed_one_chamber` remains a historical event rather than the present status.
 
-| | Corporate veil | Human-liability anchor | AI definition |
-|---|---|---|---|
-| MO HB 1462 / 1769 / SB 859 / SB 1474 | courts **may pierce** | "liability remains with human actors" | homegrown, reaches "rules-based logic" |
-| OH HB 469 | parents **immune except** | clause dropped from § 1357.08 | copied, still overbroad |
-| MO HCS 1746 & 1769 | **deleted** | retained | federal, 15 U.S.C. § 9401(3) |
-| WI AB 959 / SB 932 | absent | **none at all** | OECD / EU AI Act |
+### Oklahoma HB 3546 and South Carolina HB 3796 — stale live statuses
 
-**The softening is attributable to a committee, not a sponsor.** Rep. Amato filed the
-strong text twice (HB 1462, then HB 1769 verbatim). The veil deletion, the NIST AI 100-1
-safe harbour, the negligence absolution and the open-source carve-out all appeared in the
-House Committee Substitute.
+The publication-focused G8 screen found both records still displayed as live after their relevant regular sessions had ended without passage. Both were corrected to `failed` using their last official actions plus sourced session-end rules.
 
-**Diffusion is by commissioned drafts, not a shared file.** Identical text carries
-different drafting numbers each time: Missouri 4626H.01I (Amato), 4600S.01I (Moon),
-6352S.01I (Nicola); Wisconsin LRB-5476/1 and LRB-6000/1. Multiple legislators independently
-commissioned drafts of the same model text — a stronger claim than "copy-and-paste," and
-visible only in drafting metadata.
+## Corrections to the source paper inherited during verification
 
-**Copy-paste is nonetheless provable at the token level.** "Emergent properties" is defined
-and never used in Missouri HB 1462 — and the identical unused definition reappears in Ohio
-HB 469.
+The registry's direct source review identified several differences from the May 2026 source-paper snapshot or reference metadata:
 
-**Two provisions nobody has written about.** Missouri's model text and Ohio both provide
-that labelling a system "aligned," "ethically trained" or "value locked" does not diminish
-liability — AI-safety vocabulary in statute. And Missouri's consolidated substitute ties
-compliance to the **NIST AI Risk Management Framework (NIST AI 100-1)**, the only external
-technical standard referenced anywhere in the registry.
+- Idaho HB 720 is a **House State Affairs Committee** bill on the face of the legislation; Rep. Tammy Nichols was an important proponent but not the sponsor of record.
+- Idaho HB 720 was introduced in the **66th Legislature**, not the 68th.
+- Ohio HB 469 belongs to the **136th General Assembly**.
+- The enacted Tennessee measures include Democratic as well as Republican sponsors; sponsorship is therefore not accurately described as uniformly single-party.
+- Family-C-style responsibility provisions are not textually uniform across jurisdictions; Wisconsin's bills negate AI liability without reproducing every human-liability mechanism found in the Missouri model language.
 
-## Facts recovered that the paper does not contain
+These are descriptive corrections to metadata/textual claims, not evaluations of the legislation.
 
-Statutory citations for all 7 enacted bills · effective dates · full sponsor lists (North
-Dakota 12, Wisconsin 11, Ohio 1, Washington 7) · vote counts (Idaho House 50–17–3, Senate
-30–5; Oklahoma House 94–2; Tennessee committees unanimous) · Missouri sponsors Amato, Moon
-and Nicola, none named in the paper.
+## Material version-history findings
 
-## Status changes since the paper's 12 May 2026 snapshot
+The version review was limited to changes that affect tracker-facing conclusions.
 
-- **CA SB 1159** amended in the Assembly 25 June 2026 — past the Senate.
-- **CA AB 2023** referred to the Senate Appropriations suspense file 3 August 2026.
-- **MO SB 1012** received a Do Not Pass from House Emerging Issues.
+- **North Dakota HB 1361:** introduced `23.0346.02000` used a standalone personhood-status chapter; the Senate-amended `23.0346.04000` moved the mechanism into the general definition of `person`; enrollment preserved the amended operative wording.
+- **Missouri HB 1746:** introduced `3891H.01I` contained the detailed corporate-veil provision; HCS `3891H.04C` removed it and added the NIST-based compliance safe-harbour/liability language captured by the tracker.
+- **Missouri SB 1012:** the introduced bill did not contain the AI legal-personhood regime; the Senate committee substitute added § 1.2045; a first floor substitute was withdrawn; the later substitute/perfected path retained the legal-personhood prohibition while materially changing other provisions.
+- **Tennessee HB 1455 / SB 1493:** the introduced criminal/civil prohibition regime was replaced first by **SA1113**, creating an Advisory Council study, and then by **HA1260**, producing the final TACIR study measure.
+- **California records:** material amendment histories were reviewed where later text changed the tracker-facing legal-status/chatbot proposition.
 
-## Corrections to my own earlier findings
+Perfect machine reconstruction of every intermediate document is not a release requirement. Remaining Missouri PDF/parser hardening is recorded as technical backlog in `RELEASE_READINESS.md`.
 
-**The Missouri House URLs are not dead.** I recorded `house.mo.gov/Bill.aspx?bill=HB1462...`
-and its siblings as returning 404. They return HTTP 200. My fetch tool was being blocked by
-user-agent and I misattributed that to a stale link. The paper's citations are correct, and
-the pages carry full action histories with journal-page references. Retrieved with `curl`
-and a normal user-agent.
+## Corpus-completeness findings
 
-## How states record a bill's death
+A fresh national search after the original 23-record verification found six clearly in-scope omissions:
 
-Three mechanisms among the three states with failed bills, which `status.evidence` must
-accommodate:
+- Arizona HB 2371
+- Arizona HB 2311
+- Hawaii SB 3001
+- Iowa SF 2417
+- Virginia HB 635
+- Virginia SB 796
 
-- **Wisconsin** posts an explicit line: *"Failed to pass pursuant to Senate Joint
-  Resolution 1"*, 23 Mar 2026 for both AB 959 and SB 932.
-- **Missouri** posts nothing. A bill simply stops; death is inferred from the last action
-  plus adjournment. HB 1462's last action was a referral on 15 May 2025, the penultimate
-  day of session.
-- **Washington** posts nothing at all. Bills carry from the first to the second year of a
-  biennium by resolution, then die at sine die if unpassed — but no terminal action is
-  recorded, so the page still shows the last committee location. Death must be inferred from
-  the session calendar.
+They were added after direct text/status review. The current v1 working corpus is therefore **29 records across 16 states**. Representative near-miss exclusions and the final scope rule are recorded in `RELEASE_READINESS.md` and `METHODOLOGY.md`.
 
-Only Wisconsin's is a citable failure line. Missouri and Washington require a reasoned reading
-against the session calendar — and misreading Washington's is precisely how we got it wrong.
-The evidence field now records the action *and* the reasoning, not just the enum.
+## Evidence and access limitations
 
-## Remaining data-quality tasks
+`verified_primary` must not be read as “every field is exhaustively cited to a primary source.” It means the record has been substantively verified using primary/citable legislative evidence under the project's verification standard.
 
-1. **MO HB 1746's own introduced text** has not been read; only the consolidated
-   substitute and the action history. Its companion HB 1769 as introduced proved to be a
-   verbatim HB 1462 clone, so HB 1746 probably was too — an inference, not a reading.
-2. Read full operative text for **ND HB 1361, OK HB 3546, SC HB 3796** — verified from
-   status pages and summaries, not from bill text.
+Selected high-risk claims have claim-specific mappings in `registry/claim_evidence.json`. Other narrative observations remain supported at record/source level and should not be treated as independently field-cited unless a claim-evidence entry exists.
 
-Every status now carries an evidence action line; the validator enforces it for terminal
-stages.
+Three enacted records retain bill/session-law-sourced `codified_at` rather than direct published-code verification. Those records are explicitly marked through `verification.codified_at_source = "bill"` and a provenance note. This includes the documented Idaho official-code access limitation rather than silently upgrading corroborating secondary reproductions to official-code inspection.
+
+Document hashes establish integrity of retrieved/stored material; they do not prove semantic correctness of extraction or classification.
+
+## Reproducibility lessons for future researchers
+
+1. **Read the actual operative text.** A status page or bill summary is not a substitute when the tracker is making a substantive claim about legal effect.
+2. **Separate current status from historical milestones.** Passing one chamber does not remain the current stage after a bill later fails.
+3. **Check session rules where terminal actions are absent.** Washington and Missouri illustrate different record-keeping conventions for bills that die without passage.
+4. **Distinguish enactment text from current code.** Renumbering can make the enrolled bill's proposed citation different from the published code.
+5. **Treat amendments by adoption status.** A withdrawn substitute is evidence of legislative history, not necessarily an ancestor of the operative text.
+6. **Do not infer textual absence from missing evidence.** Absence is recorded only when the relevant text was actually checked.
+7. **Keep researcher inference visibly distinct from legislative fact.** A source-backed inference is still an inference.
+8. **Record access limitations.** Strong corroboration does not become direct official-source inspection merely because the official portal is inaccessible.
+
+These lessons are incorporated into `METHODOLOGY.md` and the validation/provenance tooling.
