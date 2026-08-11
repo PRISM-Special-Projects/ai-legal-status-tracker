@@ -20,7 +20,7 @@ A **material version** is one whose change would alter the tracker's substantive
 - [x] G1 North Dakota HB 1361 — substantive history verified.
 - [x] G2 Missouri HB 1746 — substantive history verified.
 - [x] G3 Missouri SB 1012 — substantive history verified. Remaining structural-parser work is backlog, not a release blocker.
-- [ ] G4 Tennessee HB 1455 / SB 1493 — confirm the material two-stage study rewrite and reconcile tracker wording.
+- [x] G4 Tennessee HB 1455 / SB 1493 — material history reconciled: introduced criminal/civil regime → SA1113 Advisory Council study → HA1260/final TACIR study.
 - [ ] G5 California SB 1159 — verify current operative text and status.
 - [ ] G6 California AB 2023 — read relevant operative text; confirm material intent-only → child-safety regime transition and current status.
 - [ ] G7 California SB 1119 — read relevant operative text; confirm material intent-only → child-safety regime transition and current status.
