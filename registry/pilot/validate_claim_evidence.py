@@ -32,6 +32,10 @@ def fail(errors, message):
     errors.append(message)
 
 
+def selector_key(claim):
+    return json.dumps(claim, sort_keys=True, ensure_ascii=False)
+
+
 def main() -> int:
     catalog = load(PILOT / "source_catalog.json")
     pilot = load(PILOT / "claim_evidence.json")
@@ -43,8 +47,24 @@ def main() -> int:
         fail(errors, "source_catalog contains duplicate source ids")
     source_ids = set(source_ids)
 
+    for i, src in enumerate(catalog.get("sources", [])):
+        sid = src.get("id")
+        if not sid or not src.get("kind"):
+            fail(errors, f"source_catalog source[{i}] requires id and kind")
+        has_url = bool(src.get("url"))
+        has_ref = bool(src.get("registry_ref"))
+        if not (has_url or has_ref):
+            fail(errors, f"source_catalog {sid!r} needs url or registry_ref")
+        if has_url and not str(src["url"]).startswith(("http://", "https://")):
+            fail(errors, f"source_catalog {sid!r} has invalid url {src['url']!r}")
+
     bill_by_id = {b.get("id"): b for b in bills.get("bills", [])}
     seen_records = set()
+    version_maps = pilot.get("version_ids", {})
+
+    unexpected_maps = set(version_maps) - PILOT_RECORDS
+    if unexpected_maps:
+        fail(errors, f"version_ids contains unexpected records: {sorted(unexpected_maps)}")
 
     for rec in pilot.get("records", []):
         rid = rec.get("record_id")
@@ -56,12 +76,22 @@ def main() -> int:
         if rid not in bill_by_id:
             fail(errors, f"pilot record not found in bills.json: {rid}")
 
+        registered_version_ids = set((version_maps.get(rid) or {}).values())
+        if len(registered_version_ids) != len((version_maps.get(rid) or {})):
+            fail(errors, f"{rid}: duplicate immutable version_id values")
+
+        seen_claims = set()
         for i, entry in enumerate(rec.get("claims", [])):
             prefix = f"{rid} claim[{i}]"
             claim = entry.get("claim")
             if not isinstance(claim, dict) or not claim.get("field"):
                 fail(errors, f"{prefix}: typed claim selector with field is required")
                 continue
+
+            skey = selector_key(claim)
+            if skey in seen_claims:
+                fail(errors, f"{prefix}: duplicate claim selector {claim!r}")
+            seen_claims.add(skey)
 
             mode = entry.get("mode")
             if mode not in ALLOWED_MODES:
@@ -85,16 +115,30 @@ def main() -> int:
             assessment = entry.get("assessment")
             if assessment is not None and assessment not in ALLOWED_ASSESSMENTS:
                 fail(errors, f"{prefix}: invalid assessment {assessment!r}")
+            if assessment == "present" and entry.get("value") is not True:
+                fail(errors, f"{prefix}: assessment=present must carry value=true")
             if entry.get("value") is False and assessment != "checked_absent":
                 fail(errors, f"{prefix}: false textual claim must be explicit checked_absent")
             if assessment == "checked_absent" and entry.get("value") is not False:
                 fail(errors, f"{prefix}: checked_absent must carry value=false")
 
-            if claim.get("field") == "provisions" and not claim.get("version_id"):
+            vid = claim.get("version_id")
+            if vid and vid not in registered_version_ids:
+                fail(errors, f"{prefix}: unregistered version_id {vid!r} for {rid}")
+            if claim.get("field") == "provisions" and not vid:
                 fail(errors, f"{prefix}: provision claim requires version_id")
             if claim.get("field") == "provision_change":
-                if not claim.get("from_version_id") or not claim.get("to_version_id"):
+                fvid = claim.get("from_version_id")
+                tvid = claim.get("to_version_id")
+                if not fvid or not tvid:
                     fail(errors, f"{prefix}: provision_change requires from/to version ids")
+                else:
+                    if fvid not in registered_version_ids:
+                        fail(errors, f"{prefix}: unregistered from_version_id {fvid!r}")
+                    if tvid not in registered_version_ids:
+                        fail(errors, f"{prefix}: unregistered to_version_id {tvid!r}")
+                    if fvid == tvid:
+                        fail(errors, f"{prefix}: provision_change from/to ids must differ")
 
             # Scalar stale-value checks for claims already represented directly in bills.json.
             if rid in bill_by_id and claim.get("field") in {"codified_at", "effective_date"}:
