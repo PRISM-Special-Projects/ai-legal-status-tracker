@@ -4,6 +4,11 @@
 The bill-centred registry remains authoritative for domain facts. claim_evidence.json
 records which sources support selected high-risk claims and whether support is direct
 or derived. Missing claim evidence means unmapped/not assessed, never false.
+
+The evidence sidecar itself is the migration inventory. The validator deliberately does
+not duplicate that inventory in a hard-coded allowlist: every evidence record must resolve
+to bills.json and satisfy the same semantic checks, so adding a bounded audited cohort does
+not require changing validator policy merely to recognize its record IDs.
 """
 from __future__ import annotations
 
@@ -13,18 +18,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 ALLOWED_MODES = {"direct", "derived"}
 ALLOWED_ASSESSMENTS = {"present", "checked_absent"}
-MIGRATED_RECORDS = {
-    "wa-hb2029-2025",
-    "ut-hb249-2024",
-    "tn-sb837-2025",
-    "mo-hb1769-2026",
-    "mn-sf4114-2026",
-    "mo-sb859-2026",
-    "oh-hb469-2025",
-    "sc-hb3796-2025",
-    "mo-sb1012-2026",
-    "ca-sb1119-2026",
-}
 
 
 def load(path: Path):
@@ -72,8 +65,6 @@ def main() -> int:
         if rid in seen_records:
             fail(errors, f"duplicate evidence record: {rid}")
         seen_records.add(rid)
-        if rid not in MIGRATED_RECORDS:
-            fail(errors, f"unexpected migrated record: {rid}")
         if rid not in bill_by_id:
             fail(errors, f"claim-evidence record not found in bills.json: {rid}")
 
@@ -152,10 +143,6 @@ def main() -> int:
                 actual = (bill_by_id[rid].get("status") or {}).get("stage")
                 if actual != entry.get("value"):
                     fail(errors, f"{prefix}: stale status.stage; bills.json has {actual!r}, evidence has {entry.get('value')!r}")
-
-    if seen_records != MIGRATED_RECORDS:
-        missing = sorted(MIGRATED_RECORDS - seen_records)
-        fail(errors, f"migrated record set incomplete; missing {missing}")
 
     if errors:
         print("CLAIM PROVENANCE: FAIL")
