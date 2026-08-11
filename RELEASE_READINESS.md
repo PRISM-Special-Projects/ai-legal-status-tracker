@@ -41,18 +41,26 @@ For every record:
 
 - [x] H1 First national keyword sweep: artificial intelligence + personhood / legal person / legal status / sentient / human / chatbot terminology.
 - [x] H2 Compare first-wave candidates against repository — Arizona HB 2371 and HB 2311 are absent from the current 23-record corpus.
-- [ ] H3 Verify and disposition Arizona HB 2371.
-- [ ] H4 Verify and disposition Arizona HB 2311.
+- [x] H3 Verify and disposition Arizona HB 2371 — clearly in scope; final status failed after House passage and Senate committee advancement without final Senate passage.
+- [x] H4 Verify and disposition Arizona HB 2311 — clearly in scope; passed both chambers and vetoed 19 June 2026.
 - [ ] H5 Continue national sweep using rights / consciousness / nonhuman / machine / statutory-person-definition variants.
-- [ ] H6 Triage all new candidates as IN SCOPE / BORDERLINE / OUT OF SCOPE.
-- [ ] H7 Add any clearly in-scope omissions.
+- [ ] H6 Complete triage of borderline candidates.
+- [ ] H7 Add clearly in-scope omissions.
 - [ ] H8 Record enough exclusion rationale to avoid rediscovery.
 
-### First-wave candidates
+### Clearly in-scope omissions
 
-**IN-SCOPE CANDIDATE — Arizona HB 2371 (2026).** AI-assisted divorce arbitration. The bill defines the computational arbitration system as not a legal person and as lacking independent legal authority. It passed the House and advanced through Senate committees but did not receive final Senate passage before session end. This is directly relevant to AI legal status even though the declaration is limited to a specific adjudicatory context.
+**Arizona HB 2371 (2026).** AI-assisted divorce arbitration. The bill defines the computational arbitration system as not a legal person and as lacking independent legal authority. It passed the House and advanced through Senate committees but did not receive final Senate passage. This is directly relevant to AI legal status even though the declaration is limited to a specific adjudicatory context.
 
-**IN-SCOPE CANDIDATE — Arizona HB 2311 (2026).** Conversational-AI safeguards for minors. The operative text requires measures to prevent explicit claims that a conversational AI service is sentient or human and requires disclosure where users could be misled into believing they are interacting with a human. It passed both chambers and was vetoed on 19 June 2026. This is substantively analogous to the California chatbot-claim records already included in the tracker.
+**Arizona HB 2311 (2026).** Conversational-AI safeguards for minors. The operative text requires measures to prevent explicit claims that a conversational AI service is sentient or human and requires disclosure where users could be misled into believing they are interacting with a human. It passed both chambers and was vetoed on 19 June 2026. This is substantively analogous to the California chatbot-claim records already included in the tracker.
+
+### Borderline / excluded first-wave candidates
+
+**California AB 1609 (2026) — BORDERLINE.** Customer-service legislation expressly prohibits representing an AI/automated system or bot as human and requires artificial-identity disclosure. It is close to the chatbot-claim boundary, but primarily regulates consumer-service transparency rather than personhood, consciousness or legal status. Hold for an explicit scope decision.
+
+**Illinois SB 3601 (2026) — OUT OF SCOPE for v1.** Requires disclosure, when asked, that a person is interacting with AI and not a human. This is generic interaction transparency and does not assign or deny personhood, sentience, consciousness or comparable legal status.
+
+**New York S9051 / A10379 (2026) — OUT OF SCOPE on current text.** Chatbot/minor-safety legislation surfaced through sentience-related search terms, but the current bill text does not contain the personhood/sentience/human-status proposition that would bring it within the tracker.
 
 ### H gate
 
