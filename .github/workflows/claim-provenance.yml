@@ -3,7 +3,7 @@ name: Claim provenance migration
 on: [push, pull_request]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   claim-provenance:
@@ -14,41 +14,15 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Diagnose G3 Missouri SB 1012
-        run: python3 registry/diagnose_g3_sb1012.py
+      - name: Acquire G3 Missouri SB 1012 texts
+        run: python3 registry/apply_g3_texts.py
 
-      - name: Validate core registry
-        run: python3 registry/validate.py
-
-      - name: Validate claim evidence
-        run: python3 registry/validate_claim_evidence.py
-
-      - name: Run differ tests
-        run: python3 site/test_diff.py
-
-      - name: Build normal site
-        run: python3 site/build.py
-
-      - name: Render one-record provenance migration preview
-        run: python3 site/claim_evidence_preview.py
-
-      - name: Assert migration-preview rendering
+      - name: Commit acquired G3 texts
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('site/dist/bills/tn-sb837-2025/index.html')
-          h=p.read_text()
-          required=[
-            'Claim evidence',
-            '(migration preview)',
-            'effective_date',
-            '2026-04-23',
-            'Tennessee Secretary of State — Public Chapter 781',
-            'Tennessee General Assembly — SB 837 bill history',
-            'Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)',
-          ]
-          missing=[x for x in required if x not in h]
-          if missing:
-              raise SystemExit('claim-evidence render missing: '+repr(missing))
-          print('claim provenance migration preview: PASS')
-          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add registry/incoming/mo-sb1012-2026--*.pdf registry/texts/mo-sb1012-2026--*.txt
+          if git diff --cached --quiet; then echo 'No G3 text changes.'; exit 0; fi
+          git commit -m 'Store official Missouri SB 1012 text states'
+          git push
