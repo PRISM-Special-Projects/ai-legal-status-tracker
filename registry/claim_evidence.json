@@ -177,6 +177,78 @@
           "derivation": "The tag is present under the operational test in the introduced version and checked absent in the committee substitute."
         }
       ]
+    },
+    {
+      "record_id": "sc-hb3796-2025",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "sc-hb3796-actions",
+              "locator": "2025-01-28 — Referred to Committee on Judiciary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "oh-hb469-2025",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "oh-hb469-status",
+              "locator": "2025-10-01 — Referred to committee — Technology and Innovation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "mo-sb859-2026",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb859-actions",
+              "locator": "2026-03-04 — Hearing Conducted S General Laws Committee"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "mn-sf4114-2026",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mn-sf4114-status",
+              "locator": "2026-03-04 — Introduction and first reading; referred to Judiciary and Public Safety"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

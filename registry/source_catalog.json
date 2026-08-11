@@ -79,6 +79,38 @@
       "kind": "method",
       "registry_ref": "PROVISIONS.md",
       "note": "Repository operational tests for provision tags."
+    },
+    {
+      "id": "sc-hb3796-actions",
+      "label": "South Carolina Legislature — H. 3796 status and action history",
+      "kind": "action_history",
+      "url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/3796.htm",
+      "jurisdiction": "SC",
+      "note": "Official bill page showing referral to House Judiciary on 28 January 2025 and no later action."
+    },
+    {
+      "id": "oh-hb469-status",
+      "label": "Ohio Legislature — HB 469 status",
+      "kind": "action_history",
+      "url": "https://www.legislature.ohio.gov/legislation/136/hb469/status",
+      "jurisdiction": "OH",
+      "note": "Official status page showing referral to House Technology and Innovation on 1 October 2025."
+    },
+    {
+      "id": "mo-sb859-actions",
+      "label": "Missouri Senate — SB 859 bill information and actions",
+      "kind": "action_history",
+      "url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?billid=378&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official bill page; daily action record shows hearing conducted in Senate General Laws on 4 March 2026."
+    },
+    {
+      "id": "mn-sf4114-status",
+      "label": "Minnesota Revisor — SF 4114 Senate status",
+      "kind": "action_history",
+      "url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114?body=Senate&view=chrono",
+      "jurisdiction": "MN",
+      "note": "Official Revisor status page showing introduction and referral to Judiciary and Public Safety on 4 March 2026."
     }
   ]
 }

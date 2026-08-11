@@ -543,7 +543,7 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
+      "last_verified": "2026-08-11",
       "notes": "VERIFIED 2026-08-10. Introduced 28 Jan 2025, referred to House Judiciary the same day; no further action since. Would add Article 29 to Chapter 1, Title 1 of the SC Code, prohibiting a governmental entity from granting or recognising legal personhood in certain items. Utah template. Operative list not on the summary page - still to be read verbatim.",
       "id": "sc-hb3796-2025",
       "bill_number": "HB 3796",
@@ -555,10 +555,13 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
+        "as_of": "2026-08-11",
         "source_url": "https://www.scstatehouse.gov/billsearch.php?billnumbers=3796&session=126&summary=B",
-        "evidence": null,
-        "basis": "secondary_source"
+        "evidence": {
+          "action": "Referred to Committee on Judiciary",
+          "date": "2025-01-28"
+        },
+        "basis": "explicit_action"
       },
       "family": "B",
       "technique": "standalone_provision",
@@ -586,7 +589,7 @@
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -868,8 +871,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against the As Introduced text. Would enact TWELVE new sections, Ohio Rev. Code ss 1357.01-1357.12. Sole sponsor as introduced: Rep. Claggett - no cosponsors on the introduced version. SUBSTANTIALLY WIDER THAN THE PAPER DESCRIBES. Beyond non-sentience (s 1357.02) it: voids marriage or union with an AI (s 1357.03); bars AI from serving as officer, director or manager (s 1357.04); bars property ownership including IP, financial accounts and digital assets (s 1357.05); assigns liability to owner/user with product-liability carve-outs for developers (s 1357.06); imposes oversight duties (s 1357.07); makes AI incapable of bearing liability (s 1357.08); requires safety mechanisms and risk assessments (s 1357.09); and imposes an incident-reporting duty for death, significant bodily harm or major property damage (s 1357.12). Six new provision tags were added to the schema to capture this. s 1357.10 IS NOT MENTIONED IN THE PAPER AND HAS NO COUNTERPART ELSEWHERE IN THE REGISTRY: labelling an AI system 'aligned', 'ethically trained' or 'value locked' does not on its own excuse or diminish liability. This is AI-safety vocabulary written into statutory text, and it anticipates alignment-washing. No other bill in the registry contains a comparable provision. s 1357.11 IS THE ONLY CORPORATE-VEIL PROVISION IN THE REGISTRY. It reverses the default posture relative to Missouri's: Missouri authorises courts to pierce the veil when listed conditions are met, whereas Ohio begins from parent-company immunity and creates exceptions where an AI subsidiary or shell was intentionally undercapitalised to evade damages, where corporate structure was used to obscure liability, or where the parent exercised direct control while shielding itself through layered entities. It therefore contemplates AI subsidiaries existing rather than barring them - hence affects_algorithmic_entity_formation='does_not_bar' - and it speaks directly to the A-Corp proposal in Arbel, Salib & Goldstein (2026). THE AI DEFINITION IS AS BROAD AS CRITICS CLAIMED: s 1357.01(A) reaches 'any software, machine, or system capable of simulating humanlike cognitive functions... based on data-driven algorithms, RULES-BASED LOGIC, or other computational methods'. 'Rules-based logic' is the textual basis for TechNet's and Cory Scott's objection that it captures spell checkers and navigation systems, and for the Alexander & Simon neural-implant argument. DRAFTING ARTIFACT: 'Emergent properties' is defined at s 1357.01(C) and then never used anywhere in the bill. CITATION NOTE: the header reads 136th General Assembly; the paper's reference-list entry for the Ohio committee page says '135th General Assembly'. The bill cite elsewhere in the paper says 136th, so the reference list is the error. STATUS NOT RE-CONFIRMED: this is the introduced text only; stage remains as the paper recorded it. LINEAGE VERIFIED 2026-08-10: derived from Missouri HB 1462, whose text has now been read. Ohio did not originate the alignment-washing or corporate-veil provisions - both are Missouri's. Ohio INVERTED the veil provision from permissive piercing into default parent-company immunity with the same three exceptions, and dropped Missouri's 'liability remains with human actors' clause from the AI-liability section.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10 against the As Introduced text. Would enact TWELVE new sections, Ohio Rev. Code ss 1357.01-1357.12. Sole sponsor as introduced: Rep. Claggett - no cosponsors on the introduced version. SUBSTANTIALLY WIDER THAN THE PAPER DESCRIBES. Beyond non-sentience (s 1357.02) it: voids marriage or union with an AI (s 1357.03); bars AI from serving as officer, director or manager (s 1357.04); bars property ownership including IP, financial accounts and digital assets (s 1357.05); assigns liability to owner/user with product-liability carve-outs for developers (s 1357.06); imposes oversight duties (s 1357.07); makes AI incapable of bearing liability (s 1357.08); requires safety mechanisms and risk assessments (s 1357.09); and imposes an incident-reporting duty for death, significant bodily harm or major property damage (s 1357.12). Six new provision tags were added to the schema to capture this. s 1357.10 IS NOT MENTIONED IN THE PAPER AND HAS NO COUNTERPART ELSEWHERE IN THE REGISTRY: labelling an AI system 'aligned', 'ethically trained' or 'value locked' does not on its own excuse or diminish liability. This is AI-safety vocabulary written into statutory text, and it anticipates alignment-washing. No other bill in the registry contains a comparable provision. s 1357.11 IS THE ONLY CORPORATE-VEIL PROVISION IN THE REGISTRY. It reverses the default posture relative to Missouri's: Missouri authorises courts to pierce the veil when listed conditions are met, whereas Ohio begins from parent-company immunity and creates exceptions where an AI subsidiary or shell was intentionally undercapitalised to evade damages, where corporate structure was used to obscure liability, or where the parent exercised direct control while shielding itself through layered entities. It therefore contemplates AI subsidiaries existing rather than barring them - hence affects_algorithmic_entity_formation='does_not_bar' - and it speaks directly to the A-Corp proposal in Arbel, Salib & Goldstein (2026). THE AI DEFINITION IS AS BROAD AS CRITICS CLAIMED: s 1357.01(A) reaches 'any software, machine, or system capable of simulating humanlike cognitive functions... based on data-driven algorithms, RULES-BASED LOGIC, or other computational methods'. 'Rules-based logic' is the textual basis for TechNet's and Cory Scott's objection that it captures spell checkers and navigation systems, and for the Alexander & Simon neural-implant argument. DRAFTING ARTIFACT: 'Emergent properties' is defined at s 1357.01(C) and then never used anywhere in the bill. CITATION NOTE: the header reads 136th General Assembly; the paper's reference-list entry for the Ohio committee page says '135th General Assembly'. The bill cite elsewhere in the paper says 136th, so the reference list is the error. STATUS RE-CONFIRMED 2026-08-11: the official Ohio status page records referral to House Technology and Innovation on 1 October 2025; no later action is shown. LINEAGE VERIFIED 2026-08-10: derived from Missouri HB 1462, whose text has now been read. Ohio did not originate the alignment-washing or corporate-veil provisions - both are Missouri's. Ohio INVERTED the veil provision from permissive piercing into default parent-company immunity with the same three exceptions, and dropped Missouri's 'liability remains with human actors' clause from the AI-liability section.",
       "id": "oh-hb469-2025",
       "bill_number": "HB 469",
       "chamber": "house",
@@ -880,10 +883,13 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
+        "as_of": "2026-08-11",
         "source_url": "https://www.legislature.ohio.gov/legislation/136/hb469",
-        "evidence": null,
-        "basis": "secondary_source"
+        "evidence": {
+          "action": "Referred to committee — Technology and Innovation",
+          "date": "2025-10-01"
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -922,7 +928,7 @@
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 1,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -1266,7 +1272,7 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
+      "last_verified": "2026-08-11",
       "notes": "VERIFIED 2026-08-10 against the introduced text. Sponsor: SENATOR MOON. VERBATIM HB 1462 CLONE - identical definitions including the 'rules-based logic' AI wording and the unused 'Emergent properties' term, identical Owner/Manufacturer terminology, and THE CORPORATE-VEIL PROVISION AT (13) INTACT. Applicability date moved to 28 Aug 2026. **DIFFERENT SPONSOR, DIFFERENT CHAMBER, IDENTICAL TEXT.** Rep. Amato filed this text in the House (HB 1462, then HB 1769); Sen. Moon filed it in the Senate. Two members, two chambers, one text, separately drafted (4600S.01I vs 4626H.01I). Taken with the Wisconsin pair - separate LRB drafts producing identical text - this is a recurring pattern: the diffusion the paper documents is not one person copying a file, it is multiple legislators independently commissioning drafts of the same model text. This establishes that the same model text was used in separate drafting jobs. It does NOT establish who supplied the model text, or whether one office copied another - the drafting metadata shows textual identity and separate drafting numbers, not a causal provenance chain. NOTE ON THE FAMILY: this record retains addresses_corporate_veil because its operative text does. Only the consolidated House Committee Substitute (HCS HBs 1746 & 1769) dropped it. So within Missouri in 2026 there are simultaneously live vehicles WITH and WITHOUT the veil provision. A single 'Missouri' row would not show that divergence.",
       "id": "mo-sb859-2026",
       "bill_number": "SB 859",
@@ -1278,10 +1284,13 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
+        "as_of": "2026-08-11",
         "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=378",
-        "evidence": null,
-        "basis": "secondary_source"
+        "evidence": {
+          "action": "Hearing Conducted S General Laws Committee",
+          "date": "2026-03-04"
+        },
+        "basis": "explicit_action"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1323,7 +1332,7 @@
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 1,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -2553,7 +2562,7 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
+      "last_verified": "2026-08-11",
       "notes": "VERIFIED 2026-08-10. Amends Minn. Const. art. I, s 3 (free speech) to exclude AI. Ballot question confirmed verbatim: 'Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?' Sponsors not listed on the text page - paper reports bipartisan sponsorship, still to confirm. Only constitutional-amendment vehicle in the set.",
       "id": "mn-sf4114-2026",
       "bill_number": "SF 4114",
@@ -2565,10 +2574,13 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
+        "as_of": "2026-08-11",
         "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114/",
-        "evidence": null,
-        "basis": "secondary_source"
+        "evidence": {
+          "action": "Referred to Judiciary and Public Safety",
+          "date": "2026-03-04"
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "constitutional_amendment",
@@ -2600,7 +2612,7 @@
         "sponsors": "not_established",
         "codified_at_source": "bill",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
