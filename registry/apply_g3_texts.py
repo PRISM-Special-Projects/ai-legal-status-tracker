@@ -11,15 +11,24 @@ def norm(s):
   if not x or re.fullmatch(r'\d+',x) or x=='✓': continue
   if re.fullmatch(r'(?:SS#?\s*2\s+)?(?:SCS\s+)?SB\s+1012(?:\s+\d+)?',x,re.I): continue
   x=re.sub(r'^\d+\s+(?=[A-Za-z\(\[\"“])','',x); o.append(x)
- # pdftotext puts Missouri statutory subsection numbers such as "2." on their
- # own line. legdiff deliberately recognises "2. Text" rather than a bare decimal,
- # so join only a bare 1–3 digit subsection marker to the next extracted line.
  merged=[]; i=0
  while i<len(o):
-  if re.fullmatch(r'\d{1,3}\.',o[i]) and i+1<len(o):
-   merged.append(o[i]+' '+o[i+1]); i+=2
-  else:
-   merged.append(o[i]); i+=1
+  line=o[i]
+  # Missouri's PDF layout sometimes puts a numbered statutory subsection on a
+  # line by itself, or after the section number at the end of the heading line.
+  # Join that marker to the text that follows so legdiff sees the printed level.
+  if re.fullmatch(r'\d{1,3}\.',line) and i+1<len(o):
+   merged.append(line+' '+o[i+1]); i+=2; continue
+  if re.fullmatch(r'\d+[\-.][\d\-.]*\d\.\s+\d{1,3}\.',line) and i+1<len(o):
+   merged.append(line+' '+o[i+1]); i+=2; continue
+  # A wrapped citation such as "subdivision" / "(2)" is prose, not a new
+  # structural provision. Rejoin only when the preceding extracted line ends in
+  # an explicit cross-reference introducer.
+  if (i+1<len(o) and
+      re.search(r'\b(?:subdivision|subsection|paragraph|subparagraph|clause|item)$',line,re.I) and
+      re.match(r'^\([A-Za-z0-9-]{1,4}\)(?:\s|$)',o[i+1])):
+   merged.append(line+' '+o[i+1]); i+=2; continue
+  merged.append(line); i+=1
  return '\n'.join(merged).strip()+'\n'
 for k,n in N.items():
  p=I/f'mo-sb1012-2026--{n}.pdf'; t=T/f'mo-sb1012-2026--{n}.txt'
