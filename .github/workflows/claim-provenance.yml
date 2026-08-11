@@ -2,6 +2,9 @@ name: Claim provenance migration
 
 on: [push, pull_request]
 
+permissions:
+  contents: write
+
 jobs:
   claim-provenance:
     runs-on: ubuntu-latest
@@ -11,11 +14,14 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Validate claim evidence
-        run: python3 registry/validate_claim_evidence.py
+      - name: Apply gated version ID promotion in workspace
+        run: python3 registry/apply_version_id_promotion.py
 
-      - name: Dry-run immutable version ID migration
-        run: python3 registry/migrate_version_ids.py
+      - name: Validate core registry after promotion
+        run: python3 registry/validate.py
+
+      - name: Validate claim evidence after promotion
+        run: python3 registry/validate_claim_evidence.py
 
       - name: Build normal site
         run: python3 site/build.py
@@ -43,3 +49,16 @@ jobs:
               raise SystemExit('claim-evidence render missing: '+repr(missing))
           print('claim provenance migration preview: PASS')
           PY
+
+      - name: Commit promoted version IDs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if git diff --quiet; then
+            echo 'No promotion changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add registry/bills.json registry/claim_evidence.json registry/validate.py registry/validate_claim_evidence.py SCHEMA.md
+          git commit -m 'Promote version IDs to first-class schema'
+          git push
