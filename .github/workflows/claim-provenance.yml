@@ -25,6 +25,9 @@ jobs:
       - name: Refresh G3 text hashes in workspace
         run: python3 registry/apply_g3_registry.py
 
+      - name: Refresh G3 source manifest in workspace
+        run: python3 registry/apply_g3_manifest.py
+
       - name: Validate core registry
         run: python3 registry/validate.py
 
