@@ -535,6 +535,10 @@ class Corpus(unittest.TestCase):
 CORPUS_PARSE = {
   "id-hb720-2022--introduced.txt": [3, 0, 0],
   "mo-hb1462-2025--introduced.txt": [26, 0, 0],
+  "mo-hb1746-2026--introduced-3891H.01I.txt": [26, 0, 0],
+  "nd-hb1361-2023--enrolled-23.0346.05000.txt": [3, 0, 0],
+  "nd-hb1361-2023--introduced-23.0346.02000.txt": [3, 0, 0],
+  "nd-hb1361-2023--senate-amended-23.0346.04000.txt": [3, 0, 0],
   "mo-hb1746-2026--hcs.txt": [22, 0, 0],
   "mo-hb1769-2026--introduced.txt": [26, 0, 0],
   "mo-sb1474-2026--introduced.txt": [26, 0, 0],
