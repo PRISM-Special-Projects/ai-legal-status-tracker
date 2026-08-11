@@ -15,7 +15,7 @@ The tracker is ready for v1 when we have good reason to believe the corpus is ma
 
 A **material version** is one whose change would alter the tracker's substantive description, classification, provision tags, or account of legal effect.
 
-## G — Finish substantive bill verification
+## G — Finish substantive bill verification — COMPLETE
 
 - [x] G1 North Dakota HB 1361 — substantive history verified.
 - [x] G2 Missouri HB 1746 — substantive history verified.
@@ -24,9 +24,9 @@ A **material version** is one whose change would alter the tracker's substantive
 - [x] G5 California SB 1159 — operative June 25 text verified; tracker correctly captures exclusion of AI/nonhuman entities from specified government-participation/person terminology. Bill remains alive after Senate passage and Assembly committee action; stale LegInfo indexing is not treated as a substantive blocker.
 - [x] G6 California AB 2023 — material intent-only → child-safety regime transition verified. Amended text expressly treats chatbot claims of being sentient, conscious, or human as covered/prohibited conduct; bill remains alive in Senate committee process.
 - [x] G7 California SB 1119 — material intent-only → child-safety regime transition verified. Operative text and July 2 Assembly committee re-referral to Appropriations already supported in the registry.
-- [ ] G8 Remaining records — quick seven-question screen for scope/status/text/tags/material history/evidence.
+- [x] G8 Remaining records — quick seven-question screen completed. It caught and corrected stale terminal statuses for Oklahoma HB 3546 and South Carolina HB 3796, and closed the remaining operative-text verification flags for Washington HB 2029 and California AB 2023.
 
-### G gate
+### G gate — PASS
 
 For every record:
 1. genuinely in scope;
@@ -37,7 +37,7 @@ For every record:
 6. material earlier changes represented where relevant;
 7. important conclusions traceable to adequate sources.
 
-## H — Fresh corpus-completeness search
+## H — Fresh corpus-completeness search — NEXT
 
 - [ ] Search state legislation using personhood/legal-person/legal-status/nonhuman/AI-rights variants and terminology learned from the existing corpus.
 - [ ] Triage new candidates as IN SCOPE / BORDERLINE / OUT OF SCOPE.
