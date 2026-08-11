@@ -30,25 +30,39 @@ updates = {
     },
 }
 for bill in data['bills']:
-    if bill.get('id') not in updates:
-        continue
-    bill['status'] = updates[bill['id']]
-    bill['last_verified'] = '2026-08-11'
-    bill.setdefault('verification', {})['status'] = 'verified_primary'
-    bill['verification']['last_verified'] = '2026-08-11'
-    if bill['id'] == 'ok-hb3546-2026':
+    bid = bill.get('id')
+    if bid in updates:
+        bill['status'] = updates[bid]
+        bill['last_verified'] = '2026-08-11'
+        bill.setdefault('verification', {})['status'] = 'verified_primary'
+        bill['verification']['last_verified'] = '2026-08-11'
+    if bid == 'ok-hb3546-2026':
         bill['verification']['operative_text'] = 'read_in_full'
         bill['verification']['operative_text_note'] = 'Official introduced and House floor texts reviewed; operative personhood clause unchanged.'
         bill['notes'] = bill.get('notes','').replace(
             'Operative text not on the status page - still to be read.',
             'Official introduced and House floor texts reviewed 2026-08-11; operative personhood clause confirmed. STATUS CORRECTION: bill did not receive Senate floor passage before the 2026 session adjourned sine die, so current stage is failed.'
         )
-    if bill['id'] == 'sc-hb3796-2025':
+    elif bid == 'sc-hb3796-2025':
         bill['verification']['operative_text'] = 'read_in_full'
         bill['verification']['operative_text_note'] = 'Official South Carolina bill text reviewed in full.'
         bill['notes'] = bill.get('notes','').replace(
             'Operative list not on the summary page - still to be read verbatim.',
             'Official bill text reviewed 2026-08-11; operative list confirmed. STATUS CORRECTION: no action followed the 2025 Judiciary referral before the 126th regular session adjourned sine die on 14 May 2026, so current stage is failed.'
+        )
+    elif bid == 'wa-hb2029-2025':
+        bill['verification']['operative_text'] = 'read_in_full'
+        bill['verification']['operative_text_note'] = 'Official Washington bill text reviewed in full during the tracker-focused G8 screen.'
+        bill['verification']['last_verified'] = '2026-08-11'
+        bill['last_verified'] = '2026-08-11'
+    elif bid == 'ca-ab2023-2026':
+        bill['verification']['operative_text'] = 'read_in_full'
+        bill['verification']['operative_text_note'] = 'Current amended California text reviewed during G6; the chatbot sentience/consciousness/humanity clause was confirmed directly.'
+        bill['verification']['last_verified'] = '2026-08-11'
+        bill['last_verified'] = '2026-08-11'
+        bill['notes'] = bill.get('notes','').replace(
+            'The specific bar on chatbots claiming sentience/consciousness/humanity to children sits in the full text, not the status page - still to be read verbatim.',
+            'The amended full text was reviewed directly on 2026-08-11; the covered/prohibited conduct includes a companion chatbot claiming that it is sentient, conscious, or human.'
         )
 p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
@@ -92,4 +106,4 @@ if not any(s.get('id') == 'sc-2026-session-end' for s in sc['sources']):
     })
 sc_path.write_text(json.dumps(sc, indent=2, ensure_ascii=False) + '\n')
 
-print('G8 substantive status and matching claim provenance corrections applied')
+print('G8 tracker-facing verification corrections applied')
