@@ -97,21 +97,31 @@ The final national negative sweep repeated combinations of legal person/personho
 
 The current working corpus is **29 records across 16 states**. The search and exclusion log provide a reproducible reason for the major inclusion boundary, and no clearly in-scope omission remains from the final sweep. Future discoveries can still be added, but corpus completeness no longer blocks v1.
 
-## I — publication audit — NEXT
+## I — publication audit — COMPLETE
 
-- [ ] Correct bill/session/state.
-- [ ] Correct current status and latest action/date.
-- [ ] Relevant text read.
-- [ ] AI-personhood description accurate.
-- [ ] Provision tags defensible.
-- [ ] Material amendments represented.
-- [ ] Enacted law/effective date correct where applicable.
-- [ ] Primary source available where reasonably accessible.
-- [ ] Known limitations disclosed.
-- [ ] Cross-record checks: companions, shared language, status families, enacted/live/failed groups.
-- [ ] Full registry validation and site build.
+- [x] Correct bill/session/state.
+- [x] Correct current status and latest action/date at the audit date.
+- [x] Relevant text read — 29/29 records are `read_in_full`.
+- [x] AI-personhood/legal-status descriptions checked under the G/H substantive standard.
+- [x] Provision tags validated against the controlled vocabulary and reviewed text.
+- [x] Material amendments represented where they affect tracker-facing conclusions.
+- [x] Enacted law/effective date present and reconciled for all nine enacted records.
+- [x] Primary source present for every record; no status remains secondary-source based.
+- [x] Known limitations disclosed, including bill-sourced codification where code-level verification is not yet established.
+- [x] Cross-record checks: companion groups, terminal statuses, enacted/live/failed groups and publication-facing verification state.
+- [x] Full registry validation, publication audit, regression suite, audit tests, site build, post-build assertions and lint pass on the clean repository state.
 
-## J — Documentation and handoff
+### I findings
+
+The tracker-focused publication audit was added as a permanent release check. On the 29-record corpus it found no blocking contradictions. It did surface four small publication-quality issues: stale review wording in Washington HB 2029 and Minnesota SF 4114, plus missing explicit `CODIFIED_AT PROVENANCE` caveats for newly added Hawaii SB 3001 and Iowa SF 2417. Those were corrected without changing substantive classifications.
+
+Current audit summary: **29 records / 16 states; 29/29 status established from primary/citable records; 29/29 operative texts read in full; 9 enacted laws; 18/18 terminal statuses carry evidence.**
+
+### I gate — PASS
+
+No material data inconsistency remains from the publication audit. Documentation that still describes the old 23-record/12-state corpus is carried forward to J rather than treated as a data-audit failure.
+
+## J — Documentation and handoff — NEXT
 
 - [ ] Scope and inclusion/exclusion criteria.
 - [ ] Search methodology.
@@ -121,6 +131,7 @@ The current working corpus is **29 records across 16 states**. The search and ex
 - [ ] Evidence policy and known access limitations.
 - [ ] Opus handoff: how sources were found and verified.
 - [ ] Remove or clearly label obsolete migration/pilot machinery.
+- [ ] Correct stale README/site/repository-facing corpus counts and status prose.
 - [ ] Final CI.
 
 ## Final release gate
