@@ -28,11 +28,18 @@ jobs:
       - name: Refresh G3 source manifest in workspace
         run: python3 registry/apply_g3_manifest.py
 
+      - name: Apply lowercase-subsection parser repair in workspace
+        run: python3 registry/apply_g3_parser_fix.py
+
       - name: Validate core registry
         run: python3 registry/validate.py
 
       - name: Validate claim evidence
         run: python3 registry/validate_claim_evidence.py
+
+      - name: Run differ regression suite
+        run: python3 site/test_diff.py
+        continue-on-error: true
 
       - name: Diagnose corrected G3 differ corpus texts
         run: python3 registry/diagnose_g3_diff.py
