@@ -1,9 +1,15 @@
 # Test fixture, NOT a registry text.
 #
-# Drafting shape of South Carolina H. 3796 (2025), a bill this registry does not
-# contain, reconstructed from the Statehouse HTML page rather than transcribed from
-# a source PDF. It is therefore NOT hash-verified, NOT in source_manifest.json, and
-# must never be cited as this project's record of that bill.
+# Drafting shape of South Carolina H. 3796 (2025), reconstructed from the Statehouse
+# HTML page rather than transcribed from a source PDF. It is therefore NOT
+# hash-verified, NOT in source_manifest.json, and must never be cited as this
+# project's record of that bill.
+#
+# CORRECTION 2026-08-11: this file was first committed describing the bill as one
+# "this registry does not contain". That was wrong. The registry HAS a record for it,
+# sc-hb3796-2025, and that record holds no stored text and has status basis
+# secondary_source. The text is kept here as a parser fixture only; promoting it to
+# registry/texts/ would require a transcription from the primary document.
 #
 # It exists because the differ had only ever been run against Missouri and
 # Tennessee drafting, and this shape - SECTION -> Section 1-1-1910. -> (A) -> (1)

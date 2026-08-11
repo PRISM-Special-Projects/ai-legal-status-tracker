@@ -180,9 +180,11 @@ class Adversarial(unittest.TestCase):
 class OutOfCorpus(unittest.TestCase):
     """Drafting this parser had never seen. Found real bugs; keep it pointed here.
 
-    The fixture is South Carolina H. 3796 (2025), a bill the registry does not
-    contain. It is a reconstruction from the Statehouse HTML, not a hash-verified
-    registry text — see the header in the fixture file. Its value is the shape:
+    The fixture is South Carolina H. 3796 (2025). The registry does hold a record for
+    that bill — sc-hb3796-2025, with no stored text — and an earlier version of this
+    docstring wrongly said it did not. This is a reconstruction from the Statehouse
+    HTML, not a hash-verified registry text; see the fixture header. Its value is the
+    shape:
     SECTION -> Section 1-1-1910. -> (A) -> (1) -> (a), with statutory citations
     closing lines, which is unlike anything in Missouri or Tennessee.
     """

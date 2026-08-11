@@ -85,9 +85,15 @@ Ranked by where I would expect a real finding.
 
 1. **Force the fallback path.** It has never run on real data — all five corpus pairs parse
    structurally — so the one code path designed to say "I could not do this reliably" is exercised
-   only by synthetic fixtures, and has been for three reports running. Feed it a real bill from any
-   state that this corpus does not contain. Does it fall back when it should? Is the labelling
-   honest, or does a fallback comparison read like a structural one once rendered?
+   only by synthetic fixtures, and has been for three reports running. Feed it a real bill whose
+   text this corpus does not hold — note that 9 of the 23 records hold no text at all, so there is
+   no shortage of candidates. Does it fall back when it should? Is the labelling honest, or does a
+   fallback comparison read like a structural one once rendered?
+
+   For the record, this was attempted with South Carolina H. 3796 and did **not** trigger the
+   fallback — legislative text is self-marking, so it parsed structurally. It broke the parser in
+   a different way instead, which is how the two masking bugs were found. The fallback remains
+   unexercised by real data.
 
 2. **Break the citation masking.** `CITE_RE` masks statutory citations before designators are
    sought. One false negative was already found by eye, not by a test: `subdivision (b)(1)` was

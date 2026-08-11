@@ -97,4 +97,4 @@ jobs:
       # errors. This is here to catch residue after a refactor — the previous
       # differ rewrite left an unused import behind — not to enforce a style.
       - run: pip install ruff==0.6.9
-      - run: ruff check --select F,E9 registry site
+      - run: ruff check --select F,E9 registry site audit
