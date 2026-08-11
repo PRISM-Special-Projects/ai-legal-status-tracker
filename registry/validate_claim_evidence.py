@@ -58,11 +58,8 @@ def main() -> int:
 
     bill_by_id = {b.get("id"): b for b in bills.get("bills", [])}
     seen_records = set()
-    version_maps = evidence.get("version_ids", {})
-
-    unexpected_maps = set(version_maps) - MIGRATED_RECORDS
-    if unexpected_maps:
-        fail(errors, f"version_ids contains unexpected records: {sorted(unexpected_maps)}")
+    if "version_ids" in evidence:
+        fail(errors, "legacy sidecar version_ids map must be removed after promotion")
 
     for rec in evidence.get("records", []):
         rid = rec.get("record_id")
@@ -74,10 +71,11 @@ def main() -> int:
         if rid not in bill_by_id:
             fail(errors, f"claim-evidence record not found in bills.json: {rid}")
 
-        version_map = version_maps.get(rid) or {}
-        registered_version_ids = set(version_map.values())
-        if len(registered_version_ids) != len(version_map):
-            fail(errors, f"{rid}: duplicate immutable version_id values")
+        bill_versions = (bill_by_id.get(rid) or {}).get("versions") or []
+        version_id_list = [v.get("version_id") for v in bill_versions if isinstance(v, dict) and v.get("version_id")]
+        registered_version_ids = set(version_id_list)
+        if len(registered_version_ids) != len(version_id_list):
+            fail(errors, f"{rid}: duplicate immutable version_id values in bills.json")
 
         seen_claims = set()
         for i, entry in enumerate(rec.get("claims", [])):

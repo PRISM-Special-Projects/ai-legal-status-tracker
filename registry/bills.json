@@ -429,7 +429,8 @@
             "denies_legal_personhood",
             "covers_non_ai_entities"
           ],
-          "text_sha256": "631f89678dcf2aeb51ff974a8e721d47a9d7c1875c28cd5e5913ec92d3c6fe94"
+          "text_sha256": "631f89678dcf2aeb51ff974a8e721d47a9d7c1875c28cd5e5913ec92d3c6fe94",
+          "version_id": "ut-hb249-enrolled"
         },
         {
           "label": "as codified (Utah Code ch. 63G-32)",
@@ -1091,7 +1092,8 @@
             "incident_reporting_duty",
             "addresses_corporate_veil"
           ],
-          "text_sha256": "2a3074322b9a7feb2b1c35e6897d404ca367a5ee833e7c27ee4da85941cbd168"
+          "text_sha256": "2a3074322b9a7feb2b1c35e6897d404ca367a5ee833e7c27ee4da85941cbd168",
+          "version_id": "mo-hb1769-4626H.01I"
         },
         {
           "label": "House Committee Substitute (HCS HBs 1746 & 1769, 3891H.04C) — veil provision REMOVED, NIST safe harbour and open-source carve-out ADDED",
@@ -1110,7 +1112,8 @@
             "incident_reporting_duty",
             "provides_compliance_safe_harbor"
           ],
-          "text_sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff"
+          "text_sha256": "f68da11b0e1441f3a949467520dbe88ba45cdd8fc43e40d5f3616ae6906635ff",
+          "version_id": "mo-hcs-3891H.04C"
         }
       ],
       "key_clause": {
@@ -2074,7 +2077,8 @@
           "derived_from_document": {
             "path": "incoming/tn-SA0922.pdf",
             "sha256": "21f884a9a9f9003f1246201f180dfb7309fdd824ee5b8c2d463bf34635425ae7"
-          }
+          },
+          "version_id": "tn-sb837-sa0922"
         },
         {
           "label": "House Amendment (HA0979)",

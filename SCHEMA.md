@@ -33,7 +33,7 @@ the UI group or ungroup as needed.
 | `corporate_carve_out` | enum | `express_saving_clause` · `prospective_only` · `none` · `unknown` |
 | `constitutional_exposure` | array | `{amendments[], claimed_by}` — claims recorded, never our own conclusion |
 | `sponsors` | array | `{name, party, role}`; empty if not established |
-| `versions` | array | `{label, date, source_url, text_path}` — introduced → substitute → enacted; `text_path` points at the stored text under `registry/texts/` |
+| `versions` | array | `{version_id?, label, date, source_url, text_path}` — introduced → substitute → enacted. `version_id` is an immutable identifier for versions addressed by provenance/diffs; it is unique repository-wide. During incremental migration it may be absent from versions not yet addressable by structured provenance. `text_path` points at the stored text under `registry/texts/` |
 | `key_clause` | object¦null | `{text, source}` verbatim |
 | `evidence_refs` | array | `ref_key`s into the Evidence sheet |
 | `sources` | object | `{primary[], tracker[]}` |
@@ -92,6 +92,8 @@ wording untouched. They exist so versions can be diffed; the authoritative docum
 the `source_url`.
 
 ## Changelog
+
+**v0.2.0 provenance migration (2026-08-11).** `versions[].version_id` is now a first-class immutable identifier for version objects addressed by claim-level provenance. Four audited IDs were promoted from the temporary sidecar map; the core validator enforces syntax and repository-wide uniqueness for IDs as they are added. The sidecar mapping has been removed.
 
 **v0.1.4 → v0.2.0 (2026-08-10, after external red-team review).** Added the `verification`
 object. `verification_status` alone was carrying far more epistemic weight than the evidence

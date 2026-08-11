@@ -77,6 +77,7 @@ def sha256_of(path):
     return h.hexdigest()
 
 seen=set()
+version_ids_seen={}
 for b in bills:
     if not isinstance(b, dict):
         err.append(f"<record {bills.index(b)}> is {type(b).__name__}, not an object"); continue
@@ -127,9 +128,20 @@ for b in bills:
         chk(re.fullmatch(r"\d{4}-\d{2}-\d{2}", w.get("date","")), f"{i}: watch_date bad date {w.get('date')!r}")
         chk(bool(w.get("event")) and w.get("kind") in ("effective","expiry","report","ballot","deadline"), f"{i}: watch_date bad shape")
 
+    record_version_ids=set()
     for v in shape(b, i, "versions", list, "a list"):
         if not isinstance(v, dict):
             err.append(f"{i}: version entry is {type(v).__name__}, not an object"); continue
+        version_id=v.get("version_id")
+        if version_id is not None:
+            chk(isinstance(version_id, str) and bool(re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]+", version_id)),
+                f"{i}: bad version_id {version_id!r}")
+            chk(version_id not in record_version_ids, f"{i}: duplicate version_id within record {version_id!r}")
+            owner=version_ids_seen.get(version_id)
+            chk(owner in (None, i), f"{i}: version_id {version_id!r} already used by {owner}")
+            if isinstance(version_id, str):
+                record_version_ids.add(version_id)
+                version_ids_seen.setdefault(version_id, i)
         chk(bool(v.get("source_url")), f"{i}: version '{v.get('label')}' has no source_url")
         if v.get("source_url"): check_url(v["source_url"], i, f"version '{v.get('label')}' source_url")
         tp = v.get("text_path")

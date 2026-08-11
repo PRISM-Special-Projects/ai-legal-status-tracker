@@ -5,12 +5,20 @@
       "record_id": "wa-hb2029-2025",
       "claims": [
         {
-          "claim": {"field": "status.stage"},
+          "claim": {
+            "field": "status.stage"
+          },
           "value": "failed",
           "mode": "derived",
           "supports": [
-            {"source_ref": "wa-hb2029-actions", "locator": "2026-01-12 — reintroduced and retained in present status; no later passage action"},
-            {"source_ref": "wa-2026-sine-die", "locator": "2026 regular session adjourned sine die 2026-03-12; unpassed biennium bills expire"}
+            {
+              "source_ref": "wa-hb2029-actions",
+              "locator": "2026-01-12 — reintroduced and retained in present status; no later passage action"
+            },
+            {
+              "source_ref": "wa-2026-sine-die",
+              "locator": "2026 regular session adjourned sine die 2026-03-12; unpassed biennium bills expire"
+            }
           ],
           "derivation": "HB 2029 was carried into the second year of the biennium but never advanced to passage before the 2026 session adjourned sine die; under the sourced session rule it therefore failed at the end of the biennium."
         }
@@ -20,19 +28,30 @@
       "record_id": "ut-hb249-2024",
       "claims": [
         {
-          "claim": {"field": "codified_at"},
+          "claim": {
+            "field": "codified_at"
+          },
           "value": "Utah Code §§ 63G-32-101, 63G-32-102 (ch. 32, Legal Personhood); 2024 Utah Laws ch. 451",
           "mode": "direct",
           "supports": [
-            {"source_ref": "ut-hb249-code", "locator": "Title 63G, Chapter 32, §§ 101-102"}
+            {
+              "source_ref": "ut-hb249-code",
+              "locator": "Title 63G, Chapter 32, §§ 101-102"
+            }
           ]
         },
         {
-          "claim": {"field": "codification_target", "version_id": "ut-hb249-enrolled"},
+          "claim": {
+            "field": "codification_target",
+            "version_id": "ut-hb249-enrolled"
+          },
           "value": "63G-31-101; 63G-31-102",
           "mode": "direct",
           "supports": [
-            {"source_ref": "ut-hb249-enrolled", "locator": "Utah Code Sections Affected; Sections 1-2"}
+            {
+              "source_ref": "ut-hb249-enrolled",
+              "locator": "Utah Code Sections Affected; Sections 1-2"
+            }
           ],
           "note": "Enactment-time numbering; current published-code numbering is a separate claim."
         }
@@ -42,30 +61,49 @@
       "record_id": "tn-sb837-2025",
       "claims": [
         {
-          "claim": {"field": "effective_date"},
+          "claim": {
+            "field": "effective_date"
+          },
           "value": "2026-04-23",
           "mode": "derived",
           "supports": [
-            {"source_ref": "tn-pc0781", "locator": "Section 2 — act takes effect upon becoming a law"},
-            {"source_ref": "tn-sb0837-actions", "locator": "2026-04-23 — Signed by Governor"}
+            {
+              "source_ref": "tn-pc0781",
+              "locator": "Section 2 — act takes effect upon becoming a law"
+            },
+            {
+              "source_ref": "tn-sb0837-actions",
+              "locator": "2026-04-23 — Signed by Governor"
+            }
           ],
           "derivation": "The act becomes effective on the date it became law."
         },
         {
-          "claim": {"field": "codified_at"},
+          "claim": {
+            "field": "codified_at"
+          },
           "value": "Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)",
           "mode": "direct",
           "supports": [
-            {"source_ref": "tn-pc0781", "locator": "Section 1 — deletes subdivision (20) and substitutes new subdivision (20), Person"}
+            {
+              "source_ref": "tn-pc0781",
+              "locator": "Section 1 — deletes subdivision (20) and substitutes new subdivision (20), Person"
+            }
           ],
           "note": "Session-law destination; live-code incorporation was separately reviewed during Workstream C."
         },
         {
-          "claim": {"field": "effect", "version_id": "tn-sb837-sa0922"},
+          "claim": {
+            "field": "effect",
+            "version_id": "tn-sb837-sa0922"
+          },
           "value": "replaces all language after the enacting clause",
           "mode": "direct",
           "supports": [
-            {"source_ref": "tn-sa0922", "locator": "opening amendment instruction"}
+            {
+              "source_ref": "tn-sa0922",
+              "locator": "opening amendment instruction"
+            }
           ]
         }
       ]
@@ -74,49 +112,71 @@
       "record_id": "mo-hb1769-2026",
       "claims": [
         {
-          "claim": {"field": "provisions", "version_id": "mo-hb1769-4626H.01I", "item": "addresses_corporate_veil"},
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hb1769-4626H.01I",
+            "item": "addresses_corporate_veil"
+          },
           "value": true,
           "assessment": "present",
           "mode": "direct",
           "supports": [
-            {"source_ref": "mo-hb1769-actions", "locator": "Bill Text — 4626H.01I, Introduced; operative subsection as preserved in the stored introduced text"},
-            {"source_ref": "provision-tests", "locator": "addresses_corporate_veil operational test"}
+            {
+              "source_ref": "mo-hb1769-actions",
+              "locator": "Bill Text — 4626H.01I, Introduced; operative subsection as preserved in the stored introduced text"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
           ]
         },
         {
-          "claim": {"field": "provisions", "version_id": "mo-hcs-3891H.04C", "item": "addresses_corporate_veil"},
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-hcs-3891H.04C",
+            "item": "addresses_corporate_veil"
+          },
           "value": false,
           "assessment": "checked_absent",
           "mode": "direct",
           "supports": [
-            {"source_ref": "mo-hcs-3891H04C", "locator": "full proposed § 1.2045; veil provision absent"},
-            {"source_ref": "provision-tests", "locator": "addresses_corporate_veil operational test"}
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "full proposed § 1.2045; veil provision absent"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
           ]
         },
         {
-          "claim": {"field": "provision_change", "from_version_id": "mo-hb1769-4626H.01I", "to_version_id": "mo-hcs-3891H.04C", "item": "addresses_corporate_veil"},
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-hb1769-4626H.01I",
+            "to_version_id": "mo-hcs-3891H.04C",
+            "item": "addresses_corporate_veil"
+          },
           "value": "removed",
           "mode": "derived",
           "supports": [
-            {"source_ref": "mo-hb1769-actions", "locator": "4626H.01I introduced version"},
-            {"source_ref": "mo-hcs-3891H04C", "locator": "3891H.04C committee substitute"},
-            {"source_ref": "provision-tests", "locator": "addresses_corporate_veil operational test"}
+            {
+              "source_ref": "mo-hb1769-actions",
+              "locator": "4626H.01I introduced version"
+            },
+            {
+              "source_ref": "mo-hcs-3891H04C",
+              "locator": "3891H.04C committee substitute"
+            },
+            {
+              "source_ref": "provision-tests",
+              "locator": "addresses_corporate_veil operational test"
+            }
           ],
           "derivation": "The tag is present under the operational test in the introduced version and checked absent in the committee substitute."
         }
       ]
     }
-  ],
-  "version_ids": {
-    "ut-hb249-2024": {
-      "enrolled": "ut-hb249-enrolled"
-    },
-    "tn-sb837-2025": {
-      "SA0922": "tn-sb837-sa0922"
-    },
-    "mo-hb1769-2026": {
-      "4626H.01I": "mo-hb1769-4626H.01I",
-      "3891H.04C": "mo-hcs-3891H.04C"
-    }
-  }
+  ]
 }
