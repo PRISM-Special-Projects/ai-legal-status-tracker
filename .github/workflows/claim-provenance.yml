@@ -14,20 +14,30 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install PDF text extractor
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y poppler-utils
+      - name: Apply G3 registry metadata
+        run: python3 registry/apply_g3_registry.py
 
-      - name: Acquire G3 Missouri SB 1012 texts
-        run: python3 registry/apply_g3_texts.py
+      - name: Apply G3 claim provenance
+        run: python3 registry/apply_g3_provenance.py
 
-      - name: Commit acquired G3 texts
+      - name: Apply G3 source manifest
+        run: python3 registry/apply_g3_manifest.py
+
+      - name: Validate core registry
+        run: python3 registry/validate.py
+
+      - name: Validate claim evidence
+        run: python3 registry/validate_claim_evidence.py
+
+      - name: Build site
+        run: python3 site/build.py
+
+      - name: Commit validated G3 metadata
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add registry/incoming/mo-sb1012-2026--*.pdf registry/texts/mo-sb1012-2026--*.txt
-          if git diff --cached --quiet; then echo 'No G3 text changes.'; exit 0; fi
-          git commit -m 'Store official Missouri SB 1012 text states'
+          git add registry/bills.json registry/claim_evidence.json registry/source_catalog.json registry/source_manifest.json
+          if git diff --cached --quiet; then echo 'No G3 metadata changes.'; exit 0; fi
+          git commit -m 'Model Missouri SB 1012 Senate version topology'
           git push
