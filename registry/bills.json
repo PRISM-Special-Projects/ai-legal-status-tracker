@@ -125,7 +125,7 @@
         "state": "ND"
       },
       "companion_group": null,
-      "codified_at": "N.D. Cent. Code § 1-01-49(8) (definition of 'person')",
+      "codified_at": "N.D. Cent. Code § 1-01-49(17) (current published-code numbering; enacted in 2023 as subsection 8)",
       "derived_from": "id-hb720-2022",
       "definitional_anchor": "unknown",
       "augmented_human_exposure": "unclear",
@@ -212,8 +212,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. Signed by the governor, filed 12 April 2023. Amends subsection 8 of N.D. Cent. Code s 1-01-49, the general definition of 'person', so it changes personhood across the whole code. TWELVE sponsors, far more than the two the paper names. Amended after North Dakota Catholic Conference testimony raised juridical-personhood concerns. Full bill text not on the overview page - operative language still to be read from the Versions tab. CODIFIED_AT PROVENANCE: taken from the bill's own amending language, not yet checked against the published North Dakota Century Code. The subsection number in particular should be confirmed against the code.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10. Signed by the governor, filed 12 April 2023. Amends subsection 8 of N.D. Cent. Code s 1-01-49, the general definition of 'person', so it changes personhood across the whole code. TWELVE sponsors, far more than the two the paper names. Amended after North Dakota Catholic Conference testimony raised juridical-personhood concerns. Full bill text not on the overview page - operative language still to be read from the Versions tab. CODIFIED_AT PROVENANCE: taken from the bill's own amending language, not yet checked against the published North Dakota Century Code. The subsection number in particular should be confirmed against the code. CODIFICATION RECHECK 2026-08-11: the current official Century Code now places the definition of 'Person' at § 1-01-49(17), where it excludes environmental elements, artificial intelligence, an animal, or an inanimate object. HB 1361 enacted the provision in 2023 as subsection 8; later code restructuring renumbered it. `codified_at` now cites the current published-code location while preserving the enactment-time numbering in this note.",
       "id": "nd-hb1361-2023",
       "bill_number": "HB 1361",
       "chamber": "house",
@@ -257,9 +257,9 @@
         "operative_text": "not_read",
         "operative_text_note": "Verified from the bill-overview page; operative text not read",
         "sponsors": "established",
-        "codified_at_source": "bill",
+        "codified_at_source": "code",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -2296,7 +2296,7 @@
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
-          "date": "2026-04-23",
+          "date": "2026-05-27",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
           "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
           "provisions": [
@@ -2324,8 +2324,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study. DATE CORRECTION 2026-08-11: 23 April 2026 was final legislative passage/concurrence, not the effective date. The official Tennessee history records governor signature and effective date on 22 May 2026, with Public Chapter 1066 assigned 27 May 2026.",
       "id": "tn-hb1455-2025",
       "bill_number": "HB 1455",
       "chamber": "house",
@@ -2336,11 +2336,11 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+        "as_of": "2026-08-11",
+        "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1493&ga=114",
         "evidence": {
-          "action": "Passed; became Public Chapter No. 1066",
-          "date": "2026-04-23"
+          "action": "Companion SB 1493 became Pub. Ch. 1066",
+          "date": "2026-05-27"
         },
         "basis": "explicit_action"
       },
@@ -2358,7 +2358,7 @@
           "https://legiscan.com/TN/bill/HB1455/2025"
         ]
       },
-      "effective_date": "2026-04-23",
+      "effective_date": "2026-05-22",
       "derived_from_changes": [],
       "watch_dates": [
         {
@@ -2374,7 +2374,7 @@
         "sponsors": "established",
         "codified_at_source": "code",
         "versions_with_text": 3,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": [
         {
@@ -2449,7 +2449,7 @@
         },
         {
           "label": "enacted (Pub. Ch. 1066)",
-          "date": "2026-04-23",
+          "date": "2026-05-27",
           "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
           "text_path": "texts/tn-sb1493-2025--enacted-pc1066.txt",
           "provisions": [
@@ -2472,8 +2472,8 @@
       ],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10 against Public Chapter No. 1066 (TN Secretary of State). Enacted as SB 1493, with HB 1455 substituted out. Passed 23 April 2026, effective on becoming law. CONFIRMS THE PAPER: the enacted text does NOT felonise AI training and does NOT address AI legal status or consciousness. It directs TACIR to study AI risk and report to the governor and both speakers by 31 JANUARY 2027 - a dated future event the tracker should watch. BUT THE SUBJECT MATTER SURVIVED AS RESEARCH QUESTIONS: study item (b)(5) covers 'the risks of an artificial intelligence chatbot engaging with a user as if the chatbot is a human and providing emotional support, mental health care, or health care', and item (b)(4) covers regulating or prohibiting dangerous prompts such as encouragement to commit suicide. Those map almost item-for-item onto the prohibitions in the introduced bill. The amendment converted felonies into a research agenda rather than abandoning the topic - a distinct legislative move worth naming, and a plausible route back to substantive regulation in 2027. UNCODIFIED: the caption says it amends Tit. 29, 33, 39 and 47, but the enacted text amends no code section at all - it is a freestanding study directive. The caption is residue from the far broader bill as introduced. SPONSORS: Senate - Massey, Yager. House - thirteen members, including Rep. Justin Pearson and Rep. Karen Camper, both Democrats. As with Pub. Ch. 781, sponsorship was cross-party. **INTRODUCED TEXT RECOVERED 2026-08-10 via the Wayback Machine** (30 Dec 2025 snapshot, pre-amendment). THE DIFF IS NOW FULLY SOURCED, and the introduced bill was considerably more than the felony the paper describes. It would have created a new part at Tenn. Code Ann. tit. 39, ch. 17: s 39-17-2001 definitions; s 39-17-2002 'Unlawful training of artificial intelligence' listing EIGHT prohibited training purposes with '(b) A violation of subsection (a) is a Class A felony'; and - UNMENTIONED IN THE PAPER - s 39-17-2003 creating a PRIVATE RIGHT OF ACTION with LIQUIDATED DAMAGES OF $150,000 as an alternative to actual damages, plus punitive damages and attorney's fees, and equitable relief up to an injunction ordering the defendant to CEASE OPERATION of the AI, which 'may require that the defendant provide new training for the artificial intelligence'. A court-ordered retraining remedy. Its 'Train' definition expressly reached 'development of a large language model when the person developing the large language model knows that the model will be used to teach the A.I.' - which is why foundation-model developers reacted. Carve-outs existed for customer-service bots, video-game bots and standalone voice assistants. Would have taken effect 1 July 2026. MECHANISM OF REMOVAL: Amendment No. 4 (HA1260), moved by Rep. ZACHARY, again by 'deleting all language after the enacting clause and substituting' - the whole criminal-and-civil scheme replaced by the TACIR study. DATE CORRECTION 2026-08-11: 23 April 2026 was final legislative passage/concurrence, not the effective date. The official Tennessee history records governor signature and effective date on 22 May 2026, with Public Chapter 1066 assigned 27 May 2026.",
       "id": "tn-sb1493-2025",
       "bill_number": "SB 1493",
       "chamber": "senate",
@@ -2484,11 +2484,11 @@
       },
       "status": {
         "stage": "enacted",
-        "as_of": "2026-08-10",
-        "source_url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+        "as_of": "2026-08-11",
+        "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1493&ga=114",
         "evidence": {
-          "action": "Passed; became Public Chapter No. 1066",
-          "date": "2026-04-23"
+          "action": "Signed by Governor; effective date 05/22/2026; Pub. Ch. 1066",
+          "date": "2026-05-22"
         },
         "basis": "explicit_action"
       },
@@ -2506,7 +2506,7 @@
           "https://legiscan.com/TN/bill/SB1493/2025"
         ]
       },
-      "effective_date": "2026-04-23",
+      "effective_date": "2026-05-22",
       "derived_from_changes": [],
       "watch_dates": [
         {
@@ -2522,7 +2522,7 @@
         "sponsors": "established",
         "codified_at_source": "code",
         "versions_with_text": 3,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": [
         {

@@ -135,6 +135,54 @@
       "url": "https://www.senate.ca.gov/system/files/2026-07/sds-7-2-2026.pdf",
       "jurisdiction": "CA",
       "note": "Official Daily Summary recording SB 1119's Assembly do-pass vote and re-referral to Appropriations."
+    },
+    {
+      "id": "id-hb720-bill",
+      "label": "Idaho Legislature — HB 720 official bill text/page",
+      "kind": "enrolled_bill",
+      "url": "https://legislature.idaho.gov/sessioninfo/2022/legislation/H0720/",
+      "jurisdiction": "ID",
+      "note": "Official Idaho legislative source; supports enactment-time § 5-346 destination and 1 July 2022 effective date. Direct live-code inspection remained inaccessible to the audit tooling."
+    },
+    {
+      "id": "nd-hb1361-code",
+      "label": "North Dakota Century Code — Chapter 1-01, current § 1-01-49",
+      "kind": "code",
+      "url": "https://ndlegis.gov/cencode/t01c01.pdf",
+      "jurisdiction": "ND",
+      "note": "Official current Century Code; Person is now subsection 17."
+    },
+    {
+      "id": "nd-hb1361-actions",
+      "label": "North Dakota Legislature — HB 1361 actions",
+      "kind": "action_history",
+      "url": "https://ndlegis.gov/assembly/68-2023/regular/bill-actions/ba1361.html",
+      "jurisdiction": "ND",
+      "note": "Official action history showing emergency clause carried and filing with Secretary of State on 12 April 2023."
+    },
+    {
+      "id": "nd-effective-date-rule",
+      "label": "North Dakota Legislative Branch — general effective-date rules",
+      "kind": "session_rule",
+      "url": "https://ndlegis.gov/general-information",
+      "jurisdiction": "ND",
+      "note": "Official explanation that emergency measures may take effect earlier than the ordinary August 1 date when the emergency receives the required vote."
+    },
+    {
+      "id": "tn-pc1066",
+      "label": "Tennessee Secretary of State — Public Chapter 1066",
+      "kind": "session_law",
+      "url": "https://publications.tnsosfiles.com/acts/114/pub/pc1066.pdf",
+      "jurisdiction": "TN",
+      "note": "Official Public Chapter 1066; uncodified TACIR study directive and effective-upon-becoming-law clause."
+    },
+    {
+      "id": "tn-sb1493-actions",
+      "label": "Tennessee General Assembly — SB 1493 / HB 1455 bill history",
+      "kind": "action_history",
+      "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1493&ga=114",
+      "jurisdiction": "TN",
+      "note": "Official history showing 23 April final legislative action, 22 May governor signature/effective date, and 27 May Public Chapter 1066."
     }
   ]
 }

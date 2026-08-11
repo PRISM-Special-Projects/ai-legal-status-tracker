@@ -50,7 +50,7 @@ versions not yet addressed by structured provenance may still lack a `version_id
 
 ## Current migration boundary
 
-Ten records currently have structured claim-level evidence.
+Fifteen records currently have structured claim-level evidence.
 
 The first production cohort contains the four records that passed the Workstream F pilot:
 
@@ -71,6 +71,15 @@ A third bounded status-resolution cohort, promoted on 2026-08-11, closes the two
 
 - `mo-sb1012-2026` — corrected from historical `passed_one_chamber` to current `failed`, using Senate passage, the House Do Not Pass action, and session-end evidence;
 - `ca-sb1119-2026` — retained `in_committee` but replaced secondary status basis with the official 2 July Senate Daily Summary recording re-referral to Assembly Appropriations.
+
+
+A fourth bounded enacted-law cohort, promoted on 2026-08-11, maps codification and effective-date provenance and corrects two stale citations/dates:
+
+- `id-hb720-2022` — enactment-time § 5-346 destination and 1 July 2022 effective date mapped; direct official live-code inspection remains a documented access limitation, so `codified_at_source` remains `bill`;
+- `nd-hb1361-2023` — current official Century Code location corrected from enactment-time § 1-01-49(8) to current § 1-01-49(17), with both states preserved; effective date mapped from the emergency/final-action record;
+- `ut-hb249-2024` — 1 May 2024 effective date added to the already mapped code provenance;
+- `tn-hb849-2025` — Public Chapter 781 codification and 23 April 2026 effective date mapped using the enacted companion record;
+- `tn-hb1455-2025` / `tn-sb1493-2025` — corrected effective date from 23 April (final legislative passage) to 22 May 2026 (governor signature/effective date), with Public Chapter 1066 dated 27 May; uncodified status and enacted-stage provenance mapped.
 
 Corpus-wide mapping remains intentionally incremental. The next expansion should prioritise
 high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and source-observed

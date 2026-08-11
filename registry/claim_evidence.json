@@ -54,6 +54,19 @@
             }
           ],
           "note": "Enactment-time numbering; current published-code numbering is a separate claim."
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2024-05-01",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "ut-hb249-enrolled",
+              "locator": "Section 3 — Effective date: May 1, 2024"
+            }
+          ]
         }
       ]
     },
@@ -288,6 +301,211 @@
               "locator": "SB 1119 — Assembly Jul 2: do pass 12-2 and re-refer to Appropriations"
             }
           ]
+        }
+      ]
+    },
+    {
+      "record_id": "id-hb720-2022",
+      "claims": [
+        {
+          "claim": {
+            "field": "codified_at"
+          },
+          "value": "Idaho Code § 5-346 (Personhood Status), added to ch. 3, tit. 5; 2022 Idaho Sess. Laws ch. 322",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "id-hb720-bill",
+              "locator": "Section 1 — NEW SECTION, Idaho Code § 5-346; Session Law ch. 322"
+            }
+          ],
+          "note": "Bill/session-law destination; official live-code page was inaccessible to audit tooling, so verification.codified_at_source remains bill."
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2022-07-01",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "id-hb720-bill",
+              "locator": "emergency/effective-date clause — July 1, 2022"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "nd-hb1361-2023",
+      "claims": [
+        {
+          "claim": {
+            "field": "codified_at"
+          },
+          "value": "N.D. Cent. Code § 1-01-49(17) (current published-code numbering; enacted in 2023 as subsection 8)",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "nd-hb1361-code",
+              "locator": "§ 1-01-49(17) — Person; excludes artificial intelligence"
+            }
+          ],
+          "note": "Current code numbering; HB 1361's enactment-time subsection number was 8."
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2023-04-12",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "nd-hb1361-actions",
+              "locator": "emergency clause carried; filed with Secretary of State 04/12/2023"
+            },
+            {
+              "source_ref": "nd-effective-date-rule",
+              "locator": "emergency measures may take effect earlier than ordinary August 1 effective date"
+            }
+          ],
+          "derivation": "HB 1361 carried its emergency clause through final passage and was filed with the Secretary of State on 12 April 2023; the registry therefore records that filing date as the emergency effective date."
+        }
+      ]
+    },
+    {
+      "record_id": "tn-hb849-2025",
+      "claims": [
+        {
+          "claim": {
+            "field": "codified_at"
+          },
+          "value": "Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "tn-pc0781",
+              "locator": "Section 1 — amendment to Tenn. Code Ann. § 1-3-105(a)(20)"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2026-04-23",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "tn-pc0781",
+              "locator": "Section 2 — act takes effect upon becoming a law"
+            },
+            {
+              "source_ref": "tn-sb0837-actions",
+              "locator": "2026-04-23 — Signed by Governor"
+            }
+          ],
+          "derivation": "HB 849's companion SB 837 became Public Chapter 781; the act takes effect upon becoming law and was signed on 23 April 2026."
+        }
+      ]
+    },
+    {
+      "record_id": "tn-hb1455-2025",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "enacted",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "tn-sb1493-actions",
+              "locator": "Signed by Governor 05/22/2026; Pub. Ch. 1066 05/27/2026"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "codified_at"
+          },
+          "value": "Pub. Ch. 1066 (2026) — uncodified; caption references Tenn. Code Ann. tits. 29, 33, 39, 47 but the enacted text amends no code section",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "tn-pc1066",
+              "locator": "full enacted text — freestanding TACIR study directive; no Tennessee Code section amended"
+            }
+          ],
+          "note": "The public chapter is uncodified despite the residual caption referencing Titles 29, 33, 39 and 47."
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2026-05-22",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "tn-pc1066",
+              "locator": "effective-upon-becoming-law clause"
+            },
+            {
+              "source_ref": "tn-sb1493-actions",
+              "locator": "Signed by Governor / Effective date(s) 05/22/2026"
+            }
+          ],
+          "derivation": "Public Chapter 1066 takes effect upon becoming law; the official bill history records governor signature and effective date on 22 May 2026."
+        }
+      ]
+    },
+    {
+      "record_id": "tn-sb1493-2025",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "enacted",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "tn-sb1493-actions",
+              "locator": "Signed by Governor 05/22/2026; Pub. Ch. 1066 05/27/2026"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "codified_at"
+          },
+          "value": "Pub. Ch. 1066 (2026) — uncodified; caption references Tenn. Code Ann. tits. 29, 33, 39, 47 but the enacted text amends no code section",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "tn-pc1066",
+              "locator": "full enacted text — freestanding TACIR study directive; no Tennessee Code section amended"
+            }
+          ],
+          "note": "The public chapter is uncodified despite the residual caption referencing Titles 29, 33, 39 and 47."
+        },
+        {
+          "claim": {
+            "field": "effective_date"
+          },
+          "value": "2026-05-22",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "tn-pc1066",
+              "locator": "effective-upon-becoming-law clause"
+            },
+            {
+              "source_ref": "tn-sb1493-actions",
+              "locator": "Signed by Governor / Effective date(s) 05/22/2026"
+            }
+          ],
+          "derivation": "Public Chapter 1066 takes effect upon becoming law; the official bill history records governor signature and effective date on 22 May 2026."
         }
       ]
     }
