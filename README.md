@@ -1,122 +1,132 @@
 # AI Legal Status Tracker
 
-A registry of **US state legislation on the legal status and personhood of AI systems** —
-23 bills across 12 states, 2022 to mid-2026 — and a static site generated from it.
+A registry of **US state legislation on the legal status and person-like status of AI systems** —
+**29 bills across 16 states**, 2022–2026 — and a static site generated from it.
 
-Not a general AI-legislation tracker. That space is well covered (MultiState, IAPP, NCSL,
-Brennan Center, all tracking 1,000+ bills a year). This is a narrow slice with a structural
-layer on top: what each provision says, how bills descend from one another, and **how their
-text changed between introduction and enactment**.
+This is deliberately not a general AI-legislation tracker. It focuses on legislation that either
+assigns or denies AI legal personhood/legal authority/legal capacity, or regulates claims and
+attributions of sentience, consciousness, humanity or comparable person-like status.
 
 Court decisions on AI personhood, inventorship and standing are tracked by
 [Matthew Lee's AI Rights and Legal Personhood Tracker](https://naturalandartificiallaw.com/ai-rights-and-legal-personhood-tracker/),
-which we point to rather than duplicate. He tracks the courts; this tracks the legislatures.
+which we point to rather than duplicate. He tracks the courts; this project tracks state legislatures.
 
 ## Status
 
-**Pre-publication.** The data is verified and the site builds, but two things are open:
-a status audit for six records established from secondary sources, and a written inclusion
-methodology. See `REVISIONS.md`.
+**Release candidate.** Substantive verification, the corpus-completeness sweep and the 29-record
+publication audit are complete. Remaining release work is documentation/handoff cleanup and an
+independent reconstruction sample. See `RELEASE_READINESS.md`.
 
-The version differ is now structural: provisions are aligned on their full section and
-subsection path rather than on punctuation, redesignation is distinguished from amendment, and
-a comparison that cannot establish structure says so on the record. What it does and does not
-establish is set out on the site's method page and in `site/legdiff.py`.
+Current audit state (2026-08-11):
 
 ```
-Records                                   23 across 12 states
-Status established from a citable record  23
-  basis: explicit legislative action      15
-  basis: session rule (derived)            2
-  basis: secondary source                  6
-Operative text read in full               16
-  partial                                  1
-  not read                                 6
-Enacted laws                               7  (codified_at code-verified: 5)
+Records                                   29 across 16 states
+Status established from a citable record  29
+  basis: explicit legislative action      23
+  basis: session rule (derived)             6
+  basis: secondary source                   0
+Operative text read in full               29 of 29
+Enacted laws                                9
+  codified_at verified against the code     6
+  codified_at established from bill/act     3
+Terminal statuses with evidence            18 of 18
 ```
 
-Run `python3 registry/validate.py` for the current audit summary. It reports the evidentiary
-state, not just pass/fail — zero validator errors is not the same as strong evidence.
+Run `python3 registry/validate.py` and `python3 registry/publication_audit.py` for the current
+machine checks.
+
+## Scope
+
+A bill is included when its operative rule either:
+
+1. expressly assigns or denies AI **legal personhood, legal authority, legal capacity, or
+   inclusion in a statutory person category**; or
+2. regulates an AI system's claim or attribution of **sentience, consciousness, humanity, or
+   comparable person-like status** in a way that is more substantive than a generic disclosure
+   that the user is interacting with software rather than a human.
+
+Generic bot/AI identity disclosure alone is outside the v1 scope. `METHODOLOGY.md` documents the
+search, inclusion/exclusion rule and verification process; `RELEASE_READINESS.md` records the final
+completeness sweep and important exclusions.
 
 ## What is here
 
 ```
-registry/bills.json          the registry — single source of truth, 23 records
-registry/texts/              16 normalised bill texts, used for diffs
-registry/incoming/           source PDFs as retrieved
-registry/source_manifest.json SHA-256 for every document and text
-registry/session_rules.json  how a bill dies in each state, sourced
-registry/vocabulary.json     the controlled provision vocabulary — one machine-readable source
-registry/validate.py         validation + audit summary
-registry/test_regressions.py one test per bug ever found here, plus negative validator cases
-site/build.py                builds the site from the registry
-site/legdiff.py              structural differ — aligns provisions by statutory path
-site/test_diff.py            adversarial + corpus tests for the differ
-SCHEMA.md                    record definition and controlled vocabularies
-PROVISIONS.md                operational test + negative examples per tag
-VERIFICATION.md              what was checked, how, and what we got wrong
-METHODOLOGY.md               scope and inclusion rules — TODO
+registry/bills.json             registry — single bill-centred source of truth, 29 records
+registry/claim_evidence.json    claim-specific evidence for selected high-risk claims
+registry/source_catalog.json    structured source catalogue used by claim evidence
+registry/texts/                 normalized legislative texts used where useful for comparison
+registry/incoming/              source documents as retrieved
+registry/source_manifest.json   SHA-256 integrity metadata for stored documents/texts
+registry/session_rules.json     sourced rules used for session-end status derivations
+registry/vocabulary.json        controlled provision vocabulary
+registry/validate.py            schema, vocabulary, reference and audit-summary checks
+registry/publication_audit.py   tracker-focused publication checks
+registry/test_regressions.py    regression tests for errors previously found
+site/build.py                   static-site builder
+site/legdiff.py                 structural legislative-text differ (technical aid, not release gate)
+SCHEMA.md                       record definition
+PROVISIONS.md                   operational tests for provision tags
+METHODOLOGY.md                  scope, search and verification method
+VERIFICATION.md                 audit history, corrections and known limitations
+RELEASE_READINESS.md            gated release plan and completion record
 ```
 
 ## Build it
 
-No dependencies beyond the Python standard library, and no network calls at runtime.
+No runtime network calls are required.
 
 ```bash
-python3 registry/validate.py        # validate + audit
-python3 registry/test_regressions.py # regression tests
-python3 site/test_diff.py           # differ tests
-python3 site/build.py               # writes site/dist/
+python3 registry/validate.py
+python3 registry/publication_audit.py
+python3 registry/test_regressions.py
+python3 site/build.py
 ```
+
+The structural differ has its own tests (`python3 site/test_diff.py`). Differ/parser perfection is
+useful research infrastructure but is not a v1 blocker unless it changes a tracker-facing factual
+conclusion.
 
 ## Principles
 
-**Descriptive, not evaluative.** The registry records what bills say. It does not rate,
-rank, score or predict them, and it takes no position on whether AI systems should have legal
-status. Inclusion implies no endorsement. Where a bill is claimed to be unconstitutional we
-record *who claimed it*, with attribution.
+**Descriptive, not evaluative.** The registry records what bills say and what happened to them. It
+does not rate, rank, score or predict legislation, and it takes no position on whether AI systems
+should have legal status. Where an outside source makes a constitutional or policy claim, the
+registry preserves the attribution rather than adopting the claim as its own.
 
-The intent is that this is equally usable by people who support these bills and people who
-oppose them.
+**Primary evidence for material claims.** Every record identifies primary legislative sources and
+records how its status was established. `status.basis` distinguishes an explicit legislative action
+from a status derived from a sourced session rule. The operative text has been read for every record.
+Selected high-risk claims also have field-level evidence in `registry/claim_evidence.json`; the
+sidecar is intentionally not presented as an exhaustive citation for every sentence in `notes`.
 
-**Every structured claim records its evidentiary basis.** Each record states how its status was
-established, whether the operative text was read, and whether the statutory citation was verified
-against the code or only against the bill. `status.basis` distinguishes a status the legislature
-recorded from one derived from a session rule.
+**Known limits are disclosed.** A bill's proposed codification and the final published code are not
+the same evidentiary object. For enacted laws the registry distinguishes code-verified
+`codified_at` from bill/session-law-sourced destinations and records access limitations where direct
+code inspection was not available.
 
-This is deliberately weaker than "every claim cites something", which this registry said until
-2026-08-11 and could not support: there is **no field-level link from an individual claim to an
-individual source**. The narrative `notes` may contain several observations supported collectively
-by the record's cited sources, and a reader cannot currently map one sentence to one source.
-Closing that gap is a publication blocker, not a refinement.
-
-**Errors are recorded, not quietly fixed.** `VERIFICATION.md` documents our own mistakes,
-including a correction to the source paper that we later retracted.
+**Errors are recorded, not silently erased.** `VERIFICATION.md` documents material corrections to
+the registry and to claims inherited from the source paper.
 
 ## AI use
 
-This registry was compiled with substantial AI assistance — retrieving documents, extracting
-fields, drafting classifications and generating this site. AI tools misread documents, invent
-plausible details and mis-attribute sources. Every record was checked against a source by a
-person, and the audit summary records how far that went for each one.
-
-External adversarial review has already found errors here that we missed, including a wrong
-statutory citation and an unsound correction to another researcher's work. Expect more.
-Please report them.
+This registry was compiled with substantial AI assistance for retrieval, extraction, comparison,
+classification and code generation. AI tools can misread documents, infer beyond the evidence or
+attach the wrong source. The release process therefore requires direct source review for operative
+texts, primary/citable status evidence, validation, and adversarial spot checking.
 
 ## Source
 
-Seeded from Appendix A of Smith, A., Caviola, L., & Alexander, H. (2026),
-*Denying Personhood to AI: An Analysis of U.S. State Legislation on AI Legal Status*,
-SSRN 6829981 — which documented 23 bills across 12 states as of May 2026. Every record has
-since been independently checked, and the registry now records statutory citations, effective
-dates, sponsors, votes, provision detail and text versions that the paper did not set out to
-capture.
+The project was seeded from Appendix A of Smith, A., Caviola, L., & Alexander, H. (2026),
+*Denying Personhood to AI: An Analysis of U.S. State Legislation on AI Legal Status*, SSRN 6829981,
+which documented 23 bills across 12 states as of its May 2026 snapshot. The registry was then
+independently re-verified and a fresh national completeness sweep added six further in-scope bills,
+producing the current 29-record corpus.
 
 ## Licence
 
 Code: MIT (`LICENSE`). Data and documentation: CC BY 4.0 (`LICENSE-DATA`).
-Underlying legislative text is a US government edict and in the public domain.
+Underlying legislative text is a government edict and is reproduced for research/audit purposes.
 
 Suggested citation for a record:
 
@@ -125,6 +135,5 @@ Suggested citation for a record:
 
 ## Corrections
 
-Errors, stale statuses, broken links, missing bills, mischaracterised provisions — please
-open an issue. Corrections are logged with the date and what changed, and the registry is
-versioned, so every change is a dated, inspectable diff.
+Errors, stale statuses, broken links, missing bills or mischaracterised provisions are welcome as
+issues. The registry is versioned so corrections remain inspectable in Git history.
