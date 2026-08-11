@@ -119,24 +119,34 @@ Current audit summary: **29 records / 16 states; 29/29 status established from p
 
 ### I gate — PASS
 
-No material data inconsistency remains from the publication audit. Documentation that still describes the old 23-record/12-state corpus is carried forward to J rather than treated as a data-audit failure.
+No material data inconsistency remains from the publication audit.
 
-## J — Documentation and handoff — NEXT
+## J — Documentation and handoff — COMPLETE
 
-- [ ] Scope and inclusion/exclusion criteria.
-- [ ] Search methodology.
-- [ ] Provision-tag methodology.
-- [ ] Material-version rule.
-- [ ] Legislative-status methodology.
-- [ ] Evidence policy and known access limitations.
-- [ ] Opus handoff: how sources were found and verified.
-- [ ] Remove or clearly label obsolete migration/pilot machinery.
-- [ ] Correct stale README/site/repository-facing corpus counts and status prose.
-- [ ] Final CI.
+- [x] Scope and inclusion/exclusion criteria — `METHODOLOGY.md`.
+- [x] Search methodology — `METHODOLOGY.md` plus H8 exclusion log above.
+- [x] Provision-tag methodology — `PROVISIONS.md`, controlled vocabulary and methodology cross-reference.
+- [x] Material-version rule — documented in `METHODOLOGY.md`.
+- [x] Legislative-status methodology — explicit-action versus session-rule derivation documented.
+- [x] Evidence policy and known access limitations — `METHODOLOGY.md` and refreshed `VERIFICATION.md`.
+- [x] Opus/future-maintainer handoff — `RESEARCH_HANDOFF.md`, including source recovery and failure modes.
+- [x] Obsolete one-shot migration helpers removed; parser/differ work clearly separated as non-blocking technical backlog.
+- [x] README corrected to the 29-record/16-state release-candidate state; generated site counts remain data-driven.
+- [x] Final CI after documentation/handoff changes — PASS.
 
-## Final release gate
+### J findings
 
-Independently reconstruct a deliberately difficult sample from tracker claim → source → exact text/action → same substantive conclusion.
+The README and verification narrative had still described the original 23-record pre-publication state. They were rewritten to reflect the post-H/I corpus and to avoid implying exhaustive field-level provenance where the claim-evidence sidecar is selective. A dedicated methodology and research-handoff document were added.
+
+**Non-code metadata action:** the GitHub repository description returned by the API still says “23 bills, 12 states.” The available connector does not expose repository-metadata editing, so this should be changed manually to 29 bills / 16 states. The README and generated tracker itself are current; this does not block the data/site release.
+
+### J gate — PASS WITH ONE DOCUMENTED ACTION
+
+The repository contents and CI are release-ready; only the GitHub repository description needs a manual metadata update.
+
+## Final release gate — NEXT
+
+Independently reconstruct a deliberately difficult sample from tracker claim → source → exact text/action → same substantive conclusion. The sample should include an enacted personhood prohibition, a session-rule-derived failure, a materially amended bill, a code-renumbering case, a chatbot-status bill, and an access-limitation case.
 
 ## Non-blocking technical backlog
 
