@@ -42,10 +42,11 @@ being assessed:
  "item": "addresses_corporate_veil"}
 ```
 
-The current migration stores the first immutable version identifiers in the sidecar
-`version_ids` map. Moving those IDs onto `bills.json` version objects is a separate migration
-step and remains gated; the sidecar prevents label edits from changing claim identity in the
-meantime.
+`versions[].version_id` is now a first-class property in `registry/bills.json`. The first four
+audited IDs were promoted from the temporary sidecar map on 2026-08-11, and that map has been
+removed. The core registry validator checks ID syntax and repository-wide uniqueness; the claim
+validator resolves version selectors directly against `bills.json`. During incremental migration,
+versions not yet addressed by structured provenance may still lack a `version_id`.
 
 ## Current migration boundary
 
@@ -57,7 +58,7 @@ The first production migration contains the four records that passed the Workstr
 - `mo-hb1769-2026` — version-specific provision presence, checked absence and removal.
 
 Corpus-wide mapping is intentionally incremental. The next expansion should prioritise
-high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and material
+high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and source-observed
 version-specific provision assessments) rather than attempting to map every sentence in
 `notes`.
 
@@ -66,10 +67,12 @@ version-specific provision assessments) rather than attempting to map every sent
 Run from the repository root:
 
 ```bash
+python3 registry/validate.py
 python3 registry/validate_claim_evidence.py
 ```
 
-The validator checks source resolution, source display labels, duplicate claim selectors,
+The core validator checks first-class version-ID syntax and repository-wide uniqueness. The
+claim validator checks source resolution, source display labels, duplicate claim selectors,
 direct/derived semantics, explicit negative assessments, version-ID registration and selected
 stale values against `bills.json`.
 
