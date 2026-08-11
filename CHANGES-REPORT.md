@@ -6,6 +6,9 @@ copy, and that has already cost one reviewer their time.
 
 ```
 Repository   https://github.com/PRISM-Special-Projects/ai-legal-status-tracker  (public)
+Code state   21c536d — every code claim below describes this commit. Commits after it that
+             touch only documentation do not change what the code does; if a later commit
+             touches registry/ or site/, this report is stale and says so by omission.
 Differ       site/legdiff.py            531 lines, standard library only
 Site         site/build.py              1,225 lines → 58 files in site/dist/
 Differ tests site/test_diff.py          37 tests
