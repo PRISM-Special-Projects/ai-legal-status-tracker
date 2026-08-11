@@ -319,8 +319,8 @@ def diff_nodes(A, Z, warnings=None) -> DiffResult:
     the commonest legislative edit, since inserting one subdivision shifts every
     later one — which path identity alone would report as a removal plus an
     addition. Uniqueness on both sides is required, so boilerplate that recurs
-    («Does not include artificial intelligence…» appears four times in one
-    Tennessee bill) is never paired this way.
+    («Does not include artificial intelligence…» appears three times in
+    Tennessee SB 837 as introduced) is never paired this way.
 
     **Structural path.** Everything left is matched on the full path, parent
     context included, never on the visible marker. Where a path is reused, a
@@ -398,7 +398,8 @@ def diff_nodes(A, Z, warnings=None) -> DiffResult:
     # it. This follows from a pairing already made rather than from resemblance, so
     # it does not soften the rule against guessing: exact text is still required, and
     # the destination must be unique. It matters because boilerplate that recurs
-    # verbatim ("Does not include artificial intelligence…" appears four times here)
+    # verbatim ("Does not include artificial intelligence…" appears three times in
+    # Tennessee SB 837 as introduced, and once in the enacted text)
     # can never be paired on text alone.
     remap = {a.path: z.path for a, z, k in matches if a.path != z.path}
     if remap and removed and added:

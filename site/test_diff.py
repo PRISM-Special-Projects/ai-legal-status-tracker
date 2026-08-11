@@ -272,6 +272,28 @@ class Corpus(unittest.TestCase):
         self.assertEqual(len({n.path for n in nodes}), len(nodes),
                          "Missouri paths should be unique")
 
+    def test_every_provision_is_accounted_for_exactly_once(self):
+        """Conservation: a paired slot consumes one provision from each side, an
+        unpaired one consumes one. Nothing may be dropped or double-counted, which
+        is the failure a differ can hide most easily."""
+        import json
+        reg = json.loads((TEXTS.parent / "bills.json").read_text())
+        for b in reg["bills"]:
+            vs = [v for v in b["versions"] if v.get("text_path")]
+            if len(vs) < 2:
+                continue
+            a_raw = (TEXTS.parent / vs[0]["text_path"]).read_text()
+            z_raw = (TEXTS.parent / vs[-1]["text_path"]).read_text()
+            r = L.diff_texts(a_raw, z_raw)
+            if r.mode != "structural":
+                continue
+            na = len(L.parse(L.strip_preamble(a_raw)).nodes)
+            nz = len(L.parse(L.strip_preamble(z_raw)).nodes)
+            paired = r.unchanged + r.modified + r.renumbered
+            self.assertEqual(na + nz, 2 * paired + r.removed + r.added + r.ambiguous,
+                             f"{b['id']}: provisions lost or double-counted")
+            self.assertEqual(len(r.entries), r.nodes_total, b["id"])
+
     def test_every_corpus_pair_reports_a_mode(self):
         import json
         reg = json.loads((TEXTS.parent / "bills.json").read_text())
