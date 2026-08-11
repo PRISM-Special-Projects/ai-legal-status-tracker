@@ -3,7 +3,7 @@ name: Claim provenance migration
 on: [push, pull_request]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   claim-provenance:
@@ -14,30 +14,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Apply G3 registry metadata
-        run: python3 registry/apply_g3_registry.py
-
-      - name: Apply G3 claim provenance
-        run: python3 registry/apply_g3_provenance.py
-
-      - name: Apply G3 source manifest
-        run: python3 registry/apply_g3_manifest.py
-
       - name: Validate core registry
         run: python3 registry/validate.py
 
       - name: Validate claim evidence
         run: python3 registry/validate_claim_evidence.py
 
-      - name: Build site
-        run: python3 site/build.py
-
-      - name: Commit validated G3 metadata
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add registry/bills.json registry/claim_evidence.json registry/source_catalog.json registry/source_manifest.json
-          if git diff --cached --quiet; then echo 'No G3 metadata changes.'; exit 0; fi
-          git commit -m 'Model Missouri SB 1012 Senate version topology'
-          git push
+      - name: Diagnose unpinned differ corpus texts
+        run: python3 registry/diagnose_g3_diff.py
