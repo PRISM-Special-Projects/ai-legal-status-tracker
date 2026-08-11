@@ -679,7 +679,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-11",
-      "notes": "VERIFIED 2026-08-10. **THIS RECORD PREVIOUSLY CARRIED AN INCORRECT 'CORRECTION' TO THE PAPER, NOW RETRACTED.** We recorded the bill as in_committee on the basis of the 12 Jan 2026 action 'By resolution, reintroduced and retained in present status', and asserted the paper was wrong to call it Failed. That was a misreading. In Washington that resolution is the routine carryover from the first to the second year of a biennium - it keeps a bill alive INTO the 2026 session, not beyond it. Washington's 2026 regular session adjourned SINE DIE ON 12 MARCH 2026, and bills not passed by the end of the biennium die. The complete action history is: first reading and referral 27 Feb 2025; carryover resolution 12 Jan 2026; nothing further. The bill therefore died at sine die and THE PAPER'S 'FAILED' WAS CORRECT. WHY THE ERROR HAPPENED: Washington posts no terminal action - the page still shows the last committee location - so an absent 'failed' line was read as evidence of continuing life. Absence of a death notice is not evidence of life. CONSEQUENCE FOR THE WISCONSIN COMPARISON: we also claimed Washington and Wisconsin differ in outcome because of carryover rules. They do not. Both sets of bills died at the end of the 2025-26 biennium. They differ only in RECORD-KEEPING CONVENTION: Wisconsin posts an explicit 'Failed to pass pursuant to Senate Joint Resolution 1'; Washington posts nothing. Seven sponsors: Abell, Corry, Chase, Ley, Marshall, Walsh, Dufault - none named in the paper. Title: 'recognition of legal personhood by a governmental entity.' Utah template. Operative text not read.",
+      "notes": "VERIFIED 2026-08-10. **THIS RECORD PREVIOUSLY CARRIED AN INCORRECT 'CORRECTION' TO THE PAPER, NOW RETRACTED.** We recorded the bill as in_committee on the basis of the 12 Jan 2026 action 'By resolution, reintroduced and retained in present status', and asserted the paper was wrong to call it Failed. That was a misreading. In Washington that resolution is the routine carryover from the first to the second year of a biennium - it keeps a bill alive INTO the 2026 session, not beyond it. Washington's 2026 regular session adjourned SINE DIE ON 12 MARCH 2026, and bills not passed by the end of the biennium die. The complete action history is: first reading and referral 27 Feb 2025; carryover resolution 12 Jan 2026; nothing further. The bill therefore died at sine die and THE PAPER'S 'FAILED' WAS CORRECT. WHY THE ERROR HAPPENED: Washington posts no terminal action - the page still shows the last committee location - so an absent 'failed' line was read as evidence of continuing life. Absence of a death notice is not evidence of life. CONSEQUENCE FOR THE WISCONSIN COMPARISON: we also claimed Washington and Wisconsin differ in outcome because of carryover rules. They do not. Both sets of bills died at the end of the 2025-26 biennium. They differ only in RECORD-KEEPING CONVENTION: Wisconsin posts an explicit 'Failed to pass pursuant to Senate Joint Resolution 1'; Washington posts nothing. Seven sponsors: Abell, Corry, Chase, Ley, Marshall, Walsh, Dufault - none named in the paper. Title: 'recognition of legal personhood by a governmental entity.' Utah template. operative text was then unread.",
       "id": "wa-hb2029-2025",
       "bill_number": "HB 2029",
       "chamber": "house",
@@ -2773,7 +2773,7 @@
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-11",
-      "notes": "VERIFIED 2026-08-10. Amends Minn. Const. art. I, s 3 (free speech) to exclude AI. Ballot question confirmed verbatim: 'Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?' Sponsors not listed on the text page - paper reports bipartisan sponsorship, still to confirm. Only constitutional-amendment vehicle in the set.",
+      "notes": "VERIFIED 2026-08-10. Amends Minn. Const. art. I, s 3 (free speech) to exclude AI. Ballot question confirmed verbatim: 'Shall the Minnesota Constitution be amended to state that artificial intelligence does not have the right to free speech?' Sponsors not listed on the text page - paper reports bipartisan sponsorship, previously unconfirmed. Only constitutional-amendment vehicle in the set.",
       "id": "mn-sf4114-2026",
       "bill_number": "SF 4114",
       "chamber": "senate",
@@ -3374,7 +3374,7 @@
         "text": "An operator shall institute reasonable measures to prevent an AI companion from making a representation or statement that would lead a reasonable person to believe that the person is interacting with a human where the user is seeking or receiving crisis intervention services.",
         "source": "Hawaii SB 3001 CD1 (2026)"
       },
-      "notes": "Added in Workstream H completeness sweep. Enacted AI-companion safety law. Final conference text restricts representations that could lead a user in crisis services to believe the companion is human; an earlier House text expressly covered human or sentient-being representations. Act 248 approved 14 July 2026.",
+      "notes": "Added in Workstream H completeness sweep. Enacted AI-companion safety law. Final conference text restricts representations that could lead a user in crisis services to believe the companion is human; an earlier House text expressly covered human or sentient-being representations. Act 248 approved 14 July 2026. CODIFIED_AT PROVENANCE: the session-law/enacted-act destination is established from the enacted legislative source; incorporation into the separately published code has not been independently checked.",
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-11",
@@ -3467,7 +3467,7 @@
         "text": "The required safeguards include preventing statements that would lead a reasonable person to believe the conversational AI service is sentient or human.",
         "source": "2026 Iowa Acts ch. 1068 (SF 2417)"
       },
-      "notes": "Added in Workstream H completeness sweep. Enacted conversational-AI legislation expressly reaches statements that would lead a reasonable person to believe the service is sentient or human. Signed 2 May 2026; effective 1 July 2026; applicability begins 1 July 2027.",
+      "notes": "Added in Workstream H completeness sweep. Enacted conversational-AI legislation expressly reaches statements that would lead a reasonable person to believe the service is sentient or human. Signed 2 May 2026; effective 1 July 2026; applicability begins 1 July 2027. CODIFIED_AT PROVENANCE: the session-law/enacted-act destination is established from the enacted legislative source; incorporation into the separately published code has not been independently checked.",
       "status": {
         "stage": "enacted",
         "as_of": "2026-08-11",
