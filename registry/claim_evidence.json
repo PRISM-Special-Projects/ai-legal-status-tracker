@@ -370,6 +370,48 @@
             }
           ],
           "derivation": "HB 1361 carried its emergency clause through final passage and was filed with the Secretary of State on 12 April 2023; the registry therefore records that filing date as the emergency effective date."
+        },
+        {
+          "claim": {
+            "field": "effect",
+            "version_id": "nd-hb1361-23.0346.04000"
+          },
+          "value": "changes the mechanism from a standalone chapter 1-08 personhood provision to an amendment of the general definition of person in § 1-01-49(8)",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "nd-hb1361-02000",
+              "locator": "Section 1 — standalone Personhood status provision; Section 2 application clause"
+            },
+            {
+              "source_ref": "nd-hb1361-02003a",
+              "locator": "adopted amendment instructions replacing lines 4-14 and changing the bill title/mechanism"
+            },
+            {
+              "source_ref": "nd-hb1361-04000",
+              "locator": "Section 1 — amendment to § 1-01-49(8)"
+            }
+          ],
+          "derivation": "Direct comparison of the introduced text, adopted Senate amendment instructions, and resulting 04000 text."
+        },
+        {
+          "claim": {
+            "field": "operative_equivalence",
+            "version_id": "nd-hb1361-23.0346.05000"
+          },
+          "value": "same operative statutory wording as 23.0346.04000",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "nd-hb1361-04000",
+              "locator": "Section 1 and Section 2"
+            },
+            {
+              "source_ref": "nd-hb1361-05000",
+              "locator": "Section 1 and Section 2"
+            }
+          ],
+          "derivation": "The enrollment changes publication/formal heading from A BILL to AN ACT but preserves the amended statutory and emergency wording."
         }
       ]
     },

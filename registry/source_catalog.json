@@ -183,6 +183,34 @@
       "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1493&ga=114",
       "jurisdiction": "TN",
       "note": "Official history showing 23 April final legislative action, 22 May governor signature/effective date, and 27 May Public Chapter 1066."
+    },
+    {
+      "id": "nd-hb1361-02000",
+      "label": "North Dakota Legislature — HB 1361 introduced 23.0346.02000",
+      "kind": "bill_text",
+      "url": "https://ndlegis.gov/assembly/68-2023/regular/documents/23-0346-02000.pdf",
+      "jurisdiction": "ND"
+    },
+    {
+      "id": "nd-hb1361-02003a",
+      "label": "North Dakota Legislature — HB 1361 adopted Senate amendment 23.0346.02003",
+      "kind": "amendment",
+      "url": "https://ndlegis.gov/assembly/68-2023/regular/documents/23-0346-02003a.pdf",
+      "jurisdiction": "ND"
+    },
+    {
+      "id": "nd-hb1361-04000",
+      "label": "North Dakota Legislature — HB 1361 with Senate amendments 23.0346.04000",
+      "kind": "bill_text",
+      "url": "https://ndlegis.gov/assembly/68-2023/regular/documents/23-0346-04000.pdf",
+      "jurisdiction": "ND"
+    },
+    {
+      "id": "nd-hb1361-05000",
+      "label": "North Dakota Legislature — HB 1361 enrollment 23.0346.05000",
+      "kind": "enrolled_bill",
+      "url": "https://ndlegis.gov/assembly/68-2023/regular/documents/23-0346-05000.pdf",
+      "jurisdiction": "ND"
     }
   ]
 }
