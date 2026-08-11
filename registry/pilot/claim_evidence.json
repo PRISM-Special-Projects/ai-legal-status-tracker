@@ -6,13 +6,14 @@
       "claims": [
         {
           "claim": {"field": "status.stage"},
-          "value": "dead",
+          "value": "failed",
           "mode": "derived",
           "supports": [
-            {"source_ref": "wa-hb2029-actions", "locator": "2026-01-12 — reintroduced and retained in present status"},
-            {"source_ref": "wa-2025-26-session-rule", "locator": "sine_die=2026-03-12; unpassed bills die at end of second-year session"}
+            {"source_ref": "wa-hb2029-actions", "locator": "2026-01-12 — reintroduced and retained in present status; no later passage or enactment action"},
+            {"source_ref": "wa-hcr4407", "locator": "2025-session bills reintroduced into the 2026 regular session and retain prior status"},
+            {"source_ref": "wa-2026-session", "locator": "2026 Regular Session adjourned sine die on 2026-03-12"}
           ],
-          "derivation": "No later passage or enactment action appears before sine die; under the sourced biennium rule the unpassed bill expired."
+          "derivation": "HB 2029 was carried from the 2025 session into the 2026 session, did not subsequently pass, and the biennium ended when the 2026 regular session adjourned sine die; the registry therefore records the terminal stage as failed."
         }
       ]
     },
@@ -21,10 +22,10 @@
       "claims": [
         {
           "claim": {"field": "codified_at"},
-          "value": "Utah Code §§ 63G-32-101, 63G-32-102",
+          "value": "Utah Code §§ 63G-32-101, 63G-32-102 (ch. 32, Legal Personhood); 2024 Utah Laws ch. 451",
           "mode": "direct",
           "supports": [
-            {"source_ref": "ut-hb249-code", "locator": "Title 63G, Chapter 32, §§ 101-102"}
+            {"source_ref": "ut-hb249-code", "locator": "Title 63G, Chapter 32, §§ 101-102; code history for the enacted chapter"}
           ]
         },
         {
@@ -53,7 +54,7 @@
         },
         {
           "claim": {"field": "codified_at"},
-          "value": "Tenn. Code Ann. § 1-3-105(a)(20)",
+          "value": "Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)",
           "mode": "direct",
           "supports": [
             {"source_ref": "tn-pc0781", "locator": "Section 1 — deletes subdivision (20) and substitutes new subdivision (20), Person"}
