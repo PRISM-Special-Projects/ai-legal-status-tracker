@@ -51,6 +51,31 @@
       "path": "incoming/wb-hb0849.pdf",
       "sha256": "e60746b33a5accd8807c955646039fc2862f87d494780073e55f5ccea6b8b9bd",
       "bytes": 10188
+    },
+    {
+      "path": "incoming/mo-sb1012-2026--introduced-5687S.01I.pdf",
+      "sha256": "09ed7ab31267bde1f334f8ba8f458bd8d27909067ee58e37dd183a3ef8c87657",
+      "bytes": 235641
+    },
+    {
+      "path": "incoming/mo-sb1012-2026--perfected-5687S.16P.pdf",
+      "sha256": "b742aa653cc146d6789e7ac4cef4e953f0c015b0326c7600628bf455053cc2f0",
+      "bytes": 279848
+    },
+    {
+      "path": "incoming/mo-sb1012-2026--scs-5687S.02C.pdf",
+      "sha256": "52032abf6216077b9bad14f776b6fb8d162b566e3de94a2598ce2e416f62d57d",
+      "bytes": 250037
+    },
+    {
+      "path": "incoming/mo-sb1012-2026--ss2-5687S.16F.pdf",
+      "sha256": "5efad2a8ef12df3d6d6724e3c26f9f3daabd5474c3528ed9dfdafc50947883ba",
+      "bytes": 187589
+    },
+    {
+      "path": "incoming/mo-sb1012-2026--withdrawn-ss-5687S.10F.pdf",
+      "sha256": "648a758efca823a0b8d5b7a2ffd46f930c3595d4b53e2a0b848332dcc144af7a",
+      "bytes": 173362
     }
   ],
   "texts": [
@@ -267,6 +292,61 @@
       "path": "texts/mo-hb1746-2026--introduced-3891H.01I.txt",
       "sha256": "e7861f3f5857a9108ab1397ab730392d96ccaaf6a0255001c18863ce95214547",
       "bytes": 6077,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-sb1012-2026--introduced-5687S.01I.txt",
+      "sha256": "261f7f535a99324a0efae0aee60451c44c72b9af43af7a3944430bf65bcb1592",
+      "bytes": 5476,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-sb1012-2026--perfected-5687S.16P.txt",
+      "sha256": "1b9f4926a007a25fc5013174fe563875328d5b515e54fb016ded2bd0ecad0314",
+      "bytes": 24354,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-sb1012-2026--scs-5687S.02C.txt",
+      "sha256": "b21d533dd3bda337a2c229bebf493bffda2adcfa11bd856f57f7e27d8ca77c04",
+      "bytes": 13731,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-sb1012-2026--ss2-5687S.16F.txt",
+      "sha256": "3ee6a369e51eb0d66c89ee89fcf2afb3413b1dc29b3b625729a25414a510475b",
+      "bytes": 24361,
+      "normalisation": [
+        "removed_line_numbers",
+        "removed_page_furniture",
+        "normalised_whitespace"
+      ],
+      "substantive_text_changed": false
+    },
+    {
+      "path": "texts/mo-sb1012-2026--withdrawn-ss-5687S.10F.txt",
+      "sha256": "636e14123c13a9ee2364028d143459399f0aace4250420224684c3e8f0fda23a",
+      "bytes": 20948,
       "normalisation": [
         "removed_line_numbers",
         "removed_page_furniture",

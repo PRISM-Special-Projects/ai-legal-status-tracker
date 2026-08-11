@@ -1540,26 +1540,100 @@
       ],
       "versions": [
         {
-          "label": "introduced",
-          "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-          "text_path": null,
-          "provisions": null
+          "version_id": "mo-sb1012-2026--5687S.01I",
+          "label": "introduced — 5687S.01I",
+          "date": "2026-01-07",
+          "source_url": "https://www.senate.mo.gov/26info/pdf-bill/intro/SB1012.pdf",
+          "text_path": "texts/mo-sb1012-2026--introduced-5687S.01I.txt",
+          "text_sha256": "261f7f535a99324a0efae0aee60451c44c72b9af43af7a3944430bf65bcb1592",
+          "provisions": [],
+          "lineage_role": "root",
+          "disposition": "introduced"
         },
         {
-          "label": "SS#2 SCS (second senate committee substitute)",
-          "date": "2026",
-          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-          "text_path": null,
-          "provisions": null
+          "version_id": "mo-sb1012-2026--5687S.02C",
+          "label": "Senate Committee Substitute — 5687S.02C",
+          "date": "2026-02-18",
+          "source_url": "https://www.senate.mo.gov/26info/pdf-bill/comm/SB1012.pdf",
+          "text_path": "texts/mo-sb1012-2026--scs-5687S.02C.txt",
+          "text_sha256": "b21d533dd3bda337a2c229bebf493bffda2adcfa11bd856f57f7e27d8ca77c04",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_ai_liability",
+            "addresses_corporate_veil",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "imposes_safety_duties",
+            "incident_reporting_duty",
+            "creates_criminal_offence"
+          ],
+          "lineage_role": "operative_ancestor",
+          "derived_from_version_id": "mo-sb1012-2026--5687S.01I",
+          "disposition": "committee_substitute_voted_do_pass"
+        },
+        {
+          "version_id": "mo-sb1012-2026--5687S.10F",
+          "label": "Senate Substitute for SCS — 5687S.10F (withdrawn)",
+          "date": "2026-03-30",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?amendmentId=309&handler=AmendmentPdf&year=2026",
+          "text_path": "texts/mo-sb1012-2026--withdrawn-ss-5687S.10F.txt",
+          "text_sha256": "636e14123c13a9ee2364028d143459399f0aace4250420224684c3e8f0fda23a",
+          "provisions": null,
+          "lineage_role": "withdrawn_side_branch",
+          "derived_from_version_id": "mo-sb1012-2026--5687S.02C",
+          "disposition": "withdrawn_2026-04-30",
+          "note": "Offered with four adopted amendments, then withdrawn. Stored for audit history only; not an ancestor of the perfected text."
+        },
+        {
+          "version_id": "mo-sb1012-2026--5687S.16F",
+          "label": "Senate Substitute No. 2 for SCS — 5687S.16F",
+          "date": "2026-04-30",
+          "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?amendmentId=631&handler=AmendmentPdf&year=2026",
+          "text_path": "texts/mo-sb1012-2026--ss2-5687S.16F.txt",
+          "text_sha256": "3ee6a369e51eb0d66c89ee89fcf2afb3413b1dc29b3b625729a25414a510475b",
+          "provisions": null,
+          "lineage_role": "adopted_substitute_base",
+          "derived_from_version_id": "mo-sb1012-2026--5687S.02C",
+          "disposition": "adopted_as_amended",
+          "note": "Offered and adopted as amended; SA 1 (5687S16.04S) and SA 2 (5687S16.01S) were adopted before perfection."
+        },
+        {
+          "version_id": "mo-sb1012-2026--5687S.16P",
+          "label": "perfected SS#2 SCS — 5687S.16P",
+          "date": "2026-04-30",
+          "source_url": "https://www.senate.mo.gov/26info/pdf-bill/perf/SB1012.pdf",
+          "text_path": "texts/mo-sb1012-2026--perfected-5687S.16P.txt",
+          "text_sha256": "1b9f4926a007a25fc5013174fe563875328d5b515e54fb016ded2bd0ecad0314",
+          "provisions": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_ai_liability",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "imposes_safety_duties",
+            "creates_criminal_offence",
+            "creates_private_right_of_action"
+          ],
+          "lineage_role": "operative_senate_text",
+          "derived_from_version_id": "mo-sb1012-2026--5687S.16F",
+          "disposition": "perfected",
+          "note": "Perfected after adoption of SS#2 for SCS as amended; this is the Senate-passed operative text."
         }
       ],
-      "key_clause": null,
+      "key_clause": {
+        "text": "§ 1.2045 (AI Non-Sentience and Responsibility Act), with companion-chatbot duties in § 1.2058 and election-AI disclaimer duties in § 130.165",
+        "source": "Missouri Senate — perfected SS#2 SCS SB 1012, 5687S.16P"
+      },
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
       "last_verified": "2026-08-11",
-      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS RESOLVED 2026-08-11: the official Senate history shows Senate third reading and passage on 6 May 2026, followed by a House Emerging Issues hearing and Do Not Pass vote on 12 May. The 2026 regular session then ended without House passage, so the current stage is failed; the historical fact that it passed the Senate is preserved in the action history. SPONSOR OVERLAP: Nicola also sponsors SB 1474, a standalone verbatim clone of the model text. He is running the same policy through two vehicles in one session.",
+      "notes": "VERIFIED 2026-08-11 against official Missouri Senate texts and action history. Introduced 5687S.01I has election/deepfake provisions but no § 1.2045. SCS 5687S.02C adds the AI Non-Sentience and Responsibility Act. First floor substitute 5687S.10F was later withdrawn and is retained as a non-operative side branch. On 30 Apr 2026 SS#2 5687S.16F was adopted as amended, producing perfected 5687S.16P. The perfected text retains § 1.2045, adds companion-chatbot § 1.2058, retains election § 130.165, and omits SCS deepfake § 573.120. Its generic corporate-law anti-evasion sentence replaces the SCS detailed veil-piercing test. Senate passed 6 May; House Emerging Issues voted Do Not Pass 12 May; session ended without House passage.",
       "id": "mo-sb1012-2026",
       "bill_number": "SB 1012",
       "chamber": "senate",
@@ -1584,7 +1658,13 @@
         "denies_legal_personhood",
         "declares_non_sentient",
         "assigns_liability_to_humans",
-        "restricts_chatbot_claims"
+        "bars_ai_liability",
+        "bars_marriage_or_union",
+        "bars_property_ownership",
+        "bars_corporate_office",
+        "imposes_safety_duties",
+        "creates_criminal_offence",
+        "creates_private_right_of_action"
       ],
       "sources": {
         "primary": [
@@ -1596,8 +1676,9 @@
       },
       "effective_date": "2026-08-28",
       "derived_from_changes": [
-        "Non-sentience and non-personhood language inserted into an omnibus vehicle by committee substitute, not present in the original draft",
-        "Carries companion-chatbot and political-advertising provisions the standalone clones do not"
+        "§ 1.2045 entered SB 1012 in SCS 5687S.02C, not in introduced 5687S.01I.",
+        "5687S.10F was withdrawn; 5687S.16F was adopted as amended and led to perfected 5687S.16P.",
+        "Perfected 5687S.16P adds companion-chatbot § 1.2058 and omits SCS § 573.120 and its detailed veil-piercing criteria."
       ],
       "watch_dates": [
         {
@@ -1608,14 +1689,45 @@
       ],
       "verification": {
         "status": "verified_primary",
-        "operative_text": "not_read",
-        "operative_text_note": "Verified from the Senate bill-information summary; operative text not read",
+        "operative_text": "read_in_full",
+        "operative_text_note": "Perfected 5687S.16P read in full; introduced, SCS, withdrawn first substitute, and adopted second substitute also stored from official Senate PDFs.",
         "sponsors": "established",
         "codified_at_source": "n/a",
-        "versions_with_text": 0,
+        "versions_with_text": 5,
         "last_verified": "2026-08-11"
       },
-      "provision_changes": []
+      "provision_changes": [
+        {
+          "from": "introduced — 5687S.01I",
+          "to": "SCS — 5687S.02C",
+          "added": [
+            "denies_legal_personhood",
+            "declares_non_sentient",
+            "assigns_liability_to_humans",
+            "bars_ai_liability",
+            "addresses_corporate_veil",
+            "bars_marriage_or_union",
+            "bars_property_ownership",
+            "bars_corporate_office",
+            "imposes_safety_duties",
+            "incident_reporting_duty"
+          ],
+          "removed": [],
+          "note": "§ 1.2045 entered the bill in committee substitute."
+        },
+        {
+          "from": "SCS — 5687S.02C",
+          "to": "perfected SS#2 SCS — 5687S.16P",
+          "added": [
+            "creates_private_right_of_action"
+          ],
+          "removed": [
+            "addresses_corporate_veil",
+            "incident_reporting_duty"
+          ],
+          "note": "Perfected text adds § 1.2058; detailed veil-piercing and reportable-incident provisions are not carried forward. Criminal-offence tagging remains because perfected § 130.165 contains a class A misdemeanor."
+        }
+      ]
     },
     {
       "jurisdiction": {

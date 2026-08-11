@@ -226,6 +226,46 @@
       "url": "https://house.mo.gov/BillActions.aspx?bill=HB1746&code=&year=2026",
       "jurisdiction": "MO",
       "note": "Official action history through 30 March 2026."
+    },
+    {
+      "id": "mo-sb1012-01I",
+      "label": "Missouri Senate — SB 1012 introduced, 5687S.01I",
+      "kind": "introduced_bill",
+      "url": "https://www.senate.mo.gov/26info/pdf-bill/intro/SB1012.pdf",
+      "jurisdiction": "MO",
+      "note": "Official introduced text."
+    },
+    {
+      "id": "mo-sb1012-02C",
+      "label": "Missouri Senate — SCS SB 1012, 5687S.02C",
+      "kind": "committee_substitute",
+      "url": "https://www.senate.mo.gov/26info/pdf-bill/comm/SB1012.pdf",
+      "jurisdiction": "MO",
+      "note": "Official Senate Committee Substitute."
+    },
+    {
+      "id": "mo-sb1012-10F",
+      "label": "Missouri Senate — withdrawn SS for SCS SB 1012, 5687S.10F",
+      "kind": "amendment",
+      "url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?amendmentId=309&handler=AmendmentPdf&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official first Senate Substitute; action history records withdrawal 30 Apr 2026."
+    },
+    {
+      "id": "mo-sb1012-16F",
+      "label": "Missouri Senate — SS#2 for SCS SB 1012, 5687S.16F",
+      "kind": "amendment",
+      "url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?amendmentId=631&handler=AmendmentPdf&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official second Senate Substitute; adopted as amended 30 Apr 2026."
+    },
+    {
+      "id": "mo-sb1012-16P",
+      "label": "Missouri Senate — perfected SS#2 SCS SB 1012, 5687S.16P",
+      "kind": "perfected_bill",
+      "url": "https://www.senate.mo.gov/26info/pdf-bill/perf/SB1012.pdf",
+      "jurisdiction": "MO",
+      "note": "Official perfected text."
     }
   ]
 }

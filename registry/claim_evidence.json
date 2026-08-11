@@ -283,6 +283,130 @@
             }
           ],
           "derivation": "SB 1012 passed the Senate but did not pass the House before the 2026 regular session ended; it therefore failed while retaining passed-one-chamber as a historical event, not the current stage."
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-sb1012-2026--5687S.01I",
+            "provision": "denies_legal_personhood"
+          },
+          "value": false,
+          "assessment": "checked_absent",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-01I",
+              "locator": "Full introduced text; chapters 130 and 573 only; no § 1.2045 or legal-personhood provision"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-sb1012-2026--5687S.02C",
+            "provision": "denies_legal_personhood"
+          },
+          "value": true,
+          "assessment": "present",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-02C",
+              "locator": "§ 1.2045.4: government entity shall not grant an AI system legal personhood"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-sb1012-2026--5687S.16P",
+            "provision": "denies_legal_personhood"
+          },
+          "value": true,
+          "assessment": "present",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-16P",
+              "locator": "§ 1.2045.4: government entity shall not grant an AI system legal personhood"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provisions",
+            "version_id": "mo-sb1012-2026--5687S.16P",
+            "provision": "restricts_chatbot_claims"
+          },
+          "value": false,
+          "assessment": "checked_absent",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-16P",
+              "locator": "Full § 1.2058 reviewed: operator disclosure/notification and safety duties, but no prohibition on what the chatbot may claim about sentience, consciousness, or humanness"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-sb1012-2026--5687S.01I",
+            "to_version_id": "mo-sb1012-2026--5687S.02C",
+            "provision": "denies_legal_personhood"
+          },
+          "value": "added in committee substitute",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-01I",
+              "locator": "Full introduced text: no § 1.2045"
+            },
+            {
+              "source_ref": "mo-sb1012-02C",
+              "locator": "§ 1.2045.4 personhood prohibition"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-sb1012-2026--5687S.02C",
+            "to_version_id": "mo-sb1012-2026--5687S.16P",
+            "provision": "addresses_corporate_veil"
+          },
+          "value": "detailed veil-piercing test removed; generic corporate-law anti-evasion sentence retained",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-02C",
+              "locator": "§ 1.2045.13 expressly authorizes piercing the corporate veil on listed conditions"
+            },
+            {
+              "source_ref": "mo-sb1012-16P",
+              "locator": "§ 1.2045.12 contains only a corporate-law liability-protection anti-evasion sentence; no veil-piercing test"
+            }
+          ]
+        },
+        {
+          "claim": {
+            "field": "provision_change",
+            "from_version_id": "mo-sb1012-2026--5687S.02C",
+            "to_version_id": "mo-sb1012-2026--5687S.16P",
+            "provision": "companion_chatbot_section"
+          },
+          "value": "§ 1.2058 added",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-02C",
+              "locator": "Section A lists §§ 1.2045, 130.165, 573.120"
+            },
+            {
+              "source_ref": "mo-sb1012-16P",
+              "locator": "Section A lists §§ 1.2045, 1.2058, 130.165; § 1.2058 creates companion-chatbot duties and civil action"
+            }
+          ]
         }
       ]
     },
