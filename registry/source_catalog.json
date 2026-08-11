@@ -111,6 +111,30 @@
       "url": "https://www.revisor.mn.gov/bills/94/2026/0/SF/4114?body=Senate&view=chrono",
       "jurisdiction": "MN",
       "note": "Official Revisor status page showing introduction and referral to Judiciary and Public Safety on 4 March 2026."
+    },
+    {
+      "id": "mo-sb1012-actions",
+      "label": "Missouri Senate — SB 1012 bill information and actions",
+      "kind": "action_history",
+      "url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?billid=469&year=2026",
+      "jurisdiction": "MO",
+      "note": "Official bill page showing Senate passage and House Emerging Issues Do Not Pass action."
+    },
+    {
+      "id": "mo-2026-session-end",
+      "label": "Missouri Senate — 2026 regular-session end report",
+      "kind": "session_record",
+      "url": "https://www.senate.mo.gov/Media/NewsDetails?id=2349",
+      "jurisdiction": "MO",
+      "note": "Official Senate report stating the 2026 session is over and bills that did not pass must be refiled."
+    },
+    {
+      "id": "ca-sb1119-july2-summary",
+      "label": "California Senate — Daily Summary for July 2, 2026",
+      "kind": "action_history",
+      "url": "https://www.senate.ca.gov/system/files/2026-07/sds-7-2-2026.pdf",
+      "jurisdiction": "CA",
+      "note": "Official Daily Summary recording SB 1119's Assembly do-pass vote and re-referral to Appropriations."
     }
   ]
 }

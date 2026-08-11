@@ -50,7 +50,7 @@ versions not yet addressed by structured provenance may still lack a `version_id
 
 ## Current migration boundary
 
-Eight records currently have structured claim-level evidence.
+Ten records currently have structured claim-level evidence.
 
 The first production cohort contains the four records that passed the Workstream F pilot:
 
@@ -67,10 +67,10 @@ with direct official action-history support where the displayed stage did not ne
 - `mo-sb859-2026` — Senate General Laws hearing conducted;
 - `mn-sf4114-2026` — Senate Judiciary and Public Safety referral.
 
-`mo-sb1012-2026` was deliberately excluded from that cohort because its House Do Not Pass action
-and completed session require a separate terminal-stage classification review. `ca-sb1119-2026`
-was also excluded because the retrievable live LegInfo status surface was stale relative to the
-later amendment history already documented in the audit.
+A third bounded status-resolution cohort, promoted on 2026-08-11, closes the two exclusions from that screen:
+
+- `mo-sb1012-2026` — corrected from historical `passed_one_chamber` to current `failed`, using Senate passage, the House Do Not Pass action, and session-end evidence;
+- `ca-sb1119-2026` — retained `in_committee` but replaced secondary status basis with the official 2 July Senate Daily Summary recording re-referral to Assembly Appropriations.
 
 Corpus-wide mapping remains intentionally incremental. The next expansion should prioritise
 high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and source-observed

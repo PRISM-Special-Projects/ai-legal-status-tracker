@@ -249,6 +249,47 @@
           ]
         }
       ]
+    },
+    {
+      "record_id": "mo-sb1012-2026",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "failed",
+          "mode": "derived",
+          "supports": [
+            {
+              "source_ref": "mo-sb1012-actions",
+              "locator": "2026-05-06 Senate third read and passed; 2026-05-12 House Emerging Issues voted Do Not Pass"
+            },
+            {
+              "source_ref": "mo-2026-session-end",
+              "locator": "2026 regular session ended; unpassed bills must be refiled"
+            }
+          ],
+          "derivation": "SB 1012 passed the Senate but did not pass the House before the 2026 regular session ended; it therefore failed while retaining passed-one-chamber as a historical event, not the current stage."
+        }
+      ]
+    },
+    {
+      "record_id": "ca-sb1119-2026",
+      "claims": [
+        {
+          "claim": {
+            "field": "status.stage"
+          },
+          "value": "in_committee",
+          "mode": "direct",
+          "supports": [
+            {
+              "source_ref": "ca-sb1119-july2-summary",
+              "locator": "SB 1119 — Assembly Jul 2: do pass 12-2 and re-refer to Appropriations"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

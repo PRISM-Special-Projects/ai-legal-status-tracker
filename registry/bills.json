@@ -1487,8 +1487,8 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS AMBIGUOUS: the House Emerging Issues committee returned a Do Not Pass. Whether the Senate passed it first needs a human read of the action history - stage left at passed_one_chamber pending that. SPONSOR OVERLAP: Nicola also sponsors SB 1474, a standalone verbatim clone of the model text. He is running the same policy through two vehicles in one session.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10. Sponsor Joe Nicola (not named in the paper). Second Senate Committee Substitute (SS#2 SCS) adopted - this is the vehicle that carries the non-sentience and non-personhood language. Content is WIDER than the paper describes: besides AI non-sentience/non-personhood and political-ad disclaimers, it regulates companion chatbots (artificiality notifications, suicide-prevention protocols, bar on sexually explicit content involving minors) and requires licensed professionals to retain final authority over AI-assisted decisions. Hence restricts_chatbot_claims added. Effective 28 Aug 2026 if enacted. STATUS RESOLVED 2026-08-11: the official Senate history shows Senate third reading and passage on 6 May 2026, followed by a House Emerging Issues hearing and Do Not Pass vote on 12 May. The 2026 regular session then ended without House passage, so the current stage is failed; the historical fact that it passed the Senate is preserved in the action history. SPONSOR OVERLAP: Nicola also sponsors SB 1474, a standalone verbatim clone of the model text. He is running the same policy through two vehicles in one session.",
       "id": "mo-sb1012-2026",
       "bill_number": "SB 1012",
       "chamber": "senate",
@@ -1498,11 +1498,14 @@
         "year_introduced": 2026
       },
       "status": {
-        "stage": "passed_one_chamber",
-        "as_of": "2026-08-10",
-        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2026&billid=469",
-        "evidence": null,
-        "basis": "secondary_source"
+        "stage": "failed",
+        "as_of": "2026-08-11",
+        "source_url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?billid=469&year=2026",
+        "evidence": {
+          "action": "Voted Do Not Pass H Emerging Issues on 05/12/2026 after Senate passage; 2026 regular session ended without House passage",
+          "date": "2026-05-12"
+        },
+        "basis": "session_rule"
       },
       "family": "C",
       "technique": "standalone_provision",
@@ -1539,7 +1542,7 @@
         "sponsors": "established",
         "codified_at_source": "n/a",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     },
@@ -2893,8 +2896,8 @@
       "evidence_refs": [],
       "provenance": "Seeded from Smith, Caviola & Alexander (2026), Table 1, Figure 2 and 'Laws and Bills Cited'",
       "verification_status": "verified_primary",
-      "last_verified": "2026-08-10",
-      "notes": "VERIFIED 2026-08-10. The operative bar sits at s 22612(d)(5)(G): a companion chatbot may not claim it 'is sentient, conscious, or human'. NUANCE: the paper frames this as a bar on such claims *to children*; the clause itself is not limited to children, though the chapter as a whole is a children's-safety measure. Adds B&P Code ss 22610-22617 covering definitions, operator duties, risk assessments, audits and civil enforcement.",
+      "last_verified": "2026-08-11",
+      "notes": "VERIFIED 2026-08-10. The operative bar sits at s 22612(d)(5)(G): a companion chatbot may not claim it 'is sentient, conscious, or human'. NUANCE: the paper frames this as a bar on such claims *to children*; the clause itself is not limited to children, though the chapter as a whole is a children's-safety measure. Adds B&P Code ss 22610-22617 covering definitions, operator duties, risk assessments, audits and civil enforcement. STATUS RE-CONFIRMED 2026-08-11 from the official California Senate Daily Summary for 2 July 2026: Assembly committee do-pass, 12-2, and re-referral to Appropriations.",
       "id": "ca-sb1119-2026",
       "bill_number": "SB 1119",
       "chamber": "senate",
@@ -2905,10 +2908,13 @@
       },
       "status": {
         "stage": "in_committee",
-        "as_of": "2026-08-10",
-        "source_url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB1119",
-        "evidence": null,
-        "basis": "secondary_source"
+        "as_of": "2026-08-11",
+        "source_url": "https://www.senate.ca.gov/system/files/2026-07/sds-7-2-2026.pdf",
+        "evidence": {
+          "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 12. Noes 2.) (July 1). Re-referred to Com. on APPR.",
+          "date": "2026-07-02"
+        },
+        "basis": "explicit_action"
       },
       "family": "other",
       "technique": "standalone_provision",
@@ -2933,7 +2939,7 @@
         "sponsors": "established",
         "codified_at_source": "bill",
         "versions_with_text": 0,
-        "last_verified": "2026-08-10"
+        "last_verified": "2026-08-11"
       },
       "provision_changes": []
     }
