@@ -1,9 +1,9 @@
-name: Claim provenance pilot
+name: Claim provenance migration
 
 on: [push, pull_request]
 
 jobs:
-  pilot:
+  claim-provenance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,16 +11,16 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Validate claim-evidence pilot
-        run: python3 registry/pilot/validate_claim_evidence.py
+      - name: Validate claim evidence
+        run: python3 registry/validate_claim_evidence.py
 
       - name: Build normal site
         run: python3 site/build.py
 
-      - name: Render one-record provenance pilot
+      - name: Render one-record provenance migration preview
         run: python3 site/pilot_claim_evidence.py
 
-      - name: Assert pilot rendering
+      - name: Assert migration-preview rendering
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -28,15 +28,15 @@ jobs:
           h=p.read_text()
           required=[
             'Claim evidence',
-            '(pilot)',
+            '(migration preview)',
             'effective_date',
             '2026-04-23',
-            'tn-pc0781',
-            'tn-sb0837-actions',
+            'Tennessee Secretary of State — Public Chapter 781',
+            'Tennessee General Assembly — SB 837 bill history',
             'Tenn. Code Ann. § 1-3-105(a)(20), as amended by Pub. Ch. 781 (2026)',
           ]
           missing=[x for x in required if x not in h]
           if missing:
-              raise SystemExit('pilot render missing: '+repr(missing))
-          print('claim provenance pilot render: PASS')
+              raise SystemExit('claim-evidence render missing: '+repr(missing))
+          print('claim provenance migration preview: PASS')
           PY
