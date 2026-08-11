@@ -6,14 +6,21 @@
       "kind": "action_history",
       "url": "https://app.leg.wa.gov/billsummary?BillNumber=2029&Year=2025&Initiative=false",
       "jurisdiction": "WA",
-      "note": "Official bill/action page."
+      "note": "Official bill/action page; last substantive event is the 2026 carryover action."
     },
     {
-      "id": "wa-2025-26-session-rule",
-      "kind": "session_rule",
-      "registry_ref": "registry/session_rules.json#WA/2025-2026",
+      "id": "wa-hcr4407",
+      "kind": "session_resolution",
+      "url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Htm/Bills/House%20Passed%20Legislature/4407.PL.htm",
       "jurisdiction": "WA",
-      "note": "Project rule object backed by its cited Washington source."
+      "note": "Official concurrent resolution carrying 2025-session bills into the 2026 regular session."
+    },
+    {
+      "id": "wa-2026-session",
+      "kind": "session_calendar",
+      "url": "https://leg.wa.gov/bills-meetings-and-session/session/",
+      "jurisdiction": "WA",
+      "note": "Official session page confirming the 2026 Regular Session adjourned sine die on March 12, 2026."
     },
     {
       "id": "ut-hb249-code",
