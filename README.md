@@ -13,9 +13,10 @@ which we point to rather than duplicate. He tracks the courts; this project trac
 
 ## Status
 
-**Release candidate.** Substantive verification, the corpus-completeness sweep and the 29-record
-publication audit are complete. Remaining release work is documentation/handoff cleanup and an
-independent reconstruction sample. See `RELEASE_READINESS.md`.
+**v1 complete — pass with documented limitations.** Substantive verification, the national
+corpus-completeness sweep, the 29-record publication audit, documentation/handoff review and a
+six-case source-first release reconstruction have all passed their tracker-focused gates. See
+`FINAL_RELEASE_AUDIT.md` and `RELEASE_READINESS.md`.
 
 Current audit state (2026-08-11):
 
@@ -69,7 +70,9 @@ SCHEMA.md                       record definition
 PROVISIONS.md                   operational tests for provision tags
 METHODOLOGY.md                  scope, search and verification method
 VERIFICATION.md                 audit history, corrections and known limitations
+RESEARCH_HANDOFF.md             source-recovery and maintenance workflow
 RELEASE_READINESS.md            gated release plan and completion record
+FINAL_RELEASE_AUDIT.md          source-first independent reconstruction sample
 ```
 
 ## Build it
