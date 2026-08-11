@@ -1,0 +1,78 @@
+# Claim-level provenance
+
+`registry/bills.json` remains the authoritative, bill-centred domain registry. Claim-level
+provenance is a sidecar layer that records which source(s) actually support selected structured
+claims. It does **not** turn the registry into a generic claim graph.
+
+## Files
+
+- `registry/source_catalog.json` — sources actually used by claim mappings. Each source has a
+  stable `id`, a human-readable `label`, a `kind`, and either a URL or a repository reference.
+- `registry/claim_evidence.json` — typed claim selectors, asserted values and support edges.
+- `registry/validate_claim_evidence.py` — referential, semantic and stale-value checks.
+
+## Semantics
+
+`mode: direct` means the cited source itself states or records the supported proposition.
+
+`mode: derived` means the registry reaches the value by combining cited inputs. A short
+`derivation` is mandatory and every evidentiary input actually relied upon must be listed.
+
+`assessment: present` is an explicit positive textual assessment and carries `value: true`.
+
+`assessment: checked_absent` is an explicit negative textual assessment and carries
+`value: false`. A missing claim-evidence entry means **unmapped / not assessed**, never absent.
+
+A source being official or relevant to a bill does not mean it supports every claim on that
+record. Source identity and claim support are separate.
+
+## Typed selectors
+
+Scalar claims use a field selector such as:
+
+```json
+{"field": "effective_date"}
+```
+
+Claims on repeated version objects use a stable version identifier plus the property or item
+being assessed:
+
+```json
+{"field": "provisions", "version_id": "mo-hb1769-4626H.01I",
+ "item": "addresses_corporate_veil"}
+```
+
+The current migration stores the first immutable version identifiers in the sidecar
+`version_ids` map. Moving those IDs onto `bills.json` version objects is a separate migration
+step and remains gated; the sidecar prevents label edits from changing claim identity in the
+meantime.
+
+## Current migration boundary
+
+The first production migration contains the four records that passed the Workstream F pilot:
+
+- `wa-hb2029-2025` — derived terminal status;
+- `ut-hb249-2024` — current code location versus enactment-time numbering;
+- `tn-sb837-2025` — derived effective date, statutory destination and amendment mechanism;
+- `mo-hb1769-2026` — version-specific provision presence, checked absence and removal.
+
+Corpus-wide mapping is intentionally incremental. The next expansion should prioritise
+high-risk structured facts (`status.stage`, `codified_at`, `effective_date`, and material
+version-specific provision assessments) rather than attempting to map every sentence in
+`notes`.
+
+## Validation
+
+Run from the repository root:
+
+```bash
+python3 registry/validate_claim_evidence.py
+```
+
+The validator checks source resolution, source display labels, duplicate claim selectors,
+direct/derived semantics, explicit negative assessments, version-ID registration and selected
+stale values against `bills.json`.
+
+The migration-preview renderer remains separate from `site/build.py` until the display design
+has passed the next gate. This is deliberate: production data can become more precise without
+silently changing every public page at the same time.
