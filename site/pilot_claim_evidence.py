@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Render the claim-level provenance pilot on one built bill page.
+"""Render production claim-level provenance on one built bill page.
 
-This is intentionally NOT part of site/build.py. It patches only the generated
-TN SB 837 page after a normal build so the F-gate presentation can be reviewed
-without making claim-level provenance a production-wide site feature.
+This remains intentionally outside site/build.py. It patches only the generated
+TN SB 837 page after a normal build so presentation can be reviewed before the
+claim-evidence renderer becomes a corpus-wide site feature.
 """
 from __future__ import annotations
 
@@ -39,12 +39,12 @@ def claim_name(selector):
 
 
 def main():
-    pilot = load(REG / "pilot" / "claim_evidence.json")
-    catalog = load(REG / "pilot" / "source_catalog.json")
+    evidence = load(REG / "claim_evidence.json")
+    catalog = load(REG / "source_catalog.json")
     sources = {s["id"]: s for s in catalog["sources"]}
-    rec = next((r for r in pilot["records"] if r["record_id"] == TARGET), None)
+    rec = next((r for r in evidence["records"] if r["record_id"] == TARGET), None)
     if rec is None:
-        raise SystemExit(f"pilot renderer: no claims for {TARGET}")
+        raise SystemExit(f"claim renderer: no claims for {TARGET}")
 
     items = []
     for entry in rec["claims"]:
@@ -52,11 +52,11 @@ def main():
         support_items = []
         for support in entry["supports"]:
             src = sources[support["source_ref"]]
-            label = src["id"]
+            label = src["label"]
             if src.get("url"):
                 label = f'<a href="{esc(src["url"])}">{esc(label)}</a>'
             elif src.get("registry_ref"):
-                label = f'<code>{esc(src["registry_ref"])}</code>'
+                label = f'{esc(label)} <code>{esc(src["registry_ref"])}</code>'
             locator = support.get("locator")
             suffix = f' — {esc(locator)}' if locator else ""
             support_items.append(f"<li>{label}{suffix}</li>")
@@ -77,10 +77,10 @@ def main():
         )
 
     panel = (
-        '<h2>Claim evidence <span class="muted">(pilot)</span></h2>'
-        '<p class="muted small">Experimental claim-level provenance for this one record. '
-        'It shows the evidence actually attached to individual claims; it is not yet a '
-        'corpus-wide site feature.</p>'
+        '<h2>Claim evidence <span class="muted">(migration preview)</span></h2>'
+        '<p class="muted small">Claim-level provenance for this migrated record. '
+        'It shows the evidence actually attached to individual claims; corpus-wide '
+        'rendering remains gated on the next migration review.</p>'
         + "".join(items)
     )
 
@@ -88,9 +88,9 @@ def main():
     text = page.read_text(encoding="utf-8")
     marker = "<h2>Sources</h2>"
     if marker not in text:
-        raise SystemExit("pilot renderer: Sources marker not found")
+        raise SystemExit("claim renderer: Sources marker not found")
     page.write_text(text.replace(marker, panel + "\n" + marker, 1), encoding="utf-8")
-    print(f"pilot claim evidence rendered: {page}")
+    print(f"claim evidence rendered: {page}")
 
 
 if __name__ == "__main__":
