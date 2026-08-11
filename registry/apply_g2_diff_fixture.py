@@ -1,12 +1,26 @@
 #!/usr/bin/env python3
-"""Pin the newly admitted HB 1746 introduced text in the structural-differ corpus fixture."""
-from pathlib import Path
-p=Path(__file__).resolve().parent.parent/'site'/'test_diff.py'
-s=p.read_text()
-needle='  "mo-hb1462-2025--introduced.txt": [26, 0, 0],\n'
-entry='  "mo-hb1746-2026--introduced-3891H.01I.txt": [26, 0, 0],\n'
-assert needle in s
-assert entry not in s
-s=s.replace(needle, needle+entry)
-p.write_text(s)
-print('G2 differ fixture pinned')
+"""Diagnose parse signatures for all newly admitted, unpinned registry texts."""
+import ast
+import pathlib
+import sys
+
+root=pathlib.Path(__file__).resolve().parent.parent
+site=root/'site'; texts=root/'registry'/'texts'
+sys.path.insert(0,str(site))
+import legdiff as L
+
+test=(site/'test_diff.py').read_text()
+mod=ast.parse(test)
+pinned={}
+for node in mod.body:
+    if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='CORPUS_PARSE' for t in node.targets):
+        pinned=ast.literal_eval(node.value)
+        break
+assert pinned
+for f in sorted(texts.glob('*.txt')):
+    if f.name in pinned:
+        continue
+    p=L.parse(L.strip_preamble(f.read_text()))
+    sig=[len(p.nodes),len(p.nodes)-len({n.path for n in p.nodes}),len(p.warnings)]
+    print(f'UNPINNED {f.name}: {sig}')
+raise SystemExit('diagnostic only — inspect signatures before pinning')
