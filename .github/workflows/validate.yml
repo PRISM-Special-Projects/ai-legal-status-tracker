@@ -68,13 +68,6 @@ jobs:
           sys.exit(1 if fail else 0)
           PY
 
-      - name: Upload built site for local inspection
-        uses: actions/upload-artifact@v4
-        with:
-          name: built-site
-          path: site/dist
-          retention-days: 1
-
   lint:
     runs-on: ubuntu-latest
     steps:
